@@ -16,8 +16,14 @@ html, body {
 	border: none;
 }
 
-.brand img, #js_logo, #language{
+.brand img, #language{
   padding-top: 16px;
+}
+#language{
+  padding-top: 22px;
+}
+#js_logo img{
+  padding-top: 10px;
 }
 
 .nav li {
@@ -28,7 +34,7 @@ html, body {
 	background: url('../img/crossing.png');
 	background-repeat: no-repeat;
 	background-position: right top;
-	padding-right: 10px;
+	padding-right: 20px;
   font-size: 16px;
 	font-weight: bold;
   text-transform: uppercase;
@@ -49,6 +55,12 @@ html, body {
 	padding-right: 0;
 }
 
+.storyjs-embed.sized-embed{
+	border: none;
+	padding-top: 0;
+	padding-bottom: 0;
+
+}
 .vco-slider{
 	background: url('../img/bg_black_3.png');
 }
