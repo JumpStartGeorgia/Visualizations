@@ -42,3 +42,94 @@ html, body {
 	padding-right: 10px;
 	margin-right: -20px;
 }
+
+/* timeline styles */
+#container-content{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.vco-slider{
+	background: url('../img/bg_black_3.png');
+}
+
+.vco-timeline .vco-navigation .timenav-background{
+	border-top: solid 10px #525657;
+}
+
+/* content area */
+.vco-slider .slider-item .content .content-container .text .container h2.date{
+	color: #727272;
+}
+.vco-storyjs .vco-feature h3, .vco-storyjs .vco-feature h4, .vco-storyjs .vco-feature h5, .vco-storyjs .vco-feature h6, .vco-storyjs h2.start{
+	color: #fff;
+}
+.vco-storyjs .vco-feature p{
+	color: #fff;
+}
+
+/* bottom navigation */
+.vco-timeline .vco-navigation .timenav-background,
+.vco-timeline .vco-navigation .timenav-background .timenav-tag-row-1,
+.vco-timeline .vco-navigation .timenav-background .timenav-tag-row-2,
+.vco-timeline .vco-navigation .timenav-background .timenav-tag-row-3,
+.vco-timeline .vco-navigation .timenav-background .timenav-tag-row-4,
+.vco-timeline .vco-navigation .timenav-background .timenav-tag-row-5,
+.vco-timeline .vco-navigation .timenav-background .timenav-tag-row-6 {
+	background-color: #313333;
+	color: #fff;
+}
+
+.vco-timeline .vco-navigation .timenav-background .timenav-line{
+	background-color: #242828;
+}
+
+.vco-timeline .vco-navigation .timenav-background .timenav-interval-background{
+	background-color: #515556;
+}
+
+.vco-timeline .vco-navigation .vco-toolbar{
+/*	background-color: #202222;*/
+}
+
+.vco-notouch .vco-navigation .timenav .content .marker .flag .flag-content h3,
+.vco-notouch .vco-navigation .timenav .content .marker .flag-small .flag-content h3{
+	color: #313333;
+}
+.vco-notouch .vco-navigation .timenav .content .marker .flag:hover .flag-content h3,
+.vco-notouch .vco-navigation .timenav .content .marker .flag-small:hover .flag-content h3,
+.vco-notouch .vco-navigation .timenav .content .marker.active .flag:hover .flag-content h3,
+.vco-notouch .vco-navigation .timenav .content .marker.active .flag-small:hover .flag-content h3,
+.vco-notouch .vco-navigation .timenav .content .marker.active:hover .flag .flag-content h3,
+.vco-notouch .vco-navigation .timenav .content .marker.active:hover .flag-small .flag-content h3,
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag .flag-content h3,
+.vco-timeline .vco-navigation .timenav .content .marker.active .flag-small .flag-content h3{
+	color: #c33a46;
+}
+
+.vco-timeline .vco-navigation .timenav .content .marker .dot,
+.vco-timeline .vco-navigation .timenav .content .marker.active .dot{
+	color: #c33a46;
+	background-color: #c33a46;
+}
+.vco-timeline .vco-navigation .timenav .content .marker .line {
+	-moz-box-shadow: 1px 0 0 rgba(59, 59, 57, 1.0);
+	-webkit-box-shadow: 1px 0 0 rgba(59, 59, 57, 1.0);
+	box-shadow: 1px 0 0 rgba(59, 59, 57, 1.0);
+}
+.vco-timeline .vco-navigation .timenav .content .marker .line,
+.vco-timeline .vco-navigation .timenav .content .marker.active .line,
+.vco-timeline .vco-navigation .timenav .content .marker .line .event-line,
+.vco-timeline .vco-navigation .timenav .content .marker.active .line .event-line{
+	background-color: #c33a46;
+}
+
+.vco-timeline .vco-navigation .timenav .time .time-interval-minor,
+.vco-timeline .vco-navigation .timenav .time .time-interval-major div,
+.vco-timeline .vco-navigation .timenav .time .time-interval div{
+	color: #fff;
+}
+
+.vco-timeline .vco-navigation .timenav-background .timenav-tag div h3{
+	text-shadow: none;
+}
