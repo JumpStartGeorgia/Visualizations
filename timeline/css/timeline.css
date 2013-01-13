@@ -1,0 +1,44 @@
+@font-face
+{
+  font-family: 'bpg_nino';
+  font-style: normal;
+  font-weight: normal;
+  src: url('BPG_Nino_Mtavruli_Normal.ttf');
+}
+
+html, body {
+  font-family: bpg_nino;
+
+}
+.navbar .navbar-inner{
+	background: url('../img/bg_red_1.jpg');
+	height: 78px;
+	border: none;
+}
+
+.brand img, #js_logo, #language{
+  padding-top: 16px;
+}
+
+.nav li {
+	height: 78px;
+}
+
+#language {
+	background: url('../img/crossing.png');
+	background-repeat: no-repeat;
+	background-position: right top;
+	padding-right: 10px;
+  font-size: 16px;
+	font-weight: bold;
+  text-transform: uppercase;
+}
+#language a {
+	color: #fff;
+}
+#js_logo {
+	background-color: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: -20px;
+}
