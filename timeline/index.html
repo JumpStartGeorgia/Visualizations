@@ -49,68 +49,68 @@
 
 		<div id="container-content" class="container-fluid">
 		  <div id="hidden_form" class="container-fluid" >
-		    <form>
-		      <div id="hidden_form_header" class="clear">
-  		      <h3>Add an Event</h3>
-  		      <p>Did we miss something?  Let us know and we will add it to the timeline.</p>
-          </div>
+		    <form method="post" action="">
 		      <ul class="list_float">
-		        <li>
-    		      <ul class="list_float">
-    		        <li>
+		        <li id="hidden_form_header" class="align_top">
+    		      <h3>Add an Event</h3>
+    		      <p>Did we miss something?  Let us know and we will add it to the timeline.</p>
+		        </li>
+		        <li class="align_top">
+    		      <ul class="list_float list_float_textarea">
+    		        <li class="align_top">
     		          Event Description
     		        </li>
     		        <li>
-    		          form field
+    		          <textarea rows="5" cols="50" name="event"></textarea>
     		        </li>
     		      </ul>
 		        </li>
 		        <li>
               <ul>
     		        <li>
-        		      <ul class="list_float">
+        		      <ul class="list_float list_float_fields">
         		        <li>
         		          Event Date
         		        </li>
         		        <li>
-        		          form field
+        		          <input type="date" name="date">
         		        </li>
         		      </ul>
     		        </li>
     		        <li>
-        		      <ul class="list_float">
+        		      <ul class="list_float list_float_fields">
         		        <li>
         		          Link
         		        </li>
         		        <li>
-        		          form field
+        		          <input type="text" name="link">
         		        </li>
         		      </ul>
     		        </li>
     		        <li>
-        		      <ul class="list_float">
+        		      <ul class="list_float list_float_fields">
         		        <li>
         		          Your Name
         		        </li>
         		        <li>
-        		          form field
+        		          <input type="text" name="name">
         		        </li>
         		      </ul>
     		        </li>
     		        <li>
-        		      <ul class="list_float">
+        		      <ul class="list_float list_float_fields">
         		        <li>
         		          E-mail
         		        </li>
         		        <li>
-        		          form field
+        		          <input type="email" name="email">
         		        </li>
         		      </ul>
     		        </li>
               </ul>
 		        </li>
 		        <li>
-		          Add btn
+		          <img id="btn_submit" src="img/add.png" alt="Add">
 		        </li>
           </ul>
 	      </form>
