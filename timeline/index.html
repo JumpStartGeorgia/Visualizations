@@ -57,6 +57,7 @@
 		<script type="text/javascript" src="js/jquery-min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/storyjs-embed.js"></script>
+		<script type="text/javascript" src="js/timeline-min.js"></script>
 		<script>
         var lang = 'ka';
 
@@ -74,10 +75,10 @@
             }
         }
 
+
         function init_timeline(){
           var source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFpyUXpIQXczc2N1WUZWV01UUlN3VFE&output=html';
 
-//          var lang = GetQueryStringParams('lang');
           if (lang !== undefined && lang == 'en'){
             source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFRCYzRyaGJZb1gxWXk2QnF6ZFFmZnc&output=html';
           }
@@ -93,19 +94,26 @@
 				  });
         }
 
+      function set_language_switcher(){
+        var link = $('a#language_switcher');
+        if (lang !== undefined && lang == 'en'){
+            $(link).text('ქართული');
+            $(link).attr('href', '?lang=ka');
+        } else {
+            $(link).text('English');
+            $(link).attr('href', '?lang=en');
+        }
+
+      }
+
 			$(document).ready(function() {
+        lang = GetQueryStringParams('lang');
+        set_language_switcher();
         init_timeline();
 
         $('a#language_switcher').click(function() {
-          // change the language
-          if(lang == 'ka'){
-            lang = 'en';
-            $(this).text('ქართული');
-          } else {
-            lang = 'ka';
-            $(this).text('English');
-          }
-          init_timeline();
+          window.location.href = $(this).attr('href') + location.hash;
+          return false;
         });
 			});
 		</script>
