@@ -48,7 +48,76 @@
     </div>
 
 		<div id="container-content" class="container-fluid">
-			<div id="timeline-embed"></div>
+		  <div id="hidden_form" class="container-fluid" >
+		    <form>
+		      <div id="hidden_form_header" class="clear">
+  		      <h3>Add an Event</h3>
+  		      <p>Did we miss something?  Let us know and we will add it to the timeline.</p>
+          </div>
+		      <ul class="list_float">
+		        <li>
+    		      <ul class="list_float">
+    		        <li>
+    		          Event Description
+    		        </li>
+    		        <li>
+    		          form field
+    		        </li>
+    		      </ul>
+		        </li>
+		        <li>
+              <ul>
+    		        <li>
+        		      <ul class="list_float">
+        		        <li>
+        		          Event Date
+        		        </li>
+        		        <li>
+        		          form field
+        		        </li>
+        		      </ul>
+    		        </li>
+    		        <li>
+        		      <ul class="list_float">
+        		        <li>
+        		          Link
+        		        </li>
+        		        <li>
+        		          form field
+        		        </li>
+        		      </ul>
+    		        </li>
+    		        <li>
+        		      <ul class="list_float">
+        		        <li>
+        		          Your Name
+        		        </li>
+        		        <li>
+        		          form field
+        		        </li>
+        		      </ul>
+    		        </li>
+    		        <li>
+        		      <ul class="list_float">
+        		        <li>
+        		          E-mail
+        		        </li>
+        		        <li>
+        		          form field
+        		        </li>
+        		      </ul>
+    		        </li>
+              </ul>
+		        </li>
+		        <li>
+		          Add btn
+		        </li>
+          </ul>
+	      </form>
+		  </div>
+			<div id="timeline-embed">
+			  <img id="img_slide_up" src="img/slide_up.png">
+			</div>
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -114,6 +183,24 @@
         $('a#language_switcher').click(function() {
           window.location.href = $(this).attr('href') + location.hash;
           return false;
+        });
+        
+        $('img#img_slide_up').click(function() {
+          $('div#hidden_form').toggle('slow', function(){
+            var deg = 180;
+            if ($('div#hidden_form').is(':visible')){
+              deg = 0;
+            }
+            console.log('deg = ' + deg);
+            var rotate = {
+              'transform':'rotate(0' + deg + 'deg)',
+              '-ms-transform':'rotate(0' + deg + 'deg)',
+              '-moz-transform':'rotate(0' + deg + 'deg)',
+              '-webkit-transform':'rotate(0' + deg + 'deg)',
+              '-o-transform':'rotate(0' + deg + 'deg)'
+            };
+            $('img#img_slide_up').css(rotate);
+          });
         });
 			});
 		</script>

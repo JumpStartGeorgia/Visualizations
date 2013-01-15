@@ -6,6 +6,17 @@
   src: url('BPG_Nino_Mtavruli_Normal.ttf');
 }
 
+/* clear floats */
+.clearfix:after, .clear:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+* html .clearfix, * html .clear             		{ zoom: 1; } /* IE6 */
+*:first-child+html .clearfix, *:first-child+html .clear { zoom: 1; } /* IE7 */
+
 html, body {
   font-family: bpg_nino;
 
@@ -49,12 +60,70 @@ html, body {
 	margin-right: -20px;
 }
 
+/* hidden form */
+#hidden_form{
+	background: url('../img/bg_grey_2.jpg');
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
+}
+#hidden_form #hidden_form_header h3, #hidden_form #hidden_form_header p{
+  display: inline-block;
+  padding-right: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#hidden_form form{
+  margin: 0;
+}
+#hidden_form ul.list_float > li{
+  display: inline-block;
+}
+#hidden_form li{
+  list-style: none;
+}
+
+#timeline-embed {
+  position: relative;
+}
+#timeline-embed #img_slide_up{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 59px;
+  z-index: 200;
+  cursor: pointer;
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg); /* IE 9 */
+  -moz-transform:rotate(180deg); /* Firefox */
+  -webkit-transform:rotate(180deg); /* Safari and Chrome */
+  -o-transform:rotate(180deg); /* Opera */
+}
+#timeline-embed #img_slide_up:hover{
+	opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+/************************/
 /* timeline styles */
+.vco-storyjs .vco-feature h1, .vco-storyjs .vco-feature h2, .vco-storyjs .vco-feature h3, .vco-storyjs .vco-feature h4, .vco-storyjs .vco-feature h5, .vco-storyjs .vco-feature h6,
+.vco-storyjs p, .vco-storyjs blockquote, .vco-storyjs blockquote p, .vco-storyjs .twitter blockquote p,
+.vco-storyjs h1, .vco-storyjs h2, .vco-storyjs h3, .vco-storyjs h4, .vco-storyjs h5, .vco-storyjs h6, .vco-storyjs p, .vco-storyjs blockquote, .vco-storyjs pre, .vco-storyjs a, .vco-storyjs abbr, .vco-storyjs acronym, .vco-storyjs address, .vco-storyjs cite, .vco-storyjs code, .vco-storyjs del, .vco-storyjs dfn, .vco-storyjs em, .vco-storyjs img, .vco-storyjs q, .vco-storyjs s, .vco-storyjs samp, .vco-storyjs small, .vco-storyjs strike, .vco-storyjs strong, .vco-storyjs sub, .vco-storyjs sup, .vco-storyjs tt, .vco-storyjs var, .vco-storyjs dd, .vco-storyjs dl, .vco-storyjs dt, .vco-storyjs li, .vco-storyjs ol, .vco-storyjs ul, .vco-storyjs fieldset, .vco-storyjs form, .vco-storyjs label, .vco-storyjs legend, .vco-storyjs button, .vco-storyjs table, .vco-storyjs caption, .vco-storyjs tbody, .vco-storyjs tfoot, .vco-storyjs thead, .vco-storyjs tr, .vco-storyjs th, .vco-storyjs td, .vco-storyjs .vco-container, .vco-storyjs .content-container, .vco-storyjs .media, .vco-storyjs .text, .vco-storyjs .vco-slider, .vco-storyjs .slider, .vco-storyjs .date, .vco-storyjs .title, .vco-storyjs .messege, .vco-storyjs .map, .vco-storyjs .credit, .vco-storyjs .caption, .vco-storyjs .vco-feedback, .vco-storyjs .vco-feature, .vco-storyjs .toolbar, .vco-storyjs .marker, .vco-storyjs .dot, .vco-storyjs .line, .vco-storyjs .flag, .vco-storyjs .time, .vco-storyjs .era, .vco-storyjs .major, .vco-storyjs .minor, .vco-storyjs .vco-navigation, .vco-storyjs .start, .vco-storyjs .active,
+.vco-storyjs .timenav h1, .vco-storyjs .flag-content h1, .vco-storyjs .era h1, .vco-storyjs .timenav h2, .vco-storyjs .flag-content h2, .vco-storyjs .era h2, .vco-storyjs .timenav h3, .vco-storyjs .flag-content h3, .vco-storyjs .era h3, .vco-storyjs .timenav h4, .vco-storyjs .flag-content h4, .vco-storyjs .era h4, .vco-storyjs .timenav h5, .vco-storyjs .flag-content h5, .vco-storyjs .era h5, .vco-storyjs .timenav h6, .vco-storyjs .flag-content h6, .vco-storyjs .era h6,
+.vco-storyjs .twitter, .vco-storyjs .vcard, .vco-storyjs .messege, .vco-storyjs .credit, .vco-storyjs .caption, .vco-storyjs .zoom-in, .vco-storyjs .zoom-out, .vco-storyjs .back-home, .vco-storyjs .time-interval div, .vco-storyjs .time-interval-major div, .vco-storyjs .nav-container{
+  font-family: bpg_nino;  
+}
 #container-content{
 	padding-left: 0;
 	padding-right: 0;
 }
 
+.storyjs-embed{
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
 .storyjs-embed.sized-embed{
 	border: none;
 	padding-top: 0;
