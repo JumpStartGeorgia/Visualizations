@@ -40,7 +40,7 @@
         <div class="container-fluid">
           <a class="brand" href="#"><img src="img/timeline-of-georgia_logo.png" alt="Timeline of Georgia"/></a>
           <ul class="nav pull-right">
-            <li id="language"><a href="#">English</a></li>
+            <li id="language"><a id="language_switcher" href="#">English</a></li>
             <li id="js_logo"><a href="#"><img src="img/jumpstart_logo.png" alt="JumpStart Georgia"/></a></li>
           </ul>
         </div>
@@ -58,15 +58,55 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/storyjs-embed.js"></script>
 		<script>
+        var lang = 'ka';
+
+        function GetQueryStringParams(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++)
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam)
+                {
+                    return sParameterName[1];
+                }
+            }
+        }
+
+        function init_timeline(){
+          var source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFpyUXpIQXczc2N1WUZWV01UUlN3VFE&output=html';
+
+//          var lang = GetQueryStringParams('lang');
+          if (lang !== undefined && lang == 'en'){
+            source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFRCYzRyaGJZb1gxWXk2QnF6ZFFmZnc&output=html';
+          }
+
+				  createStoryJS({
+					  type:		'timeline',
+					  width:		'100%',
+					  height:		String($(window).height()-$('.navbar').height()),
+					  source:		source,
+					  embed_id:	'timeline-embed',
+            hash_bookmark: true,
+					  debug:		false
+				  });
+        }
+
 			$(document).ready(function() {
-				createStoryJS({
-					type:		'timeline',
-					width:		'100%',
-					height:		String($(window).height()-$('.navbar').height()),
-					source:		'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFRCYzRyaGJZb1gxWXk2QnF6ZFFmZnc&output=html',
-					embed_id:	'timeline-embed',
-					debug:		true
-				});
+        init_timeline();
+
+        $('a#language_switcher').click(function() {
+          // change the language
+          if(lang == 'ka'){
+            lang = 'en';
+            $(this).text('ქართული');
+          } else {
+            lang = 'ka';
+            $(this).text('English');
+          }
+          init_timeline();
+        });
 			});
 		</script>
   </body>
