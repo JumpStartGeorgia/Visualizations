@@ -19,7 +19,7 @@
 
 html, body {
   font-family: bpg_nino;
-
+  background-color: #515556;
 }
 .navbar .navbar-inner{
 	background: url('../img/bg_red_1.jpg');
@@ -67,7 +67,7 @@ html, body {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 13px;
-/*  display: none;*/
+  display: none;
 }
 #hidden_form form{
   margin: 0;
@@ -175,6 +175,12 @@ html, body {
 }
 .vco-storyjs .vco-feature h3, .vco-storyjs .vco-feature h4, .vco-storyjs .vco-feature h5, .vco-storyjs .vco-feature h6, .vco-storyjs h2.start{
 	color: #fff;
+}
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .wikipedia h4 a{
+	color: #fff;  
+}
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .wikipedia .wiki-source{
+	color: #727272;    
 }
 .vco-storyjs .vco-feature p{
 	color: #fff;
