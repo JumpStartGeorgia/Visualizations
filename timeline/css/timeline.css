@@ -116,6 +116,14 @@ html, body {
   filter: alpha(opacity=70);
 }
 
+#hidden_form #success_submit{
+  display:none;
+  font-size: 15px;
+  background-color: #FD4545;
+  width: 75px;
+  padding: 10px;
+}
+
 #timeline-embed {
   position: relative;
 }

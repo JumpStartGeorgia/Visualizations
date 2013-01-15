@@ -49,7 +49,7 @@
 
 		<div id="container-content" class="container-fluid">
 		  <div id="hidden_form" class="container-fluid" >
-		    <form method="post" action="">
+		    <form id="event_form" action="">
 		      <ul class="list_float">
 		        <li id="hidden_form_header" class="align_top">
     		      <h3>Add an Event</h3>
@@ -111,6 +111,11 @@
 		        </li>
 		        <li>
 		          <img id="btn_submit" src="img/add.png" alt="Add">
+		        </li>
+		        <li class="align_top">
+		          <div id="success_submit">
+		            Thank you for your submission!
+		          </div>
 		        </li>
           </ul>
 	      </form>
@@ -185,13 +190,45 @@
           return false;
         });
         
+        $('img#btn_submit').click(function() {
+          $('form#event_form').submit();
+        });
+
+        $('form#event_form').submit(function() {
+          // get the values
+          var event, date, link, name, email;
+          event = $('input[name="event"]').val();
+          date = $('input[name="date"]').val();
+          link = $('input[name="link"]').val();
+          name = $('input[name="name"]').val();
+          email = $('input[name="email"]').val();
+          
+          if (event != ''){
+            // send email
+            var dataString = "event="+event+"&date="+date+"&link="+link+"&name="+name+"&email="+email;
+            $.ajax({
+                type: "POST",
+                url: "send_mail.php",
+                data: dataString,
+                success: function() {
+                  // reset form fields
+                  $('form#event_form input').val('');
+                  $('form#event_form textarea').val('');
+          
+                  // show success message
+                  $('#success_submit').fadeIn().delay(5000).fadeOut();
+                }
+               });
+          }
+          return false;
+        });
+        
         $('img#img_slide_up').click(function() {
           $('div#hidden_form').toggle('slow', function(){
             var deg = 180;
             if ($('div#hidden_form').is(':visible')){
               deg = 0;
             }
-            console.log('deg = ' + deg);
             var rotate = {
               'transform':'rotate(0' + deg + 'deg)',
               '-ms-transform':'rotate(0' + deg + 'deg)',
