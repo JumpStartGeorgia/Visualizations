@@ -80,7 +80,7 @@
     		        <li>
         		      <ul class="list_float list_float_fields">
         		        <li>
-        		          Link
+        		          Media Link
         		        </li>
         		        <li>
         		          <input type="text" name="link">
@@ -110,11 +110,20 @@
               </ul>
 		        </li>
 		        <li>
-		          <img id="btn_submit" src="img/add.png" alt="Add">
+		          <img id="btn_submit" src="img/add.png" alt="Add" />
 		        </li>
 		        <li class="align_top">
+		          <div id="loading">
+		            <img src="css/loading.gif" />
+		          </div>
 		          <div id="success_submit">
 		            Thank you for your submission!
+		          </div>
+		          <div id="error_submit">
+		            Sorry, an error occurred.
+		          </div>
+		          <div id="required_submit">
+		            Event description is required.
 		          </div>
 		        </li>
           </ul>
@@ -122,7 +131,7 @@
 		  </div>
 			<div id="timeline-embed">
         <div id="slide_up_container">
-  			  <img id="img_slide_up" src="img/slide_up.png">
+  			  <img id="img_slide_up" src="img/slide_up.png" />
         </div>
 			</div>
     </div> <!-- /container -->
@@ -197,28 +206,57 @@
         });
 
         $('form#event_form').submit(function() {
+          $('#loading').fadeIn();
+
           // get the values
           var event, date, link, name, email;
-          event = $('input[name="event"]').val();
+          event = $('textarea[name="event"]').val();
           date = $('input[name="date"]').val();
           link = $('input[name="link"]').val();
           name = $('input[name="name"]').val();
           email = $('input[name="email"]').val();
 
-          if (event != ''){
+          if (event === ''){
+            // show required msg
+            $('#loading').hide();
+            $('#required_submit').fadeIn().delay(5000).fadeOut();
+            $('textarea[name="event"]').focus();
+          }else {
             // send email
             var dataString = "event="+event+"&date="+date+"&link="+link+"&name="+name+"&email="+email;
             $.ajax({
                 type: "POST",
                 url: "send_mail.php",
                 data: dataString,
-                success: function() {
-                  // reset form fields
-                  $('form#event_form input').val('');
-                  $('form#event_form textarea').val('');
+                dataType:"json",
+                timeout: 5000,
+                error: function(response) {
+                  $('#loading').hide();
+                  if(response.status === "success") {
+                    // reset form fields
+                    $('form#event_form input').val('');
+                    $('form#event_form textarea').val('');
 
-                  // show success message
-                  $('#success_submit').fadeIn().delay(5000).fadeOut();
+                    // show success message
+                    $('#success_submit').fadeIn().delay(5000).fadeOut();
+                  } else{
+                    // show error message
+                    $('#error_submit').fadeIn().delay(5000).fadeOut();
+                  }
+                },
+                success: function(response) {
+                  $('#loading').hide();
+                  if(response.status === "success") {
+                    // reset form fields
+                    $('form#event_form input').val('');
+                    $('form#event_form textarea').val('');
+
+                    // show success message
+                    $('#success_submit').fadeIn().delay(5000).fadeOut();
+                  } else{
+                    // show error message
+                    $('#error_submit').fadeIn().delay(5000).fadeOut();
+                  }
                 }
                });
           }

@@ -110,13 +110,14 @@ html, body {
 }
 #hidden_form #btn_submit{
   margin-left: 10px;
+  cursor: pointer;
 }
 #hidden_form #btn_submit:hover{
 	opacity: 0.7;
   filter: alpha(opacity=70);
 }
 
-#hidden_form #success_submit{
+#hidden_form #success_submit, #hidden_form #error_submit, #hidden_form #required_submit, #hidden_form #loading{
   display:none;
   font-size: 15px;
   background-color: #FD4545;
@@ -127,6 +128,10 @@ html, body {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   font-weight: bold;
+}
+#hidden_form #loading{
+  display:none;
+  background-color: transparent;
 }
 
 #timeline-embed {
