@@ -122,6 +122,11 @@ html, body {
   background-color: #FD4545;
   width: 75px;
   padding: 10px;
+  margin-left: -67px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
 #timeline-embed {
