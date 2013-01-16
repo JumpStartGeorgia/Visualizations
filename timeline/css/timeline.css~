@@ -215,7 +215,7 @@ html, body {
   color: #999999;
 }
 .vco-storyjs a:hover{
-  color: #fff;
+  color: #727272;
 }
 
 /* bottom navigation */
