@@ -41,7 +41,7 @@
           <a class="brand" href="#"><img src="img/timeline-of-georgia_logo.png" alt="Timeline of Georgia"/></a>
           <ul class="nav pull-right">
             <li id="language"><a id="language_switcher" href="#">English</a></li>
-            <li id="js_logo"><a href="#"><img src="img/jumpstart_logo.png" alt="JumpStart Georgia"/></a></li>
+            <li id="js_logo"><a href="http://jumpstart.ge" target="_blank"><img src="img/jumpstart_logo.png" alt="JumpStart Georgia"/></a></li>
           </ul>
         </div>
       </div>
@@ -58,7 +58,7 @@
 		        <li class="align_top">
     		      <ul class="list_float list_float_textarea">
     		        <li class="align_top">
-    		          Event Description
+    		          Event Description <abbr title="Required">*</abbr>
     		        </li>
     		        <li>
     		          <textarea rows="5" cols="50" name="event"></textarea>
@@ -100,7 +100,7 @@
     		        <li>
         		      <ul class="list_float list_float_fields">
         		        <li>
-        		          E-mail
+        		          Your E-mail
         		        </li>
         		        <li>
         		          <input type="email" name="email">
@@ -121,7 +121,9 @@
 	      </form>
 		  </div>
 			<div id="timeline-embed">
-			  <img id="img_slide_up" src="img/slide_up.png">
+        <div id="slide_up_container">
+  			  <img id="img_slide_up" src="img/slide_up.png">
+        </div>
 			</div>
     </div> <!-- /container -->
 
@@ -189,7 +191,7 @@
           window.location.href = $(this).attr('href') + location.hash;
           return false;
         });
-        
+
         $('img#btn_submit').click(function() {
           $('form#event_form').submit();
         });
@@ -202,7 +204,7 @@
           link = $('input[name="link"]').val();
           name = $('input[name="name"]').val();
           email = $('input[name="email"]').val();
-          
+
           if (event != ''){
             // send email
             var dataString = "event="+event+"&date="+date+"&link="+link+"&name="+name+"&email="+email;
@@ -214,7 +216,7 @@
                   // reset form fields
                   $('form#event_form input').val('');
                   $('form#event_form textarea').val('');
-          
+
                   // show success message
                   $('#success_submit').fadeIn().delay(5000).fadeOut();
                 }
@@ -222,7 +224,7 @@
           }
           return false;
         });
-        
+
         $('img#img_slide_up').click(function() {
           $('div#hidden_form').toggle('slow', function(){
             var deg = 180;
