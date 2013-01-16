@@ -123,7 +123,7 @@
 		            Sorry, an error occurred.
 		          </div>
 		          <div id="required_submit">
-		            Event description is required.
+		            Event Description is required.
 		          </div>
 		        </li>
           </ul>
@@ -167,10 +167,11 @@
           if (lang !== undefined && lang == 'en'){
             source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFRCYzRyaGJZb1gxWXk2QnF6ZFFmZnc&output=html';
           }
-
+console.log("lang = '" + lang + "'");
 				  createStoryJS({
 					  type:		'timeline',
 					  width:		'100%',
+            lang:     lang,
 					  height:		String($(window).height()-$('.navbar').height()),
 					  source:		source,
 					  embed_id:	'timeline-embed',
@@ -193,6 +194,9 @@
 
 			$(document).ready(function() {
         lang = GetQueryStringParams('lang');
+        if (lang === undefined){
+          lang = 'ka';
+        }
         set_language_switcher();
         init_timeline();
 
