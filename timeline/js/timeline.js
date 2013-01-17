@@ -39,6 +39,7 @@ function set_language_switcher(){
   if (lang !== undefined && lang == 'en'){
       $(link).text('ქართული');
       $(link).attr('href', '?lang=ka');
+      $('.brand').attr('href', '?lang=en');
       $('#logo').attr('alt', 'Timeline of Georgia');
       $('#form_header').html('Add an Event');
       $('#form_text').html('Did we miss something?  Let us know and we will add it to the timeline.');
@@ -54,6 +55,7 @@ function set_language_switcher(){
   } else {
       $(link).text('English');
       $(link).attr('href', '?lang=en');
+      $('.brand').attr('href', '?lang=ka');
   }
 
 }
