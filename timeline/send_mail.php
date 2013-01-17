@@ -23,7 +23,7 @@ $email = Swift_Message::newInstance()
 
 $transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)
   ->setUsername($to)
-  ->setPassword()
+  ->setPassword($pwd)
   ;
 
 $mailer = Swift_Mailer::newInstance($transport);
