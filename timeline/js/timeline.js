@@ -64,6 +64,10 @@ function set_language_switcher(){
         $(this).attr('href', $(this).attr('href') + '?lang=en');
       });
 
+      $('#og_title').attr('content', 'Timeline of Georgia');
+      $('#og_image').attr('content', $('#og_url').attr('content') + 'img/timeline-of-georgia_logo.png');
+      $('#og_url').attr('content', $('#og_url').attr('content') + '?lang=en');
+
       // apply en css
       var headtg = document.getElementsByTagName('head')[0];
       var linktg = document.createElement('link');
@@ -80,6 +84,8 @@ function set_language_switcher(){
       $('#social_links a').each(function(){
         $(this).attr('href', $(this).attr('href') + '?lang=ka');
       });
+
+      $('#og_url').attr('content', $('#og_url').attr('content') + '?lang=ka');
 
       // apply ka css
       var headtg = document.getElementsByTagName('head')[0];

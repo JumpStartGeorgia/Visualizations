@@ -2,10 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Timeline of Georgia</title>
+    <title>საქართველოს დროის ხაზი</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+
+		<meta id="og_title" property="og:title" content="საქართველოს დროის ხაზი" />
+		<meta id="og_type" property="og:type" content="non_profit" />
+		<meta id="og_url" property="og:url" content="http://visuals.jumpstart.ge/timeline/" />
+		<meta id="og_image" property="og:image" content="http://visuals.jumpstart.ge/timeline/img/timeline-of-georgia_logo_geo.png" />
+		<meta id="og_site_name" property="og:site_name" content="JumpStart Georgia" />
 
     <!-- Le styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,17 +44,6 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="brand" href="#"><img src="img/timeline-of-georgia_logo_geo.png" alt="საქართველოს დროის ხაზი" id="logo" /></a>
-          <ul id="social_links" class="nav pull-right">
-            <li>
-				      <a href="http://www.facebook.com/share.php?u=http://visuals.jumpstart.ge/timeline/" title="facebook" target="_blank"><img src="img/fb.png" alt="facebook"></a>
-            </li>
-            <li>
-				      <a href="https://twitter.com/share?url=http://visuals.jumpstart.ge/timeline/" title="twitter" target="_blank"><img src="img/twitter.png" alt="twitter"></a>
-            </li>
-            <li>
-				      <a href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://visuals.jumpstart.ge/timeline/" title="google+" target="_blank"><img src="img/google.png" alt="google+"></a>
-            </li>
-          </ul>
           <ul class="nav pull-right">
             </li>
             <li id="language"><a id="language_switcher" href="#">English</a></li>
