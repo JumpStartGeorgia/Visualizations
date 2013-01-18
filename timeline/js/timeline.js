@@ -31,7 +31,8 @@
 		  source:		source,
 		  embed_id:	'timeline-embed',
       hash_bookmark: true,
-		  debug:		false
+      start_zoom_adjust: -1,
+		  debug:		true
 	  });
   }
 
@@ -58,11 +59,35 @@ function set_language_switcher(){
       $('#required_submit').html('Event Description is required.');
       $('#img_slide_up').attr('alt', 'Submit Event')
       $('#img_slide_up').attr('src', 'img/submit_event.png')
-//      $('.vco-slider .slider-item .content .content-container .text .container p').css('font-family', 'bpg_nino');
+  
+      $('#social_links a').each(function(){
+        $(this).attr('href', $(this).attr('href') + '?lang=en');
+      });
+
+      // apply en css
+      var headtg = document.getElementsByTagName('head')[0];
+      var linktg = document.createElement('link');
+      linktg.type = 'text/css';
+      linktg.rel = 'stylesheet';
+      linktg.href = 'css/timeline_en.css';
+      headtg.appendChild(linktg);
+
   } else {
       $(link).text('English');
       $(link).attr('href', '?lang=en');
       $('.brand').attr('href', '?lang=ka');
+
+      $('#social_links a').each(function(){
+        $(this).attr('href', $(this).attr('href') + '?lang=ka');
+      });
+
+      // apply ka css
+      var headtg = document.getElementsByTagName('head')[0];
+      var linktg = document.createElement('link');
+      linktg.type = 'text/css';
+      linktg.rel = 'stylesheet';
+      linktg.href = 'css/timeline_ka.css';
+      headtg.appendChild(linktg);
   }
 
 }

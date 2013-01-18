@@ -40,9 +40,32 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="brand" href="#"><img src="img/timeline-of-georgia_logo_geo.png" alt="საქართველოს დროის ხაზი" id="logo" /></a>
+          <ul id="social_links" class="nav pull-right">
+            <li>
+				      <a href="http://www.facebook.com/share.php?u=http://visuals.jumpstart.ge/timeline/" title="facebook" target="_blank"><img src="img/fb.png" alt="facebook"></a>
+            </li>
+            <li>
+				      <a href="https://twitter.com/share?url=http://visuals.jumpstart.ge/timeline/" title="twitter" target="_blank"><img src="img/twitter.png" alt="twitter"></a>
+            </li>
+            <li>
+				      <a href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://visuals.jumpstart.ge/timeline/" title="google+" target="_blank"><img src="img/google.png" alt="google+"></a>
+            </li>
+          </ul>
           <ul class="nav pull-right">
+            </li>
             <li id="language"><a id="language_switcher" href="#">English</a></li>
             <li id="js_logo"><a href="http://jumpstart.ge" target="_blank"><img src="img/jumpstart_logo.png" alt="JumpStart Georgia"/></a></li>
+          </ul>
+          <ul id="social_links" class="nav pull-right">
+            <li>
+				      <a href="http://www.facebook.com/share.php?u=http://visuals.jumpstart.ge/timeline/" title="facebook" target="_blank"><img src="img/fb.png" alt="facebook"></a>
+            </li>
+            <li>
+				      <a href="https://twitter.com/share?url=http://visuals.jumpstart.ge/timeline/" title="twitter" target="_blank"><img src="img/twitter.png" alt="twitter"></a>
+            </li>
+            <li>
+				      <a href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://visuals.jumpstart.ge/timeline/" title="google+" target="_blank"><img src="img/google.png" alt="google+"></a>
+            </li>
           </ul>
         </div>
       </div>
@@ -132,7 +155,7 @@
 		  </div>
 			<div id="timeline-embed">
         <div id="slide_up_container">
-  			  <img id="img_slide_up" src="img/submit_event_ge.png" alt="" />
+  			  <img id="img_slide_up" src="img/submit_event_ge.png" alt="მოვლენის გაგზავნა" />
         </div>
 			</div>
     </div> <!-- /container -->
