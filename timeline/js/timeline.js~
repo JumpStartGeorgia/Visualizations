@@ -77,6 +77,10 @@ function set_language_switcher(){
       $(link).attr('href', '?lang=en');
       $('.brand').attr('href', '?lang=ka');
 
+      $('#social_links a').each(function(){
+        $(this).attr('href', $(this).attr('href') + '?lang=ka');
+      });
+
       // apply ka css
       var headtg = document.getElementsByTagName('head')[0];
       var linktg = document.createElement('link');

@@ -32,7 +32,7 @@
 		  embed_id:	'timeline-embed',
       hash_bookmark: true,
       start_zoom_adjust: -1,
-		  debug:		true
+		  debug:		false
 	  });
   }
 
