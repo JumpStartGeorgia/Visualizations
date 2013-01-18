@@ -171,14 +171,14 @@ html, body {
 #timeline-embed #slide_up_container{
   position: absolute;
   top: 0;
-  right: 0;
-  width: 140px; /* need to have wider width so that timeline next btn hover does not interfere */
+  left: 0;
+  width: 160px; /* need to have wider width so that timeline next btn hover does not interfere */
   height: 40px;
   z-index: 200;
-  text-align: right;
 }
 #timeline-embed #slide_up_container #img_slide_up{
   cursor: pointer;
+  margin-left: 20px;
 /*
   transform:rotate(180deg);
   -ms-transform:rotate(180deg);
