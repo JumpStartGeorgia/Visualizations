@@ -41,6 +41,7 @@ function set_language_switcher(){
   if (lang !== undefined && lang == 'en'){
       $(link).text('ქართული');
       $(link).attr('href', '?lang=ka');
+      $('title').html('Timeline of Georgia');
       $('.brand').attr('href', '?lang=en');
       $('#logo').attr('src', 'img/timeline-of-georgia_logo.png');
       $('#logo').attr('alt', 'Timeline of Georgia');
@@ -65,8 +66,9 @@ function set_language_switcher(){
       });
 
       $('#og_title').attr('content', 'Timeline of Georgia');
-      $('#og_image').attr('content', $('#og_url').attr('contnet') + 'img/timeline-of-georgia_logo.png');
-      $('#og_url').attr('contnet', $('#og_url').attr('contnet') + '?lang=en');
+      $('#og_description').attr('content', 'Jumpstart Georgia created a visual timeline of events from 2012 in Georgia. Viewers can submit events that they feel should be included in the timeline using the submission form at the top of the website. After careful consideration, Jumpstart Georgia will add qualified events to the timeline.');
+      $('#og_image').attr('content', $('#og_url').attr('content') + 'img/timeline-of-georgia_logo.png');
+      $('#og_url').attr('content', $('#og_url').attr('content') + '?lang=en');
 
       // apply en css
       var headtg = document.getElementsByTagName('head')[0];
@@ -85,7 +87,7 @@ function set_language_switcher(){
         $(this).attr('href', $(this).attr('href') + '?lang=ka');
       });
 
-      $('#og_url').attr('contnet', $('#og_url').attr('contnet') + '?lang=ka');
+      $('#og_url').attr('content', $('#og_url').attr('content') + '?lang=ka');
 
       // apply ka css
       var headtg = document.getElementsByTagName('head')[0];
