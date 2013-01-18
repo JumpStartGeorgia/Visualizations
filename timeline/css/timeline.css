@@ -231,6 +231,12 @@ html, body {
   color: #fff;
 }
 
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow::before, .vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow::after{
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 /* bottom navigation */
 .vco-timeline .vco-navigation .timenav-background,
 .vco-timeline .vco-navigation .timenav-background .timenav-tag-row-1,
