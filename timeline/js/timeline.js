@@ -19,7 +19,8 @@
     var source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFpyUXpIQXczc2N1WUZWV01UUlN3VFE&output=html';
 
     if (lang !== undefined && lang == 'en'){
-      source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFRCYzRyaGJZb1gxWXk2QnF6ZFFmZnc&output=html';
+//      source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFRCYzRyaGJZb1gxWXk2QnF6ZFFmZnc&output=html';
+      source = 'https://docs.google.com/spreadsheet/pub?key=0AmtLAgh5j8CydGxrdmtMRzJkTVJtczZNWGtBZlNnUVE&output=html';
     }
 
 	  createStoryJS({
@@ -30,7 +31,7 @@
 		  source:		source,
 		  embed_id:	'timeline-embed',
       hash_bookmark: true,
-		  debug:		false
+		  debug:		true
 	  });
   }
 
@@ -55,7 +56,7 @@ function set_language_switcher(){
       $('#success_submit').html('Thank you for your submission!');
       $('#error_submit').html('Sorry, an error occurred.');
       $('#required_submit').html('Event Description is required.');
-      $('.vco-slider .slider-item .content .content-container .text .container p').css('font-family', 'bpg_nino');
+//      $('.vco-slider .slider-item .content .content-container .text .container p').css('font-family', 'bpg_nino');
   } else {
       $(link).text('English');
       $(link).attr('href', '?lang=en');
