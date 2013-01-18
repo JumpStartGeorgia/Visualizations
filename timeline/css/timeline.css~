@@ -6,6 +6,14 @@
   src: url('BPG_Nino_Mtavruli_Normal.ttf');
 }
 
+@font-face
+{
+  font-family: 'bpg_arial';
+  font-style: normal;
+  font-weight: normal;
+  src: url('bpg_ingiri_arial.ttf');
+}
+
 /* clear floats */
 .clearfix:after, .clear:after {
     visibility: hidden;
@@ -167,6 +175,9 @@ html, body {
 .vco-storyjs .twitter, .vco-storyjs .vcard, .vco-storyjs .messege, .vco-storyjs .credit, .vco-storyjs .caption, .vco-storyjs .zoom-in, .vco-storyjs .zoom-out, .vco-storyjs .back-home, .vco-storyjs .time-interval div, .vco-storyjs .time-interval-major div, .vco-storyjs .nav-container{
   font-family: bpg_nino;
 }
+.vco-slider .slider-item .content .content-container .text .container p{
+  font-family: bpg_nino !important;
+}
 #container-content{
 	padding-left: 0;
 	padding-right: 0;
@@ -215,7 +226,7 @@ html, body {
   color: #999999;
 }
 .vco-storyjs a:hover{
-  color: #727272;
+  color: #fff;
 }
 
 /* bottom navigation */

@@ -40,6 +40,7 @@ function set_language_switcher(){
       $(link).text('ქართული');
       $(link).attr('href', '?lang=ka');
       $('.brand').attr('href', '?lang=en');
+      $('#logo').attr('src', 'img/timeline-of-georgia_logo.png');
       $('#logo').attr('alt', 'Timeline of Georgia');
       $('#form_header').html('Add an Event');
       $('#form_text').html('Did we miss something?  Let us know and we will add it to the timeline.');
@@ -49,9 +50,12 @@ function set_language_switcher(){
       $('#lbl_link').html('Media Link');
       $('#lbl_name').html('Your Name');
       $('#lbl_email').html('Your E-mail');
+      $('#btn_submit').attr('src', 'img/submit.png')
+      $('#btn_submit').attr('alt', 'Submit')
       $('#success_submit').html('Thank you for your submission!');
       $('#error_submit').html('Sorry, an error occurred.');
       $('#required_submit').html('Event Description is required.');
+      $('.vco-slider .slider-item .content .content-container .text .container p').css('font-family', 'bpg_nino');
   } else {
       $(link).text('English');
       $(link).attr('href', '?lang=en');
