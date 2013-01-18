@@ -31,7 +31,7 @@
 		  source:		source,
 		  embed_id:	'timeline-embed',
       hash_bookmark: true,
-		  debug:		true
+		  debug:		false
 	  });
   }
 
@@ -56,6 +56,8 @@ function set_language_switcher(){
       $('#success_submit').html('Thank you for your submission!');
       $('#error_submit').html('Sorry, an error occurred.');
       $('#required_submit').html('Event Description is required.');
+      $('#img_slide_up').attr('alt', 'Submit Event')
+      $('#img_slide_up').attr('src', 'img/submit_event.png')
 //      $('.vco-slider .slider-item .content .content-container .text .container p').css('font-family', 'bpg_nino');
   } else {
       $(link).text('English');
@@ -142,10 +144,12 @@ $(document).ready(function() {
 
   $('img#img_slide_up').click(function() {
     $('div#hidden_form').toggle('slow', function(){
+/*
       var deg = 180;
       if ($('div#hidden_form').is(':visible')){
         deg = 0;
       }
+
       var rotate = {
         'transform':'rotate(0' + deg + 'deg)',
         '-ms-transform':'rotate(0' + deg + 'deg)',
@@ -154,6 +158,7 @@ $(document).ready(function() {
         '-o-transform':'rotate(0' + deg + 'deg)'
       };
       $('img#img_slide_up').css(rotate);
+*/
     });
   });
 });

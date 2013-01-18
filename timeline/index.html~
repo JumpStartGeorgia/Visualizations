@@ -31,6 +31,7 @@
 		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 		<link rel="shortcut icon" href="../assets/ico/favicon.png">
 -->
+
   </head>
 
   <body>
@@ -131,7 +132,7 @@
 		  </div>
 			<div id="timeline-embed">
         <div id="slide_up_container">
-  			  <img id="img_slide_up" src="img/slide_up.png" />
+  			  <img id="img_slide_up" src="img/submit_event_ge.png" alt="" />
         </div>
 			</div>
     </div> <!-- /container -->
