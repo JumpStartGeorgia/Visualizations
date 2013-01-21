@@ -16,11 +16,12 @@
 
 
   function init_timeline(){
-    var source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFpyUXpIQXczc2N1WUZWV01UUlN3VFE&output=html';
-
+//    var source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFpyUXpIQXczc2N1WUZWV01UUlN3VFE&output=html';
+      var source = 'json/timeline_ka.json';
     if (lang !== undefined && lang == 'en'){
 //      source = 'https://docs.google.com/spreadsheet/pub?key=0AtUyMZoeaZt8dFRCYzRyaGJZb1gxWXk2QnF6ZFFmZnc&output=html';
-      source = 'https://docs.google.com/spreadsheet/pub?key=0AmtLAgh5j8CydGxrdmtMRzJkTVJtczZNWGtBZlNnUVE&output=html';
+//      source = 'https://docs.google.com/spreadsheet/pub?key=0AmtLAgh5j8CydGxrdmtMRzJkTVJtczZNWGtBZlNnUVE&output=html';
+      var source = 'json/timeline_en.json';
     }
 
 	  createStoryJS({
@@ -32,7 +33,7 @@
 		  embed_id:	'timeline-embed',
       hash_bookmark: true,
       start_zoom_adjust: -1,
-		  debug:		false
+		  debug:		true
 	  });
   }
 
