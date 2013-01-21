@@ -132,8 +132,8 @@
 		          <img id="btn_submit" src="img/submit_ge.png" alt="დამატება" />
 		        </li>
 		        <li class="align_top">
-		          <div id="loading" style="background-color: #6c6c6c;">
-		            <img src="css/ajax-loader2.gif" />
+		          <div id="loading">
+		            <img src="css/ajax-loader.gif" />
 		          </div>
 		          <div id="success_submit">
       		             მადლობას გიხდით მოვლენის დამატებისთვის!
