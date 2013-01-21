@@ -36,7 +36,7 @@
 		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 -->
 
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="favicon.png">
 
   </head>
 
@@ -132,8 +132,8 @@
 		          <img id="btn_submit" src="img/submit_ge.png" alt="დამატება" />
 		        </li>
 		        <li class="align_top">
-		          <div id="loading">
-		            <img src="css/loading.gif" />
+		          <div id="loading" style="background-color: #6c6c6c;">
+		            <img src="css/ajax-loader2.gif" />
 		          </div>
 		          <div id="success_submit">
       		             მადლობას გიხდით მოვლენის დამატებისთვის!
@@ -150,7 +150,7 @@
 		  </div>
 			<div id="timeline-embed">
         <div id="slide_up_container">
-  			  <img id="img_slide_up" src="img/submit_event_ge.png" alt="მოვლენის გაგზავნა" />
+  			  <img id="img_slide_up" src="img/submit_event_ka.png" alt="მოვლენის გაგზავნა" />
         </div>
 			</div>
     </div> <!-- /container -->

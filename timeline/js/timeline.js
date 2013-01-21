@@ -141,7 +141,7 @@ $(document).ready(function() {
           url: "send_mail.php",
           data: dataString,
           dataType:"json",
-          timeout: 5000,
+          timeout: 8000,
           error: function(response) {
             $('#loading').hide();
             if(response.status === "success") {

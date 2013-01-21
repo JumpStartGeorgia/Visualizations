@@ -32,6 +32,10 @@ html, body {
 .navbar .navbar-inner{
 	background: url('../img/bg_red_1.jpg');
 	height: 78px;
+
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
 	border: none;
 }
 .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner {
@@ -49,8 +53,10 @@ html, body {
   padding-top: 10px;
 }
 #social_links{
-  padding-top: 14px;
   margin-right: 30px;
+}
+#social_links li {
+  padding-top: 14px;
 }
 #social_links a {
   padding-left: 5px;
@@ -67,6 +73,9 @@ html, body {
 
 .nav li {
 	height: 78px;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
 }
 
 #language {
@@ -172,7 +181,7 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 140px; /* need to have wider width so that timeline next btn hover does not interfere */
+  width: 160px; /* need to have wider width so that timeline next btn hover does not interfere */
   height: 40px;
   z-index: 200;
 }

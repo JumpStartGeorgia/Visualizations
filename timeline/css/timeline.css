@@ -170,8 +170,7 @@ html, body {
   font-family: bpg_arial;
 }
 #hidden_form #loading{
-  display:none;
-  background-color: transparent;
+  text-align: center;
 }
 
 #timeline-embed {

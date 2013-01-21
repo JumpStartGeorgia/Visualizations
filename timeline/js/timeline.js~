@@ -176,6 +176,8 @@ $(document).ready(function() {
   });
 
   $('img#img_slide_up').click(function() {
+    this.src = ((this.src.indexOf('_up') === -1) ? 'img/submit_event_' + lang + '_up.png' : 'img/submit_event_' + lang + '.png');
+    console.log(this);
     $('div#hidden_form').toggle('slow', function(){
 /*
       var deg = 180;
