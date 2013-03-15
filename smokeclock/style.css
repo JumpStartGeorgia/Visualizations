@@ -267,6 +267,38 @@ img {
           transform: rotate(-30deg);
 }
 
+#clock .content .item.default.ka .text:nth-child(2) {
+  font-size: 14px;
+  top: -72px;
+  left: -239px;
+  width: 250px;
+  line-height: 15px;
+}
+
+#clock .content .item.default.ka .text:nth-child(3) {
+  font-size: 12px;
+  line-height: 12px;
+  top: -81px;
+  left: 34px;
+  width: 306px;
+}
+
+#clock .content .item.default.en .text:nth-child(2) {
+  font-size: 14px;
+  top: -49px;
+  left: -152px;
+  width: 155px;
+  line-height: 14px;
+}
+
+#clock .content .item.default.en .text:nth-child(3) {
+  font-size: 14px;
+  line-height: 14px;
+  top: -84px;
+  left: 33px;
+  width: 287px;
+}
+
 
 #clock .arrow {
   position: absolute;

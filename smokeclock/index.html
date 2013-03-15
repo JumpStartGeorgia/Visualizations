@@ -12,8 +12,8 @@
         en: {
           content: {
             'default': {
-              short: 'Short-term Effects',
-              long: 'Long-term Effects'
+              short: 'Short-term Effects\nLong-term Effects',
+              long: 'According to the World Health Organization, 30.3% of all Georgians smoke. Among them, 55.5% are men and 4.8% are women. '
             },
             1: {
               positive: "• CO level in blood decreases\n• Oxygen level in blood increases to normal\n• Nicotine in bloodstream decreases by 93.75%"
@@ -58,8 +58,8 @@
         ka: {
           content: {
             'default': {
-              short: 'მოკლევადიანი შედეგები',
-              long: 'გრძელვადიანი შედეგები'
+              short: 'მოკლევადიანი შედეგები\nგრძელვადიანი შედეგები',
+              long: 'ჯანდაცვის მსოფლიო ორგანიზაციის მონაცემებით, საქართველოს მოსახლეობის 30.3% მწეველია, რაც მამაკაცების 55.5%-ს, ხოლო ქალების - 4.8%-ს შეადგენს.'
             },
             1: {
               positive: "• სისხლში მხუთავი აირის დონე იკლებს\n• სისხლში ჟანგბადის დონე უბრუნდება ნორმას\n• სისხლში ნიკოტინის რაოდენობა მცირდება 93.75%-ით"
@@ -75,7 +75,7 @@
               negative: "• სიგარეტის მოწევის მოთხოვნილება აღწევს პიკს. ზოგს აქვს სურდოსმაგვარი სიმპტომები, თავბრუსხვევა, გულისრევა, უძილობა, მოუსვენრობა და მადის ცვლილება"
             },
             5: {
-              positive: "• უარყოფითი სიმპტომები ქრება\n• სისხლის მიმოქცევა უმჯობესდება\n• ფილტვები ფუნქციონირებს უკეთ\n• სიარული ხდება ადვილი\n• ორგანიზმის ენერგია იზრდება"\n• ორგანიზმი 100%-ით თავისუფლდება ნიკოტინისგან\n\nმნიშვნელოვნად იკლებს:\n• ხველა\n• სინუსური შეშუპება\n• დაღლილობა\n• სუნთქვის უკმარისობა"
+              positive: "• უარყოფითი სიმპტომები ქრება\n• სისხლის მიმოქცევა უმჯობესდება\n• ფილტვები ფუნქციონირებს უკეთ\n• სიარული ხდება ადვილი\n• ორგანიზმის ენერგია იზრდება\n• ორგანიზმი 100%-ით თავისუფლდება ნიკოტინისგან\n\nმნიშვნელოვნად იკლებს:\n• ხველა\n• სინუსური შეშუპება\n• დაღლილობა\n• სუნთქვის უკმარისობა"
             },
             6: {
               positive: "• გულის კორონარული  დაავადებების, შეტევებისა და ინსულტის რისკი მცირდება მინიმუმ 50%-ით"
@@ -301,10 +301,14 @@ $(function ()
     }
 
     $('.content .item.default')
+    .removeClass(to)
+    .addClass(locale)
     .find('.text:first')
     .html(texts[locale].content['default'].short)
     .siblings('.text')
     .html(texts[locale].content['default'].long);
+
+    $('.header img').attr('src', $('.header img').attr('src').replace('_' + to, '_' + locale));
   }
 
   $('.locale a').click(function ()
@@ -315,9 +319,9 @@ $(function ()
 
   if (window.location.hash)
   {
-    if (window.location.hash.substr(1) == 'ka')
+    if (window.location.hash.substr(1) == 'ka' || window.location.hash.substr(1) == 'en')
     {
-      window.locale = 'ka';
+      window.locale = window.location.hash.substr(1);
       update_translations();
     }
   }
