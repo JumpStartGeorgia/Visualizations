@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript">
+      var texts = {
+        en: {
+          content: {
+            'default': {
+              short: 'Short-term Effects',
+              long: 'Long-term Effects'
+            },
+            1: {
+              positive: "• CO level in blood decreases\n• Oxygen level in blood increases to normal\n• 93.75% reduction of nicotine in bloodstream"
+            },
+            2: {
+              negative: "• Anxieties peak in intensity"
+            },
+            3: {
+              positive: "• Ability to smell and taste improves"
+            },
+            4: {
+              positive: "• Breathing is becoming easier",
+              negative: "• Cravings peak.  Some may experience flu-like symptoms,dizziness,sickness, insomnia, restlessness or appetite change"
+            },
+            5: {
+              positive: "• Negative side-effects dissapear\n• Circulation improves\n• Entire body tests 100% nicotine-free\n• Walking becomes easier\n• Lung function increases\n\nSignificant improvements in these areas:\n• coughing\n• sinus congestion\n• fatigue\n• shortness of breath\n\n\n\n• body's overall energy has increased"
+            },
+            6: {
+              positive: "• Risk of coronary heart disease, heart attack and stroke drops by at least 50%"
+            },
+            7: {
+              positive: "• Risk of a subarachnoid haemorrhage declines by 41%\n•  Female ex-smoker's risk of developing diabetes is now that of a non-smoker\n• (From 5 to 15 years after quitting tobacco) stroke risk is reduced to that of people who have never smoked"
+            },
+            8: {
+              positive: "• Risk of lung cancer drops by 50-70 %\n• Risk of cancer of the mouth, throat, esophagus, bladder, kidney, and pancreas decreases\n• Risk of ulcers decreases\n• Risk of developing diabetes for both men and women is now similar to that of a never-smoker"
+            },
+            9: {
+              positive: "• Risk of smoking induced tooth loss has declined to that of people who have never smoked"
+            },
+            10: {
+              positive: "• Risk of coronary heart disease is similar to that of people who have never smoked\n• Risk of death returns to nearly the level of people who have never smoked"
+            },
+            11: {
+              positive: "• Female excess risk of death from all smoking related causes reduces to that of  people who have never smoked\n• Risk of pancreatic cancer reduces to that of  people who have never smoked"
+            },
+            12: {
+              positive: "• Blood pressure decreases\n• Pulse rate drops"
+            }
+          }
+        },
+
+        ka: {
+          content: {
+            'default': {
+              short: 'მოკლევადიანი შედეგები',
+              long: 'გრძელვადიანი შედეგები'
+            },
+            1: {
+              positive: "• სისხლში მხუთავი აირის დონე იკლებს\n• სისხლში ჟანგბადის დონე უბრუნდება ნორმას\n• სისხლში ნიკოტინის რაოდენობა მცირდება 93.75%-ით"
+            },
+            2: {
+              negative: "• აღგზნებადობა აღწევს პიკს"
+            },
+            3: {
+              positive: "• სუნისა და გემოს შეგრძნებები უმჯობესდება"
+            },
+            4: {
+              positive: "• სუნთქვა უმჯობესდება",
+              negative: "• სიგარეტზე მოთხოვნილება აღწევს პიკს. ზოგს აქვს სურდოსმაგვარი სიმპტომები, თავბრუსხვევა, გულისრევა, უძილობა, მოუსვენრობა და მადის ცვლილება"
+            },
+            5: {
+              positive: "• უარყოფითი რეაქცები ქრება\n• სისხლის მიმოქცევა უმჯობესდება\n• ორგანიზმი 100%-ით თავისუფლდება ნიკოტინისგან\n• სიარული ხდება ადვილი\n• ფილტვები ფუნქციონირებს უკეთ\n\nმნიშვნელოვნად იკლებს:\n• ხველა\n• სინუსური შეშუპება\n• დაღლილობა\n• სუნთქვის უკმარისობა\n\n\n\n• ორგანიზმის ენერგია იზრდება"
+            },
+            6: {
+              positive: "• გულის კორონარული  დაავადებების, გულის შეტევებისა და ინსულტის რისკი მცირდება მინიმუმ 50%-ით"
+            },
+            7: {
+              positive: "• ტვინში სისხლჩაქცვების რისკი მცირდება 41%-ით\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებში მცირდება არამწეველთა რისკის დონემდე\n• (მოწევის შეწყვეტიდან 5-15 წელიწადში) ინსულტის რისკი მცირდება არამწეველთა რისკის დონემდე"
+            },
+            8: {
+              positive: "• ფილტვის კიბოს რისკი მცირდება 50-70%-ით\n• პირის, ყელის, საყლაპავი მილის, შარდის ბუშტის, თირკმლისა და პანკრეასის ჯირკვლის კიბოს განვითარების რისკი მცირდება\n• წყლულების გაჩენის რისკი მცირდება\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებსა და კაცებში უტოლდება არამწეველთა რისკს"
+            },
+            9: {
+              positive: "• მოწევით გამოწვეული კბილების დაკარგვის რისკი უტოლდება არამწეველთა რისკს"
+            },
+            10: {
+              positive: "• გულის კორონარული დაავადებების რისკი უტოლდება არამწეველთა რისკს\n• სიკვდილის რისკი დაახლოებით უტოლდება არამწეველთა რისკს"
+            },
+            11: {
+              positive: "• მოწევასთან დაკავშირებული დაავადებებით გამოწვეული სიკვდილის მაღალი რისკი ქალებში მცირდება არამწეველთა რისკის დონემდე\n• პანკრეასის ჯირკვლის კიბოს რისკი მცირდება არამწეველთა რისკის დონემდე"
+            },
+            12: {
+              positive: "• არტერიული წნევა ნორმალიზდება\n• პულსი ნორმალიზდება"
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+
+    <div class="header">
+      <img src="images/title_en.png" alt="what to expect when you quit smoking" />
+      <div class="rect"></div>
+      <div class="rect"></div>
+    </div>
+
+    <div id="clock">
+      <div class="h">
+        <div>
+          <img src="h/en/1.png" alt="after 8 hours" title="after 8 hours" />
+          <img src="h/en/1_active.png" />
+        </div>
+        <div>
+          <img src="h/en/2.png" alt="after 24 hours" title="after 24 hours" />
+          <img src="h/en/2_active.png" />
+        </div>
+        <div>
+          <img src="h/en/3.png" alt="after 48 hours" title="after 48 hours" />
+          <img src="h/en/3_active.png" />
+        </div>
+        <div>
+          <img src="h/en/4.png" alt="after 72 hours" title="after 72 hours" />
+          <img src="h/en/4_active.png" />
+        </div>
+        <div>
+          <img src="h/en/5.png" alt="between 2 weeks and 9 months" title="between 2 weeks and 9 months" />
+          <img src="h/en/5_active.png" />
+        </div>
+        <div>
+          <img src="h/en/6.png" alt="after 1 year" title="after 1 year" />
+          <img src="h/en/6_active.png" />
+        </div>
+        <div>
+          <img src="h/en/7.png" alt="after 5 years" title="after 5 years" />
+          <img src="h/en/7_active.png" />
+        </div>
+        <div>
+          <img src="h/en/8.png" alt="after 10 years" title="after 10 years" />
+          <img src="h/en/8_active.png" />
+        </div>
+        <div>
+          <img src="h/en/9.png" alt="after 13 years" title="after 13 years" />
+          <img src="h/en/9_active.png" />
+        </div>
+        <div>
+          <img src="h/en/10.png" alt="after 15 years" title="after 15 years" />
+          <img src="h/en/10_active.png" />
+        </div>
+        <div>
+          <img src="h/en/11.png" alt="after 20 years" title="after 20 years" />
+          <img src="h/en/11_active.png" />
+        </div>
+        <div>
+          <img src="h/en/12.png" alt="after 20 minutes" title="after 20 minutes" />
+          <img src="h/en/12_active.png" />
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="item default active">
+          <div class="inner">
+            <div class="circle"></div>
+            <div class="text"><script>document.write(texts.en.content['default'].short)</script></div>
+            <div class="text"><script>document.write(texts.en.content['default'].long)</script></div>
+          </div>
+        </div>
+        <div class="item i">
+          <div class="inner">
+            <div class="img">
+              <div class="i1">
+                <img src="images/co.png" alt="" />
+                <img src="images/nikotine.png" alt="" />
+                <img src="images/o2.png" alt="" />
+              </div>
+              <div class="i2">
+                <img src="images/anxiety.png" alt="" />
+              </div>
+              <div class="i3">
+                <img src="images/smell.png" alt="" />
+              </div>
+              <div class="i4">
+                <img src="images/lung.png" alt="" />
+              </div>
+              <div class="i5">
+              </div>
+              <div class="i6">
+                <img src="images/heart_1year.png" alt="" />
+              </div>
+              <div class="i7">
+                <img src="images/brain.png" alt="" />
+              </div>
+              <div class="i8">
+                <img src="images/nosmoking.png" alt="" />
+              </div>
+              <div class="i9">
+                <img src="images/smile.png" alt="" />
+              </div>
+              <div class="i10">
+                <img src="images/heart.png" alt="" />
+              </div>
+              <div class="i11">
+                <img src="images/freedom.png" alt="" />
+              </div>
+              <div class="i12">
+                <img src="images/heart.png" alt="" />
+              </div>
+            </div><br />
+            <div class="text">
+              <div class="positive"></div>
+              <div class="negative"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow p1">
+        <div class="main"></div>
+        <div class="side">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript">
+$(function ()
+{
+
+  $('#clock .h div').click(function ()
+  {
+    var i = +$(this).index() + 1;
+    $('#clock .arrow')
+    .removeClass(function (index, classname)
+    {
+      return (classname.match (/p[0-9]+/) || []).join(' ');
+    })
+    .addClass('p' + i)
+    .css('transform', 'rotate(' + (+i * 30) + 'deg)')
+    .show();
+
+    //$('.content .item.i').removeClass(function (idx, classname){ return classname.match(/i[0-9]+/).implode(' '); }).filter('.i' + i).addClass('active ');
+    texts.en.content[i].positive = texts.en.content[i].positive || ''; 
+    texts.en.content[i].negative = texts.en.content[i].negative || ''; 
+    $('.content .item')
+    .removeClass('active')
+    .filter('.i')
+    .addClass('active')
+    .find('.text .positive')
+    .html(texts.en.content[i].positive.replace(/\n/g, '<br />'))
+    .siblings('.negative')
+    .html(texts.en.content[i].negative.replace(/\n/g, '<br />'));
+
+     $('.content .item .img > div').hide().filter('.i' + i).show();
+
+    $(this).addClass('active').siblings().removeClass('active');
+  });
+
+});
+		</script>
+
+  </body>
+</html>
+
