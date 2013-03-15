@@ -36,19 +36,33 @@ body {
   top: 0px;
 }
 
-.header .rect:nth-child(2) {
+.header .rect.r1 {
   width: 11px;
   right: 53px;
 }
 
-.header .rect:nth-child(3) {
+.header .rect.r2 {
   width: 7px;
   right: 23px;
 }
 
+.header .locale {
+  display: inline-block;
+  margin: 13px 0px 0px 20px;
+}
+
+.header .locale a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .locale a:hover {
+  text-decoration: underline;
+}
+
 .header img {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   margin-top: 8px;
 }
 
@@ -73,17 +87,17 @@ img {
 }
 
 #clock .h div img {
+  display: none;
 }
 
 #clock .h div img:last-child {
-  display: none;
 }
 
 #clock .h div:hover {
 }
 
 #clock .h div:hover img:first-child, #clock .h div.active img:first-child {
-  display: none;
+  display: none !important;
 }
 
 #clock .h div:hover img:last-child, #clock .h div.active img:last-child {
@@ -195,6 +209,8 @@ img {
 
 #clock .content .item.default .inner {
   position: relative;
+  margin-top: 0px;
+  display: none;
 }
 
 #clock .content .item.default .circle {
@@ -216,7 +232,8 @@ img {
 #clock .content .item .text {
   max-width: 465px;
   text-align: left;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 #clock .content .item .text .positive {
@@ -228,25 +245,26 @@ img {
 }
 
 #clock .content .item.default .text:nth-child(2) {
-  top: -114px;
-  left: -27px;
+  top: -57px;
+  left: -194px;
   width: 200px;
-  -webkit-transform: rotate(-65deg);
-     -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  text-align: right;
+  -webkit-transform: rotate(30deg);
+     -moz-transform: rotate(30deg);
+      -ms-transform: rotate(30deg);
+       -o-transform: rotate(30deg);
+          transform: rotate(30deg);
 }
 
 #clock .content .item.default .text:nth-child(3) {
-  top: 79px;
-  left: 32px;
-  width: 300px;
-  -webkit-transform: rotate(22deg);
-     -moz-transform: rotate(22deg);
-      -ms-transform: rotate(22deg);
-       -o-transform: rotate(22deg);
-          transform: rotate(22deg);
+  top: -55px;
+  left: 37px;
+  width: 200px;
+  -webkit-transform: rotate(-30deg);
+     -moz-transform: rotate(-30deg);
+      -ms-transform: rotate(-30deg);
+       -o-transform: rotate(-30deg);
+          transform: rotate(-30deg);
 }
 
 
@@ -332,8 +350,8 @@ img {
 }
 
 #clock .arrow.p4 {
-  top: 487px;
-  left: 659px;
+  top: 511px;
+  left: 672px;
 }
 
 #clock .arrow.p4 .main, #clock .arrow.p4 .side div {
@@ -341,7 +359,7 @@ img {
 }
 
 #clock .arrow.p4 .main {
-  height: 100px;
+  height: 71px;
 }
 
 #clock .arrow.p5 {
@@ -372,8 +390,8 @@ img {
 }
 
 #clock .arrow.p8 {
-  top: 499px;
-  left: 137px;
+  top: 508px;
+  left: 122px;
 }
 
 #clock .arrow.p8 .main, #clock .arrow.p8 .side div {
@@ -407,12 +425,16 @@ img {
 }
 
 #clock .arrow.p11 {
-  top: 94px;
-  left: 310px;
+  top: 77px;
+  left: 293px;
 }
 
 #clock .arrow.p11 .main, #clock .arrow.p11 .side div {
   background: #9e7ca0;
+}
+
+#clock .arrow.p11 .main {
+  height: 134px;
 }
 
 #clock .arrow.p12 {
