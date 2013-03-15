@@ -285,7 +285,7 @@ $(function ()
   function update_translations ()
   {
     var to = (locale == 'en') ? 'ka' : 'en';
-    $('.locale a').text(to);
+    $('.locale a').text(to.toUpperCase());
     window.setTimeout(function (){ $('.locale a').attr('href', '#' + to); }, 50);
 
     $('#clock .h div img').attr('src', function (){ $(this).attr('src', $(this).attr('src').replace('images/h/' + to, 'images/h/' + locale)); });
@@ -316,7 +316,7 @@ $(function ()
 
   $('.locale a').click(function ()
   {
-    window.locale = $(this).text();
+    window.locale = $(this).text().toLowerCase();
     update_translations($(this).text());
   });
 
