@@ -237,7 +237,10 @@
 
       <div class="footer">
         <div class="logo">
-          <img src="images/logo-wheel.png" alt="jumpstart logo" />
+          <img src="images/logo.png" alt="jumpstart logo" />
+          <div class="wheel">
+            <img src="images/logo-wheel.png" alt="jumpstart logo" />
+          </div>
         </div>
       </div>
 
@@ -250,7 +253,8 @@
 $(function ()
 {
 
-  $('#clock .h div, .content .item.default .inner').each(function (i)
+  var i = 0;
+  $('#clock .h div, .content .item.default .inner').each(function ()
   {
     var _this = $(this);
     setTimeout(function ()
@@ -262,7 +266,21 @@ $(function ()
       }
       _this.find('img:first').fadeIn('fast'); 
     }, i * 100);
+    i ++;
   });
+
+/*
+  var t;
+  for (j = i - 1; j < i + 11; j ++)
+  {
+    var index = j - 12;
+    t = setTimeout(function ()
+    {
+      $('#clock .h div:eq(' + index + ')').click();
+      console.log(j);
+    }, j * 100);
+  }
+*/
 
   $('#clock .h div').click(function ()
   {

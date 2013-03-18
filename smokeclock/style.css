@@ -505,6 +505,16 @@ html, body {
 }
 
 .footer .logo {
+  float: right;
+}
+
+.footer .logo img {
+  display: block;
+  float: left;
+  margin-right: 35px;
+}
+
+.footer .logo .wheel {
   position: absolute;
   right: 0px;
   bottom: 0px;
