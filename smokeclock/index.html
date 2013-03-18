@@ -258,12 +258,14 @@
       </div>
 
       <div class="footer">
+        <a id="js_link" href="http://jumpstart.ge/ka" target="_blank">
         <div class="logo">
           <img src="images/logo.png" alt="jumpstart logo" />
           <div class="wheel">
             <img src="images/logo-wheel.png" alt="jumpstart logo" />
           </div>
         </div>
+        </a>
       </div>
 
     </div>
@@ -390,6 +392,8 @@ console.log ('- updating middle text');
 
     $('.header img').attr('src', $('.header img').attr('src').replace('_' + to, '_' + locale));
     document.title = texts[locale].title;
+
+    $('#js_link').attr('href', 'http://jumpstart.ge/' + locale);
   }
 
   $('.locale a').click(function ()
