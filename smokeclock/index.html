@@ -290,23 +290,37 @@ $(function ()
     }, i * 100);
     i ++;
   });
-
 /*
-  var t;
+  var t = [];
   for (j = i - 1; j < i + 11; j ++)
   {
     var index = j - 12;
-    t = setTimeout(function ()
+    var reali = index + 11;
+    if (reali > 11)
     {
-      $('#clock .h div:eq(' + index + ')').click();
-      console.log(j);
-    }, j * 100);
+      reali -= 11;
+    }
+    console.log(reali);
+    t.push(setTimeout(function (index)
+    {
+      clock_h_click_handler($('#clock .h div:eq(' + index + ')').get(0));
+    },
+    i * 100 + 5000 + index * 5000,
+    index));
   }
 */
-
   $('#clock .h div').click(function ()
   {
-    var i = +$(this).index() + 1;
+    for (i in t)
+    {
+      clearTimeout(t[i]);
+    }
+    clock_h_click_handler(this);
+  });
+
+  function clock_h_click_handler (el)
+  {
+    var i = +$(el).index() + 1;
     $('#clock .arrow')
     .removeClass(function (index, classname)
     {
@@ -330,7 +344,7 @@ $(function ()
     $('.content .item .img > div').hide().filter('.i' + i).show();
 
     $(this).addClass('active').siblings().removeClass('active');
-  });
+  }
 
   function update_translations ()
   {
