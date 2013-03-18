@@ -332,6 +332,7 @@ $(function ()
 
     texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
     texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
+
     $('.content .item')
     .removeClass('active')
     .filter('.i')
@@ -343,7 +344,7 @@ $(function ()
 
     $('.content .item .img > div').hide().filter('.i' + i).show();
 
-    $(this).addClass('active').siblings().removeClass('active');
+    $(el).addClass('active').siblings().removeClass('active');
   }
 
   function update_translations ()
@@ -362,9 +363,12 @@ $(function ()
       $('#clock .h div img#img_' + num).attr('title', text);
     }
 
+
     var i = +$('#clock .h div.active').index() + 1;
+console.log ('var i = ' + i);
     if (i > 0)
     {
+console.log ('- updating middle text');
       texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
       texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
       $('.content .item.i')
