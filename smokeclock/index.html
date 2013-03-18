@@ -170,57 +170,59 @@
         </div>
 
         <div class="content">
-          <div class="item default ka active">
-            <div class="inner">
-              <div class="circle"></div>
-              <div class="text"><script>document.write(texts[locale].content['default'].short)</script></div>
-              <div class="text"><script>document.write(texts[locale].content['default'].long)</script></div>
+          <div class="cell">
+            <div class="item default ka active">
+              <div class="inner">
+                <div class="circle"></div>
+                <div class="text"><script>document.write(texts[locale].content['default'].short)</script></div>
+                <div class="text"><script>document.write(texts[locale].content['default'].long)</script></div>
+              </div>
             </div>
-          </div>
-          <div class="item i">
-            <div class="inner">
-              <div class="img">
-                <div class="i1">
-                  <img src="images/co.png" alt="" />
-                  <img src="images/nikotine.png" alt="" />
-                  <img src="images/o2.png" alt="" />
+            <div class="item i">
+              <div class="inner">
+                <div class="img">
+                  <div class="i1">
+                    <img src="images/co.png" alt="" />
+                    <img src="images/nikotine.png" alt="" />
+                    <img src="images/o2.png" alt="" />
+                  </div>
+                  <div class="i2">
+                    <img src="images/anxiety.png" alt="" />
+                  </div>
+                  <div class="i3">
+                    <img src="images/smell.png" alt="" />
+                  </div>
+                  <div class="i4">
+                    <img src="images/lung.png" alt="" />
+                  </div>
+                  <div class="i5">
+                  </div>
+                  <div class="i6">
+                    <img src="images/heart_1year.png" alt="" />
+                  </div>
+                  <div class="i7">
+                    <img src="images/brain.png" alt="" />
+                  </div>
+                  <div class="i8">
+                    <img src="images/nosmoking.png" alt="" />
+                  </div>
+                  <div class="i9">
+                    <img src="images/smile.png" alt="" />
+                  </div>
+                  <div class="i10">
+                    <img src="images/heart.png" alt="" />
+                  </div>
+                  <div class="i11">
+                    <img src="images/freedom.png" alt="" />
+                  </div>
+                  <div class="i12">
+                    <img src="images/heart.png" alt="" />
+                  </div>
+                </div><br />
+                <div class="text">
+                  <div class="positive"></div>
+                  <div class="negative"></div>
                 </div>
-                <div class="i2">
-                  <img src="images/anxiety.png" alt="" />
-                </div>
-                <div class="i3">
-                  <img src="images/smell.png" alt="" />
-                </div>
-                <div class="i4">
-                  <img src="images/lung.png" alt="" />
-                </div>
-                <div class="i5">
-                </div>
-                <div class="i6">
-                  <img src="images/heart_1year.png" alt="" />
-                </div>
-                <div class="i7">
-                  <img src="images/brain.png" alt="" />
-                </div>
-                <div class="i8">
-                  <img src="images/nosmoking.png" alt="" />
-                </div>
-                <div class="i9">
-                  <img src="images/smile.png" alt="" />
-                </div>
-                <div class="i10">
-                  <img src="images/heart.png" alt="" />
-                </div>
-                <div class="i11">
-                  <img src="images/freedom.png" alt="" />
-                </div>
-                <div class="i12">
-                  <img src="images/heart.png" alt="" />
-                </div>
-              </div><br />
-              <div class="text">
-                <div class="positive"></div>
-                <div class="negative"></div>
               </div>
             </div>
           </div>
@@ -237,9 +239,9 @@
 
       <div class="footer">
         <div class="logo">
-          <img src="images/logo.png" alt="jumpstart logo" />
+          <a target=_blank" href="http://jumpstart.ge/"><img src="images/logo.png" alt="jumpstart logo" /></a>
           <div class="wheel">
-            <img src="images/logo-wheel.png" alt="jumpstart logo" />
+            <a target=_blank" href="http://jumpstart.ge/"><img src="images/logo-wheel.png" alt="jumpstart logo" /></a>
           </div>
         </div>
       </div>
@@ -268,25 +270,20 @@ $(function ()
     }, i * 100);
     i ++;
   });
-/*
+
   var t = [];
   for (j = i - 1; j < i + 11; j ++)
   {
     var index = j - 12;
-    var reali = index + 11;
-    if (reali > 11)
-    {
-      reali -= 11;
-    }
-    console.log(reali);
+    var reali = (index == 0) ? 11 : (index - 1);
     t.push(setTimeout(function (index)
     {
       clock_h_click_handler($('#clock .h div:eq(' + index + ')').get(0));
     },
     i * 100 + 5000 + index * 5000,
-    index));
+    reali));
   }
-*/
+
   $('#clock .h div').click(function ()
   {
     for (i in t)
@@ -321,7 +318,7 @@ $(function ()
 
     $('.content .item .img > div').hide().filter('.i' + i).show();
 
-    $(this).addClass('active').siblings().removeClass('active');
+    $(el).addClass('active').siblings().removeClass('active');
   }
 
   function update_translations ()
