@@ -7,6 +7,7 @@ var texts = {
     right: 'Next',
     play: 'Play',
     pause: 'Pause',
+    og_description: 'According to the World Health Organization, 30.3% of all Georgians smoke. Among them, 55.5% are men and 4.8% are women. To help people through the quitting process, JumpStart Georgia visualized the stages the body goes through immediately after quitting smoking. To encourage people to continue to not smoke, JumpStart Georgia has also included the benefits to the body on reducing the risks of obtaining certain diseases.',
     content: {
       1: {
         positive: "• Blood pressure decreases\n• Pulse rate drops",
@@ -67,6 +68,7 @@ var texts = {
     play: 'გაშვება',
     pause: 'პაუზა',
     title: 'ბოლო სიგარეტის მოწევიდან',
+    og_description: 'ჯანდაცვის მსოფლიო ორგანიზაციის მონაცემებით, საქართველოს მოსახლეობის 30.3% მწეველია, რაც მამაკაცების 55.5%-ს, ხოლო ქალების - 4.8%-ს შეადგენს.  ხალხისთვის მოწევის შეწყვეტის პროცესის გაიოლების მიზნით, ჯამპსტარტ ჯორჯიამ ვიზუალურად გამოსახა ეტაპები, რომლებსაც გადის ორგანიზმი მოწევის შეწყვეტის შემდეგ. მათთვის, ვისაც შეუძლია მოწევაზე უარის თქმა, ჯამპსტარტ ჯორჯიამ ჯორჯიამ ვიზუალურად გამოსახა მოწევასთან დაკავშირებული დაავადებების რისკის შემცირების დონეებიც.',
     content: {
       1: {
         positive: "• არტერიული წნევა ნორმალიზდება\n• პულსი ნორმალიზდება",
