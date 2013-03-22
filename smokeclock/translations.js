@@ -3,6 +3,10 @@ var texts = {
   en: {
     lang_switcher: 'ქართული',
     title: 'What to expect when you quit smoking',
+    left: 'Previous', 
+    right: 'Next',
+    play: 'Play',
+    pause: 'Pause',
     content: {
       1: {
         positive: "• Blood pressure decreases\n• Pulse rate drops",
@@ -57,6 +61,10 @@ var texts = {
 
   ka: {
     lang_switcher: 'English',
+    left: 'წინა', 
+    right: 'შემდეგი',
+    play: 'გაშვება',
+    pause: 'პაუზა',
     title: 'რას უნდა ელოდოთ როცა წყვეტთ მოწევას',
     content: {
       1: {

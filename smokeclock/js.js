@@ -2,6 +2,7 @@
 
 var math = Math;
 var rad = math.PI / 180;
+var globali = 0;
 
 function round_digits (n, digits_count)
 {
@@ -48,16 +49,15 @@ $(window).load(function ()
     .siblings('.negative')
     .html(texts[locale].content[i].negative.replace(/\n/g, '<br />'));
 
+    globali = i++;
   });
 
 
 
-  var globali = 0;
-
   var timer = new Timer(function ()
   {
     $clock.find('.h > div').eq(globali).click();
-    globali ++;
+//    globali ++;
     if (globali < 12)
     {
       timer.restart(5000);
@@ -67,13 +67,44 @@ $(window).load(function ()
   $clock.find('.controls .play').live('click', function ()
   {
     $(this).removeClass('play').addClass('pause');
+    $('.controls .pause').attr('title', texts[locale].pause);
     timer.resume();
   });
 
   $clock.find('.controls .pause').live('click', function ()
   {
     $(this).removeClass('pause').addClass('play');
+    $('.controls .play').attr('title', texts[locale].play);
     timer.pause();
+  });
+
+  $clock.find('.controls .right').live('click', function ()
+  {
+    timer.stop();
+    timer = new Timer(function ()
+    {
+      $clock.find('.h > div').eq(globali).click();
+      if (globali < 12)
+      {
+        timer.restart(5000);
+      }
+    }, 10);
+
+  });
+
+  $clock.find('.controls .left').live('click', function ()
+  {
+    globali --;
+    globali --;
+    timer.stop();
+    timer = new Timer(function ()
+    {
+      $clock.find('.h > div').eq(globali).click();
+      if (globali < 12)
+      {
+        timer.restart(5000);
+      }
+    }, 10);
   });
 
 
@@ -97,6 +128,11 @@ $(window).load(function ()
     document.title = texts[locale].title;
 
     $('.locale a').attr('title', texts[locale].lang_switcher);
+
+    $('.controls .right').attr('title', texts[locale].right);
+    $('.controls .left').attr('title', texts[locale].left);
+    $('.controls .play').attr('title', texts[locale].play);
+    $('.controls .pause').attr('title', texts[locale].pause);
 
     var i = +$('#clock .h div.active').index() + 1;
     if (i > 0)
