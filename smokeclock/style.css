@@ -183,6 +183,8 @@ body {
   line-height: 56px;
   padding: 0px 20px 0px 13px;
   background: #fff;
+  font-size: 15px;
+  text-transform:uppercase;
 }
 
 #content .header a > div:first-child, #content .header a > div:last-child {
@@ -210,6 +212,16 @@ body {
 #content .subheader {
   font-family: dejavu;
   margin-bottom: 17px;
+  font-size: 15px;
+}
+#content .body .text {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#content .body .text img {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 
@@ -260,7 +272,6 @@ html, body {
   width: 35px;
   height: 35px;
 }
-
 
 
 

@@ -1,61 +1,71 @@
 var locale = 'ka';
 var texts = {
   en: {
+    lang_switcher: 'ქართული',
     title: 'What to expect when you quit smoking',
+    left: 'Previous', 
+    right: 'Next',
+    play: 'Play',
+    pause: 'Pause',
     content: {
       1: {
         positive: "• Blood pressure decreases\n• Pulse rate drops",
-        image_alt: "after 20 minutes"
+        image_alt: "After 20 minutes"
       },
       2: {
         positive: "• CO level in blood decreases\n• Oxygen level in blood increases to normal\n• Nicotine in bloodstream decreases by 93.75%",
-        image_alt: "after 8 hours"
+        image_alt: "After 8 hours"
       },
       3: {
         negative: "• Anxieties peak in intensity",
-        image_alt: "after 24 hours"
+        image_alt: "After 24 hours"
       },
       4: {
         positive: "• Ability to smell and taste improves",
-        image_alt: "after 48 hours"
+        image_alt: "After 48 hours"
       },
       5: {
         positive: "• Breathing becomes easier",
         negative: "• Cravings peak.  Some may experience flu-like symptoms, dizziness, sickness, insomnia, restlessness or appetite change",
-        image_alt: "after 72 hours"
+        image_alt: "After 72 hours"
       },
       6: {
         positive: "• Negative side-effects dissapear\n• Circulation improves\n• Lung function increases\n• Walking becomes easier\n• Body's overall energy has increased\n• Entire body tests 100% nicotine-free\n\nSignificant improvements in these areas:\n• coughing\n• sinus congestion\n• fatigue\n• shortness of breath",
-        image_alt: "between 2 weeks and 9 months"
+        image_alt: "Between 2 weeks and 9 months"
       },
       7: {
         positive: "• Risk of coronary heart disease, heart attack and stroke drops by at least 50%",
-        image_alt: "after 1 year"
+        image_alt: "After 1 year"
       },
       8: {
         positive: "• Risk of a subarachnoid haemorrhage declines by 41%\n•  Female ex-smokers' risk of developing diabetes declines to that of people who have never smoked\n• Stroke risk reduces to that of people who have never smoked (from 5 to 15 years after quitting tobacco)",
-        image_alt: "after 5 years"
+        image_alt: "After 5 years"
       },
       9: {
         positive: "• Risk of lung cancer drops by 50-70%\n• Risk of cancer of the mouth, throat, esophagus, bladder, kidney, and pancreas decreases\n• Risk of ulcers decreases\n• Risk of developing diabetes for both men and women equals that of people who have never smoked",
-        image_alt: "after 10 years"
+        image_alt: "After 10 years"
       },
       10: {
         positive: "• Risk of smoking induced tooth loss declines to that of people who have never smoked\n• Risk of coronary heart disease equals that of people who have never smoked\n• Risk of death returns to nearly the level of people who have never smoked",
-        image_alt: "after 15 years"
+        image_alt: "After 15 years"
       },
       11: {
         positive: "• Female excess risk of death from all smoking related causes reduces to that of  people who have never smoked\n• Risk of pancreatic cancer reduces to that of  people who have never smoked",
-        image_alt: "after 20 years"
+        image_alt: "After 20 years"
       },
       12: {
-        positive: 'გილოცავთ, თქვენ თამბაქოსგან თავისუფალი ხართ'
+        positive: '• Congratulations! You are now tobacco free!'
       }
     }
   },
 
   ka: {
-    title: 'რას უნდა ელოდოთ როცა წყვეტთ მოწევას',
+    lang_switcher: 'English',
+    left: 'წინა', 
+    right: 'შემდეგი',
+    play: 'გაშვება',
+    pause: 'პაუზა',
+    title: 'ბოლო სიგარეტის მოწევიდან',
     content: {
       1: {
         positive: "• არტერიული წნევა ნორმალიზდება\n• პულსი ნორმალიზდება",
@@ -103,7 +113,7 @@ var texts = {
         image_alt: "20 წლის შემდეგ"
       },
       12: {
-        positive: 'გილოცავთ, თქვენ თამბაქოსგან თავისუფალი ხართ'
+        positive: '• გილოცავთ, თქვენ თამბაქოსგან თავისუფალი ხართ'
       }
     }
   }
