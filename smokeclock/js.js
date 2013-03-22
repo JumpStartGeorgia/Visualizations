@@ -180,6 +180,10 @@ $(window).load(function ()
 
     $('#page_title').removeClass(to).addClass(locale);
 
+    $('#og_title').attr('content', texts[locale].title);
+    $('#og_site_name').attr('content', texts[locale].title);
+    $('#og_description').attr('content', texts[locale].og_description);
+
     $('.locale a').attr('title', texts[locale].lang_switcher);
 
     $('.controls .right').attr('title', texts[locale].right);

@@ -7,6 +7,7 @@ var texts = {
     right: 'Next',
     play: 'Play',
     pause: 'Pause',
+    og_description: 'According to the World Health Organization, 30.3% of all Georgians smoke. Among them, 55.5% are men and 4.8% are women. To help people through the quitting process, JumpStart Georgia visualized the stages the body goes through immediately after quitting smoking. To encourage people to continue to not smoke, JumpStart Georgia has also included the benefits to the body on reducing the risks of obtaining certain diseases.',
     content: {
       1: {
         positive: "• Blood pressure decreases\n• Pulse rate drops",
@@ -38,7 +39,7 @@ var texts = {
         image_alt: "After 1 year"
       },
       8: {
-        positive: "• Risk of a subarachnoid haemorrhage declines by 41%\n•  Female ex-smokers' risk of developing diabetes declines to that of people who have never smoked\n• Stroke risk reduces to that of people who have never smoked (from 5 to 15 years after quitting tobacco)",
+        positive: "• Risk of a subarachnoid haemorrhage declines by 41%\n•  Female ex-smokers' risk of developing diabetes declines to that of people who have never smoked\n• Stroke risk reduces to that of people who have never smoked",
         image_alt: "After 5 years"
       },
       9: {
@@ -67,6 +68,7 @@ var texts = {
     play: 'გაშვება',
     pause: 'პაუზა',
     title: 'ბოლო სიგარეტის მოწევიდან',
+    og_description: 'ჯანდაცვის მსოფლიო ორგანიზაციის მონაცემებით, საქართველოს მოსახლეობის 30.3% მწეველია, რაც მამაკაცების 55.5%-ს, ხოლო ქალების - 4.8%-ს შეადგენს.  ხალხისთვის მოწევის შეწყვეტის პროცესის გაიოლების მიზნით, ჯამპსტარტ ჯორჯიამ ვიზუალურად გამოსახა ეტაპები, რომლებსაც გადის ორგანიზმი მოწევის შეწყვეტის შემდეგ. მათთვის, ვისაც შეუძლია მოწევაზე უარის თქმა, ჯამპსტარტ ჯორჯიამ ჯორჯიამ ვიზუალურად გამოსახა მოწევასთან დაკავშირებული დაავადებების რისკის შემცირების დონეებიც.',
     content: {
       1: {
         positive: "• არტერიული წნევა ნორმალიზდება\n• პულსი ნორმალიზდება",
@@ -98,7 +100,7 @@ var texts = {
         image_alt: "1 წლის შემდეგ"
       },
       8: {
-        positive: "• ტვინში სისხლჩაქცევების რისკი მცირდება 41%-ით\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებში მცირდება არამწეველთა რისკის დონემდე\n• ინსულტის რისკი მცირდება არამწეველთა რისკის დონემდე (მოწევის შეწყვეტიდან 5-15 წელიწადში) ",
+        positive: "• ტვინში სისხლჩაქცევების რისკი მცირდება 41%-ით\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებში მცირდება არამწეველთა რისკის დონემდე\n• ინსულტის რისკი მცირდება არამწეველთა რისკის დონემდე",
         image_alt: "5 წლის შემდეგ"
       },
       9: {
