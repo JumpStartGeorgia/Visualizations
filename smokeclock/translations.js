@@ -54,7 +54,8 @@ var texts = {
         image_alt: "After 20 years"
       },
       12: {
-        positive: '• Congratulations! You are now tobacco free!'
+        positive: '• You are now tobacco free!',
+        image_alt: "Congratulations!"
       }
     }
   },
@@ -113,7 +114,8 @@ var texts = {
         image_alt: "20 წლის შემდეგ"
       },
       12: {
-        positive: '• გილოცავთ, თქვენ თამბაქოსგან თავისუფალი ხართ'
+        positive: '• თქვენ თამბაქოსგან თავისუფალი ხართ!',
+        image_alt: "გილოცავთ!"
       }
     }
   }

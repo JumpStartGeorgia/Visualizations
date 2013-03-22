@@ -40,7 +40,7 @@ function create_timer(){
     time_click($clock.find('.h > div').eq(globali));
     if (globali < 12)
     {
-      timer.restart(5000);
+      timer.restart(10000);
     }
   }, 10);
 }
@@ -68,8 +68,13 @@ $(window).load(function ()
   $clock.find('.h > div').click(function ()
   {
     globali = $(this).index();
-    timer.stop();
-    create_timer();
+    time_click(this);
+    $('.controls .pause').removeClass('pause').addClass('play');
+    $('.controls .play').attr('title', texts[locale].play);
+    timer.pause();
+
+//    timer.stop();
+//   create_timer();
   });
 
 
@@ -79,7 +84,11 @@ $(window).load(function ()
   {
     $(this).removeClass('play').addClass('pause');
     $('.controls .pause').attr('title', texts[locale].pause);
-    timer.resume();
+    if (globali < 12){
+      timer.resume();
+    } else {
+      timer.stop();    
+    }
   });
 
   $clock.find('.controls .pause').live('click', function ()
