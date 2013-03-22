@@ -10,10 +10,34 @@ function round_digits (n, digits_count)
   return Math.round(n * t) / t;
 }
 
+function time_click(ths){
+  var i = $(ths).index() + 1;
+  $(ths).addClass('active').siblings().removeClass('active');
+  $('#clock-bg').css('transform', 'rotate(' + i * 30 + 'deg)');
+
+  if (i == 12){
+    $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
+  } else {
+    $('.imgc .img img').attr('src', 'images/i/' + i + '.png').attr('alt', texts[locale].content[i].image_alt);
+  }
+
+  $('#content .subheader').html(texts[locale].content[i].image_alt);
+
+  texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
+  texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
+  $('#content .body')
+  .find('.text .positive')
+  .html(texts[locale].content[i].positive.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_positive.png" />'))
+  .siblings('.negative')
+  .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
+
+  globali = i++;
+}
+
 function create_timer(){
   timer = new Timer(function ()
   {
-    $clock.find('.h > div').eq(globali).click();
+    time_click($clock.find('.h > div').eq(globali));
     if (globali < 12)
     {
       timer.restart(5000);
@@ -39,36 +63,14 @@ $(window).load(function ()
     el.css({top: y + 'px', left: x + 'px'});
   }
 
-
+  
 
   $clock.find('.h > div').click(function ()
   {
-    var i = $(this).index() + 1;
-    $(this).addClass('active').siblings().removeClass('active');
-    $('#clock-bg').css('transform', 'rotate(' + i * 30 + 'deg)');
-
-    if (i == 12){
-      $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
-    } else {
-      $('.imgc .img img').attr('src', 'images/i/' + i + '.png').attr('alt', texts[locale].content[i].image_alt);
-    }
-
-    $('#content .subheader').html(texts[locale].content[i].image_alt);
-
-    texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
-    texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
-    $('#content .body')
-    .find('.text .positive')
-    .html(texts[locale].content[i].positive.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_positive.png" />'))
-    .siblings('.negative')
-    .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
-
-//    timer.stop();
-//    create_timer();
-
-    globali = i++;
+    globali = $(this).index();
+    timer.stop();
+    create_timer();
   });
-
 
 
   create_timer();
