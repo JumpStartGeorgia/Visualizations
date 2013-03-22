@@ -49,7 +49,11 @@ $(window).load(function ()
     $(this).addClass('active').siblings().removeClass('active');
     $('#clock-bg').css('transform', 'rotate(' + i * 30 + 'deg)');
 
-    $('.imgc .img img').attr('src', $('.imgc .img img').attr('src').replace(/[0-9]+\.png/, i + '.png')).attr('alt', texts[locale].content[i].image_alt);
+    if (i == 12){
+      $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
+    } else {
+      $('.imgc .img img').attr('src', $('.imgc .img img').attr('src').replace(/[0-9]+\.png/, i + '.png')).attr('alt', texts[locale].content[i].image_alt);
+    }
 
     $('#content .subheader').html(texts[locale].content[i].image_alt);
 
@@ -61,9 +65,10 @@ $(window).load(function ()
     .siblings('.negative')
     .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
 
-    globali = i++;
     timer.stop();
     create_timer();
+
+    globali = i++;
   });
 
 
@@ -129,6 +134,10 @@ $(window).load(function ()
     if (i > 0)
     {
       $('#content .subheader').html(texts[locale].content[i].image_alt);
+
+      if (i == 12){
+        $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
+      }
 
       texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
       texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
