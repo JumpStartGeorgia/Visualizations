@@ -284,6 +284,10 @@ html, body {
   height: 35px;
 }
 
+.footer a, .footer img {
+  border:none;
+}
+
 .footer .logo {
   float: right;
 }
