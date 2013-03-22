@@ -3,6 +3,8 @@
 var math = Math;
 var rad = math.PI / 180;
 var globali = 0;
+var timer;
+var $clock = $('#clock');
 
 function round_digits (n, digits_count)
 {
@@ -10,9 +12,19 @@ function round_digits (n, digits_count)
   return Math.round(n * t) / t;
 }
 
+function create_timer(){
+  timer = new Timer(function ()
+  {
+    $clock.find('.h > div').eq(globali).click();
+    if (globali < 12)
+    {
+      timer.restart(5000);
+    }
+  }, 10);
+}
+
 $(window).load(function ()
 {
-  var $clock = $('#clock');
   var r = $clock.width () / 2 - 21;
 
   var cx = $clock.width()  / 2;
@@ -50,19 +62,13 @@ $(window).load(function ()
     .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
 
     globali = i++;
+    timer.stop();
+    create_timer();
   });
 
 
 
-  var timer = new Timer(function ()
-  {
-    $clock.find('.h > div').eq(globali).click();
-//    globali ++;
-    if (globali < 12)
-    {
-      timer.restart(5000);
-    }
-  }, 10);
+  create_timer();
 
   $clock.find('.controls .play').live('click', function ()
   {
@@ -81,15 +87,7 @@ $(window).load(function ()
   $clock.find('.controls .right').live('click', function ()
   {
     timer.stop();
-    timer = new Timer(function ()
-    {
-      $clock.find('.h > div').eq(globali).click();
-      if (globali < 12)
-      {
-        timer.restart(5000);
-      }
-    }, 10);
-
+    create_timer();
   });
 
   $clock.find('.controls .left').live('click', function ()
@@ -97,14 +95,7 @@ $(window).load(function ()
     globali --;
     globali --;
     timer.stop();
-    timer = new Timer(function ()
-    {
-      $clock.find('.h > div').eq(globali).click();
-      if (globali < 12)
-      {
-        timer.restart(5000);
-      }
-    }, 10);
+    create_timer();
   });
 
 
