@@ -38,7 +38,7 @@ var texts = {
         image_alt: "After 1 year"
       },
       8: {
-        positive: "• Risk of a subarachnoid haemorrhage declines by 41%\n•  Female ex-smokers' risk of developing diabetes declines to that of people who have never smoked\n• Stroke risk reduces to that of people who have never smoked (from 5 to 15 years after quitting tobacco)",
+        positive: "• Risk of a subarachnoid haemorrhage declines by 41%\n•  Female ex-smokers' risk of developing diabetes declines to that of people who have never smoked\n• Stroke risk reduces to that of people who have never smoked",
         image_alt: "After 5 years"
       },
       9: {
@@ -98,7 +98,7 @@ var texts = {
         image_alt: "1 წლის შემდეგ"
       },
       8: {
-        positive: "• ტვინში სისხლჩაქცევების რისკი მცირდება 41%-ით\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებში მცირდება არამწეველთა რისკის დონემდე\n• ინსულტის რისკი მცირდება არამწეველთა რისკის დონემდე (მოწევის შეწყვეტიდან 5-15 წელიწადში) ",
+        positive: "• ტვინში სისხლჩაქცევების რისკი მცირდება 41%-ით\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებში მცირდება არამწეველთა რისკის დონემდე\n• ინსულტის რისკი მცირდება არამწეველთა რისკის დონემდე",
         image_alt: "5 წლის შემდეგ"
       },
       9: {
