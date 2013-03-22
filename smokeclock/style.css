@@ -47,6 +47,7 @@ body {
   width: 411px;
   height: 411px;
   position: absolute;
+  z-index: 1;
   top: 75px;
   left: 66px;
 }
@@ -141,7 +142,9 @@ body {
 }
 
 #clock .h > div {
+  display: none;
   position: absolute;
+  z-index: 2;
   cursor: pointer;
 }
 
@@ -214,14 +217,25 @@ body {
   margin-bottom: 17px;
   font-size: 15px;
 }
+
 #content .body .text {
   font-size: 14px;
   line-height: 21px;
 }
 
-#content .body .text img {
-  display: inline-block;
-  vertical-align: middle;
+#content .body .text ul {
+  list-style-type: disc;
+}
+
+#content .body .text .positive ul {
+  list-style-image: url(images/smile_positive.png);
+}
+
+#content .body .text .negative ul {
+  list-style-image: url(images/smile_negative.png);
+}
+
+#content .body .text li {
 }
 
 

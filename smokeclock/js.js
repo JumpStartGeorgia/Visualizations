@@ -36,7 +36,7 @@ $(window).load(function ()
     x = round_digits(r * math.sin(deg * rad) + cx - el.width() / 2, 2);
     y = round_digits(r * math.cos(deg * rad) + cy - el.height() / 2, 2);
 
-    el.css({top: y + 'px', left: x + 'px'});
+    el.css({top: y + 'px', left: x + 'px'}).fadeIn('fast');
   }
 
 
@@ -47,17 +47,19 @@ $(window).load(function ()
     $(this).addClass('active').siblings().removeClass('active');
     $('#clock-bg').css('transform', 'rotate(' + i * 30 + 'deg)');
 
-    $('.imgc .img img').attr('src', $('.imgc .img img').attr('src').replace(/[0-9]+\.png/, i + '.png')).attr('alt', texts[locale].content[i].image_alt);
+    $('.imgc .img img').attr('src', $('.imgc .img img').attr('src').replace(/[0-9]+\.png/, ((i == 12) ? '12_' + locale : i) + '.png')).attr('alt', texts[locale].content[i].image_alt);
 
     $('#content .subheader').html(texts[locale].content[i].image_alt);
 
-    texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
-    texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
+    texts[locale].content[i].positive = texts[locale].content[i].positive || '';
+    texts[locale].content[i].negative = texts[locale].content[i].negative || '';
+    //console.log(1, texts[locale].content[i].positive, 2, '<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
     $('#content .body')
     .find('.text .positive')
-    .html(texts[locale].content[i].positive.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_positive.png" />'))
+    .html('<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
     .siblings('.negative')
-    .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
+    .html('<ul>' + texts[locale].content[i].negative.replace(/•/g, '<li>').replace(/\n/g, '</li>') + '</li></ul>');
+    
 
     globali = i++;
     timer.stop();
