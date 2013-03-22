@@ -162,7 +162,22 @@ body {
 
 #content {
   width: 467px;
-  margin: 103px 0px 0px 0px;
+  margin: 103px 0px 0px 50px;
+}
+
+#content .locale {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+#content .locale a {
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: all .31s;
+}
+
+#content .locale a:hover {
+  text-decoration: underline;
 }
 
 #content .header {
@@ -184,7 +199,8 @@ body {
 #content .header a > div:nth-child(2) {
   height: 56px;
   line-height: 56px;
-  padding: 0px 20px 0px 13px;
+  width: 416px;
+  text-align: center;
   background: #fff;
   font-size: 15px;
   text-transform:uppercase;
@@ -220,7 +236,7 @@ body {
 
 #content .body .text {
   font-size: 14px;
-  line-height: 21px;
+  line-height: 23px;
 }
 
 #content .body .text ul {

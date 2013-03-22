@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="translations.js"></script>
     <title>რას უნდა ელოდოთ როცა წყვეტთ მოწევას</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
   </head>
   <body>
 
@@ -86,6 +87,7 @@
           </div>
 
           <div id="content">
+            <div class="locale"><a href="#en" title="English">EN</a></div>
             <div class="header clear">
               <a href="javascript:location.reload();">
                 <div></div>
@@ -93,7 +95,6 @@
                 <div></div>
               </a>
             </div>
-            <div class="locale"><a href="#en" title="English">EN</a></div>
             <div class="body">
               <div class="subheader">20 წუთის შემდეგ</div>
               <div class="text">
@@ -123,6 +124,20 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="timer.js"></script>
 		<script type="text/javascript" src="js.js"></script>
+
+    <script type="text/javascript">
+      if (document.URL.indexOf("http://visuals.jumpstart.ge/smokeclock/") != -1){
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-12801815-18']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      }
+    </script>
 
   </body>
 </html>

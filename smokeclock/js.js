@@ -10,10 +10,35 @@ function round_digits (n, digits_count)
   return Math.round(n * t) / t;
 }
 
+function time_click(ths){
+  var i = $(ths).index() + 1;
+  $(ths).addClass('active').siblings().removeClass('active');
+  $('#clock-bg').css('transform', 'rotate(' + i * 30 + 'deg)');
+
+  if (i == 12){
+    $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
+  } else {
+    $('.imgc .img img').attr('src', 'images/i/' + i + '.png').attr('alt', texts[locale].content[i].image_alt);
+  }
+
+  $('#content .subheader').html(texts[locale].content[i].image_alt);
+
+  texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
+  texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
+  $('#content .body')
+  .find('.text .positive')
+  .html('<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
+  .siblings('.negative')
+  .html('<ul>' + texts[locale].content[i].negative.replace(/•/g, '<li>').replace(/\n/g, '</li>') + '</li></ul>');
+
+  globali = i++;
+//console.log(1, texts[locale].content[i].positive, 2, '<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
+}
+
 function create_timer(){
   timer = new Timer(function ()
   {
-    $clock.find('.h > div').eq(globali).click();
+    time_click($clock.find('.h > div').eq(globali));
     if (globali < 12)
     {
       timer.restart(5000);
@@ -39,33 +64,14 @@ $(window).load(function ()
     el.css({top: y + 'px', left: x + 'px'}).fadeIn('fast');
   }
 
-
+  
 
   $clock.find('.h > div').click(function ()
   {
-    var i = $(this).index() + 1;
-    $(this).addClass('active').siblings().removeClass('active');
-    $('#clock-bg').css('transform', 'rotate(' + i * 30 + 'deg)');
-
-    $('.imgc .img img').attr('src', $('.imgc .img img').attr('src').replace(/[0-9]+\.png/, ((i == 12) ? '12_' + locale : i) + '.png')).attr('alt', texts[locale].content[i].image_alt);
-
-    $('#content .subheader').html(texts[locale].content[i].image_alt);
-
-    texts[locale].content[i].positive = texts[locale].content[i].positive || '';
-    texts[locale].content[i].negative = texts[locale].content[i].negative || '';
-    //console.log(1, texts[locale].content[i].positive, 2, '<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
-    $('#content .body')
-    .find('.text .positive')
-    .html('<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
-    .siblings('.negative')
-    .html('<ul>' + texts[locale].content[i].negative.replace(/•/g, '<li>').replace(/\n/g, '</li>') + '</li></ul>');
-    
-
-    globali = i++;
+    globali = $(this).index();
     timer.stop();
     create_timer();
   });
-
 
 
   create_timer();
@@ -86,18 +92,43 @@ $(window).load(function ()
 
   $clock.find('.controls .right').live('click', function ()
   {
-    timer.stop();
-    create_timer();
+    if (globali < 12){
+      timer.stop();
+      create_timer();
+    }
   });
 
   $clock.find('.controls .left').live('click', function ()
   {
-    globali --;
-    globali --;
-    timer.stop();
-    create_timer();
+    if (globali > 1){
+      globali --;
+      globali --;
+      timer.stop();
+      create_timer();
+    }
   });
 
+  // catch left and right arrow
+  $(window).keydown(function (event)
+  {
+    switch (event.keyCode)
+    {
+      case 37: // left
+        if (globali > 1){
+          globali --;
+          globali --;
+          timer.stop();
+          create_timer();
+        }
+        break;
+      case 39: // right
+        if (globali < 12){
+          timer.stop();
+          create_timer();
+        }
+        break;
+    }
+  });
 
   function update_translations ()
   {
@@ -130,13 +161,17 @@ $(window).load(function ()
     {
       $('#content .subheader').html(texts[locale].content[i].image_alt);
 
+      if (i == 12){
+        $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
+      }
+
       texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
       texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
       $('#content .body')
       .find('.text .positive')
-      .html(texts[locale].content[i].positive.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_positive.png" />'))
+      .html('<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
       .siblings('.negative')
-      .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
+      .html('<ul>' + texts[locale].content[i].negative.replace(/•/g, '<li>').replace(/\n/g, '</li>') + '</li></ul>');
     }
 
     $('html').attr('lang', locale);
