@@ -1,486 +1,220 @@
+@font-face {
+    font-family: ingiri;
+    src: url('fonts/BPG_Ingiri_GPL&GNU.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @font-face {
-  font-family: 'barkentina';
-  src: url('fonts/barkentina1.eot');
-  src: url('fonts/barkentina1.eot?#iefix') format('embedded-opentype'),
-		   url('fonts/barkentina1.woff') format('woff'),
-		   url('fonts/barkentina1.ttf') format('truetype'),
-		   url('fonts/barkentina1.svg#fonts/barkentina1') format('svg');
-  font-weight: normal;
-	font-style: normal;
+    font-family: dejavu;
+    src: url('fonts/BPG DejaVuSans-Bold_2s.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
+.clear {
+  *zoom: 1;
+}
+
+.clear:before, .clear:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.clear:after {
+  clear: both;
+}
+
 
 * {
   margin: 0;
   padding: 0;
 }
 
-body {
-  background: #f4f4ba;
-  font-size: 13px;
-  font-family: arial;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-  background: #97837d;
-  position: relative;
-  height: 49px;
-}
-
-.header .rect {
-  background: #f3f3b9;
-  height: 49px;
-  position: absolute;
-  top: 0px;
-}
-
-.header .rect.r1 {
-  width: 11px;
-  right: 53px;
-}
-
-.header .rect.r2 {
-  width: 7px;
-  right: 23px;
-}
-
-.header .locale {
-  display: inline-block;
-  margin: 13px 0px 0px 20px;
-}
-
-.header .locale a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.header .locale a:hover {
-  text-decoration: underline;
-}
-
-.header img {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 8px;
-}
-
-#clock {
-  margin: 0 auto;
-  width: 850px;
-  height: 800px;
-  background: #f4f4ba;
-  position: relative;
-  color: #8baa6d;
-  font-size: 13px;
-  font-family: arial;
-}
-
-#clock .h div {
-  position: absolute;
-  cursor: pointer;
-}
-
 img {
   display: block;
 }
 
-#clock .h div img {
-  display: none;
-}
-
-#clock .h div img:last-child {
-}
-
-#clock .h div:hover {
-}
-
-#clock .h div:hover img:first-child, #clock .h div.active img:first-child {
-  display: none !important;
-}
-
-#clock .h div:hover img:last-child, #clock .h div.active img:last-child {
-  display: block;
-  margin: -5px 0px 0px -5px;
-}
-
-#clock .h div:nth-child(5):hover img:last-child, #clock .h div:nth-child(5).active img:last-child {
-  margin: -1px 0px 0px -1px;
-}
-
-#clock .h div:nth-child(1) {
-  top: 43px;
-  left: 581px;
-}
-
-#clock .h div:nth-child(2) {
-  top: 160px;
-  left: 712px;
-}
-
-#clock .h div:nth-child(3) {
-  top: 366px;
-  left: 771px;
-}
-
-#clock .h div:nth-child(4) {
-  top: 552px;
-  left: 720px;
-}
-
-#clock .h div:nth-child(5) {
-  top: 688px;
-  left: 578px;
-}
-
-#clock .h div:nth-child(6) {
-  top: 731px;
-  left: 389px;
-}
-
-#clock .h div:nth-child(7) {
-  top: 695px;
-  left: 201px;
-}
-
-#clock .h div:nth-child(8) {
-  top: 556px;
-  left: 62px;
-}
-
-#clock .h div:nth-child(9) {
-  top: 365px;
-  left: 7px;
-}
-
-#clock .h div:nth-child(10) {
-  top: 180px;
-  left: 62px;
-}
-
-#clock .h div:nth-child(11) {
-  top: 41px;
-  left: 205px;
-}
-
-#clock .h div:nth-child(12) {
-  top: 0px;
-  left: 394px;
+body {
+  background: #6bccd1;
+  font-size: 13px;
+  font-family: ingiri, arial;
 }
 
 
+#clock-bg, #clock-inner {
+  width: 411px;
+  height: 411px;
+  position: absolute;
+  top: 75px;
+  left: 66px;
+}
 
+#clock-bg {
+  background: url(images/clock.png) center center no-repeat;
+}
 
-#clock .content {
+#clock-inner .imgc {
   width: 100%;
+  margin-top: 11%;
+  height: 72%;
+}
+
+#clock-inner .controls {
+  width: 100%;
+  margin-top: 0%;
+  height: 10%;
+}
+
+#clock-inner .imgc .inner {
   height: 100%;
   display: table;
-  font-family: barkentina;
+  margin: 0 auto;
 }
 
-#clock .content .cell {
+#clock-inner .imgc .inner .img {
   display: table-cell;
   vertical-align: middle;
 }
 
-#clock .content img {
-  display: inline-block;
+#clock-inner .controls .inner {
+  margin: 0 auto;
+  display: table;
+  height: 100%;
+}
+
+#clock-inner .controls .inner .cc {
+  display: table-cell;
   vertical-align: middle;
 }
 
-#clock .content .item {
-  display: none;
-  text-align: center;
+#clock-inner .controls .cc div {
+  width: 29px;
+  height: 19px;
+  margin-right: 5px;
+  float: left;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
-#clock .content .item.active {
+#clock-inner .controls .left {
+  background-image: url('images/button_left.png');
+}
+
+#clock-inner .controls .left:hover {
+  background-image: url('images/button_left_hover.png');
+}
+
+#clock-inner .controls .play {
+  background-image: url('images/button_play.png');
+}
+
+#clock-inner .controls .play:hover {
+  background-image: url('images/button_play_hover.png');
+}
+
+#clock-inner .controls .pause {
+  background-image: url('images/button_pause.png');
+}
+
+#clock-inner .controls .pause:hover {
+  background-image: url('images/button_pause_hover.png');
+}
+
+#clock-inner .controls div.right {
+  margin-right: 0px;
+  background-image: url('images/button_right.png');
+}
+
+#clock-inner .controls .right:hover {
+  background-image: url('images/button_right_hover.png');
+}
+
+
+#clock {
+  margin-top: 53px;
+  position: relative;
+  width: 543px;
+  height: 554px;
+}
+
+#clock .h > div {
+  position: absolute;
+  cursor: pointer;
+}
+
+#clock .h > div.active img:first-child, #clock .h div img:last-child {
+  display: none;
+}
+
+#clock .h > div.active img:last-child {
   display: block;
 }
 
-#clock .content .item .inner {
-  display: inline-block;
-  margin-top: -70px;
+#clock, #content {
+  float: left;
 }
 
-#clock .content .item .img > div {
-  display: none;
+#content {
+  width: 467px;
+  margin: 103px 0px 0px 0px;
 }
 
-#clock .content .item .img > div img + img {
-  margin-left: 33px;
+#content .header {
 }
 
-#clock .content .item.default .inner {
-  position: relative;
-  margin-top: 0px;
-  display: none;
+#content .header a {
+  color: #6bccd1;
+  display: block;
+  font-family: dejavu;
 }
 
-#clock .content .item.default .circle {
-  width: 42px;
-  height: 42px;
-  background: #98847d;
-  -webkit-border-radius: 50%;
-     -moz-border-radius: 50%
-          border-radius: 50%;
+#content .header a > * {
+  float: left;
 }
 
-#clock .content .item.default .text {
-  color: #79b7b4;
-  font-size: 17px;
-  position: absolute;
-  text-align: left;
+#content .header a > div {
 }
 
-#clock .content .item .text {
-  max-width: 465px;
-  text-align: left;
-  font-size: 18px;
-  line-height: 21px;
+#content .header a > div:nth-child(2) {
+  height: 56px;
+  line-height: 56px;
+  padding: 0px 20px 0px 13px;
+  background: #fff;
 }
 
-#clock .content .item .text .positive {
-  color: #89a86d;/*#79b7b4;*/
+#content .header a > div:first-child, #content .header a > div:last-child {
+  width: 0px;
+  height: 0px;
 }
 
-#clock .content .item .text .negative {
-  color: #ff4e50;
+#content .header a > div:first-child {
+  border-right: 32px solid #fff;
+  border-bottom: 56px solid transparent;
 }
 
-#clock .content .item.default .text:nth-child(2) {
-  top: -57px;
-  left: -194px;
-  width: 200px;
-  text-align: right;
-  -webkit-transform: rotate(30deg);
-     -moz-transform: rotate(30deg);
-      -ms-transform: rotate(30deg);
-       -o-transform: rotate(30deg);
-          transform: rotate(30deg);
+#content .header a > div:last-child {
+  border-right: 19px solid transparent;
+  border-bottom: 28px solid #fff;
+  border-top: 28px solid #fff;
 }
 
-#clock .content .item.default .text:nth-child(3) {
-  top: -55px;
-  left: 37px;
-  width: 200px;
-  -webkit-transform: rotate(-30deg);
-     -moz-transform: rotate(-30deg);
-      -ms-transform: rotate(-30deg);
-       -o-transform: rotate(-30deg);
-          transform: rotate(-30deg);
+#content .body {
+  padding-left: 42px;
+  margin-top: 23px;
+  color: #231f20;
 }
 
-#clock .content .item.default.ka .text:nth-child(2) {
-  font-size: 14px;
-  top: -72px;
-  left: -239px;
-  width: 250px;
-  line-height: 15px;
-}
-
-#clock .content .item.default.ka .text:nth-child(3) {
-  font-size: 12px;
-  line-height: 12px;
-  top: -81px;
-  left: 34px;
-  width: 306px;
-}
-
-#clock .content .item.default.en .text:nth-child(2) {
-  font-size: 14px;
-  top: -49px;
-  left: -152px;
-  width: 155px;
-  line-height: 14px;
-}
-
-#clock .content .item.default.en .text:nth-child(3) {
-  font-size: 14px;
-  line-height: 14px;
-  top: -84px;
-  left: 33px;
-  width: 287px;
-}
-
-
-#clock .arrow {
-  position: absolute;
-  display: none;
-}
-
-#clock .arrow div {
-  width: 3px;
-}
-
-#clock .arrow .main {
-  height: 165px;
-  background: #dcbdb1;
-}
-
-#clock .arrow .side {
-  margin-top: -32px;
-  margin-left: -22px;
-  position: relative;
-  width: 45px;
-  height: 24px;
-}
-
-#clock .arrow .side div {
-  height: 40px;
-  background: #dcbdb1;
-  position: absolute;
-  top: 0px;
-}
-
-#clock .arrow .side div:first-child {
-  left: 9px;
-  -webkit-transform: rotate(-45deg);
-     -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-#clock .arrow .side div:last-child {
-  left: 35px;
-  -webkit-transform: rotate(45deg);
-     -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
-          transform: rotate(45deg);
+#content .subheader {
+  font-family: dejavu;
+  margin-bottom: 17px;
 }
 
 
 
 
-#clock .arrow.p1 {
-  top: 106px;
-  left: 535px;
-}
-
-#clock .arrow.p1 .main, #clock .arrow.p1 .side div {
-  background: #f6bcad;
-}
-
-#clock .arrow.p2 {
-  top: 196px;
-  left: 633px;
-}
-
-#clock .arrow.p2 .main, #clock .arrow.p2 .side div {
-  background: #f2dfca;
-}
-
-#clock .arrow.p3 {
-  top: 345px;
-  left: 693px;
-}
-
-#clock .arrow.p3 .main, #clock .arrow.p3 .side div {
-  background: #8c6673;
-}
-
-#clock .arrow.p3 .main {
-  height: 131px;
-}
-
-#clock .arrow.p4 {
-  top: 511px;
-  left: 672px;
-}
-
-#clock .arrow.p4 .main, #clock .arrow.p4 .side div {
-  background: #fd8782;
-}
-
-#clock .arrow.p4 .main {
-  height: 71px;
-}
-
-#clock .arrow.p5 {
-  top: 547px;
-  left: 519px;
-}
-
-#clock .arrow.p5 .main, #clock .arrow.p5 .side div {
-  background: #eebca2;
-}
-
-#clock .arrow.p6 {
-  top: 569px;
-  left: 402px;
-}
-
-#clock .arrow.p6 .main, #clock .arrow.p6 .side div {
-  background: #d7d2b1;
-}
-
-#clock .arrow.p7 {
-  top: 539px;
-  left: 271px;
-}
-
-#clock .arrow.p7 .main, #clock .arrow.p7 .side div {
-  background: #c7ddbf;
-}
-
-#clock .arrow.p8 {
-  top: 508px;
-  left: 122px;
-}
-
-#clock .arrow.p8 .main, #clock .arrow.p8 .side div {
-  background: #b2cba3;
-}
-
-#clock .arrow.p8 .main {
-  height: 68px;
-}
-
-#clock .arrow.p9 {
-  top: 343px;
-  left: 109px;
-}
-
-#clock .arrow.p9 .main, #clock .arrow.p9 .side div {
-  background: #e0df9f;
-}
-
-#clock .arrow.p9 .main {
-  height: 95px;
-}
-
-#clock .arrow.p10 {
-  top: 189px;
-  left: 193px;
-}
-
-#clock .arrow.p10 .main, #clock .arrow.p10 .side div {
-  background: #b2b6ab;
-}
-
-#clock .arrow.p11 {
-  top: 77px;
-  left: 293px;
-}
-
-#clock .arrow.p11 .main, #clock .arrow.p11 .side div {
-  background: #9e7ca0;
-}
-
-#clock .arrow.p11 .main {
-  height: 134px;
-}
-
-#clock .arrow.p12 {
-  top: 70px;
-  left: 425px;
-}
-
-#clock .arrow.p12 .main, #clock .arrow.p12 .side div {
-  background: #dcbdb1;
-}
 
 
 
@@ -491,13 +225,13 @@ html, body {
   min-height: 100%;
 }
 
-#clock {
-  padding-bottom: 35px;
-}
-
 #wrapper {
   min-height: 100%;
   position: relative;
+}
+
+#wrapper > .container {
+  padding-bottom: 35px;
 }
 
 .footer {
@@ -526,29 +260,6 @@ html, body {
   width: 35px;
   height: 35px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

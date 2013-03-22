@@ -4,270 +4,116 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript">
-      var locale = 'ka';
-      var texts = {
-        en: {
-          title: 'What to expect when you quit smoking',
-          content: {
-            'default': {
-              short: 'Short-term Effects\nLong-term Effects',
-              long: 'According to the World Health Organization, 30.3% of all Georgians smoke. Among them, 55.5% are men and 4.8% are women. '
-            },
-            1: {
-              positive: "• CO level in blood decreases\n• Oxygen level in blood increases to normal\n• Nicotine in bloodstream decreases by 93.75%",
-              image_alt: "after 8 hours"
-            },
-            2: {
-              negative: "• Anxieties peak in intensity",
-              image_alt: "after 24 hours"
-            },
-            3: {
-              positive: "• Ability to smell and taste improves",
-              image_alt: "after 48 hours"
-            },
-            4: {
-              positive: "• Breathing becomes easier",
-              negative: "• Cravings peak.  Some may experience flu-like symptoms, dizziness, sickness, insomnia, restlessness or appetite change",
-              image_alt: "after 72 hours"
-            },
-            5: {
-              positive: "• Negative side-effects dissapear\n• Circulation improves\n• Lung function increases\n• Walking becomes easier\n• Body's overall energy has increased\n• Entire body tests 100% nicotine-free\n\nSignificant improvements in these areas:\n• coughing\n• sinus congestion\n• fatigue\n• shortness of breath",
-              image_alt: "between 2 weeks and 9 months"
-            },
-            6: {
-              positive: "• Risk of coronary heart disease, heart attack and stroke drops by at least 50%",
-              image_alt: "after 1 year"
-            },
-            7: {
-              positive: "• Risk of a subarachnoid haemorrhage declines by 41%\n•  Female ex-smokers' risk of developing diabetes declines to that of people who have never smoked\n• Stroke risk reduces to that of people who have never smoked (from 5 to 15 years after quitting tobacco)",
-              image_alt: "after 5 years"
-            },
-            8: {
-              positive: "• Risk of lung cancer drops by 50-70%\n• Risk of cancer of the mouth, throat, esophagus, bladder, kidney, and pancreas decreases\n• Risk of ulcers decreases\n• Risk of developing diabetes for both men and women equals that of people who have never smoked",
-              image_alt: "after 10 years"
-            },
-            9: {
-              positive: "• Risk of smoking induced tooth loss declines to that of people who have never smoked",
-              image_alt: "after 13 years"
-            },
-            10: {
-              positive: "• Risk of coronary heart disease equals that of people who have never smoked\n• Risk of death returns to nearly the level of people who have never smoked",
-              image_alt: "after 15 years"
-            },
-            11: {
-              positive: "• Female excess risk of death from all smoking related causes reduces to that of  people who have never smoked\n• Risk of pancreatic cancer reduces to that of  people who have never smoked",
-              image_alt: "after 20 years"
-            },
-            12: {
-              positive: "• Blood pressure decreases\n• Pulse rate drops",
-              image_alt: "after 20 minutes"
-            }
-          }
-        },
-
-        ka: {
-          title: 'რას უნდა ელოდოთ როცა წყვეტთ მოწევას',
-          content: {
-            'default': {
-              short: 'მოკლევადიანი შედეგები\nგრძელვადიანი შედეგები',
-              long: 'ჯანდაცვის მსოფლიო ორგანიზაციის მონაცემებით, საქართველოს მოსახლეობის 30.3% მწეველია, რაც მამაკაცების 55.5%-ს, ხოლო ქალების - 4.8%-ს შეადგენს.'
-            },
-            1: {
-              positive: "• სისხლში მხუთავი აირის დონე იკლებს\n• სისხლში ჟანგბადის დონე უბრუნდება ნორმას\n• სისხლში ნიკოტინის რაოდენობა მცირდება 93.75%-ით",
-              image_alt: "8 საათის შემდეგ"
-            },
-            2: {
-              negative: "• აღგზნებადობა აღწევს პიკს",
-              image_alt: "24 საათის შემდეგ"
-            },
-            3: {
-              positive: "• სუნისა და გემოს შეგრძნებები უმჯობესდება",
-              image_alt: "48 საათის შემდეგ"
-            },
-            4: {
-              positive: "• სუნთქვა უმჯობესდება",
-              negative: "• სიგარეტის მოწევის მოთხოვნილება აღწევს პიკს. ზოგს აქვს სურდოსმაგვარი სიმპტომები, თავბრუსხვევა, გულისრევა, უძილობა, მოუსვენრობა და მადის ცვლილება",
-              image_alt: "72 საათის შემდეგ"
-            },
-            5: {
-              positive: "• უარყოფითი სიმპტომები ქრება\n• სისხლის მიმოქცევა უმჯობესდება\n• ფილტვები ფუნქციონირებს უკეთ\n• სიარული ხდება ადვილი\n• ორგანიზმის ენერგია იზრდება\n• ორგანიზმი 100%-ით თავისუფლდება ნიკოტინისგან\n\nმნიშვნელოვნად იკლებს:\n• ხველა\n• სინუსური შეშუპება\n• დაღლილობა\n• სუნთქვის უკმარისობა",
-              image_alt: "2 კვირიდან 9 თვემდე"
-            },
-            6: {
-              positive: "• გულის კორონარული  დაავადებების, შეტევებისა და ინსულტის რისკი მცირდება მინიმუმ 50%-ით",
-              image_alt: "1 წლის შემდეგ"
-            },
-            7: {
-              positive: "• ტვინში სისხლჩაქცევების რისკი მცირდება 41%-ით\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებში მცირდება არამწეველთა რისკის დონემდე\n• ინსულტის რისკი მცირდება არამწეველთა რისკის დონემდე (მოწევის შეწყვეტიდან 5-15 წელიწადში) ",
-              image_alt: "5 წლის შემდეგ"
-            },
-            8: {
-              positive: "• ფილტვის კიბოს რისკი მცირდება 50-70%-ით\n• პირის, ყელის, საყლაპავი მილის, შარდის ბუშტის, თირკმლისა და პანკრეასის ჯირკვლის კიბოს განვითარების რისკი მცირდება\n• წყლულების გაჩენის რისკი მცირდება\n• დიაბეტის განვითარების რისკი ყოფილ მწეველ ქალებსა და კაცებში უტოლდება არამწეველთა რისკს",
-              image_alt: "10 წლის შემდეგ"
-            },
-            9: {
-              positive: "• მოწევით გამოწვეული კბილების დაკარგვის რისკი უტოლდება არამწეველთა რისკს",
-              image_alt: "13 წლის შემდეგ"
-            },
-            10: {
-              positive: "• გულის კორონარული დაავადებების რისკი უტოლდება არამწეველთა რისკს\n• სიკვდილის რისკი დაახლოებით უტოლდება არამწეველთა რისკს",
-              image_alt: "15 წლის შემდეგ"
-            },
-            11: {
-              positive: "• მოწევასთან დაკავშირებული დაავადებებით გამოწვეული სიკვდილის მაღალი რისკი ქალებში მცირდება არამწეველთა რისკის დონემდე\n• პანკრეასის ჯირკვლის კიბოს რისკი მცირდება არამწეველთა რისკის დონემდე",
-              image_alt: "20 წლის შემდეგ"
-            },
-            12: {
-              positive: "• არტერიული წნევა ნორმალიზდება\n• პულსი ნორმალიზდება",
-              image_alt: "20 წუთის შემდეგ"
-            }
-          }
-        }
-      };
-    </script>
+    <script type="text/javascript" src="translations.js"></script>
     <title>რას უნდა ელოდოთ როცა წყვეტთ მოწევას</title>
   </head>
   <body>
 
     <div id="wrapper">
+      <div class="container">
 
-      <div class="header">
-        <a href="javascript:window.location.reload();"><img src="images/title_ka.png" alt="what to expect when you quit smoking" /></a>
-        <div class="locale"><a href="#en">EN</a></div>
-        <div class="rect r1"></div>
-        <div class="rect r2"></div>
-      </div>
-
-      <div id="clock">
-        <div class="h">
-          <div>
-            <img id="img_1" src="images/h/ka/1.png" alt="8 საათის შემდეგ" title="8 საათის შემდეგ" />
-            <img src="images/h/ka/1_active.png" />
-          </div>
-          <div>
-            <img id="img_2" src="images/h/ka/2.png" alt="24 საათის შემდეგ" title="24 საათის შემდეგ" />
-            <img src="images/h/ka/2_active.png" />
-          </div>
-          <div>
-            <img id="img_3" src="images/h/ka/3.png" alt="48 საათის შემდეგ" title="48 საათის შემდეგ" />
-            <img src="images/h/ka/3_active.png" />
-          </div>
-          <div>
-            <img id="img_4" src="images/h/ka/4.png" alt="72 საათის შემდეგ" title="72 საათის შემდეგ" />
-            <img src="images/h/ka/4_active.png" />
-          </div>
-          <div>
-            <img id="img_5" src="images/h/ka/5.png" alt="2 კვირიდან 9 თვემდე" title="2 კვირიდან 9 თვემდე" />
-            <img src="images/h/ka/5_active.png" />
-          </div>
-          <div>
-            <img id="img_6" src="images/h/ka/6.png" alt="1 წლის შემდეგ" title="1 წლის შემდეგ" />
-            <img src="images/h/ka/6_active.png" />
-          </div>
-          <div>
-            <img id="img_7" src="images/h/ka/7.png" alt="5 წლის შემდეგ" title="5 წლის შემდეგ" />
-            <img src="images/h/ka/7_active.png" />
-          </div>
-          <div>
-            <img id="img_8" src="images/h/ka/8.png" alt="10 წლის შემდეგ" title="10 წლის შემდეგ" />
-            <img src="images/h/ka/8_active.png" />
-          </div>
-          <div>
-            <img id="img_9" src="images/h/ka/9.png" alt="13 წლის შემდეგ" title="13 წლის შემდეგ" />
-            <img src="images/h/ka/9_active.png" />
-          </div>
-          <div>
-            <img id="img_10" src="images/h/ka/10.png" alt="15 წლის შემდეგ" title="15 წლის შემდეგ" />
-            <img src="images/h/ka/10_active.png" />
-          </div>
-          <div>
-            <img id="img_11" src="images/h/ka/11.png" alt="20 წლის შემდეგ" title="20 წლის შემდეგ" />
-            <img src="images/h/ka/11_active.png" />
-          </div>
-          <div>
-            <img id="img_12" src="images/h/ka/12.png" alt="20 წუთის შემდეგ" title="20 წუთის შემდეგ" />
-            <img src="images/h/ka/12_active.png" />
-          </div>
-        </div>
-
-        <div class="content">
-          <div class="cell">
-            <div class="item default ka active">
-              <div class="inner">
-                <div class="circle"></div>
-                <div class="text"><script>document.write(texts[locale].content['default'].short)</script></div>
-                <div class="text"><script>document.write(texts[locale].content['default'].long)</script></div>
+        <div style="display: table; margin: 0 auto;">
+          <div id="clock">
+            <div id="clock-bg"></div>
+            <div id="clock-inner">
+              <div class="imgc">
+                <div class="inner">
+                  <div class="img">
+                    <img src="images/i/1.png" alt="8 საათის შემდეგ" />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="item i">
-              <div class="inner">
-                <div class="img">
-                  <div class="i1">
-                    <img src="images/co.png" alt="" />
-                    <img src="images/nikotine.png" alt="" />
-                    <img src="images/o2.png" alt="" />
+              <div class="controls">
+                <div class="inner">
+                  <div class="cc">
+                    <div class="left"></div>
+                    <div class="pause"></div>
+                    <div class="right"></div>
                   </div>
-                  <div class="i2">
-                    <img src="images/anxiety.png" alt="" />
-                  </div>
-                  <div class="i3">
-                    <img src="images/smell.png" alt="" />
-                  </div>
-                  <div class="i4">
-                    <img src="images/lung.png" alt="" />
-                  </div>
-                  <div class="i5">
-                  </div>
-                  <div class="i6">
-                    <img src="images/heart_1year.png" alt="" />
-                  </div>
-                  <div class="i7">
-                    <img src="images/brain.png" alt="" />
-                  </div>
-                  <div class="i8">
-                    <img src="images/nosmoking.png" alt="" />
-                  </div>
-                  <div class="i9">
-                    <img src="images/smile.png" alt="" />
-                  </div>
-                  <div class="i10">
-                    <img src="images/heart.png" alt="" />
-                  </div>
-                  <div class="i11">
-                    <img src="images/freedom.png" alt="" />
-                  </div>
-                  <div class="i12">
-                    <img src="images/heart.png" alt="" />
-                  </div>
-                </div><br />
-                <div class="text">
-                  <div class="positive"></div>
-                  <div class="negative"></div>
                 </div>
               </div>
             </div>
+            <div class="h">
+              <div>
+                <img id="img_1" src="images/h/ka/1.png" alt="8 საათის შემდეგ" title="8 საათის შემდეგ" />
+                <img src="images/h/ka/1-active.png" />
+              </div>
+              <div>
+                <img id="img_2" src="images/h/ka/2.png" alt="24 საათის შემდეგ" title="24 საათის შემდეგ" />
+                <img src="images/h/ka/2-active.png" />
+              </div>
+              <div>
+                <img id="img_3" src="images/h/ka/3.png" alt="48 საათის შემდეგ" title="48 საათის შემდეგ" />
+                <img src="images/h/ka/3-active.png" />
+              </div>
+              <div>
+                <img id="img_4" src="images/h/ka/4.png" alt="72 საათის შემდეგ" title="72 საათის შემდეგ" />
+                <img src="images/h/ka/4-active.png" />
+              </div>
+              <div>
+                <img id="img_5" src="images/h/ka/5.png" alt="2 კვირიდან 9 თვემდე" title="2 კვირიდან 9 თვემდე" />
+                <img src="images/h/ka/5-active.png" />
+              </div>
+              <div>
+                <img id="img_6" src="images/h/ka/6.png" alt="1 წლის შემდეგ" title="1 წლის შემდეგ" />
+                <img src="images/h/ka/6-active.png" />
+              </div>
+              <div>
+                <img id="img_7" src="images/h/ka/7.png" alt="5 წლის შემდეგ" title="5 წლის შემდეგ" />
+                <img src="images/h/ka/7-active.png" />
+              </div>
+              <div>
+                <img id="img_8" src="images/h/ka/8.png" alt="10 წლის შემდეგ" title="10 წლის შემდეგ" />
+                <img src="images/h/ka/8-active.png" />
+              </div>
+              <div>
+                <img id="img_9" src="images/h/ka/9.png" alt="13 წლის შემდეგ" title="13 წლის შემდეგ" />
+                <img src="images/h/ka/9-active.png" />
+              </div>
+              <div>
+                <img id="img_10" src="images/h/ka/10.png" alt="15 წლის შემდეგ" title="15 წლის შემდეგ" />
+                <img src="images/h/ka/10-active.png" />
+              </div>
+              <div>
+                <img id="img_11" src="images/h/ka/11.png" alt="20 წლის შემდეგ" title="20 წლის შემდეგ" />
+                <img src="images/h/ka/11-active.png" />
+              </div>
+              <div>
+                <img id="img_12" src="images/h/ka/12.png" alt="20 წუთის შემდეგ" title="20 წუთის შემდეგ" />
+                <img src="images/h/ka/12-active.png" />
+              </div>
+            </div>
+          </div>
+
+          <div id="content">
+            <div class="header clear">
+              <a href="javascript:location.reload();">
+                <div></div>
+                <div id="page_title">ბოლო სიგარეტის მოწევიდან</div>
+                <div></div>
+              </a>
+            </div>
+            <div class="locale"><a href="#en" title="English">EN</a></div>
+            <div class="body">
+              <div class="subheader">20 წუთის შემდეგ</div>
+              <div class="text">
+                <div class="positive"></div>
+                <div class="negative"></div>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="arrow p1">
-          <div class="main"></div>
-          <div class="side">
-            <div></div>
-            <div></div>
-          </div>
-        </div>
       </div>
 
       <div class="footer">
-        <a id="js_link" href="http://jumpstart.ge/ka" target="_blank">
         <div class="logo">
-          <a target=_blank" href="http://jumpstart.ge/"><img src="images/logo.png" alt="jumpstart logo" /></a>
+          <a class="js_link" target=_blank" href="http://jumpstart.ge/"><img src="images/logo.png" alt="jumpstart logo" /></a>
           <div class="wheel">
-            <a target=_blank" href="http://jumpstart.ge/"><img src="images/logo-wheel.png" alt="jumpstart logo" /></a>
+            <a class="js_link" target=_blank" href="http://jumpstart.ge/"><img src="images/logo-wheel.png" alt="jumpstart logo" /></a>
           </div>
         </div>
-        </a>
       </div>
 
     </div>
@@ -275,141 +121,8 @@
 
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script type="text/javascript">
-$(function ()
-{
-
-  var i = 0;
-  $('#clock .h div, .content .item.default .inner').each(function ()
-  {
-    var _this = $(this);
-    setTimeout(function ()
-    {
-      if (_this.hasClass('inner'))
-      {
-        _this.css({display: 'inline-block', opacity: 0});
-        _this.animate({opacity: 1}, 'fast');
-      }
-      _this.find('img:first').fadeIn('fast'); 
-    }, i * 100);
-    i ++;
-  });
-
-  var t = [];
-  for (j = i - 1; j < i + 11; j ++)
-  {
-    var index = j - 12;
-    var reali = (index == 0) ? 11 : (index - 1);
-    t.push(setTimeout(function (index)
-    {
-      clock_h_click_handler($('#clock .h div:eq(' + index + ')').get(0));
-    },
-    i * 100 + 5000 + index * 5000,
-    reali));
-  }
-
-  $('#clock .h div').click(function ()
-  {
-    for (i in t)
-    {
-      clearTimeout(t[i]);
-    }
-    clock_h_click_handler(this);
-  });
-
-  function clock_h_click_handler (el)
-  {
-    var i = +$(el).index() + 1;
-    $('#clock .arrow')
-    .removeClass(function (index, classname)
-    {
-      return (classname.match (/p[0-9]+/) || []).join(' ');
-    })
-    .addClass('p' + i)
-    .css('transform', 'rotate(' + (+i * 30) + 'deg)')
-    .show();
-
-    texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
-    texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
-
-    $('.content .item')
-    .removeClass('active')
-    .filter('.i')
-    .addClass('active')
-    .find('.text .positive')
-    .html(texts[locale].content[i].positive.replace(/\n/g, '<br />'))
-    .siblings('.negative')
-    .html(texts[locale].content[i].negative.replace(/\n/g, '<br />'));
-
-    $('.content .item .img > div').hide().filter('.i' + i).show();
-
-    $(el).addClass('active').siblings().removeClass('active');
-  }
-
-  function update_translations ()
-  {
-    var to = (locale == 'en') ? 'ka' : 'en';
-    $('.locale a').text(to.toUpperCase());
-    window.setTimeout(function (){ $('.locale a').attr('href', '#' + to); }, 50);
-
-    $('#clock .h div img').attr('src', function (){ $(this).attr('src', $(this).attr('src').replace('images/h/' + to, 'images/h/' + locale)); });
-
-    var keys = Object.keys(texts[locale].content);
-    for (var j=1; j<13; j++ ){
-      var num = keys[j-1];
-      var text = texts[locale].content[j].image_alt;
-      $('#clock .h div img#img_' + num).attr('alt', text);
-      $('#clock .h div img#img_' + num).attr('title', text);
-    }
-
-
-    var i = +$('#clock .h div.active').index() + 1;
-console.log ('var i = ' + i);
-    if (i > 0)
-    {
-console.log ('- updating middle text');
-      texts[locale].content[i].positive = texts[locale].content[i].positive || ''; 
-      texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
-      $('.content .item.i')
-      .find('.text .positive')
-      .html(texts[locale].content[i].positive.replace(/\n/g, '<br />'))
-      .siblings('.negative')
-      .html(texts[locale].content[i].negative.replace(/\n/g, '<br />'));
-    }
-
-    $('.content .item.default')
-    .removeClass(to)
-    .addClass(locale)
-    .find('.text:first')
-    .html(texts[locale].content['default'].short)
-    .siblings('.text')
-    .html(texts[locale].content['default'].long);
-
-    $('html').attr('lang', locale);
-
-    $('.header img').attr('src', $('.header img').attr('src').replace('_' + to, '_' + locale));
-    document.title = texts[locale].title;
-
-    $('#js_link').attr('href', 'http://jumpstart.ge/' + locale);
-  }
-
-  $('.locale a').click(function ()
-  {
-    window.locale = $(this).text().toLowerCase();
-    update_translations($(this).text());
-  });
-
-  if (window.location.hash)
-  {
-    if (window.location.hash.substr(1) == 'ka' || window.location.hash.substr(1) == 'en')
-    {
-      window.locale = window.location.hash.substr(1);
-      update_translations();
-    }
-  }
-
-});
-		</script>
+		<script type="text/javascript" src="timer.js"></script>
+		<script type="text/javascript" src="js.js"></script>
 
   </body>
 </html>
