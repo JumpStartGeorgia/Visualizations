@@ -45,9 +45,9 @@ $(window).load(function ()
     texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
     $('#content .body')
     .find('.text .positive')
-    .html(texts[locale].content[i].positive.replace(/\n/g, '<br />'))
+    .html(texts[locale].content[i].positive.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_positive.png" />'))
     .siblings('.negative')
-    .html(texts[locale].content[i].negative.replace(/\n/g, '<br />'));
+    .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
 
     globali = i++;
   });
@@ -143,9 +143,9 @@ $(window).load(function ()
       texts[locale].content[i].negative = texts[locale].content[i].negative || ''; 
       $('#content .body')
       .find('.text .positive')
-      .html(texts[locale].content[i].positive.replace(/\n/g, '<br />'))
+      .html(texts[locale].content[i].positive.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_positive.png" />'))
       .siblings('.negative')
-      .html(texts[locale].content[i].negative.replace(/\n/g, '<br />'));
+      .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
     }
 
     $('html').attr('lang', locale);
