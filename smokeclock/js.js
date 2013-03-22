@@ -1,6 +1,9 @@
 var math = Math;
 var rad = math.PI / 180;
 var globali = 0;
+var r = 0;
+var cx = 0;
+var cy = 0;
 var timer;
 var $clock = $('#clock');
 
@@ -46,13 +49,8 @@ function create_timer(){
   }, 10);
 }
 
-$(window).load(function ()
+function clock_items_positions ()
 {
-  var r = $clock.width () / 2 - 21;
-
-  var cx = $clock.width()  / 2;
-  var cy = $clock.height() / 2;
-
   for (i = 5; i >= -6; i --)
   {
     deg = i * 30;
@@ -63,6 +61,17 @@ $(window).load(function ()
 
     el.css({top: y + 'px', left: x + 'px'}).fadeIn('fast');
   }
+}
+
+
+$(window).load(function ()
+{
+  r = $clock.width () / 2 - 21;
+
+  cx = $clock.width()  / 2;
+  cy = $clock.height() / 2;
+
+  clock_items_positions();
 
   
 
@@ -188,6 +197,8 @@ $(window).load(function ()
     $('html').attr('lang', locale);
 
     $('.js_link').attr('href', 'http://jumpstart.ge/' + locale);
+
+    clock_items_positions();
   }
 
   $('.locale a').click(function ()

@@ -173,11 +173,12 @@ body {
 #content .locale a {
   text-decoration: none;
   color: #fff;
-  -webkit-transition: all .31s;
+  margin-right: 19px;
+  font-size: 14px;
 }
 
 #content .locale a:hover {
-  text-decoration: underline;
+  color: #000100;
 }
 
 #content .header {
