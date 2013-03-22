@@ -6,6 +6,7 @@ var cx = 0;
 var cy = 0;
 var timer;
 var $clock = $('#clock');
+var $clockbg = $('#clock-bg');
 
 function round_digits (n, digits_count)
 {
@@ -16,7 +17,11 @@ function round_digits (n, digits_count)
 function time_click(ths){
   var i = $(ths).index() + 1;
   $(ths).addClass('active').siblings().removeClass('active');
-  $('#clock-bg').css('transform', 'rotate(' + i * 30 + 'deg)');
+
+  var clone = $clockbg.clone();
+  $clockbg.css('transform', 'rotate(' + i * 30 + 'deg)').parent().append(clone);
+  clone.fadeOut(300, function (){ clone.remove(); });
+  
 
   if (i == 12){
     $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
@@ -35,7 +40,6 @@ function time_click(ths){
   .html('<ul>' + texts[locale].content[i].negative.replace(/•/g, '<li>').replace(/\n/g, '</li>') + '</li></ul>');
 
   globali = i++;
-//console.log(1, texts[locale].content[i].positive, 2, '<ul>' + texts[locale].content[i].positive.replace(/•/g, '</li><li>').replace(/^<\/li>/, '').replace(/\n/g, '<br />') + '</li></ul>')
 }
 
 function create_timer(){
