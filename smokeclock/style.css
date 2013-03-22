@@ -142,18 +142,42 @@ body {
 }
 
 #clock .h > div {
-  display: none;
+  visibility: hidden;
   position: absolute;
   z-index: 2;
   cursor: pointer;
 }
 
-#clock .h > div.active img:first-child, #clock .h div img:last-child {
+#clock .h > div.loaded {
+  visibility: visible;
+}
+
+#clock .h > div img {
+  display: block;
+}
+
+#clock .h > div.loaded img {
+  position: absolute;
+  -webkit-transition: opacity .5s;
+     -moz-transition: opacity .5s;
+       -o-transition: opacity .5s;
+          transition: opacity .5s;
+}
+
+#clock .h > div.active img:first-child, #clock .h > div:hover img:first-child, #clock .h div img:last-child {
   display: none;
 }
 
-#clock .h > div.active img:last-child {
+#clock .h > div.active.loaded img:first-child, #clock .h > div.loaded:hover img:first-child, #clock .h div.loaded img:last-child {
   display: block;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+#clock .h > div.active img:last-child, #clock .h > div:hover img:last-child {
+  display: block;
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 #clock, #content {
@@ -168,6 +192,10 @@ body {
 #content .locale {
   text-align: right;
   margin-bottom: 5px;
+}
+
+a {
+  outline: none;
 }
 
 #content .locale a {

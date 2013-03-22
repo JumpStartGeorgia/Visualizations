@@ -49,17 +49,28 @@ function create_timer(){
   }, 10);
 }
 
-function clock_items_positions ()
+function clock_items_positions (init)
 {
+  $clock.find('.h > div').removeClass('loaded');
   for (i = 5; i >= -6; i --)
   {
+    var j = (-i + 5);
     deg = i * 30;
-    var el = $clock.find('.h > div:eq(' + (-i + 5) + ')');
+    var el = $clock.find('.h > div:eq(' + j + ')');
 
     x = round_digits(r * math.sin(deg * rad) + cx - el.width() / 2, 2);
     y = round_digits(r * math.cos(deg * rad) + cy - el.height() / 2, 2);
 
-    el.css({top: y + 'px', left: x + 'px'}).fadeIn('fast');
+    el.css({top: y + 'px', left: x + 'px'})
+
+    if (init)
+    {
+      setTimeout(function (el){ el.hide().addClass('loaded').fadeIn('fast'); }, j * 55, el);
+    }
+    else
+    {
+      el.addClass('loaded');
+    }
   }
 }
 
@@ -71,7 +82,7 @@ $(window).load(function ()
   cx = $clock.width()  / 2;
   cy = $clock.height() / 2;
 
-  clock_items_positions();
+  clock_items_positions(true);
 
   
 
@@ -148,7 +159,7 @@ $(window).load(function ()
     }
   });
 
-  function update_translations ()
+  function update_translations (init)
   {
     var to = (locale == 'en') ? 'ka' : 'en';
     $('.locale a').text(to.toUpperCase());
@@ -198,13 +209,13 @@ $(window).load(function ()
 
     $('.js_link').attr('href', 'http://jumpstart.ge/' + locale);
 
-    clock_items_positions();
+    clock_items_positions(init);
   }
 
   $('.locale a').click(function ()
   {
     window.locale = $(this).text().toLowerCase();
-    update_translations($(this).text());
+    update_translations(false);
   });
 
   if (window.location.hash)
@@ -212,7 +223,7 @@ $(window).load(function ()
     if (window.location.hash.substr(1) == 'ka' || window.location.hash.substr(1) == 'en')
     {
       window.locale = window.location.hash.substr(1);
-      update_translations();
+      update_translations(true);
     }
   }
 
