@@ -199,11 +199,15 @@ body {
 #content .header a > div:nth-child(2) {
   height: 56px;
   line-height: 56px;
-  width: 416px;
-  text-align: center;
+  width: 405px;
+  padding-left: 11px;
   background: #fff;
+  font-size: 21px;
+  text-transform: uppercase;
+}
+
+#content .header a > div:nth-child(2).en {
   font-size: 15px;
-  text-transform:uppercase;
 }
 
 #content .header a > div:first-child, #content .header a > div:last-child {
@@ -232,6 +236,7 @@ body {
   font-family: dejavu;
   margin-bottom: 17px;
   font-size: 15px;
+  text-transform: uppercase;
 }
 
 #content .body .text {
@@ -241,6 +246,7 @@ body {
 
 #content .body .text ul {
   list-style-type: disc;
+  margin-left: 25px;
 }
 
 #content .body .text .positive ul {

@@ -158,6 +158,8 @@ $(window).load(function ()
     $('#page_title').html(texts[locale].title);
     document.title = texts[locale].title;
 
+    $('#page_title').removeClass(to).addClass(locale);
+
     $('.locale a').attr('title', texts[locale].lang_switcher);
 
     $('.controls .right').attr('title', texts[locale].right);
