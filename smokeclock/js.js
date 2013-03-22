@@ -1,5 +1,3 @@
-
-
 var math = Math;
 var rad = math.PI / 180;
 var globali = 0;
@@ -52,7 +50,7 @@ $(window).load(function ()
     if (i == 12){
       $('.imgc .img img').attr('src', 'images/i/' + i + '_' + locale + '.png').attr('alt', texts[locale].content[i].image_alt);
     } else {
-      $('.imgc .img img').attr('src', $('.imgc .img img').attr('src').replace(/[0-9]+\.png/, i + '.png')).attr('alt', texts[locale].content[i].image_alt);
+      $('.imgc .img img').attr('src', 'images/i/' + i + '.png').attr('alt', texts[locale].content[i].image_alt);
     }
 
     $('#content .subheader').html(texts[locale].content[i].image_alt);
@@ -65,8 +63,8 @@ $(window).load(function ()
     .siblings('.negative')
     .html(texts[locale].content[i].negative.replace(/\n/g, '<br />').replace(/•/g, '<img src="images/smile_negative.png" />'));
 
-    timer.stop();
-    create_timer();
+//    timer.stop();
+//    create_timer();
 
     globali = i++;
   });
@@ -103,6 +101,23 @@ $(window).load(function ()
     create_timer();
   });
 
+  // catch left and right arrow
+  $(window).keydown(function (event)
+  {
+    switch (event.keyCode)
+    {
+      case 37:
+        globali --;
+        globali --;
+        timer.stop();
+        create_timer();
+        break;
+      case 39:
+        timer.stop();
+        create_timer();
+        break;
+    }
+  });
 
   function update_translations ()
   {
