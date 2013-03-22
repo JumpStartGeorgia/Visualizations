@@ -91,16 +91,20 @@ $(window).load(function ()
 
   $clock.find('.controls .right').live('click', function ()
   {
-    timer.stop();
-    create_timer();
+    if (globali < 12){
+      timer.stop();
+      create_timer();
+    }
   });
 
   $clock.find('.controls .left').live('click', function ()
   {
-    globali --;
-    globali --;
-    timer.stop();
-    create_timer();
+    if (globali > 1){
+      globali --;
+      globali --;
+      timer.stop();
+      create_timer();
+    }
   });
 
   // catch left and right arrow
@@ -108,15 +112,19 @@ $(window).load(function ()
   {
     switch (event.keyCode)
     {
-      case 37:
-        globali --;
-        globali --;
-        timer.stop();
-        create_timer();
+      case 37: // left
+        if (globali > 1){
+          globali --;
+          globali --;
+          timer.stop();
+          create_timer();
+        }
         break;
-      case 39:
-        timer.stop();
-        create_timer();
+      case 39: // right
+        if (globali < 12){
+          timer.stop();
+          create_timer();
+        }
         break;
     }
   });
