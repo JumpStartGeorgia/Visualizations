@@ -54,7 +54,7 @@ var translations = {
       trust: "Trust",
       distrust: "Distrust",
       partial: "Partialy Both",
-      now_know: "Don't Know"
+      not_know: "Don't Know"
     }
   },
   ka: {
@@ -81,7 +81,7 @@ var translations = {
       trust: "ვენდობი",
       distrust: "არ ვენდობი",
       partial: "ნაწილობრივ ორივე",
-      now_know: "არ ვიცი"
+      not_know: "არ ვიცი"
     }
   }
 };

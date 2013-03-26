@@ -13,7 +13,7 @@ function create_main_chart(){
         }
       },
       title: {
-          text: 'World\'s largest cities per 2008'
+          text: translations[locale]['groups'][chart_type]
       },
       xAxis: {
           categories: create_chart_axis(chart_data[chart_type]['axis']),
@@ -29,7 +29,7 @@ function create_main_chart(){
       yAxis: {
           min: 0,
           title: {
-              text: 'Population (millions)'
+              text: 'Percent (%)'
           }
       },
       legend: {
