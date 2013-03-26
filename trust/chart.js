@@ -1,3 +1,5 @@
+var chart_type = "trust";
+
 $(function () {
         $('#container').highcharts({
             chart: {
@@ -8,7 +10,7 @@ $(function () {
                 text: 'World\'s largest cities per 2008'
             },
             xAxis: {
-                categories: create_chart_axis(chart_data['trust']['axis']),
+                categories: create_chart_axis(chart_data[chart_type]['axis']),
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -36,7 +38,7 @@ $(function () {
             },
             series: [{
                 name: 'Population',
-                data: chart_data['trust']['values'],
+                data: chart_data[chart_type]['values'],
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
