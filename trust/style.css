@@ -1,0 +1,26 @@
+#header{
+  text-align: center;
+}
+#container #chart_nav{
+  float: left;
+  width: 150px;
+  text-align: center;
+  height: 400px; 
+}
+#container #chart_nav ul li{
+  list-style-type: none;
+}
+
+#container #main_chart{
+  float: left;
+  min-width: 400px; 
+  height: 400px; 
+  margin: 0 auto
+}
+#container:after{
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
