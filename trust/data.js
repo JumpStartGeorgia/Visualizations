@@ -1,15 +1,12 @@
-var locale = 'ka';
+var locale = 'en';
 
 function create_chart_axis(axis){
-console.log('create chart axis start');
   x = [];
 
   for (var i = 0; i<axis.length; i++){
-    console.log("axis[i] = " + axis[i]);
     x[i] = translations[locale]['categories'][axis[i]];
   }
 
-console.log('create chart axis stop');
   return x;
 }
 
