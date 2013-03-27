@@ -16,7 +16,7 @@ Object.prototype.key_by_value = function (value)
 var chart_type = "trust";
 var chart;
 function create_main_chart(){
-  $('#main_chart').css('width', $(window).width()-$('#chart_nav').width()-80);
+  $('#main_chart').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80-20);
   $('#main_chart').highcharts({
       chart: {
           type: 'column',
@@ -28,7 +28,11 @@ function create_main_chart(){
         }
       },
       title: {
-          text: translations[locale]['groups'][chart_type]
+          text: translations[locale]['groups'][chart_type],
+          style: {
+            fontSize: '20px',
+            color: chart_data[chart_type]['bar_color']
+          }
       },
       xAxis: {
           categories: create_chart_axis(chart_data[chart_type]['axis']),
@@ -62,7 +66,8 @@ function create_main_chart(){
                 return this.y + '%';
             },
             color: '#000'
-          }
+          },
+          color: chart_data[chart_type]['bar_color']
         }
       },
       tooltip: {

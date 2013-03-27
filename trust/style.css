@@ -1,14 +1,56 @@
+body{
+  background-color: #e6e6e6;
+  margin: 20px;
+}
 #header{
-  text-align: center;
+  margin-bottom: 20px;
+}
+
+#container #explanation{
+  float: left;
+  width: 300px;
+  height: 315px;
+  background-color: #fff;
+  padding: 0 10px;
+  font-size: 13px;
 }
 #container #chart_nav{
   float: left;
-  width: 150px;
+  width: 200px;
   text-align: center;
-  height: 400px; 
+  height: 315px;
+}
+#container #chart_nav ul {
+  padding-left: 0;
+  margin: 0 10px;
 }
 #container #chart_nav ul li{
   list-style-type: none;
+  height: 66px;
+  margin: 17px 0;
+  font-size: 25px;
+}
+#container #chart_nav ul li#trust {
+  margin-top: 0;
+  background-color: #23a570;
+}
+#container #chart_nav ul li#distrust {
+  background-color: #db5d5d;
+}
+#container #chart_nav ul li#partial {
+  background-color: #48617a;
+}
+#container #chart_nav ul li#not_know {
+  background-color: #666666;
+}
+#container #chart_nav ul li a{
+  display: block;
+  width: 100%;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #fff;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 #container #main_chart{
@@ -17,10 +59,26 @@
   height: 400px; 
   margin: 0 auto
 }
-#container:after{
+
+#container:after, #bottom_container:after{
   visibility: hidden;
   display: block;
   content: "";
   clear: both;
   height: 0;
+}
+
+#bottom_container{
+  margin-top: 15px;
+  background-color: #c2c2c2;
+}
+#bottom_container > div {
+  float: left;
+  width: 20%;
+  margin: 30px 0 30px 30px;  
+  background-color: #fff;
+  min-height: 75px;
+  padding: 10px;
+  font-size: 12px;
+  
 }
