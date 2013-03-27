@@ -6,27 +6,41 @@ function build_tooltip (data)
         type: 'column'
       },
       title: {
-        text: 'Monthly Average Rainfall'
-      },
-      subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: data.title
       },
       xAxis: {
         categories: data.categories
       },
       yAxis: {
         min: 0,
+        max: 100,
         title: {
-          text: 'Rainfall (mm)'
+            text: null
+        }
+      },
+      legend: {
+          enabled: false
+      },
+      credits: {
+          enabled: false
+      },
+      plotOptions: {
+        column: {
+          dataLabels: {
+            enabled: true,
+            formatter: function() {
+                return this.y + '%';
+            },
+            color: '#000'
+          },
+          color: chart_data[chart_type]['bar_color']
         }
       },
       tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-          '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
+        enabled: false
+      },
+      exporting: {
+        enabled: false
       },
       plotOptions: {
         column: {
@@ -35,7 +49,7 @@ function build_tooltip (data)
         }
       },
       series: [{
-        name: 'Tokyo',
+        name: 'category',
         data: data.values
       }]
   });
