@@ -107,3 +107,26 @@ body{
   font-size: 12px;
   
 }
+
+
+
+#tooltip {
+  position: absolute;
+}
+
+#tooltip .chart {
+  width: 400px;
+  height: 200px;
+}
+
+#tooltip .before {
+  margin: 0 auto;
+  width: 0px;
+  display: block;
+  border: 7px solid transparent;
+  border-bottom-color: #fff;
+  border-top: none;
+}
+
+
+

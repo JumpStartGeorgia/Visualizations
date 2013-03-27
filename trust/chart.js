@@ -68,6 +68,13 @@ function create_main_chart(){
       tooltip: {
           formatter: function() {
 
+              var transform = $('#main_chart .highcharts-series').attr('transform').match(/translate\(([0-9]+\.?[0-9]*),\s*([0-9]+\.?[0-9]*)\)/),
+              offset = $('#main_chart').offset();
+              var position = {
+                x: this.point.plotX + offset.left + +transform[1],
+                y: this.point.plotY + offset.top + +transform[2]
+              };
+
               var _key = (function (collection, _value)
               {
                 var found = false, _key;
@@ -83,12 +90,20 @@ function create_main_chart(){
                 return (found ? _key : false);
               })(translations[locale].categories, this.x);
 
-              var data = {values: [], values_with_keys: {}, categories: []};
+              var data = {
+                values: [{y: 0, color: '#23a570'}, {y: 0, color: '#db5d5d'}, {y: 0, color: '#48617a'}, {y: 0, color: '#666666'}], 
+                values_with_keys: {}, 
+                categories: [],
+                title: this.x,
+                position: position
+              };
+              var index = 0;
               $.each(chart_data, function (key, value)
               {
                 data.categories.push(translations[locale].groups[key]);
                 data.values_with_keys[key] = value.values[value.axis.indexOf(_key)];
-                data.values.push(data.values_with_keys[key]);
+                data.values[index]['y'] = data.values_with_keys[key];
+                index++;
               });
               build_tooltip(data);
 

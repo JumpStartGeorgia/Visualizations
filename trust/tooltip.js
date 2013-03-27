@@ -3,41 +3,60 @@ var tooltip_options = {
     type: 'column'
   },
   title: {
-    text: 'Monthly Average Rainfall'
-  },
-  subtitle: {
-    text: 'Source: WorldClimate.com'
   },
   xAxis: {
   },
   yAxis: {
     min: 0,
+    max: 100,
     title: {
-      text: 'Rainfall (mm)'
+      text: null
     }
   },
+  legend: {
+    enabled: false
+  },
+  credits: {
+    enabled: false
+  },
   tooltip: {
-    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-      '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-    footerFormat: '</table>',
-    shared: true,
-    useHTML: true
+    enabled: false
+  },
+  exporting: {
+    enabled: false
   },
   plotOptions: {
     column: {
-      pointPadding: 0.2,
-      borderWidth: 0
+      dataLabels: {
+        enabled: true,
+        formatter: function() {
+          return this.y + '%';
+        },
+        color: '#000'
+      }
     }
   },
   series: [{
-    name: 'Tokyo'
+    name: 'Category'
   }]
 };
+
+$(function ()
+{
+  tooltip_options.plotOptions.column.color = chart_data[chart_type]['bar_color'];
+});
 
 function build_tooltip (data)
 {
   tooltip_options.xAxis.categories = data.categories;
+  tooltip_options.title.text = data.title;
   tooltip_options.series[0].data = data.values;
-  $('#tooltip').highcharts(tooltip_options);
+  var top = $('#main_chart').height() + $('#main_chart').position().top;
+  var left = data.position.x - $('#tooltip').width() / 2;
+  $('#tooltip').css({left: left, top: top}).children('.chart').highcharts(tooltip_options);
 }
+
+
+
+
+
