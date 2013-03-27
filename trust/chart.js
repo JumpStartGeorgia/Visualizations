@@ -16,19 +16,18 @@ Object.prototype.key_by_value = function (value)
 var chart_type = "trust";
 var chart;
 function create_main_chart(){
-  $('#main_chart').css('width', $(window).width()-$('#chart_nav').width()-80);
+  $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80-20);
   $('#main_chart').highcharts({
       chart: {
           type: 'column',
-          margin: [ 50, 50, 100, 80],
-          events: {
-            redraw: function() {
-                alert ('new chart type = ' + chart_type);
-            }
-        }
+          margin: [ 50, 50, 100, 80]
       },
       title: {
-          text: translations[locale]['groups'][chart_type]
+          text: translations[locale]['groups'][chart_type],
+          style: {
+            fontSize: '20px',
+            color: chart_data[chart_type]['bar_color']
+          }
       },
       xAxis: {
           categories: create_chart_axis(chart_data[chart_type]['axis']),
@@ -43,12 +42,28 @@ function create_main_chart(){
       },
       yAxis: {
           min: 0,
+          max: 100,
           title: {
-              text: 'Percent (%)'
+              text: null
           }
       },
       legend: {
           enabled: false
+      },
+      credits: {
+          enabled: false
+      },
+      plotOptions: {
+        column: {
+          dataLabels: {
+            enabled: true,
+            formatter: function() {
+                return this.y + '%';
+            },
+            color: '#000'
+          },
+          color: chart_data[chart_type]['bar_color']
+        }
       },
       tooltip: {
           formatter: function() {
@@ -84,19 +99,7 @@ function create_main_chart(){
       },
       series: [{
           name: 'Population',
-          data: chart_data[chart_type]['values'],
-          dataLabels: {
-              enabled: true,
-              rotation: -90,
-              color: '#FFFFFF',
-              align: 'right',
-              x: 4,
-              y: 10,
-              style: {
-                  fontSize: '13px',
-                  fontFamily: 'Verdana, sans-serif'
-              }
-          }
+          data: chart_data[chart_type]['values']
       }]
   });
 }

@@ -2,7 +2,7 @@
 <html lang="ka">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Highcharts Example</title>
+		<title>ვის ენდობა საქართველოს მოსახლეობა?</title>
 
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -10,31 +10,49 @@
 	</head>
 	<body>
     <div id="header">
-      <h1>page title</h1>
-      <h2>sub-title</h2>
-
-      <p>explanation text</p>
+      <h1>ვის ენდობა საქართველოს მოსახლეობა?</h1>
     </div>
 
     <div id="container">
+      <div id="explanation">
+        <p>კავკასიის კვლევითი რესურსების ცენტრმა მთელი ქვეყნის მასშტაბით 2502 ადამიანი გამოკითხა. კვლევა პირისპირ ინტერვიუს მეთოდისა და კლასტერული შერჩევის გამოყენებით 2012 წლის 26 ოქტობრიდან 29 ნოემბრამდე მიმდინარეობდა. 
+        </p>
+        <p>
+ინტერვიუერებმა რესპონდენტებს 17 სხვადასხვა სოციალური ინსტიტუტისა თუ პოლიტიკური გაერთიანების მიმართ ნდობის შეფასება სთხოვეს. მათი პასუხების მიხედვით, ჯამპსტარ ჯორჯიამ ააგო ინტერაქტიული ვიზუალიზაცია, სადაც წარმოდგენილია 17-ივე ინსტიტუტისა თუ გაერთიანების რეიტინგი ოთხი სხვადასხვა პასუხის მიხედვით: “ვენდობი”, “არ ვენდობი”, “ნაწილობრივ ვენდობი, ნაწილობრივ არა” და “არ ვიცი”.</p>
+      </div>
       <div id="chart_nav">
         <ul>
-          <li id="trust">
-            <a data-type="trust" href="#">Trust</a>
+          <li id="trust" class="active">
+            <a data-type="trust" href="#">ვენდობი</a>
           </li>
           <li id="distrust">
-            <a data-type="distrust" href="#">Distrust</a>
+            <a data-type="distrust" href="#">არ ვენდობი</a>
           </li>
           <li id="partial">
-            <a data-type="partial" href="#">Partial</a>
+            <a data-type="partial" href="#">ნაწილობრივ ორივე</a>
           </li>
           <li id="not_know">
-            <a data-type="not_know" href="#">Don't Know</a>
+            <a data-type="not_know" href="#">არ ვიცი</a>
           </li>
         </ul>
       </div>
-      <div id="main_chart"></div>
+      <div id="chart_container">
+        <div id="main_chart"></div>
+      </div>
     </div>
+
+    <div id="bottom_container">
+      <div>
+        ზოგადად, საქართველოს მოსახლეობა ნდობას უფრო ხშირად გამოხატავს, ვიდრე უნდობლობას: თითოეული ინსტიტუტისა თუ გაერთიანების მიმართ ნდობა საშუალოდ გამოკითხულთა 40%-მა გამოხატა, ხოლო უნდობლობა - მხოლოდ 12%-მა.
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+    </div>
+
     <div id="tooltip" style="width: 400px; height: 200px;"></div>
 
 
