@@ -1,4 +1,4 @@
-var locale = 'en';
+var locale = 'ka';
 
 function create_chart_axis(axis){
   x = [];

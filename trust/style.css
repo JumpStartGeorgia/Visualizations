@@ -52,7 +52,9 @@ body{
   padding-top: 20px;
   font-weight: bold;
 }
-
+#container #chart_nav ul li#partial a{
+  padding-top: 2px;
+}
 #container #main_chart{
   float: left;
   min-width: 400px; 
