@@ -44,11 +44,25 @@ function create_main_chart(){
       yAxis: {
           min: 0,
           title: {
-              text: 'Percent (%)'
+              text: null
           }
       },
       legend: {
           enabled: false
+      },
+      credits: {
+          enabled: false
+      },
+      plotOptions: {
+        column: {
+          dataLabels: {
+            enabled: true,
+            formatter: function() {
+                return this.y + '%';
+            },
+            color: '#000'
+          }
+        }
       },
       tooltip: {
           formatter: function() {
@@ -84,19 +98,7 @@ function create_main_chart(){
       },
       series: [{
           name: 'Population',
-          data: chart_data[chart_type]['values'],
-          dataLabels: {
-              enabled: true,
-              rotation: -90,
-              color: '#FFFFFF',
-              align: 'right',
-              x: 4,
-              y: 10,
-              style: {
-                  fontSize: '13px',
-                  fontFamily: 'Verdana, sans-serif'
-              }
-          }
+          data: chart_data[chart_type]['values']
       }]
   });
 }
