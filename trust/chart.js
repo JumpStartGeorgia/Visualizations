@@ -86,15 +86,13 @@ function create_main_chart(){
               var data = {values: [], values_with_keys: {}, categories: []};
               $.each(chart_data, function (key, value)
               {
-                data.categories.push(key);
+                data.categories.push(translations[locale].groups[key]);
                 data.values_with_keys[key] = value.values[value.axis.indexOf(_key)];
                 data.values.push(data.values_with_keys[key]);
               });
               build_tooltip(data);
 
-              return '<b>'+ this.x +'</b><br/>'+
-                  'Population in 2008: '+ Highcharts.numberFormat(this.y, 1) +
-                  ' millions';
+              return false;
           }
       },
       series: [{
