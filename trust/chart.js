@@ -83,12 +83,15 @@ function create_main_chart(){
                 return (found ? _key : false);
               })(translations[locale].categories, this.x);
 
-              var data = {values: [], values_with_keys: {}, categories: [], title: this.x};
+              var data = {values: [{y: 0, color: '#23a570'},{y: 0, color: '#db5d5d'},{y: 0, color: '#48617a'},{y: 0, color: '#666666'}], 
+                          values_with_keys: {}, categories: [], title: this.x};
+              var index = 0;
               $.each(chart_data, function (key, value)
               {
                 data.categories.push(translations[locale]['groups'][key]);
                 data.values_with_keys[key] = value.values[value.axis.indexOf(_key)];
-                data.values.push(data.values_with_keys[key]);
+                data.values[index]['y'] = data.values_with_keys[key];
+                index++;
               });
               build_tooltip(data);
 
