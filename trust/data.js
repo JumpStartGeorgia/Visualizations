@@ -59,6 +59,14 @@ var translations = {
       distrust: "Distrust",
       partial: "Partialy Both",
       not_know: "Don't Know"
+    },
+    export_text:{
+      downloadPNG: "Download PNG image",
+      downloadJPEG: "Download JPEG image",
+      downloadPDF: "Download PDF document",
+      downloadSVG: "Download SVG vector image",
+      exportButtonTitle: "Export the chart",
+      printButtonTitle: "Print the chart"
     }
   },
   ka: {
@@ -86,6 +94,14 @@ var translations = {
       distrust: "არ ვენდობი",
       partial: "ნაწილობრივ ორივე",
       not_know: "არ ვიცი"
+    },
+    export_text:{
+      downloadPNG: "ჩამოტვირთე PNG გამოსახულება",
+      downloadJPEG: "ჩამოტვირთე JPEG გამოსახულება",
+      downloadPDF: "ჩამოტვირთე PDF დოკუმენტი",
+      downloadSVG: "ჩამოტვირთე SVG ვექტორული გამოსახულება",
+      exportButtonTitle: "შეინახე გამოსახულება",
+      printButtonTitle: "ამობეჭდე გრაფიკი"
     }
   }
 };
