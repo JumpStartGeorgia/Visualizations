@@ -53,6 +53,14 @@ function create_main_chart(){
       credits: {
           enabled: false
       },
+      lang: {
+          downloadPNG: translations[locale].export_text.downloadPNG,
+          downloadJPEG: translations[locale].export_text.downloadJPEG,
+          downloadPDF: translations[locale].export_text.downloadPDF,
+          downloadSVG: translations[locale].export_text.downloadSVG,
+          exportButtonTitle: translations[locale].export_text.exportButtonTitle,
+          printButtonTitle: translations[locale].export_text.printButtonTitle
+      },
       plotOptions: {
         column: {
           dataLabels: {
