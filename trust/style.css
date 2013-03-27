@@ -43,6 +43,12 @@ body{
 #container #chart_nav ul li#not_know {
   background-color: #666666;
 }
+#container #chart_nav ul li.active {
+  margin-top: 0;
+  background-color: #fff !important;
+  margin-right: -10px;
+}
+
 #container #chart_nav ul li a{
   display: block;
   width: 100%;
@@ -52,14 +58,31 @@ body{
   padding-top: 20px;
   font-weight: bold;
 }
+
 #container #chart_nav ul li#partial a{
   padding-top: 2px;
 }
-#container #main_chart{
+
+#container #chart_nav ul li#trust.active a {
+  color: #23a570;
+}
+#container #chart_nav ul li#distrust.active a {
+  color: #db5d5d;
+}
+#container #chart_nav ul li#partial.active a {
+  color: #48617a;
+}
+#container #chart_nav ul li#not_know.active a {
+  color: #666666;
+}
+
+
+#container #chart_container{
   float: left;
   min-width: 400px; 
   height: 400px; 
-  margin: 0 auto
+  margin: 0 auto;
+  background-color: #fff;
 }
 
 #container:after, #bottom_container:after{
