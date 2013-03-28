@@ -1,9 +1,13 @@
+
+
 $(document).ready(function() {
+  function set_chart_width(){
+    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-60);
+  }
+
   create_main_chart();
 
   function redraw_map(link_ref){
-console.log("redraw map start");
-console.log(link_ref);
     chart_type = $(link_ref).data('type');
     $('#main_chart').highcharts().destroy();
     create_main_chart();
@@ -16,6 +20,7 @@ console.log(link_ref);
     return false;
   });
 
+  $(window).bind('resize', set_chart_width);
 
   function update_translations (init)
   {

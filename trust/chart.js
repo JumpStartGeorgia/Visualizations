@@ -15,8 +15,11 @@ Object.prototype.key_by_value = function (value)
 
 var chart_type = "trust";
 var chart;
+
 function create_main_chart(){
-  $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80-20);
+
+    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-60);
+
   $('#main_chart').highcharts({
       chart: {
           type: 'column',

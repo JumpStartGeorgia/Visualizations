@@ -96,16 +96,20 @@ body{
 #bottom_container{
   margin-top: 15px;
   background-color: #c2c2c2;
+  text-align: center;
 }
 #bottom_container > div {
-  float: left;
+  display: inline-block;
   width: 20%;
   margin: 30px 0 30px 30px;  
   background-color: #fff;
   min-height: 75px;
   padding: 10px;
   font-size: 12px;
-  
+}
+
+#bottom_container > div:first-of-type {
+  margin-left: 0;  
 }
 
 
