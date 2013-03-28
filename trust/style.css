@@ -69,17 +69,22 @@ html, body{
 }
 #container #chart_nav ul {
   padding-left: 0;
+  height: 100%;
   margin: 0 10px;
 }
 #container #chart_nav ul li{
   list-style-type: none;
-  height: 64px;
-  margin-bottom: 15px;
+  display: block;
+  height: 63px;
+  margin-bottom: 16px;
   font-size: 14px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   -khtml-border-radius: 3px;
+}
+#container #chart_nav ul li:last-child {
+  margin-bottom: 0px;
 }
 #container #chart_nav ul li a img{
   vertical-align: middle;
