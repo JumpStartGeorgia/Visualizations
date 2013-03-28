@@ -71,8 +71,8 @@ var translations = {
     },
     box:{
       1: "In Georgia, most people trust Religious Institutions (85%) and have the least trust with Political Parties (16%).",
-      2: "Most people distrust the President (31%), the have the least distrust with Religious Institutions (2%).",
-      3: "Most people have mixed feelings toward the Media (51%), most vague feeling toward the Obmudsman (35%) and NGOs (33%).",
+      2: "Most people distrust the President (31%) and have the least distrust with Religious Institutions (2%).",
+      3: "Most people are indifferent towards the Media (51%) and most do not know how they feel about the Obmudsman (35%) and NGOs (33%).",
       4: "Trust is expressed more often in Georgia than distrust. On average, 39% express trust with an institution, while 12% express distrust.",
     },
     title: "Who Do Georgian's Trust?",
