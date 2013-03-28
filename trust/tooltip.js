@@ -7,8 +7,6 @@ var tooltip_options = {
   xAxis: {
   },
   yAxis: {
-    min: 0,
-    max: 100,
     title: {
       text: null
     },
@@ -61,8 +59,13 @@ function build_tooltip (data)
 
   if (left + $('#tooltip .chart').width() > $(window).width())
   {
-    //$('#tooltip .chart').css({position: 'absolute', left: left});
-    left = $(window).width() - $('#tooltip .chart').width();
+    new_left = $(window).width() - $('#tooltip .chart').width();
+    $('#tooltip .before').css({marginLeft: (data.position.x - new_left - $('#tooltip .before').outerWidth() / 2)});
+    left = new_left;
+  }
+  else
+  {
+    $('#tooltip .before').removeAttr('style');
   }
 
   $('#tooltip').css({left: left, top: top}).children('.chart').highcharts(tooltip_options);

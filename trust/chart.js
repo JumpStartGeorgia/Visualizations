@@ -48,7 +48,8 @@ function create_main_chart(){
           max: 100,
           title: {
               text: null
-          }
+          },
+          gridLineColor: '#f2f2f2'
       },
       legend: {
           enabled: false
