@@ -13,6 +13,10 @@ $(document).ready(function() {
     create_main_chart();
     $('#chart_nav li').removeClass('active');        
     $('#chart_nav li#' + chart_type).addClass('active');        
+    $('#chart_nav li img').each(function(){
+      $(this).attr('src', $(this).attr('src').replace('_active', ''))
+    });
+    $('#chart_nav li.active img').attr('src', 'images/' + chart_type + '_active.png');
   }
 
   $('#chart_nav a').click(function(){
@@ -28,16 +32,16 @@ $(document).ready(function() {
     $('.locale a').text(to.toUpperCase());
     window.setTimeout(function (){ $('.locale a').attr('href', '#' + to); }, 50);
 
-    $('#header h1').html(translations[locale].title);
+    $('#header h1 span').html(translations[locale].title);
     document.title = translations[locale].title;
 
     $('#explanation1').html(translations[locale].side_text['1']);
     $('#explanation2').html(translations[locale].side_text['2']);
 
-    $('#trust a').html(translations[locale].groups.trust);
-    $('#distrust a').html(translations[locale].groups.distrust);
-    $('#partial a').html(translations[locale].groups.partial);
-    $('#not_know a').html(translations[locale].groups.not_know);
+    $('#trust a span').html(translations[locale].groups.trust);
+    $('#distrust a span').html(translations[locale].groups.distrust);
+    $('#partial a span').html(translations[locale].groups.partial);
+    $('#not_know a span').html(translations[locale].groups.not_know);
 
     redraw_map($('#chart_nav li.active a'));  
 
@@ -56,6 +60,8 @@ $(document).ready(function() {
 
     $('.js_link').attr('href', 'http://jumpstart.ge/' + locale);
 
+    $('#source span').html(translations[locale].source.title);
+    $('#source a').html(translations[locale].source.link_text);
   }
 
   $('.locale a').click(function ()

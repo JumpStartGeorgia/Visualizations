@@ -16,59 +16,77 @@
     <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 	</head>
 	<body>
-    <div id="header">
-      <h1>ვის ენდობა საქართველოს მოსახლეობა?</h1>
-    </div>
+    <div id="wrapper">
+      <div class="container">
 
-    <div id="container">
-      <div id="explanation">
-        <p id="explanation1">კავკასიის კვლევითი რესურსების ცენტრმა მთელი ქვეყნის მასშტაბით 2502 ადამიანი გამოკითხა. კვლევა პირისპირ ინტერვიუს მეთოდისა და კლასტერული შერჩევის გამოყენებით 2012 წლის 26 ოქტობრიდან 29 ნოემბრამდე მიმდინარეობდა. 
-        </p>
-        <p id="explanation2">
-ინტერვიუერებმა რესპონდენტებს 17 სხვადასხვა სოციალური ინსტიტუტისა თუ პოლიტიკური გაერთიანების მიმართ ნდობის შეფასება სთხოვეს. მათი პასუხების მიხედვით, ჯამპსტარ ჯორჯიამ ააგო ინტერაქტიული ვიზუალიზაცია, სადაც წარმოდგენილია 17-ივე ინსტიტუტისა თუ გაერთიანების რეიტინგი ოთხი სხვადასხვა პასუხის მიხედვით: “ვენდობი”, “არ ვენდობი”, “ნაწილობრივ ვენდობი, ნაწილობრივ არა” და “არ ვიცი”.</p>
-        <div class="locale"><a href="#en" title="English">EN</a></div>
-      </div>
-      <div id="chart_nav">
-        <ul>
-          <li id="trust" class="active">
-            <a data-type="trust" href="#">ვენდობი</a>
-          </li>
-          <li id="distrust">
-            <a data-type="distrust" href="#">არ ვენდობი</a>
-          </li>
-          <li id="partial">
-            <a data-type="partial" href="#">ნაწილობრივ ორივე</a>
-          </li>
-          <li id="not_know">
-            <a data-type="not_know" href="#">არ ვიცი</a>
-          </li>
-        </ul>
-      </div>
-      <div id="chart_container">
-        <div id="main_chart"></div>
+        <div id="header_container">
+          <div class="locale"><a href="#en" title="English">EN</a></div>
+          <div id="header">
+            <h1><img src="images/heart.png"><span>ვის ენდობა საქართველოს მოსახლეობა?</span></h1>
+          </div>
+        </div>
+        <div id="container">
+          <div id="explanation">
+            <p id="explanation1">კავკასიის კვლევითი რესურსების ცენტრმა მთელი ქვეყნის მასშტაბით 2502 ადამიანი გამოკითხა. კვლევა პირისპირ ინტერვიუს მეთოდისა და კლასტერული შერჩევის გამოყენებით 2012 წლის 26 ოქტობრიდან 29 ნოემბრამდე მიმდინარეობდა. 
+            </p>
+            <p id="explanation2">
+    ინტერვიუერებმა რესპონდენტებს 17 სხვადასხვა სოციალური ინსტიტუტისა თუ პოლიტიკური გაერთიანების მიმართ ნდობის შეფასება სთხოვეს. მათი პასუხების მიხედვით, ჯამპსტარ ჯორჯიამ ააგო ინტერაქტიული ვიზუალიზაცია, სადაც წარმოდგენილია 17-ივე ინსტიტუტისა თუ გაერთიანების რეიტინგი ოთხი სხვადასხვა პასუხის მიხედვით: “ვენდობი”, “არ ვენდობი”, “ნაწილობრივ ვენდობი, ნაწილობრივ არა” და “არ ვიცი”.</p>
+          </div>
+          <div id="chart_nav">
+            <ul>
+              <li id="trust" class="active">
+                <a data-type="trust" href="#"><img src="images/trust_active.png"/><span>ვენდობი</span></a>
+              </li>
+              <li id="distrust">
+                <a data-type="distrust" href="#"><img src="images/distrust.png"/><span>არ ვენდობი</span></a>
+              </li>
+              <li id="partial">
+                <a data-type="partial" href="#"><img src="images/partial.png"/><span>ნაწილობრივ ორივე</span></a>
+              </li>
+              <li id="not_know">
+                <a data-type="not_know" href="#"><img src="images/not_know.png"/><span>არ ვიცი</span></a>
+              </li>
+            </ul>
+          </div>
+          <div id="chart_container">
+            <div id="main_chart"></div>
+          </div>
+        </div>
+
+        <div id="bottom_container">
+          <div id="box1">
+              საქართველოში ყველაზე მეტი ადამიანი ენდობა რელიგიურ ინსტიტუტებს  - 85%, ყველაზე ცოტა - პოლიტიკურ პარტიებს - 16%.
+          </div>
+          <div id="box2">
+              ყველაზე მეტი ადამიანი უნდობლობას პრეზიდენტს უცხადებს - 31%, ყველაზე ცოტა - რელიგიურ ინსტიტუტებს - 2%.
+          </div>
+          <div id="box3">
+              ორმაგი დამოკიდებულება ყველაზე მეტ ადამიანს მასმედიის მიმართ აქვს - 51%, ყველაზე გაურკვეველი დამოკიდებულება - ობმუდსმენისა (35%) და არასამთავრობოების (33%) მიმართ.
+          </div>
+          <div id="box4">
+              საქართველოში ნდობას უფრო ხშირად გამოხატავენ, ვიდრე უნდობლობას: დასახელებულ ინსტიტუტს საშუალოდ  გამოკითხულთა 39% ენდობა, 12% - არა.
+          </div>
+        </div>
+
+        <div id="tooltip">
+          <div class="before"></div>
+          <div class="chart"></div>
+        </div>
+
+        <div class="footer">
+          <div id="source">
+            <span>წყარო</span>: <a href="http://www.crrc.ge/ge/caucasusbarometer/" target="_blank">კავკასიის კვლევითი რესურსების ცენტრი, კავკასიის ბარომეტრი 2012</a>
+          </div>
+          <div class="logo">
+            <a class="js_link" target=_blank" href="http://jumpstart.ge/"><img src="images/logo.png" alt="jumpstart logo" /></a>
+            <div class="wheel">
+              <a class="js_link" target=_blank" href="http://jumpstart.ge/"><img src="images/logo-wheel.png" alt="jumpstart logo" /></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div id="bottom_container">
-      <div id="box1">
-          საქართველოში ყველაზე მეტი ადამიანი ენდობა რელიგიურ ინსტიტუტებს  - 85%, ყველაზე ცოტა - პოლიტიკურ პარტიებს - 16%.
-      </div>
-      <div id="box2">
-          ყველაზე მეტი ადამიანი უნდობლობას პრეზიდენტს უცხადებს - 31%, ყველაზე ცოტა - რელიგიურ ინსტიტუტებს - 2%.
-      </div>
-      <div id="box3">
-          ორმაგი დამოკიდებულება ყველაზე მეტ ადამიანს მასმედიის მიმართ აქვს - 51%, ყველაზე გაურკვეველი დამოკიდებულება - ობმუდსმენისა (35%) და არასამთავრობოების (33%) მიმართ.
-      </div>
-      <div id="box4">
-          საქართველოში ნდობას უფრო ხშირად გამოხატავენ, ვიდრე უნდობლობას: დასახელებულ ინსტიტუტს საშუალოდ  გამოკითხულთა 39% ენდობა, 12% - არა.
-      </div>
-    </div>
-
-    <div id="tooltip">
-      <div class="before"></div>
-      <div class="chart"></div>
-    </div>
-
+    
 
     <script src="highcharts.js"></script>
     <script src="exporting.js"></script>

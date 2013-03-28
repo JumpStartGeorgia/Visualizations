@@ -16,6 +16,18 @@ Object.prototype.key_by_value = function (value)
 var chart_type = "trust";
 var chart;
 
+function create_chart_axis(axis){
+  x = [];
+
+  for (var i = 0; i<axis.length; i++){
+    x[i] = '<img src="images/categories/' + axis[i] + '" alt="' + translations[locale]['categories'][axis[i]] + '" title="' + translations[locale]['categories'][axis[i]] + '"/>';
+  }
+
+  return x;
+}
+
+
+
 function create_main_chart(){
 
     $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-60);
@@ -23,7 +35,13 @@ function create_main_chart(){
   $('#main_chart').highcharts({
       chart: {
           type: 'column',
-          margin: [ 50, 50, 100, 80]
+          margin: [ 50, 50, 100, 80],
+          events: {
+            load: function(event) {
+                $('#main_chart svg rect[fill="#FFFFFF"]:first').attr('height', 300);
+                $('#main_chart .highcharts-axis-labels img').css('margin-top', '5px');
+            }
+          }
       },
       title: {
           text: translations[locale]['groups'][chart_type],
@@ -33,21 +51,25 @@ function create_main_chart(){
           }
       },
       xAxis: {
-          categories: create_chart_axis(chart_data[chart_type]['axis']),
+          categories: chart_data[chart_type]['axis'],
           labels: {
-              rotation: -45,
-              align: 'right',
-              style: {
-                  fontSize: '13px',
-                  fontFamily: 'Verdana, sans-serif'
-              }
-          }
+            formatter: function() {
+            return '<img src="images/categories/' + this.value + '.png" alt="' + translations[locale]['categories'][this.value] + '" title="' + translations[locale]['categories'][this.value] + '"/>';
+            },
+            useHTML: true
+          },
+          tickWidth: 0,
+          lineColor: '#cfcfcf',
+          lineWidth: 2
       },
       yAxis: {
           min: 0,
           max: 100,
           title: {
               text: null
+          },
+          labels: {
+            y: -2
           }
       },
       legend: {

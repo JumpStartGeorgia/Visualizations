@@ -1,24 +1,49 @@
-body{
-  background-color: #e6e6e6;
-  margin: 20px;
+html, body{
+  background-color: #c2c2c2;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
 }
-#header{
-  margin-bottom: 20px;
+#header_container{
+  padding-bottom: 20px;
+  color: #666666;
+  background-color: #e6e6e6;
+  padding: 20px;
+}
+#header_container h1 img{
+  vertical-align: middle;
+  margin-right: 5px;
+}
+#header_container .locale{
+  float: right;
+  margin-top: 17px;
+}
+#header_container .locale a{
+  text-decoration: none;
+  color: #666666;
 }
 
+#container{
+  background-color: #e6e6e6;
+  padding: 20px;
+}
 #container #explanation{
   float: left;
   width: 300px;
-  height: 315px;
+  height: 300px;
   background-color: #fff;
   padding: 0 10px;
   font-size: 13px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -khtml-border-radius: 3px;
 }
 #container #chart_nav{
   float: left;
   width: 200px;
-  text-align: center;
-  height: 315px;
+  height: 300px;
 }
 #container #chart_nav ul {
   padding-left: 0;
@@ -26,9 +51,17 @@ body{
 }
 #container #chart_nav ul li{
   list-style-type: none;
-  height: 66px;
-  margin: 17px 0;
-  font-size: 25px;
+  height: 64px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -khtml-border-radius: 3px;
+}
+#container #chart_nav ul li a img{
+  vertical-align: middle;
+  margin-right: 5px;
 }
 #container #chart_nav ul li#trust {
   margin-top: 0;
@@ -47,15 +80,20 @@ body{
   margin-top: 0;
   background-color: #fff !important;
   margin-right: -10px;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
 }
 
 #container #chart_nav ul li a{
+  padding: 10px;
   display: block;
   width: 100%;
+  height: 100%;
   vertical-align: middle;
   text-decoration: none;
   color: #fff;
-  padding-top: 20px;
   font-weight: bold;
 }
 
@@ -82,7 +120,11 @@ body{
   min-width: 400px; 
   height: 400px; 
   margin: 0 auto;
-  background-color: #fff;
+/*  background-color: #fff;*/
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -khtml-border-radius: 3px;
 }
 
 #container:after, #bottom_container:after{
@@ -95,7 +137,6 @@ body{
 
 #bottom_container{
   margin-top: 15px;
-  background-color: #c2c2c2;
   text-align: center;
 }
 #bottom_container > div {
@@ -106,6 +147,10 @@ body{
   min-height: 75px;
   padding: 10px;
   font-size: 12px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -khtml-border-radius: 3px;
 }
 
 #bottom_container > div:first-of-type {
@@ -130,6 +175,54 @@ body{
   border: 7px solid transparent;
   border-bottom-color: #fff;
   border-top: none;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+#wrapper > .container {
+  padding-bottom: 35px;
+}
+
+.footer {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 35px;
+}
+
+.footer a, .footer img {
+  border:none;
+}
+
+.footer #source {
+  float: left;
+  margin-left: 35px;
+}
+.footer #source a {
+  text-decoration: none;
+}
+
+.footer .logo {
+  float: right;
+}
+
+.footer .logo a {
+  display: block;
+  float: left;
+  margin-right: 35px;
+}
+
+.footer .logo .wheel {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  width: 35px;
+  height: 35px;
 }
 
 

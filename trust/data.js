@@ -1,15 +1,5 @@
 var locale = 'ka';
 
-function create_chart_axis(axis){
-  x = [];
-
-  for (var i = 0; i<axis.length; i++){
-    x[i] = translations[locale]['categories'][axis[i]];
-  }
-
-  return x;
-}
-
 var chart_data = {
   trust: {
     axis: ["rel", "army", "police", "ex_gov", "ed", "parl", "eu", "un", "health", "banks", "omb", "local_gov", "pres", "ngo", "media", "courts", "pol_parties"],
@@ -75,10 +65,14 @@ var translations = {
       3: "People are most indifferent towards the Media (51%) and most do not know how they feel about the Obmudsman (35%) and NGOs (33%).",
       4: "Trust is expressed more often in Georgia than distrust. On average, 39% express trust with an institution, while 12% express distrust.",
     },
-    title: "Who Do Georgian's Trust?",
+    title: "Who Do Georgians Trust?",
     side_text: {
       1: "The Caucasus Research Resource Centers interviewed 2502 people in Georgia. The survey was conducted throughout the country using face-to-face interviews and cluster sampling from October 26 to November 29, 2012.",
       2: "Interviewees were asked to assess their level of trust toward 17 different social institutions and political unions. JumpStart Georgia visualized their responses broken down by 4 responses: “Trust”, “Distrust”, “Partially Both” and “Don’t Know”."
+    },
+    source:{
+      title: "Source",
+      link_text: "The Caucasus Research Resource Centers, Caucasus Barometer 2012 "
     }
   },
   ka: {
@@ -126,6 +120,10 @@ var translations = {
     side_text: {
       1: "კავკასიის კვლევითი რესურსების ცენტრმა მთელი ქვეყნის მასშტაბით 2502 ადამიანი გამოკითხა. კვლევა პირისპირ ინტერვიუს მეთოდისა და კლასტერული შერჩევის გამოყენებით 2012 წლის 26 ოქტობრიდან 29 ნოემბრამდე მიმდინარეობდა.",
       2: "ინტერვიუერებმა რესპონდენტებს 17 სხვადასხვა სოციალური ინსტიტუტისა თუ პოლიტიკური გაერთიანების მიმართ ნდობის შეფასება სთხოვეს. მათი პასუხების მიხედვით, ჯამპსტარ ჯორჯიამ ააგო ინტერაქტიული ვიზუალიზაცია, სადაც წარმოდგენილია 17-ივე ინსტიტუტისა თუ გაერთიანების რეიტინგი ოთხი სხვადასხვა პასუხის მიხედვით: “ვენდობი”, “არ ვენდობი”, “ნაწილობრივ ვენდობი, ნაწილობრივ არა” და “არ ვიცი”."
+    },
+    source:{
+      title: "წყარო",
+      link_text: "კავკასიის კვლევითი რესურსების ცენტრი, კავკასიის ბარომეტრი 2012"
     }
   }
 };
