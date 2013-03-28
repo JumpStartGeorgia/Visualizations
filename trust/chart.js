@@ -137,7 +137,7 @@ function create_main_chart(){
               var index = 0;
               $.each(chart_data, function (key, value)
               {
-                data.categories.push(translations[locale].groups[key]);
+                data.categories.push(key);
                 data.values_with_keys[key] = value.values[value.axis.indexOf(_key)];
                 data.values[index]['y'] = data.values_with_keys[key];
                 index++;

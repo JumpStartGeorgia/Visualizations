@@ -48,7 +48,7 @@ var translations = {
     groups:{
       trust: "Trust",
       distrust: "Distrust",
-      partial: "Partialy Both",
+      partial: "Partially Both",
       not_know: "Don't Know"
     },
     export_text:{
