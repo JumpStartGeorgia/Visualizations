@@ -188,6 +188,7 @@ html, body{
 
 #tooltip {
   position: absolute;
+  display: none;
 }
 
 #tooltip .chart {

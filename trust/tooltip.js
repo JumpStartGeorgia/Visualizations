@@ -74,7 +74,7 @@ function build_tooltip (data)
     $('#tooltip .before').removeAttr('style');
   }
 
-  $('#tooltip').css({left: left, top: top}).children('.chart').highcharts(tooltip_options);
+  $('#tooltip').show().css({left: left, top: top}).children('.chart').highcharts(tooltip_options);
 }
 
 

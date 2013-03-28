@@ -38,7 +38,8 @@ function create_main_chart(){
                 $('#main_chart svg rect[fill="#FFFFFF"]:first').attr('height', 300);
 //                $('#main_chart .highcharts-axis-labels img').css('margin-top', '5px');
             }
-          }
+          },
+          borderRadius: 0,
       },
       title: {
           text: translations[locale]['groups'][chart_type],
