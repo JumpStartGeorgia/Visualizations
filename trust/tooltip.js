@@ -5,6 +5,12 @@ var tooltip_options = {
   title: {
   },
   xAxis: {
+    labels: {
+      formatter: function() {
+      return '<img src="images/' + this.value + '_active.png" alt="' + translations[locale]['groups'][this.value] + '" title="' + translations[locale]['groups'][this.value] + '"/>';
+      },
+      useHTML: true
+    }
   },
   yAxis: {
     title: {
