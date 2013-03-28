@@ -46,7 +46,7 @@ function create_main_chart(){
           style: {
             fontSize: '20px',
             color: chart_data[chart_type]['bar_color'],
-            fontFamily: 'ingiri, arial'
+            fontFamily: 'dejavu, ingiri, arial'
           }
       },
       xAxis: {
