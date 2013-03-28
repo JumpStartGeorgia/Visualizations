@@ -3,14 +3,25 @@ var tooltip_options = {
     type: 'column'
   },
   title: {
+    style: {
+      fontFamily: 'ingiri, arial',
+      fontSize: '14px'
+    }
   },
   xAxis: {
     labels: {
       formatter: function() {
       return '<img src="images/' + this.value + '_active.png" alt="' + translations[locale]['groups'][this.value] + '" title="' + translations[locale]['groups'][this.value] + '"/>';
       },
-      useHTML: true
-    }
+      useHTML: true,
+      style: {
+        textAlign: 'center',
+        marginTop: '5px',
+        fontFamily: 'ingiri, arial'
+      }
+    },
+    tickWidth: 0,
+    lineColor: '#cfcfcf'
   },
   yAxis: {
     title: {
@@ -37,6 +48,9 @@ var tooltip_options = {
     column: {
       dataLabels: {
         enabled: true,
+        style: {
+          fontFamily: 'ingiri, arial'
+        },
         formatter: function() {
           return this.y + '%';
         },

@@ -2,7 +2,7 @@
 
 $(window).load(function() {
   function set_chart_width(){
-    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80);
+    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
   }
 
 
@@ -29,7 +29,7 @@ $(window).load(function() {
   });
 
   $('#main_chart').mouseout(function(){
-    $('#tooltip').hide();
+    $('#tooltip').fadeOut(100);
   });
 
 

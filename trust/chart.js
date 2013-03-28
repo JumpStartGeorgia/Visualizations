@@ -27,7 +27,7 @@ function create_chart_axis(axis){
 
 function create_main_chart(){
 
-  $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80);
+  $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
 
   $('#main_chart').highcharts({
       chart: {
@@ -45,7 +45,8 @@ function create_main_chart(){
           text: translations[locale]['groups'][chart_type],
           style: {
             fontSize: '20px',
-            color: chart_data[chart_type]['bar_color']
+            color: chart_data[chart_type]['bar_color'],
+            fontFamily: 'ingiri, arial'
           }
       },
       xAxis: {
@@ -57,12 +58,13 @@ function create_main_chart(){
             useHTML: true,
             style: {
               textAlign: 'center',
-              marginTop: '5px'
+              marginTop: '5px',
+              fontFamily: 'ingiri, arial'
             }
           },
           tickWidth: 0,
           lineColor: '#cfcfcf',
-          lineWidth: 2
+          lineWidth: 0
       },
       yAxis: {
           min: 0,
@@ -71,7 +73,10 @@ function create_main_chart(){
               text: null
           },
           labels: {
-            y: -2
+            y: -2,
+            style: {
+              fontFamily: 'ingiri, arial'
+            }
           },
           gridLineColor: '#f2f2f2'
       },
@@ -93,6 +98,9 @@ function create_main_chart(){
         column: {
           dataLabels: {
             enabled: true,
+            style: {
+              fontFamily: 'ingiri, arial'
+            },
             formatter: function() {
                 return this.y + '%';
             },

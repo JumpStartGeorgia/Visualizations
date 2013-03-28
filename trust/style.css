@@ -48,7 +48,7 @@ html, body{
 
 #container{
   background-color: #e6e6e6;
-  padding: 20px;
+  padding: 0 20px;
 }
 #container #chart_nav{
   float: left;
@@ -139,7 +139,7 @@ html, body{
 #container #chart_container{
   float: left;
   min-width: 600px; 
-  height: 400px; 
+  height: 360px; 
   margin: 0 auto;
 /*  background-color: #fff;*/
   -moz-border-radius: 3px;
@@ -177,7 +177,6 @@ html, body{
 #bottom_container > div {
   display: inline-block;
   margin: 30px 0 30px 30px;  
-  padding: 10px;
   font-size: 12px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
