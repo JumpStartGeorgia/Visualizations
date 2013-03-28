@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
   function set_chart_width(){
-    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-60);
+    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80);
   }
 
   create_main_chart();
@@ -45,10 +45,14 @@ $(document).ready(function() {
 
     redraw_map($('#chart_nav li.active a'));  
 
-    $('#box1').html(translations[locale].box['1']);
-    $('#box2').html(translations[locale].box['2']);
-    $('#box3').html(translations[locale].box['3']);
-    $('#box4').html(translations[locale].box['4']);
+    $('#box1 img').attr('alt',translations[locale].box['1']);
+    $('#box1 img').attr('src', 'images/box/' + locale + '/1.png');
+    $('#box2 img').attr('alt',translations[locale].box['2']);
+    $('#box2 img').attr('src', 'images/box/' + locale + '/2.png');
+    $('#box3 img').attr('alt',translations[locale].box['3']);
+    $('#box3 img').attr('src', 'images/box/' + locale + '/3.png');
+    $('#box4 img').attr('alt',translations[locale].box['4']);
+    $('#box4 img').attr('src', 'images/box/' + locale + '/4.png');
 
     $('#og_title').attr('content', translations[locale].title);
     $('#og_site_name').attr('content', translations[locale].title);
