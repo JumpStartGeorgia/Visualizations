@@ -24,6 +24,11 @@ $(document).ready(function() {
     return false;
   });
 
+  $('#main_chart').mouseout(function(){
+    $('#tooltip').hide();
+  });
+
+
   $(window).bind('resize', set_chart_width);
 
   function update_translations (init)
