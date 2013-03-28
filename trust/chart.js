@@ -18,19 +18,16 @@ var chart;
 
 function create_chart_axis(axis){
   x = [];
-
   for (var i = 0; i<axis.length; i++){
     x[i] = '<img src="images/categories/' + axis[i] + '" alt="' + translations[locale]['categories'][axis[i]] + '" title="' + translations[locale]['categories'][axis[i]] + '"/>';
   }
-
   return x;
 }
 
 
-
 function create_main_chart(){
 
-    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-60);
+  $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80);
 
   $('#main_chart').highcharts({
       chart: {
@@ -39,7 +36,7 @@ function create_main_chart(){
           events: {
             load: function(event) {
                 $('#main_chart svg rect[fill="#FFFFFF"]:first').attr('height', 300);
-                $('#main_chart .highcharts-axis-labels img').css('margin-top', '5px');
+//                $('#main_chart .highcharts-axis-labels img').css('margin-top', '5px');
             }
           }
       },
@@ -56,7 +53,11 @@ function create_main_chart(){
             formatter: function() {
             return '<img src="images/categories/' + this.value + '.png" alt="' + translations[locale]['categories'][this.value] + '" title="' + translations[locale]['categories'][this.value] + '"/>';
             },
-            useHTML: true
+            useHTML: true,
+            style: {
+              textAlign: 'center',
+              marginTop: '5px'
+            }
           },
           tickWidth: 0,
           lineColor: '#cfcfcf',
