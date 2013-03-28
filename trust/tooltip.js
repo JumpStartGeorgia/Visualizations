@@ -11,7 +11,11 @@ var tooltip_options = {
     max: 100,
     title: {
       text: null
-    }
+    },
+    labels:{
+      enabled: false
+    },
+    gridLineWidth: 0
   },
   legend: {
     enabled: false
