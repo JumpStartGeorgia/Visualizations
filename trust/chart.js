@@ -70,7 +70,8 @@ function create_main_chart(){
           },
           labels: {
             y: -2
-          }
+          },
+          gridLineColor: '#f2f2f2'
       },
       legend: {
           enabled: false
