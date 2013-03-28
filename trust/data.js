@@ -35,6 +35,7 @@ var chart_data = {
 
 var translations = {
   en: {
+    lang_switcher: 'ქართული',
     categories:{
       army: "Army",
       banks: "Banks",
@@ -69,13 +70,19 @@ var translations = {
       printButtonTitle: "Print the chart"
     },
     box:{
-      1: "",
-      2: "",
-      3: "",
-      4: "",
+      1: "In Georgia, most people trust Religious Institutions (85%) and have the least trust with Political Parties (16%).",
+      2: "Most people distrust the President (31%), the have the least distrust with Religious Institutions (2%).",
+      3: "Most people have mixed feelings toward the Media (51%), most vague feeling toward the Obmudsman (35%) and NGOs (33%).",
+      4: "Trust is expressed more often in Georgia than distrust. On average, 39% express trust with an institution, while 12% express distrust.",
+    },
+    title: "Who Do Georgian's Trust?",
+    side_text: {
+      1: "The Caucasus Research Resource Centers interviewed 2502 people in Georgia. The survey was conducted throughout the country using face-to-face interviews and cluster sampling from October 26 to November 29, 2012.",
+      2: "Interviewees were asked to assess their level of trust toward 17 different social institutions and political unions. JumpStart Georgia visualized their responses broken down by 4 responses: “Trust”, “Distrust”, “Partially Both” and “Don’t Know”."
     }
   },
   ka: {
+    lang_switcher: 'English',
     categories:{
       army: "ჯარი",
       banks: "ბანკები",
@@ -112,8 +119,13 @@ var translations = {
     box:{
       1: "საქართველოში ყველაზე მეტი ადამიანი ენდობა რელიგიურ ინსტიტუტებს  - 85%, ყველაზე ცოტა - პოლიტიკურ პარტიებს - 16%.",
       2: "ყველაზე მეტი ადამიანი უნდობლობას პრეზიდენტს უცხადებს - 31%, ყველაზე ცოტა - რელიგიურ ინსტიტუტებს - 2%.",
-      3: "ორმაგი დამოკიდებულება ყველაზე მეტ ადამიანს მასმედიის მიმართ აქვს - 51%, ყველაზე გაურკვეველი დამოკიდებულება - ობმუდსმენისა (35%) და არასამთავრობოების (33%) მიმართ. ",
+      3: "ორმაგი დამოკიდებულება ყველაზე მეტ ადამიანს მასმედიის მიმართ აქვს - 51%, ყველაზე გაურკვეველი დამოკიდებულება - ობმუდსმენისა (35%) და არასამთავრობოების (33%) მიმართ.",
       4: "საქართველოში ნდობას უფრო ხშირად გამოხატავენ, ვიდრე უნდობლობას: დასახელებულ ინსტიტუტს საშუალოდ  გამოკითხულთა 39% ენდობა, 12% - არა.",
+    },
+    title: "ვის ენდობა საქართველოს მოსახლეობა?",
+    side_text: {
+      1: "კავკასიის კვლევითი რესურსების ცენტრმა მთელი ქვეყნის მასშტაბით 2502 ადამიანი გამოკითხა. კვლევა პირისპირ ინტერვიუს მეთოდისა და კლასტერული შერჩევის გამოყენებით 2012 წლის 26 ოქტობრიდან 29 ნოემბრამდე მიმდინარეობდა.",
+      2: "ინტერვიუერებმა რესპონდენტებს 17 სხვადასხვა სოციალური ინსტიტუტისა თუ პოლიტიკური გაერთიანების მიმართ ნდობის შეფასება სთხოვეს. მათი პასუხების მიხედვით, ჯამპსტარ ჯორჯიამ ააგო ინტერაქტიული ვიზუალიზაცია, სადაც წარმოდგენილია 17-ივე ინსტიტუტისა თუ გაერთიანების რეიტინგი ოთხი სხვადასხვა პასუხის მიხედვით: “ვენდობი”, “არ ვენდობი”, “ნაწილობრივ ვენდობი, ნაწილობრივ არა” და “არ ვიცი”."
     }
   }
 };
