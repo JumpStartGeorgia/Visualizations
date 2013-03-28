@@ -1,9 +1,24 @@
+@font-face {
+    font-family: ingiri;
+    src: url('fonts/BPG_Ingiri_GPL&GNU.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: dejavu;
+    src: url('fonts/BPG DejaVuSans-Bold_2s.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body{
   background-color: #c2c2c2;
   margin: 0;
   padding: 0;
   height: 100%;
   min-height: 100%;
+  font-family: ingiri, arial;
 }
 #header_container{
   padding-bottom: 20px;
@@ -11,13 +26,20 @@ html, body{
   background-color: #e6e6e6;
   padding: 20px;
 }
+#header_container h1 {
+  font-family: dejavu;
+  font-weight: normal;
+  font-size: 32px;
+}
 #header_container h1 img{
   vertical-align: middle;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 #header_container .locale{
   float: right;
-  margin-top: 17px;
+  font-family: dejavu;
+  margin-top: 35px;
+  font-size: 19px;
 }
 #header_container .locale a{
   text-decoration: none;
