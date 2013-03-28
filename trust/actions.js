@@ -1,10 +1,14 @@
 
 
-$(document).ready(function() {
+$(window).load(function() {
   function set_chart_width(){
     $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-80);
   }
 
+
+/*
+["images/categories/rel.png", "images/categories/army.png", "images/categories/police.png", "images/categories/ex_gov.png", "images/categories/ed.png", "images/categories/parl.png", "images/categories/eu.png", "images/categories/un.png", "images/categories/health.png", "images/categories/banks.png", "images/categories/omb.png", "images/categories/local_gov.png", "images/categories/pres.png", "images/categories/ngo.png", "images/categories/media.png", "images/categories/courts.png", "images/categories/pol_parties.png"]
+*/
   create_main_chart();
 
   function redraw_map(link_ref){
