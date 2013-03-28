@@ -54,7 +54,7 @@ function build_tooltip (data)
   tooltip_options.title.text = data.title;
   tooltip_options.series[0].data = data.values;
   
-  var top = $('#main_chart').height() + $('#main_chart').offset().top;
+  var top = $('div.highcharts-axis-labels > span').height() + $('div.highcharts-axis-labels > span').offset().top;
   var left = data.position.x - $('#tooltip').width() / 2;
 
   if (left + $('#tooltip .chart').width() > $(window).width())

@@ -109,6 +109,7 @@ function create_main_chart(){
                 y: this.point.plotY + offset.top + +transform[2]
               };
 
+            /*
               var _key = (function (collection, _value)
               {
                 var found = false, _key;
@@ -123,12 +124,14 @@ function create_main_chart(){
                 });
                 return (found ? _key : false);
               })(translations[locale].categories, this.x);
+            */
+              var _key = this.x;
 
               var data = {
                 values: [{y: 0, color: '#23a570'}, {y: 0, color: '#db5d5d'}, {y: 0, color: '#48617a'}, {y: 0, color: '#666666'}], 
                 values_with_keys: {}, 
                 categories: [],
-                title: this.x,
+                title: translations[locale].categories[this.x],
                 position: position
               };
               var index = 0;
