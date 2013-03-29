@@ -57,15 +57,11 @@ function create_xaxis_hover(){
 
 function create_main_chart(){
 
-console.log('explan width = ' + $('#explanation').width() + '; nav width = ' + $('#chart_nav').width() + '; window width = ' + $(window).width());
-console.log($('#chart_container').width());
     if ($(window).width() >= 1170){
       $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
     } else {
       $('#chart_container').css('width', $(window).width()-$('#chart_nav').width()-70);
     }
-
-console.log($('#chart_container').width());
 
   $('#main_chart').highcharts({
       chart: {
@@ -74,8 +70,13 @@ console.log($('#chart_container').width());
           events: {
             load: function(event) {
                 $('#main_chart svg rect[fill="#FFFFFF"]:first').attr('height', 300);
-//                $('#main_chart .highcharts-axis-labels img').css('margin-top', '5px');
                 create_xaxis_hover();
+                if (locale == 'ka'){
+                  $('.highcharts-button').children('title').text(translations[locale].export_text.menu_title);
+                  $('.highcharts-button').click(function(){
+                    $('.highcharts-contextmenu div:first div:first').html(translations[locale].export_text.printButtonTitle);
+                  });
+                }
             }
           },
           borderRadius: 0,
