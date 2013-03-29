@@ -75,10 +75,11 @@ html{
   -webkit-border-radius: 3px;
   border-radius: 3px;
   -khtml-border-radius: 3px;
-  -moz-box-shadow:    3px 3px 5px 0 #888;
-  -webkit-box-shadow: 3px 3px 5px 0 #888;
-  box-shadow:         3px 3px 5px 0 #888;
+  -moz-box-shadow:    3px 3px 0px 0 #cfcfcf;
+  -webkit-box-shadow: 3px 3px 0px 0 #cfcfcf;
+  box-shadow:         3px 3px 0px 0 #cfcfcf;
 }
+
 #container #chart_nav ul li:last-child {
   margin-bottom: 0px;
 }
