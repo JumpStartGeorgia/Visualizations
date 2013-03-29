@@ -20,6 +20,9 @@ html, body{
   min-height: 100%;
   font-family: ingiri, arial;
 }
+html{
+ overflow-y: scroll;
+}
 #header_container{
   padding-bottom: 20px;
   color: #666666;

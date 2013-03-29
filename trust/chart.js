@@ -57,11 +57,15 @@ function create_xaxis_hover(){
 
 function create_main_chart(){
 
+console.log('explan width = ' + $('#explanation').width() + '; nav width = ' + $('#chart_nav').width() + '; window width = ' + $(window).width());
+console.log($('#chart_container').width());
     if ($(window).width() >= 1170){
       $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
     } else {
       $('#chart_container').css('width', $(window).width()-$('#chart_nav').width()-70);
     }
+
+console.log($('#chart_container').width());
 
   $('#main_chart').highcharts({
       chart: {
