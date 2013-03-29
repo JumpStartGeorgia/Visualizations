@@ -55,7 +55,8 @@ var tooltip_options = {
           return this.y + '%';
         },
         color: '#000'
-      }
+      },
+      animation: false
     }
   },
   series: [{

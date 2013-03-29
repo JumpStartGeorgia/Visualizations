@@ -72,6 +72,9 @@ html, body{
   -webkit-border-radius: 3px;
   border-radius: 3px;
   -khtml-border-radius: 3px;
+  -moz-box-shadow:    3px 3px 5px 0 #666;
+  -webkit-box-shadow: 3px 3px 5px 0 #666;
+  box-shadow:         3px 3px 5px 0 #666;
 }
 #container #chart_nav ul li:last-child {
   margin-bottom: 0px;
@@ -178,7 +181,7 @@ html, body{
 }
 #bottom_container > div {
   display: inline-block;
-  margin: 30px 0 30px 30px;  
+  margin: 30px 0 30px 15px;  
   font-size: 12px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;

@@ -68,7 +68,7 @@ var translations = {
     title: "Who Do Georgians Trust?",
     side_text: {
       1: "The Caucasus Research Resource Centers interviewed 2502 people in Georgia. The survey was conducted throughout the country using face-to-face interviews and cluster sampling from October 26 to November 29, 2012.",
-      2: "Interviewees were asked to assess their level of trust toward 17 different social institutions and political unions. JumpStart Georgia visualized their responses broken down by 4 responses: “Trust”, “Distrust”, “Partially Both” and “Don’t Know”."
+      2: "Interviewees were asked to assess their level of trust toward 17 different social institutions and political unions. JumpStart Georgia visualized their responses broken down by 4 responses: trust, distrust, partially both, and don't know."
     },
     source:{
       title: "Source",

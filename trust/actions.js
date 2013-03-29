@@ -102,7 +102,9 @@ $(window).load(function() {
       $('#bottom_container > div').css('width', img_width);
     } else if ($(window).width() >= 1430){
       $('#bottom_container > div').css('width', img_width * 0.9);
-    } else if ($(window).width() >= 1280){
+    } else if ($(window).width() >= 1300){
+      $('#bottom_container > div').css('width', img_width * 0.85);
+    } else if ($(window).width() >= 1230){
       $('#bottom_container > div').css('width', img_width * 0.8);
     } else if ($(window).width() >= 1120){
       $('#bottom_container > div').css('width', img_width * 0.7);
