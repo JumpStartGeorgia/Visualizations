@@ -156,6 +156,10 @@ html{
   border-radius: 3px;
   -khtml-border-radius: 3px;
 }
+#container #chart_container #main_chart{
+  min-width: 600px; 
+  height: 400px; 
+}
 
 #container #explanation{
   margin: 0 0 0 10px ;
