@@ -89,7 +89,7 @@ function create_main_chart(){
           categories: chart_data[chart_type]['axis'],
           labels: {
             formatter: function() {
-            return '<img src="images/categories/' + this.value + '.png" alt="' + translations[locale]['categories'][this.value] + '" title="' + translations[locale]['categories'][this.value] + '" data-source="' + this.value + '"/>';
+            return '<img src="images/categories/' + this.value + '.png" alt="' + translations[locale]['categories'][this.value] + '" data-source="' + this.value + '"/>';
             },
             useHTML: true,
             style: {
