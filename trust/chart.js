@@ -42,7 +42,8 @@ function create_main_chart(){
           borderRadius: 0,
       },
       title: {
-          text: translations[locale]['groups'][chart_type],
+          text: null,
+//          text: translations[locale]['groups'][chart_type],
           style: {
             fontSize: '20px',
             color: chart_data[chart_type]['bar_color'],

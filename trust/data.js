@@ -72,7 +72,8 @@ var translations = {
     },
     source:{
       title: "Source",
-      link_text: "The Caucasus Research Resource Centers, Caucasus Barometer 2012 "
+      link_text: "The Caucasus Research Resource Centers, Caucasus Barometer 2012",
+      link: "http://www.crrc.ge/caucasusbarometer/"
     }
   },
   ka: {
@@ -123,7 +124,8 @@ var translations = {
     },
     source:{
       title: "წყარო",
-      link_text: "კავკასიის კვლევითი რესურსების ცენტრი, კავკასიის ბარომეტრი 2012"
+      link_text: "კავკასიის კვლევითი რესურსების ცენტრი, კავკასიის ბარომეტრი 2012",
+      link: "http://www.crrc.ge/ge/caucasusbarometer/"
     }
   }
 };

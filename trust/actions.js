@@ -1,11 +1,6 @@
 
 
 $(window).load(function() {
-  function set_chart_width(){
-    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
-  }
-
-
 /*
 ["images/categories/rel.png", "images/categories/army.png", "images/categories/police.png", "images/categories/ex_gov.png", "images/categories/ed.png", "images/categories/parl.png", "images/categories/eu.png", "images/categories/un.png", "images/categories/health.png", "images/categories/banks.png", "images/categories/omb.png", "images/categories/local_gov.png", "images/categories/pres.png", "images/categories/ngo.png", "images/categories/media.png", "images/categories/courts.png", "images/categories/pol_parties.png"]
 */
@@ -33,7 +28,6 @@ $(window).load(function() {
   });
 
 
-  $(window).bind('resize', set_chart_width);
 
   function update_translations (init)
   {
@@ -75,6 +69,7 @@ $(window).load(function() {
 
     $('#source span').html(translations[locale].source.title);
     $('#source a').html(translations[locale].source.link_text);
+    $('#source a').attr('href', translations[locale].source.link);
   }
 
   $('.locale a').click(function ()
@@ -92,3 +87,28 @@ $(window).load(function() {
     }
   }
 });
+
+  function set_chart_width(){
+    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
+  }
+
+  function set_img_box_width(){
+    var img_width = 361;
+    if ($(window).width() >= 1560){
+      $('#bottom_container > div').css('width', img_width);
+    } else if ($(window).width() >= 1430){
+      $('#bottom_container > div').css('width', img_width * 0.9);
+    } else if ($(window).width() >= 1280){
+      $('#bottom_container > div').css('width', img_width * 0.8);
+    } else if ($(window).width() >= 1120){
+      $('#bottom_container > div').css('width', img_width * 0.7);
+    } else if ($(window).width() >= 980){
+      $('#bottom_container > div').css('width', img_width * 0.6);
+    } else {
+      $('#bottom_container > div').css('width', img_width * 0.5);
+    }
+  }
+
+  $(window).bind('resize', set_chart_width);
+  $(window).bind('load resize', set_img_box_width);
+
