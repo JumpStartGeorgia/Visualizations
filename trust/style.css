@@ -75,9 +75,9 @@ html{
   -webkit-border-radius: 3px;
   border-radius: 3px;
   -khtml-border-radius: 3px;
-  -moz-box-shadow:    3px 3px 5px 0 #666;
-  -webkit-box-shadow: 3px 3px 5px 0 #666;
-  box-shadow:         3px 3px 5px 0 #666;
+  -moz-box-shadow:    3px 3px 5px 0 #888;
+  -webkit-box-shadow: 3px 3px 5px 0 #888;
+  box-shadow:         3px 3px 5px 0 #888;
 }
 #container #chart_nav ul li:last-child {
   margin-bottom: 0px;
