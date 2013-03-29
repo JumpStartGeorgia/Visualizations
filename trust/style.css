@@ -264,3 +264,13 @@ html, body{
 }
 
 
+@media (max-width: 1169px) {
+  #container #explanation{
+    width: 100%;
+    height: auto;
+    margin: 0 20px 20px 0;
+    padding: 0 10px;
+  }
+}
+
+

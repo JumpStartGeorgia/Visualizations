@@ -89,7 +89,11 @@ $(window).load(function() {
 });
 
   function set_chart_width(){
-    $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
+    if ($(window).width() >= 1170){
+      $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
+    } else {
+      $('#chart_container').css('width', $(window).width()-$('#chart_nav').width()-70);
+    }
   }
 
   function set_img_box_width(){
