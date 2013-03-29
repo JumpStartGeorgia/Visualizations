@@ -152,11 +152,11 @@ console.log($('#chart_container').width());
       tooltip: {
           formatter: function() {
 
-              var transform = $('#main_chart .highcharts-series').attr('transform').match(/translate\(([0-9]+\.?[0-9]*),\s*([0-9]+\.?[0-9]*)\)/),
+              var transform = $('#main_chart .highcharts-series').attr('transform').match(/translate\(([0-9]+\.?[0-9]*)(,\s*|\s+)([0-9]+\.?[0-9]*)\)/),
               offset = $('#main_chart').offset();
               var position = {
                 x: this.point.plotX + offset.left + +transform[1],
-                y: this.point.plotY + offset.top + +transform[2]
+                y: this.point.plotY + offset.top + +transform[3]
               };
 
             /*
