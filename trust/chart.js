@@ -27,7 +27,11 @@ function create_chart_axis(axis){
 
 function create_main_chart(){
 
-  $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
+    if ($(window).width() >= 1170){
+      $('#chart_container').css('width', $(window).width()-$('#explanation').width()-$('#chart_nav').width()-70);
+    } else {
+      $('#chart_container').css('width', $(window).width()-$('#chart_nav').width()-70);
+    }
 
   $('#main_chart').highcharts({
       chart: {
