@@ -60,6 +60,7 @@ $(window).load(function() {
     $('#og_title').attr('content', translations[locale].title);
     $('#og_site_name').attr('content', translations[locale].title);
     $('#og_description').attr('content', translations[locale].side_text['1'] + ' ' + translations[locale].side_text['2']);
+    $('#og_image').attr('content', 'http://visuals.jumpstart.ge/trust/images/trust_fb_' + locale + '.png');
 
     $('.locale a').attr('title', translations[locale].lang_switcher);
 
