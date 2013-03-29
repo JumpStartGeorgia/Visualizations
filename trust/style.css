@@ -75,9 +75,36 @@ html{
   -webkit-border-radius: 3px;
   border-radius: 3px;
   -khtml-border-radius: 3px;
-  -moz-box-shadow:    3px 3px 0px 0 #cfcfcf;
-  -webkit-box-shadow: 3px 3px 0px 0 #cfcfcf;
-  box-shadow:         3px 3px 0px 0 #cfcfcf;
+}
+
+#container #chart_nav ul li:nth-child(1) {
+  -moz-box-shadow:    2px 2px 0px 0 #1a8b5e;
+  -webkit-box-shadow: 2px 2px 0px 0 #1a8b5e;
+  box-shadow:         2px 2px 0px 0 #1a8b5e;
+}
+
+#container #chart_nav ul li:nth-child(2) {
+  -moz-box-shadow:    2px 2px 0px 0 #ce4646;
+  -webkit-box-shadow: 2px 2px 0px 0 #ce4646;
+  box-shadow:         2px 2px 0px 0 #ce4646;
+}
+
+#container #chart_nav ul li:nth-child(3) {
+  -moz-box-shadow:    2px 2px 0px 0 #3c5268;
+  -webkit-box-shadow: 2px 2px 0px 0 #3c5268;
+  box-shadow:         2px 2px 0px 0 #3c5268;
+}
+
+#container #chart_nav ul li:nth-child(4) {
+  -moz-box-shadow:    2px 2px 0px 0 #505251;
+  -webkit-box-shadow: 2px 2px 0px 0 #505251;
+  box-shadow:         2px 2px 0px 0 #505251;
+}
+
+#container #chart_nav ul li.active, #main_chart svg {
+  -moz-box-shadow:    2px 2px 0px 0 #cfcfcf;
+  -webkit-box-shadow: 2px 2px 0px 0 #cfcfcf;
+  box-shadow:         2px 2px 0px 0 #cfcfcf;
 }
 
 #container #chart_nav ul li:last-child {

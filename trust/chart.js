@@ -69,8 +69,7 @@ function create_main_chart(){
           margin: [ 50, 50, 100, 80],
           events: {
             load: function(event) {
-                $('#main_chart svg rect[fill]').filter(function (){ return ($(this).attr('fill').toLowerCase() == '#ffffff'); }).first().attr('height', 300);
-                $('#main_chart svg').height(300).css('box-shadow', '3px 3px 5px 0 #888');
+                $('#main_chart svg').height(300).find('rect[fill]').filter(function (){ return ($(this).attr('fill').toLowerCase() == '#ffffff'); }).first().attr('height', 300);
                 create_xaxis_hover();
                 if (locale == 'ka'){
                   $('.highcharts-button').children('title').text(translations[locale].export_text.menu_title);
