@@ -24,6 +24,36 @@ function create_chart_axis(axis){
   return x;
 }
 
+function create_xaxis_hover(){
+  $('div.highcharts-axis-labels span').mouseover(function(){
+    var offset = $('#main_chart').offset(),
+    img_offset = $(this).children('img').width()/2;
+
+    var position = {
+      x: parseInt($(this).css('left').replace('px','')) + offset.left + img_offset,
+      y: parseInt($(this).css('top').replace('px','')) + offset.top
+    };
+
+    var _key = $(this).children('img').data('source');
+
+    var data = {
+      values: [{y: 0, color: '#23a570'}, {y: 0, color: '#db5d5d'}, {y: 0, color: '#48617a'}, {y: 0, color: '#666666'}], 
+      values_with_keys: {}, 
+      categories: [],
+      title: translations[locale].categories[_key],
+      position: position
+    };
+    var index = 0;
+    $.each(chart_data, function (key, value)
+    {
+      data.categories.push(key);
+      data.values_with_keys[key] = value.values[value.axis.indexOf(_key)];
+      data.values[index]['y'] = data.values_with_keys[key];
+      index++;
+    });
+    build_tooltip(data);  
+  });
+}
 
 function create_main_chart(){
 
@@ -41,6 +71,7 @@ function create_main_chart(){
             load: function(event) {
                 $('#main_chart svg rect[fill="#FFFFFF"]:first').attr('height', 300);
 //                $('#main_chart .highcharts-axis-labels img').css('margin-top', '5px');
+                create_xaxis_hover();
             }
           },
           borderRadius: 0,
@@ -58,12 +89,12 @@ function create_main_chart(){
           categories: chart_data[chart_type]['axis'],
           labels: {
             formatter: function() {
-            return '<img src="images/categories/' + this.value + '.png" alt="' + translations[locale]['categories'][this.value] + '" title="' + translations[locale]['categories'][this.value] + '"/>';
+            return '<img src="images/categories/' + this.value + '.png" alt="' + translations[locale]['categories'][this.value] + '" title="' + translations[locale]['categories'][this.value] + '" data-source="' + this.value + '"/>';
             },
             useHTML: true,
             style: {
               textAlign: 'center',
-              marginTop: '5px',
+              paddingTop: '5px',
               fontFamily: 'ingiri, arial'
             }
           },
@@ -146,7 +177,7 @@ function create_main_chart(){
                 values: [{y: 0, color: '#23a570'}, {y: 0, color: '#db5d5d'}, {y: 0, color: '#48617a'}, {y: 0, color: '#666666'}], 
                 values_with_keys: {}, 
                 categories: [],
-                title: translations[locale].categories[this.x],
+                title: translations[locale].categories[_key],
                 position: position
               };
               var index = 0;

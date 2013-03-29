@@ -16,7 +16,7 @@ var tooltip_options = {
       useHTML: true,
       style: {
         textAlign: 'center',
-        marginTop: '5px',
+        paddingTop: '5px',
         fontFamily: 'ingiri, arial'
       }
     },
@@ -90,8 +90,6 @@ function build_tooltip (data)
 
   $('#tooltip').show().css({left: left, top: top}).children('.chart').highcharts(tooltip_options);
 }
-
-
 
 
 

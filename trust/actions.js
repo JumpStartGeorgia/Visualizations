@@ -24,7 +24,7 @@ $(window).load(function() {
   });
 
   $('#main_chart').mouseout(function(){
-    $('#tooltip').fadeOut(100);
+    $('#tooltip').hide();
   });
 
 
