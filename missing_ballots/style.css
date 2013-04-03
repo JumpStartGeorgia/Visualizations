@@ -58,6 +58,7 @@ table {
 */
 body {
     font-family: arial, sans-serif;
+    color: #333;
     min-height: 740px;
 
     background: rgb(215, 215, 215);
@@ -107,7 +108,7 @@ a:focus {
 
 .step {
     position: relative;
-    width: 900px;
+    width: 1000px;
     padding: 40px;
     margin: 20px auto;
 
