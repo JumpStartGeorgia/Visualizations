@@ -2,7 +2,7 @@ $(function ()
 {
 
 
-  impress().init();
+  $('#wrapper').jmpress();
 
 
 

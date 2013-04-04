@@ -174,9 +174,3 @@ a:focus {
 .impress-enabled #impress { pointer-events: auto }
 
 
-.step:not(.active).invisible {
-  opacity: 0;
-}
-
-
-

@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
 
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations/appear.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations/drive.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations/expand.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations/fade.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations/warp.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations/zoom.css" rel="stylesheet" type="text/css" />
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="impress-not-supported">
 
@@ -15,31 +22,14 @@
 
 
 
-  <div id="impress">
+  <div id="wrapper">
 
     <div class="step" data-x="-1000" data-y="-500" data-z="1300">
       <h1>Did the CEC count your vote?</h1>
       <h3>subtitle</h3>
     </div>
 
-    <div class="step invisible" data-x="-1000" data-y="500" style="height: 800px;">
-      <h1><strong>Ballots are missing</strong></h1>
-      <br />
-      <h2 style="width: 80%;">For both Proportional and Majoritarian elections in 2012, there are a total of 10,914 votes unaccounted for.</h2>
-    </div>
-
-    <div class="step invisible" data-x="-1000" data-y="500" style="height: 800px;">
-      <h1><strong>Ballots are missing</strong></h1>
-      <br />
-      <h2 style="width: 80%;">For both Proportional and Majoritarian elections in 2012, there are a total of 10,914 votes unaccounted for.</h2>
-      <br />
-      <h2>
-        Proportional - 3,051 missing ballots <br />
-        Majoritarian - 7,863 missing ballots
-      </h2>
-    </div>
-
-    <div class="step invisible" data-x="-1000" data-y="500" style="height: 800px;">
+    <div class="step" data-x="-1000" data-y="500" style="height: 800px;">
       <h1 style="opacity: .3;"><strong>Ballots are missing</strong></h1>
       <br />
       <h2 style="color: #000;">
@@ -47,29 +37,13 @@
         <div style="float: right; width: 20%; color: #333; background: #fff; text-align: center;">adsa</div>
       </h2>
       <br />
-      <h2 style="opacity: .3;">
+      <h2 data-jmpress="fade after 1s">
         Proportional - 3,051 missing ballots <br />
         Majoritarian - 7,863 missing ballots
       </h2>
+      <h1 data-jmpress="zoom">zoomed</h1>
     </div>
 
-    <div class="step" data-x="-540" data-y="310" data-scale=".2">
-      <h1>zoomed</h1>
-    </div>
-
-    <div class="step invisible" data-x="-1000" data-y="500" style="height: 800px;">
-      <h1 style="opacity: .3;"><strong>Ballots are missing</strong></h1>
-      <br />
-      <h2 style="color: #000;">
-        <div style="float: left; width: 80%;">For both Proportional and Majoritarian elections in 2012, there are a total of 10,914 votes unaccounted for.</div>
-        <div style="float: right; width: 20%; color: #333; background: #fff; text-align: center;">adsa</div>
-      </h2>
-      <br />
-      <h2 style="opacity: .3;">
-        Proportional - 3,051 missing ballots <br />
-        Majoritarian - 7,863 missing ballots
-      </h2>
-    </div>
 
     <div class="step" data-x="1000" data-y="-500" data-scale="4" data-rotate="20" data-rotate-x="60">
       <h1>How did this happen?</h1>
@@ -83,7 +57,7 @@
 
 
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="ex1_files/impress.js"></script>
+  <script src="jmpress.js"></script>
   <script src="init.js"></script>
 
 
