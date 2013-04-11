@@ -49,6 +49,23 @@ table {
     border-spacing: 0;
 }
 
+ul.standard, ol.standard, ul.standard ul, ol.standard ol,
+ul.standard ol, ol.standard ul {
+	padding-left: 1em;
+}
+
+ul.standard li {
+	list-style-type:disc;
+	line-height: 1.3;
+}
+ol.standard li {
+	list-style-type:decimal;
+	line-height: 1.3;
+}
+
+em {
+  font-weight: bold;
+}
 /*
     Now here is when interesting things start to appear.
 
@@ -173,4 +190,7 @@ a:focus {
 .impress-enabled          { pointer-events: none }
 .impress-enabled #impress { pointer-events: auto }
 
+.step:not(.active).invisible {
+	opacity:0.0;
+}
 
