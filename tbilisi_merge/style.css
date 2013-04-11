@@ -51,3 +51,10 @@
 .visible\!, .visible\! * {
   display: block !important;
 }
+
+
+
+#map {
+  margin: 20px 0px;
+  height: 400px;
+}
