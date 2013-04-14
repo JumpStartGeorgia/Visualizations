@@ -145,9 +145,9 @@ a:focus {
 
     Basically we remove the margin and make inactive steps a little bit transparent.
 */
-.impress-enabled .step {
+.step {
     margin: 0;
-    opacity: 0.3;
+    opacity: 0.2;
 
     -webkit-transition: opacity 1s;
     -moz-transition:    opacity 1s;
@@ -156,9 +156,9 @@ a:focus {
     transition:         opacity 1s;
 }
 
-.impress-enabled .step.active { opacity: 1 }
+.step.active { opacity: 1 }
 
-.slide {
+.step {
     display: block;
 
     width: 900px;
@@ -178,6 +178,10 @@ a:focus {
     letter-spacing: -1px;
 }
 
+.step h1 {
+  font-size: 40px;
+}
+
 /*
     We also make other steps visible and give them a pointer cursor using the
     `impress-on-` class.
@@ -192,5 +196,55 @@ a:focus {
 
 .step:not(.active).invisible {
 	opacity:0.0;
+}
+
+#title, #how-happen{
+  font-size: 70px;
+  padding-top: 200px;
+}
+
+
+/* hint on the first slide */
+#hint {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+
+	background: #333;
+	color: #fff;
+	text-align: right;
+
+	padding: 10px;
+	z-index: 100;
+
+	opacity: 0;
+
+	-webkit-transform: translateY(400px);
+	-moz-transform:    translateY(400px);
+	-ms-transform:     translateY(400px);
+	-o-transform:      translateY(400px);
+	transform:         translateY(400px);
+
+	-webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+	-moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
+	-ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
+	-o-transition:      opacity 1s,      -o-transform 0.5s 1s;
+	transition:         opacity 1s,         transform 0.5s 1s;
+}
+.step-title + #hint {
+	opacity: 1;
+
+	-webkit-transition: opacity 1s 5s, -webkit-transform 0.5s;
+	-moz-transition:    opacity 1s 5s,    -moz-transform 0.5s;
+	-ms-transition:     opacity 1s 5s,     -ms-transform 0.5s;
+	-o-transition:      opacity 1s 5s,      -o-transform 0.5s;
+	transition:         opacity 1s 5s,         transform 0.5s;
+
+	-webkit-transform: translateY(0px);
+	-moz-transform:    translateY(0px);
+	-ms-transform:     translateY(0px);
+	-o-transform:      translateY(0px);
+	transform:         translateY(0px);
 }
 
