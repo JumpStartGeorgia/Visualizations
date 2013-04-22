@@ -1,0 +1,44 @@
+
+/* #impress:not(.step-overview) .substep:not(.active):not(.previous) { */
+/*   opacity: 0; */
+/* } */
+
+/* .impress-not-supported#impress:not(.step-overview) .substep:not(.active):not(.previous) { */
+/*   opacity: 1; */
+/* } */
+
+
+.substep {
+  -webkit-transition: opacity 1s;
+  -moz-transition:    opacity 1s;
+  -ms-transition:     opacity 1s;
+  -o-transition:      opacity 1s;
+  transition:         opacity 1s;
+}
+
+.substep {
+  opacity: 0;
+}
+
+/* override for animated substeps */
+.substep.anim {
+  opacity: 1;
+}
+
+.substep.active {
+  opacity: 1;
+}
+
+
+svg .substep.previous {
+  opacity: 1; 
+}
+
+.substep.previous {
+  opacity: 0.75;
+}
+
+
+.step:not(.active).invisible {
+	opacity:0.0;
+}

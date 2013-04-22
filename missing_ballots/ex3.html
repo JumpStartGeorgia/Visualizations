@@ -1,23 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-
-  <link href="css/animations/appear.css" rel="stylesheet" type="text/css" />
-  <link href="css/animations/drive.css" rel="stylesheet" type="text/css" />
-  <link href="css/animations/expand.css" rel="stylesheet" type="text/css" />
-  <link href="css/animations/fade.css" rel="stylesheet" type="text/css" />
-  <link href="css/animations/warp.css" rel="stylesheet" type="text/css" />
-  <link href="css/animations/zoom.css" rel="stylesheet" type="text/css" />
-
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title></title>
+    
+    <link href="ex3_files/impress-demo.css" rel="stylesheet" />
+    <link href="ex3_files/style.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
+
 <body class="impress-not-supported">
 
+<div id="impress">
 
-  <div id="wrapper">
 
     <div id="title" class="step" data-x="-1000" data-y="-1000" data-z="1500">
       <h1>Was Your Vote Counted?</h1>
@@ -25,11 +24,11 @@
 
     <div id="ballots_missing" class="step" data-x="-500" data-y="-1000" data-z="500" >
       <h1 style="opacity: .3;"><strong>Ballots are Missing</strong></h1>
-      <p data-jmpress="fade">
+      <p class="substep">
         For both Proportional and Majoritarian elections in 2012, there are a total of 
         <span style="font-size: larger; font-weight: bold;">10,914</span> ballots unaccounted for.
       </p>
-      <ul class="standard" data-jmpress="fade">
+      <ul class="standard substep">
         <li>
           Proportional - 3,051 missing ballots
         </li>
@@ -47,31 +46,31 @@
     <div id="how-vote-works" class="step " data-x="5000" data-y="5000" >
       <h1>How Voting Works in Georgia</h1>
       <ul class="standard">
-        <li data-jmpress="fade">
+        <li class="substep">
           The procedures that take place on election day are defined by election code
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           People go to polling station
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           People sign in and get ballots
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           People fill out ballots
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           People turn in ballots
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           Polling Station staff count all ballots and record the totals on a 'protocol'
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           Protocols are eventually sent to the CEC
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           CEC does a double-blind data entry
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           Data is now official
         </li>
       </ul>
@@ -80,16 +79,16 @@
     <div id="where-problems" class="step" data-x="7000" data-y="5000" data-z="1000" data-rotate="25" >
       <h1>Where Problems Can Occur</h1>
       <ul class="standard">
-        <li data-jmpress="fade">
+        <li class="substep">
           Election code allows special precincts to be merged into other precincts for counting
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           People do not turn in ballot(s)
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           Polling station staff miscount
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           CEC makes data entry mistakes
         </li>
       </ul>
@@ -134,16 +133,16 @@
     <div id="problem-special-precincts" class="step" data-x="7000" data-y="7000" data-z="1000" data-rotate="25" >
       <h1>Election Code and Special Precincts</h1>
       <ul class="standard">
-        <li data-jmpress="fade">
+        <li class="substep">
           A special precinct is a prison, military base, hospital or other facility
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           Votes from special precincts are merged into a parent polling station
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           In a Majoritarian election, there is no way to properly know how many ballots were submitted from the special precinct compared to the parent polling station, without a court order opening up the official polling station documents
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           In the 2012 Majoritarian election, there were 74 special precincts whose voting results cannot be properly verified 
         </li>
       </ul>
@@ -189,10 +188,10 @@
     <div id="problem-turing-in-ballots" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
       <h1>People Might Not Turn in Their Ballot</h1>
       <ul class="standard">
-        <li data-jmpress="fade">
+        <li class="substep">
           Polling Stations count the signatures of people that received ballots, <em>NOT</em> the total ballots put in the box
         </li>
-        <li data-jmpress="fade">
+        <li class="substep">
           This means if a person signs for a ballot but does not put it in a box, the ballot is missing
         </li>
       </ul>
@@ -232,47 +231,60 @@
       </ul>
     </div>
 
+</div>
 
+<!--
+    
+    Hint is not related to impress.js in any way.
+    
+    But it can show you how to use impress.js features in creative way.
+    
+    When the presentation step is shown (selected) its element gets the class of "active" and the body element
+    gets the class based on active step id `impress-on-ID` (where ID is the step's id)... It may not be
+    so clear because of all these "ids" in previous sentence, so for example when the first step (the one with
+    the id of `bored`) is active, body element gets a class of `impress-on-bored`.
+    
+    This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation when
+    the first step of presentation is visible for a couple of seconds.
+    
+    ...
+    
+    And when it comes to this piece of JavaScript below ... kids, don't do this at home ;)
+    It's just a quick and dirty workaround to get different hint text for touch devices.
+    In a real world it should be at least placed in separate JS file ... and the touch content should be
+    probably just hidden somewhere in HTML - not hard-coded in the script.
+    
+    Just sayin' ;)
+    
+-->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+<script src="ex3_files/impress.js"></script>
+<script src="ex3_files/init.js"></script>
 
-
-
-
-
-
-
-
-
-
-    <!--div class="step" data-x="10000" data-y="10000" data-scale="5">
-      <div style="float: left; width: 33%; height: 700px;">
-        <img src="http://results.cec.gov.ge/oqmebi/2/5414/26133.jpg" alt="" style="max-width: 100%;" />
-      </div>
-      <svg id="joining_lines" style="float: left; width: 33%; height: 700px;" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>
-      <div style="float: left; width: 33%;" data-jmpress="fade">
-        <ul style="height: 700px; list-style-type: disc; margin-left: 35px;" id="joining_right">
-          <li>item 1item 1item 1item 1</li>
-          <li>item 2</li>
-          <li>item 3</li>
-          <li>item 4</li>
-          <li>item 5</li>
-          <li>item 6</li>
-        </ul>
-      </div>
-    </div-->
-
-  </div>
-
-
-  <div id="hint"><p>Use spacebar, arrow keys or page up / down to navigate</p></div>
-
-
-
-
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="jmpress.js"></script>
-  <script src="init.js"></script>
-
-
+<!--
+    
+    The `impress()` function also gives you access to the API that controls the presentation.
+    
+    Just store the result of the call:
+    
+        var api = impress();
+    
+    and you will get three functions you can call:
+    
+        `api.init()` - initializes the presentation,
+        `api.next()` - moves to next step of the presentation,
+        `api.prev()` - moves to previous step of the presentation,
+        `api.goto( idx | id | element, [duration] )` - moves the presentation to the step given by its index number
+                id or the DOM element; second parameter can be used to define duration of the transition in ms,
+                but it's optional - if not provided default transition duration for the presentation will be used.
+    
+    You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
+    Don't worry, it wont initialize the presentation again.
+    
+    For some example uses of this API check the last part of the source of impress.js where the API
+    is used in event handlers.
+    
+-->
 
 </body>
 </html>
