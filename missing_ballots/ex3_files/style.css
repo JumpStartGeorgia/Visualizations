@@ -42,3 +42,14 @@ svg .substep.previous {
 .step:not(.active).invisible {
 	opacity:0.0;
 }
+
+
+
+
+#how-vote-works-election-code li:first-child {
+  background-color: #999;
+}
+
+#how-vote-works-turn-in-ballots li:nth-child(5) {
+  background-color: #999;
+}
