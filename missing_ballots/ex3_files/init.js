@@ -12,7 +12,7 @@ $(function ()
     if (!target.length)
     {
       console.log('incorrect target for', this);
-      return !1;
+      return;
     }
 
     self.html(target.html());
@@ -35,10 +35,23 @@ $(function ()
 
     if (num == index)
     {
-      impress().init();
+      init();
     }
   });
 
-
-
 });
+
+function init ()
+{
+  impress().init();
+
+  if ($('body').hasClass('impress-not-supported'))
+  {
+    var _ifs = document.createElement('script');
+    _ifs.src = 'ex3_files/fallback.js';
+    document.body.appendChild(_ifs);
+  }
+}
+
+
+

@@ -74,6 +74,20 @@ table {
     border-spacing: 0;
 }
 
+ul.standard, ol.standard, ul.standard ul, ol.standard ol,
+ul.standard ol, ol.standard ul {
+	padding-left: 1em;
+}
+
+ul.standard li {
+	list-style-type:disc;
+	line-height: 1.3;
+}
+ol.standard li {
+	list-style-type:decimal;
+	line-height: 1.3;
+}
+
 /*
     Now here is when interesting things start to appear.
 
@@ -206,7 +220,7 @@ a:focus {
 
     They cover everything what you see on first three steps of the demo.
 */
-.slide {
+.slide, .step {
     display: block;
 
     width: 900px;
