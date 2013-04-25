@@ -28,6 +28,8 @@ function animatescroll (direction)
     ys.push($(this).offset().top);
   });
 
+  window.scrollY = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
   for (var i in ys)
   {
     i = +i;
