@@ -168,7 +168,7 @@
     var body = document.body;
     
     var ua = navigator.userAgent.toLowerCase();
-    var impressSupported = false &&
+    var impressSupported =
                           // browser should support CSS 3D transtorms 
                            ( pfx("perspective") !== null ) &&
                            
