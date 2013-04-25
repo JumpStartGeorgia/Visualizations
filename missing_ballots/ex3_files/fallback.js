@@ -1,23 +1,23 @@
 
 $('#impress').find('.substep').removeClass('substep').end().find('.step.invisible').removeClass('invisible');
 
+//var focusi = -1;
 $(window).keydown(function (event)
 {
   switch (event.keyCode)
   {
     case 37:
     case 38:
-      animatescroll('prev');
-      return false;
+    //focusi --;
+      return animatescroll('prev');
       break;
     case 39:
     case 40:
-      animatescroll('next');
-      return false;
+    //focusi ++;
+      return animatescroll('next');
       break;
   }
 });
-
 
 
 function animatescroll (direction)
@@ -36,16 +36,23 @@ function animatescroll (direction)
     if (ys[i] >= window.scrollY)
     {
       var j = (ys[i] == window.scrollY) ? ((direction == 'prev') ? (i - 1) : (i + 1)) : ((direction == 'prev') ? (i - 1) : i);
+      if (ys[j] == undefined)
+      {
+        break;
+      }
+    //console.log(focusi, ys[focusi]);
       $('body, html').stop().animate({scrollTop: ys[j]});
-      break;
+      return false;
     }
     else if (i == ys.length - 1)
     {
       if (direction == 'prev')
       {
         $('body, html').stop().animate({scrollTop: ys[i]});
+        return false;
       }
     }
   }
+  return true;
 }
 
