@@ -187,6 +187,204 @@
 
     <div class="clone step invisible" data-target="#how-vote-works" id="how-vote-works-counting-ballots" data-remove-substeps="true"></div>
 
+    <div id="problem-counting-ballots-explanation" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+      <h1>Polling Station Miscount</h1>
+      <h2>Protocol Explanation</h2>
+
+      <img src="images/good_protocol.jpg" width="50%">
+
+      <ul>
+        <li class="substep">
+          1 - Possible Voters
+        </li>
+        <li class="substep">
+          2 - Special Voters
+        </li>
+        <li class="substep">
+          3 - Votes by 12:00 and by 17:00
+        </li>
+        <li class="substep">
+          4 - Ballots Signed For
+        </li>
+        <li class="substep">
+          5 - Ballots to Hand Out
+        </li>
+        <li class="substep">
+          Votes for Each Party
+        </li>
+        <li class="substep">
+          6 - Invalid Ballots Submitted
+        </li>
+        <li class="substep">
+          Signatures of Polling Station Staff 
+        </li>
+      </ul>
+    </div>
+
+    <div id="problem-counting-ballots-validation-eq" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+      <h1>Polling Station Miscount</h1>
+      <h2>Vote Count Validation</h2>
+
+      <img src="images/good_protocol.jpg" width="50%">
+
+      <div>
+        To validate that the ballots were counted correctly, the following equation should be true:
+        <br />
+        <br />
+        (4 - Ballots Signed For) - (6 - Invalid Ballots Submitted) = SUM(Votes for Each Party)
+      </div>
+
+      <div id="problem-counting-ballots-validation-eq-ex" class="substep">
+        Here is a protocol from Polling Station 1 in Gori.
+        For this protocol, the equation turns into:
+        <div class="substep">
+          832 - 32 = (4 + 277 + 11 + 1 + 3 + 3 + 6 + 495)
+        </div>
+        <div class="substep">
+          800 = 800
+        </div>
+        <div class="substep">
+          <strong>Validation Passed!</strong>
+        </div>
+      </div>
+    </div>
+
+    <div id="problem-counting-ballots-validation-votes-gt-party" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+      <h1>Polling Station Miscount</h1>
+      <h2>Vote Count Validation</h2>
+
+      <img src="images/more_votes_than_party_protocol.jpg" width="50%">
+
+      <div id="problem-counting-ballots-validation-eq-ex" class="substep">
+        Here is a protocol from Polling Station 63 in Gori.
+        For this protocol, the equation turns into:
+        <div class="substep">
+          807 - 17 = (1 + 1 + 301 + 4 + 28 + 1 + 9 + 12 + 362)
+        </div>
+        <div class="substep">
+          790 = 719
+        </div>
+        <div class="substep">
+          <strong>Validation Failed!</strong>
+        </div>
+        <div class="substep">
+          In this case, there were more ballots signed for than there were counted party votes.
+        </div>
+        <div class="substep">
+          How did this happen?  Did 71 people sign for ballots but not turn them in?  
+          Did the Polling Station Staff not count the ballots?  Did the ballots get lost?
+        </div>
+      </div>
+    </div>
+
+    <div id="problem-counting-ballots-validation-votes-gt-party2" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+      <h1>Polling Station Miscount</h1>
+      <h2>Vote Count Validation</h2>
+
+      <img src="images/more_votes_than_party_protocol2.jpg" width="50%">
+
+      <div id="problem-counting-ballots-validation-eq-ex2" class="substep">
+        Here is a protocol from Polling Station 83 in Gori.
+        For this protocol, the equation turns into:
+        <div class="substep">
+          1514 - 40 = (5 + 1023 + 27 + 2 + 1 + 16 + 1 + 362)
+        </div>
+        <div class="substep">
+          1474 = 1437
+        </div>
+        <div class="substep">
+          <strong>Validation Failed!</strong>
+        </div>
+        <div class="substep">
+          In this case, there were more ballots signed for than there were counted party votes.
+        </div>
+        <div class="substep">
+          Again, how did this happen?  Where are the missing 37 ballots?
+        </div>
+      </div>
+    </div>
+
+    <div id="problem-counting-ballots-validation-party-gt-votes" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+      <h1>Polling Station Miscount</h1>
+      <h2>Vote Count Validation</h2>
+
+      <img src="images/more_party_than_votes_protocol.jpg" width="50%">
+
+      <div id="problem-counting-ballots-validation-eq-ex" class="substep">
+        Here is a protocol from Polling Station 84 in Gori.
+        For this protocol, the equation turns into:
+        <div class="substep">
+          728 - 13 = (329 + 5 + 14 + 1 + 1 + 5 + 1 + 10 + 1 + 355)
+        </div>
+        <div class="substep">
+          715 = 722
+        </div>
+        <div class="substep">
+          <strong>Validation Failed!</strong>
+        </div>
+        <div class="substep">
+          In this case, there were more counted party votes than there were ballots signed for.
+        </div>
+        <div class="substep">
+          How are there more votes than ballots submitted?  
+        </div>
+      </div>
+    </div>
+
+    <div id="problem-counting-ballots-validation-party-gt-votes2" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+      <h1>Polling Station Miscount</h1>
+      <h2>Vote Count Validation</h2>
+
+      <img src="images/more_party_than_votes_protocol2.jpg" width="50%">
+
+      <div id="problem-counting-ballots-validation-eq-ex2" class="substep">
+        Here is a protocol from Polling Station 70 in Gori.
+        For this protocol, the equation turns into:
+        <div class="substep">
+          429 - 221 = (1 + 187 + 2 + 6 + 1 + 8 + 2 + 197)
+        </div>
+        <div class="substep">
+          208 = 404
+        </div>
+        <div class="substep">
+          <strong>Validation Failed!</strong>
+        </div>
+        <div class="substep">
+          In this case, there were more counted party votes than there were ballots signed for.
+        </div>
+        <div class="substep">
+          Again, how are there more votes than ballots submitted?  
+          Did not one of the Polling Station Staff notice that nearly 50% of all ballots signed for were marked as invalid?
+        </div>
+        <div class="substep">
+          In this case, the Polling Station Staff incorrectly filled out the protocol by making the 
+          number of invalid ballots equal to the ballots on hand minus the ballots signed for.
+        </div>
+        <div class="substep">
+          (5 - Ballots to Hand Out) - (4 - Ballots Signed For) = (6 - Invalid Ballots Submitted)
+        </div>
+        <div class="substep">
+          650 - 429 = 221
+        </div>
+        <div class="substep">
+          221 = 221
+        </div>
+      </div>
+    </div>
+
+    <div id="problem-counting-ballots-validation-signatures" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+      <h1>Polling Station Miscount</h1>
+      <h2>Vote Count Validation</h2>
+
+      <img src="images/more_party_than_votes_protocol2.jpg" width="50%">
+
+      <div class="substep">
+        Keep in mind that at the bottom of every protocol, 13 Polling Station Staff
+        have signed off that the protocol is properly filled out.
+      </div>
+    </div>
+
+
 </div>
 
 <!--
