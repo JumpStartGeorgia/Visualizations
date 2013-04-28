@@ -15,6 +15,8 @@
 
 <body class="impress-not-supported">
 
+  <div id="hint"><p>Use spacebar, arrow keys or page up / down to navigate</p></div>
+
 <div id="impress">
 
 
@@ -80,7 +82,7 @@
       <h1>Where Problems Can Occur</h1>
       <ul class="standard">
         <li class="substep">
-          Election code allows special precincts to be merged into other precincts for counting
+          Election code allows special polling stations to be merged into other polling stations for counting
         </li>
         <li class="substep">
           People do not turn in ballot(s)
@@ -97,19 +99,19 @@
     <div class="clone step invisible" data-target="#how-vote-works" id="how-vote-works-election-code" data-remove-substeps="true"></div>
 
     <div id="problem-special-precincts" class="step" data-x="7000" data-y="7000" data-z="1000" data-rotate="25" >
-      <h1>Election Code and Special Precincts</h1>
+      <h1>Election Code and Special Polling Stations</h1>
       <ul class="standard">
         <li class="substep">
-          A special precinct is a prison, military base, hospital or other facility
+          A special polling station is a prison, military base, hospital or other facility
         </li>
         <li class="substep">
-          Votes from special precincts are merged into a parent polling station
+          Votes from special polling stations are merged into a parent polling station
         </li>
         <li class="substep">
-          In a Majoritarian election, there is no way to properly know how many ballots were submitted from the special precinct compared to the parent polling station, without a court order opening up the official polling station documents
+          In a Majoritarian election, there is no way to properly know how many ballots were submitted from the special polling stations compared to the parent polling station, without a court order opening up the official polling station documents
         </li>
         <li class="substep">
-          In the 2012 Majoritarian election, there were 74 special precincts whose voting results cannot be properly verified 
+          In the 2012 Majoritarian election, there were 74 special polling stations whose voting results cannot be properly verified 
         </li>
       </ul>
     </div>
@@ -346,19 +348,49 @@
     </div>
 
 
-    <div id="error-how-many" class="step" data-x="5000" data-y="3500" data-z="-500" data-rotate-x="-90" >
+    <div id="error-how-many" class="step" data-x="5000" data-y="5000" data-z="2000" >
       <h1>How Many Mistakes Were Made?</h1>
     </div>
 
+    <div id="error-stats-proportional" class="step" data-x="5000" data-y="5700" data-z="2000" >
+      <h1>Proportional Mistakes</h1>
 
-    <div id="error-stats-proportional" class="step" data-x="5000" data-y="3000" data-z="-1000" data-rotate-x="-180" >
+      <div class="substep">
+          The map shows the percent of polling stations in each district that had missing ballots.
+      </div>
+
+      <div class="substep">
+        <img src="images/map_proportional.jpg">
+
+        <div class="map-legend">
+          <div>
+            <span style="background-color: #93BE96; opacity: 0.6; filter:alpha(opacity=60);"></span> 0%
+          </div>
+          <div>
+            <span style="background-color: #DD776B; opacity: 0.6; filter:alpha(opacity=60);"></span> 0-10%
+          </div>
+          <div>
+            <span style="background-color: #BD160D; opacity: 0.6; filter:alpha(opacity=60);"></span> 10-30%
+          </div>
+          <div>
+            <span style="background-color: #8A050A; opacity: 0.6; filter:alpha(opacity=60);"></span> &gt;30%
+          </div>
+          <div>
+            <span style="background-color: #CCCCCC"></span> No Data
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="error-stats-proportional2" class="step" data-x="5900" data-y="5700" data-z="2000" >
       <h1>Proportional Mistakes</h1>
       <ul class="standard">
         <li class="substep">
-           24.37% of all polling stations are missing ballots
+           889 out of 3,648 (24.37%) polling stations are missing ballots
         </li>
         <li class="substep">
-          75 of 76 districts had at least one polling station that is missing ballots  
+          75 out of 76 districts had at least one polling station that is missing ballots  
         </li>
         <li class="substep">
           Districts with largest amount of missing ballots in one polling station: Gori - 196; Dmanisi - 87; Gori - 71
@@ -371,11 +403,43 @@
     </div>
 
 
-    <div id="error-stats-majoritarian" class="step" data-x="5000" data-y="2500" data-z="-500" data-rotate-x="-270" >
+    <div id="error-stats-majoritarian" class="step" data-x="5000" data-y="6400" data-z="2000" >
+      <h1>Majoritarian Mistakes</h1>
+
+      <div class="substep">
+          The map shows the percent of polling stations in each district that had missing ballots.
+      </div>
+
+      <div class="substep">
+        <img src="images/map_majoritarian.jpg">
+
+        <div class="map-legend">
+          <div>
+            <span style="background-color: #93BE96; opacity: 0.6; filter:alpha(opacity=60);"></span> 0%
+          </div>
+          <div>
+            <span style="background-color: #DD776B; opacity: 0.6; filter:alpha(opacity=60);"></span> 0-10%
+          </div>
+          <div>
+            <span style="background-color: #BD160D; opacity: 0.6; filter:alpha(opacity=60);"></span> 10-30%
+          </div>
+          <div>
+            <span style="background-color: #8A050A; opacity: 0.6; filter:alpha(opacity=60);"></span> &gt;30%
+          </div>
+          <div>
+            <span style="background-color: #CCCCCC"></span> No Data
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="error-stats-majoritarian2" class="step" data-x="5900" data-y="6400" data-z="2000" >
       <h1>Majoritarian Mistakes</h1>
       <ul class="standard">
         <li class="substep">
-           54.07% of all polling stations are missing ballots
+           1,935 out of 3,579 (54.07%) polling stations are missing ballots 
+          (remember 74 polling stations include special polling stations and cannot be analyzed)
         </li>
         <li class="substep">
           All 76 districts had at least one polling station that is missing ballots
@@ -391,11 +455,14 @@
     </div>
 
 
-    <div id="error-stats-gori" class="step" data-x="5000" data-y="3000" data-z="0" data-rotate-x="-360" >
-      <h1>Gori Mistakes</h1>
+    <div id="error-stats-gori" class="step" data-x="5000" data-y="7100" data-z="2000" >
+      <h1>District Mistakes - Gori</h1>
 
+      <div>
+          Let's look at Gori as an example of what happened at the district level.
+      </div>
       <div class="substep">
-          The map shows the number of errors for each Polling Station in Gori.
+          The map shows the number of missing ballots for each polling station in Gori.
       </div>
 
       <div class="substep">
@@ -408,7 +475,7 @@
           <img src="images/gori_majoritarian.jpg" width="100%" height="421px">
         </div>
 
-        <div id="map-legend">
+        <div class="map-legend">
           <div>
             <span style="background-color: #93BE96; opacity: 0.6; filter:alpha(opacity=60);"></span> 0 Missing Ballots
           </div>
@@ -427,6 +494,27 @@
         </div>
       </div>
     </div>
+
+
+    <div id="error-stats-gori2" class="step" data-x="5900" data-y="7100" data-z="2000" >
+      <h1>District Mistakes - Gori</h1>
+
+      <ul class="standard">
+        <li class="substep">
+           49% of all polling stations are missing ballots in Proportional election
+        </li>
+        <li class="substep">
+          Polling stations with largest amount of missing ballots in Proportional election: #70 - 196; #63 - 71; #83 - 37
+        </li>
+        <li class="substep">
+           47% of all polling stations are missing ballots in Majoritarian election
+        </li>
+        <li class="substep">
+          Polling stations with largest amount of missing ballots in Majoritarian election: #70 - 208; #63 - 73; #19 - 23
+        </li>
+      </ul>
+    </div>
+
 
 
     <div id="affect-outcome" class="step" data-x="5000" data-y="8500" data-z="2500" data-rotate-x="-90" >
@@ -451,7 +539,7 @@
       <h1>Fix Mistakes - Election Code</h1>
       <ul class="standard">
         <li class="substep">
-           Get rid of special precincts or require special precincts to tabulate their own results
+           Get rid of special polling stations or require special polling stations to tabulate their own results
         </li>
       </ul>
     </div>
@@ -491,10 +579,31 @@
 
     </div>
 
+    <div id="sources" class="step" data-x="5000" data-y="5500" data-z="6000" >
+      <h1>Sources</h1>
+
+      <ul class="standard">
+        <li>
+          Protocols: http://results2012.cec.gov.ge/
+        </li>
+        <li>
+          Official Data
+        </li>
+        <li>
+          Georgian Election Data: http://data.electionportal.ge/
+        </li>
+      </ul>
+    </div>
+
 
    <div id="overview" class="step no-color" data-x="5000" data-y="5000" data-scale="15">
    </div>
+
+
+
 </div>
+
+
 
 <!--
     
