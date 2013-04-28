@@ -65,7 +65,7 @@
           Polling Station staff count all ballots and record the totals on a 'protocol'
         </li>
         <li class="substep">
-          Protocols are eventually sent to the CEC
+          Protocols are sent to the CEC
         </li>
         <li class="substep">
           CEC does a double-blind data entry
@@ -118,8 +118,7 @@
     <div class="clone step invisible" data-target="#how-vote-works" id="how-vote-works-turn-in-ballots" data-remove-substeps="true"></div>
 
 
-
-    <div id="problem-turing-in-ballots" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="problem-turing-in-ballots" class="step" data-x="5000" data-y="7000" data-z="-2000" >
       <h1>People Might Not Turn in Their Ballot</h1>
       <ul class="standard">
         <li class="substep">
@@ -133,8 +132,8 @@
 
 
     <div class="clone step invisible" data-target="#how-vote-works" id="how-vote-works-counting-ballots" data-remove-substeps="true"></div>
-
-    <div id="problem-counting-ballots-explanation" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+  
+    <div id="problem-counting-ballots-explanation" class="step" data-rotate-y="-30" data-x="1000" data-y="7000" data-z="-1000" >
       <h1>Polling Station Miscount</h1>
       <h2>Protocol Explanation</h2>
 
@@ -168,7 +167,7 @@
       </ul>
     </div>
 
-    <div id="problem-counting-ballots-validation-eq" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="problem-counting-ballots-validation-eq" class="step" data-rotate-y="-30" data-x="1500" data-y="7000" data-z="-2000" >
       <h1>Polling Station Miscount</h1>
       <h2>Vote Count Validation</h2>
 
@@ -176,8 +175,10 @@
 
       <div>
         To validate that the ballots were counted correctly, the following equation should be true:
-        <br />
-        <br />
+      </div>
+
+      <div class="substep">
+        <br /><br />
         (4 - Ballots Signed For) - (6 - Invalid Ballots Submitted) = SUM(Votes for Each Party)
       </div>
 
@@ -196,7 +197,7 @@
       </div>
     </div>
 
-    <div id="problem-counting-ballots-validation-votes-gt-party" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="problem-counting-ballots-validation-votes-gt-party" class="step" data-rotate-y="-30" data-x="2000" data-y="7000" data-z="-3000" >
       <h1>Polling Station Miscount</h1>
       <h2>Vote Count Validation</h2>
 
@@ -224,7 +225,7 @@
       </div>
     </div>
 
-    <div id="problem-counting-ballots-validation-votes-gt-party2" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="problem-counting-ballots-validation-votes-gt-party2" class="step" data-rotate-y="-30" data-x="2500" data-y="7000" data-z="-4000" >
       <h1>Polling Station Miscount</h1>
       <h2>Vote Count Validation</h2>
 
@@ -251,7 +252,7 @@
       </div>
     </div>
 
-    <div id="problem-counting-ballots-validation-party-gt-votes" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="problem-counting-ballots-validation-party-gt-votes" class="step" data-rotate-y="-30" data-x="3000" data-y="7000" data-z="-5000" >
       <h1>Polling Station Miscount</h1>
       <h2>Vote Count Validation</h2>
 
@@ -278,7 +279,7 @@
       </div>
     </div>
 
-    <div id="problem-counting-ballots-validation-party-gt-votes2" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="problem-counting-ballots-validation-party-gt-votes2" class="step" data-rotate-y="-30" data-x="3500" data-y="7000" data-z="-6000" >
       <h1>Polling Station Miscount</h1>
       <h2>Vote Count Validation</h2>
 
@@ -319,7 +320,7 @@
       </div>
     </div>
 
-    <div id="problem-counting-ballots-validation-signatures" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="problem-counting-ballots-validation-signatures" class="step" data-rotate-y="-30" data-x="4000" data-y="7000" data-z="-7000" >
       <h1>Polling Station Miscount</h1>
       <h2>Vote Count Validation</h2>
 
@@ -333,20 +334,24 @@
 
     <div class="clone step invisible" data-target="#how-vote-works" id="how-vote-works-data-entry-mistakes" data-remove-substeps="true"></div>
 
-    <div id="cec-data-entry-mistakes" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="cec-data-entry-mistakes" class="step" data-x="1000" data-y="3000" data-z="2000" >
       <h1>CEC Data Entry Mistakes</h1>
 
       show spreadsheet and explain each col
+      <br/>
       show district 87 protocol
+      <br/>
       show results in spreadsheet and show how data entered incorrectly
 
     </div>
 
-    <div id="error-stats" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div class="clone step invisible" data-target="#how-vote-works" id="how-vote-works-mistakes-complete" data-remove-substeps="true"></div>
+
+    <div id="error-how-many" class="step" data-x="5000" data-y="5500" data-z="-500" data-rotate-x="-90" >
       <h1>How Many Mistakes Were Made?</h1>
     </div>
 
-    <div id="error-stats-proportional" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="error-stats-proportional" class="step" data-x="5000" data-y="5000" data-z="-1000" data-rotate-x="-180" >
       <h1>Proportional Mistakes</h1>
       <ul class="standard">
         <li class="substep">
@@ -365,7 +370,7 @@
 
     </div>
 
-    <div id="error-stats-majoritarian" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="error-stats-majoritarian" class="step" data-x="5000" data-y="4500" data-z="-500" data-rotate-x="-270" >
       <h1>Majoritarian Mistakes</h1>
       <ul class="standard">
         <li class="substep">
@@ -384,14 +389,15 @@
 
     </div>
 
-    <div id="error-stats-majoritarian" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="error-stats-gori" class="step" data-x="4500" data-y="5000" data-z="-500" data-rotate-x="-180" data-rotate-y="-90" >
       <h1>Gori Mistakes</h1>
 
       show map for e-data site; show how the same polling stations in both elections had errors (70, 80, 84, 63)
 
     </div>
 
-    <div id="affect-outcome" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+
+    <div id="affect-outcome" class="step" data-x="5500" data-y="5000" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" >
       <h1>Do these missing ballots affect the outcome of the 2012 election?</h1>
 
       <div class="substep">
@@ -405,12 +411,12 @@
     </div>
 
 
-    <div id="what-can-be-done" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="what-can-be-done" class="step" data-x="5000" data-y="9000" data-z="2000">
       <h1>What Can Be Done to Fix These Mistakes in Future Elections?</h1>
 
     </div>
 
-    <div id="what-can-be-done-election-code" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="what-can-be-done-election-code" class="step" data-x="4500" data-y="9700" data-z="2000" >
       <h1>Fix Mistakes - Election Code</h1>
       <ul class="standard">
         <li class="substep">
@@ -419,7 +425,7 @@
       </ul>
     </div>
 
-    <div id="what-can-be-done-count-ballots" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="what-can-be-done-count-ballots" class="step" data-x="4000" data-y="10400" data-z="2000" >
       <h1>Fix Mistakes - Polling Stations</h1>
       <ul class="standard">
         <li class="substep">
@@ -431,31 +437,32 @@
       </ul>
     </div>
 
-    <div id="what-can-be-done-data-validation" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="what-can-be-done-data-validation" class="step" data-x="3500" data-y="11100" data-z="2000" >
       <h1>Fix Mistakes - CEC Data Validation</h1>
       <ul class="standard">
         <li class="substep">
            Include validation checks when the CEC is entering the data.
-           Validation equation = (Total ballots submitted) - (Invalid allots) = (Sum of party votes)
+           Validation equation: (Total ballots submitted) - (Invalid allots) = (Sum of party votes)
         </li>
         <li class="substep">
-           The Polling Station results will be audited if errors in the protocol are found
+           The Polling Station results will be audited if validation errors in the protocol are found
         </li>
       </ul>
     </div>
 
 
-    <div id="voted-counted-2013" class="step" data-x="5000" data-y="9000" data-z="2000" data-rotate="75" >
+    <div id="voted-counted-2013" class="step" data-x="5000" data-y="5000" data-z="5000" >
       <h1>Will your vote be counted in 2013?</h1>
 
       <div class="substep">
-        Probably, but to get to 100% certainty, changes need to be made.
+        Probably. But to get to 100% certainty changes need to be made.
       </div>
 
     </div>
 
 
-
+   <div id="overview" class="step no-color" data-x="5000" data-y="5000" data-scale="15">
+   </div>
 </div>
 
 <!--

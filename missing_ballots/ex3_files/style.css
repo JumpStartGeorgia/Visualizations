@@ -54,6 +54,10 @@ svg .substep.previous {
   background-color: #999;
 }
 
+#how-vote-works-counting-ballots li:nth-child(6) {
+  background-color: #999;
+}
+
 #problem-counting-ballots-explanation img,
 #problem-counting-ballots-validation-eq img, 
 #problem-counting-ballots-validation-votes-gt-party img, 
@@ -98,5 +102,9 @@ svg .substep.previous {
 }
 #problem-counting-ballots-validation-signatures > div{
   margin-top: 400px;
+}
+
+#how-vote-works-data-entry-mistakes li:nth-child(8) {
+  background-color: #999;
 }
 
