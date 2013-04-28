@@ -129,6 +129,16 @@ svg .substep.previous {
   padding: 4px;
 }
 
+#cec-data-entry-mistakes-ex1 > div:after
+#cec-data-entry-mistakes-ex2 > div:after
+#cec-data-entry-mistakes-summary > div:after{
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
 #error-stats-gori > div {
   font-size: 20px;
 }
@@ -141,7 +151,11 @@ svg .substep.previous {
   width: 48%;
   margin-right: 15px;
 }
-
+/*
+#impress img{
+  cursor: pointer;
+}
+*/
 .map-legend > div {
   float: left;
   margin-right: 10px;

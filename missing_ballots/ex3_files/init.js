@@ -51,6 +51,16 @@ function init ()
     _ifs.src = 'ex3_files/fallback.js';
     document.body.appendChild(_ifs);
   }
+
+/*	
+  $('#impress img').click(function(){
+    $.fancybox({
+        type: 'iframe',
+        href: $(this).attr('src'),
+        width: $(this).width()
+    });
+  });
+*/
 }
 
 
