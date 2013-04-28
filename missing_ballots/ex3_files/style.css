@@ -108,3 +108,33 @@ svg .substep.previous {
   background-color: #999;
 }
 
+#error-stats-gori > div {
+  font-size: 20px;
+}
+#error-stats-gori h2 {
+  text-align: center;
+}
+#error-stats-gori #error-stats-gori-prop,
+#error-stats-gori #error-stats-gori-major{
+  float:left;
+  width: 48%;
+  margin-right: 15px;
+}
+
+#error-stats-gori #map-legend > div {
+  float: left;
+  margin-right: 10px;
+}
+#error-stats-gori #map-legend:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+#error-stats-gori #map-legend span{ 
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+}
