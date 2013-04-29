@@ -38,11 +38,21 @@ $(function ()
       init();
     }
   });
-
 });
 
 function init ()
 {
+  $('img.loupe').loupe({
+    loupe: 'loupe' // css class for magnifier
+  });
+
+  var steps = $('.step:not(#overview)');
+  var num = steps.length;
+  steps.each(function (i)
+  {
+    $(this).append('<div style="position: absolute; top: 5px; left: 5px; background: #000; color: #fff;">' + (+i + 1) + '/' + num + '</div>');
+  });
+
   impress().init();
 
   if ($('body').hasClass('impress-not-supported'))
