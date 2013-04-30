@@ -78,7 +78,12 @@ function init ()
 $(document).ready(function(){
   // update slide counter
   document.addEventListener("impress:stepenter", function(event){
-    $('#slide_count #slide_count_current').html($(event.target).data('slide-count'));
+    if ($(event.target).data('slide-count') == "1"){
+      $('#slide_count').hide();
+    } else {
+      $('#slide_count').show();
+      $('#slide_count #slide_count_current').html($(event.target).data('slide-count'));
+    }
   }, false);
 });
 
