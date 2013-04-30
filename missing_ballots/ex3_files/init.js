@@ -48,9 +48,12 @@ function init ()
 
   var steps = $('.step:not(#overview)');
   var num = steps.length;
+  $('#slide_count #slide_count_total').html(num);
+
   steps.each(function (i)
   {
-    $(this).append('<div style="position: absolute; top: 5px; left: 5px; background: #000; color: #fff;">' + (+i + 1) + '/' + num + '</div>');
+    $(this).attr('data-slide-count', +i+1);
+//    $(this).append('<div style="position: absolute; top: 5px; left: 5px; background: #000; color: #fff;">' + (+i + 1) + '/' + num + '</div>');
   });
 
   impress().init();
@@ -72,6 +75,10 @@ function init ()
   });
 */
 }
-
-
+$(document).ready(function(){
+  // update slide counter
+  document.addEventListener("impress:stepenter", function(event){
+    $('#slide_count #slide_count_current').html($(event.target).data('slide-count'));
+  }, false);
+});
 

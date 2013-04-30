@@ -238,3 +238,22 @@ svg .substep.previous {
 	-o-transform:      translateY(0px);
 	transform:         translateY(0px);
 }
+
+/* slide counter */
+.impress-enabled #slide_count {
+  display: block;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+
+	background: transparent;
+	color: #000;
+	text-align: center;
+
+	padding: 10px;
+	z-index: 100;
+
+	opacity: 1;
+}
+
