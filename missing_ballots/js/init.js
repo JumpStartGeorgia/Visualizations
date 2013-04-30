@@ -78,7 +78,7 @@ function init ()
 $(document).ready(function(){
   // update slide counter
   document.addEventListener("impress:stepenter", function(event){
-    if ($(event.target).data('slide-count') == "1"){
+    if ($(event.target).data('slide-count') == "1" || $(event.target).data('slide-count') == undefined){
       $('#slide_count').hide();
     } else {
       $('#slide_count').show();

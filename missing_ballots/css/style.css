@@ -167,6 +167,11 @@ svg .substep.previous {
   width: 48%;
   margin-right: 15px;
 }
+
+#sources a {
+  text-decoration: underline;
+  text-shadow: none;
+}
 /*
 #impress img{
   cursor: pointer;
