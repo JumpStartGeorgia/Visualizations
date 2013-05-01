@@ -43,6 +43,11 @@ svg .substep.previous {
 	opacity:0.0;
 }
 
+img.loupe {
+  position: relative;
+  z-index: 200;
+}
+
 
 .impress-enabled .step.section-heading {
   width: 450px;

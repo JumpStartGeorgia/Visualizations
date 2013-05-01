@@ -46,16 +46,6 @@ function init ()
     loupe: 'loupe' // css class for magnifier
   });
 
-  var steps = $('.step:not(#overview)');
-  var num = steps.length;
-  $('#slide_count #slide_count_total').html(num);
-
-  steps.each(function (i)
-  {
-    $(this).attr('data-slide-count', +i+1);
-//    $(this).append('<div style="position: absolute; top: 5px; left: 5px; background: #000; color: #fff;">' + (+i + 1) + '/' + num + '</div>');
-  });
-
   impress().init();
 
   if ($('body').hasClass('impress-not-supported'))
@@ -75,14 +65,21 @@ function init ()
   });
 */
 }
+
+
 $(document).ready(function(){
   // update slide counter
+
+  var steps = $('.step:not(#overview)');
+  $('#slide_count #slide_count_total').html(steps.length);
+  
   document.addEventListener("impress:stepenter", function(event){
-    if ($(event.target).data('slide-count') == "1" || $(event.target).data('slide-count') == undefined){
+    var index = +steps.index(event.target) + 1;
+    if (index == 0){
       $('#slide_count').hide();
     } else {
       $('#slide_count').show();
-      $('#slide_count #slide_count_current').html($(event.target).data('slide-count'));
+      $('#slide_count #slide_count_current').html(index);
     }
   }, false);
 });
