@@ -1,0 +1,107 @@
+STEPS TO CREATE HTML FILES
+
+- save complete en and ka version from rails page
+- put page in corresponding en/ka folder and rename to index.html
+- copy assets from either en or ka and put in this projects assets folder
+- if data has changed, download csv file for each language, zip and name like the following, replacing the date with the new date:
+  - The_Known_Soldier_2013-06-28.csv.zip
+  - nacnobi_jariskaci_2013-06-28.csv.zip
+- place files in appropriate en/ka folders
+
+ASSETS
+- remove unneeded assets
+  - social links add css, js, etc - do not need these
+  - for text files, just need application.css, applications.js, fonts-en.css, fonts-ka.css
+- images used in css are not going to be preset in download of webpage; copy these images from rails project into assets folder
+- fonts used in css are not going to be preset in download of webpage; copy the fonts folder from rails project into assets folder 
+- copy xxx_with_data.json files from rails/public folder into both en and ka folder (js will look for them there)
+
+HTML
+Quick Fixes
+- replace the link url with the correct one (e.g., dev-soldiers.jumpstart.ge to visuals.jumpstart.ge/natsnobi_jariskatsi)
+- change reference to assets, for example:
+  - when save en version, asset folder name might be The Known Soldier_files
+  - replace this name in html with 'assets' and indicate that it is up a level
+  - ex: ./The Known Soldier2_files to ../assets
+- change href="/assets to href="../assets
+
+Header
+- delete line after html tag like: <!-- saved from url=....
+- delete meta tag line between <head> and <meta charset="utf-8">
+- insert proper value for fb app id meta tag
+- delete the twitter and fb js lines: <script id="twitter-wjs" src="../assets/widgets.js"></script><script id="facebook-jssdk" src="../assets/all.js"></script>
+- after the favicon link is a lot of fb stuff - delete all up to </head>
+
+Body
+- body tag should only be <body class="app_root">
+- delete twitter iframe right after body tag
+- fb root div should only be <div id="fb-root"></div>
+
+Navigation Header
+- update href of main link to '../[locale]', i.e., ../en
+- replace locale switcher link to other locale, i.e., ../ka
+- replace addthis share divs to the following:
+                    <div class="social_hover">
+                      <div class="addthis_toolbox addthis_default_style ">
+                        <a class="addthis_counter addthis_pill_style"></a>
+                      </div>
+                    </div>
+
+Thumbs
+- delete thumbs-placeholder div
+- replace thumbs opening div with the following: <div id="thumbs" class="clear">
+
+Maps
+- delete all svg tags so that map_container has the following inside it:
+  - for en:
+    <div id="map_georgia_container">
+      <h3>Georgian Hometown</h3>
+      <div id="map_georgia"></div>
+    </div>
+    <div id="map_afghan_container">
+      <h3>Afghanistan Deaths</h3>
+      <div id="map_afghan"></div>
+    </div>
+    <div id="map_iraq_container">
+      <h3>Iraq Deaths</h3>
+      <div id="map_iraq"></div>
+    </div>
+  -for ka:
+    <div id="map_georgia_container">
+      <h3>მშობლიური ქალაქი</h3>
+      <div id="map_georgia"></div>
+    </div>
+    <div id="map_afghan_container">
+      <h3>დაღუპვის ადგილი ავღანეთში</h3>
+      <div id="map_afghan"></div>
+    </div>
+    <div id="map_iraq_container">
+      <h3>დაღუპვის ადგილი ერაყში</h3>
+      <div id="map_iraq"></div>
+    </div>
+  
+Charts
+- replace charts div tag with following:
+<div id="charts">
+  <div id="chart_gender"></div>
+  <div id="chart_age"></div>
+  <div id="chart_country"></div>
+  <div id="chart_incident_description"></div>
+  <div id="chart_rank"></div>
+  <div id="chart_served_with"></div>
+  <div id="chart_date_died"></div>
+</div>  
+
+Footer
+- replace facebook like box with following:
+          <iframe id="fb_iframe" src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fferadi.info&amp;width=220&amp;height=70&amp;show_faces=false&amp;colorscheme=light&amp;stream=false&amp;show_border=false&amp;header=false&amp;" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:220px; height:70px;" allowTransparency="true"></iframe>
+
+- update the link to the csv file with the created in the first steps above, e.g., The_Known_Soldier_2013-06-28.csv.zip
+
+Javascript
+- replace the last script tag, addthis, with the following:     
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51d1537d4a09d85f"></script>
+- add in the correct google analytics js
+
+
+If you are testing on local machine using symlinks, you will need to run the following after adding the new files: chmod -R o+x natsnobi_jariskatsi/
