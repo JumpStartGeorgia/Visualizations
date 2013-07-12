@@ -30,6 +30,7 @@ Header
 - delete meta tag line between <head> and <meta charset="utf-8">
 - insert proper value for fb app id meta tag
 - delete the twitter and fb js lines: <script id="twitter-wjs" src="../assets/widgets.js"></script><script id="facebook-jssdk" src="../assets/all.js"></script>
+- update favicon link to ../favicon.ico
 - after the favicon link is a lot of fb stuff - delete all up to </head>
 
 Body
@@ -102,6 +103,15 @@ Javascript
 - replace the last script tag, addthis, with the following:     
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51d1537d4a09d85f"></script>
 - add in the correct google analytics js
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+      ga('create', 'UA-12801815-25', 'jumpstart.ge');
+      ga('send', 'pageview');
+
+    </script>
 
 If you are testing on local machine using symlinks, you will need to run the following after adding the new files: chmod -R o+x natsnobi_jariskatsi/
