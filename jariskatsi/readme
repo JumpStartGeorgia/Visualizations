@@ -18,7 +18,7 @@ ASSETS
 
 HTML
 Quick Fixes
-- replace the link url with the correct one (e.g., dev-soldiers.jumpstart.ge to visuals.jumpstart.ge/natsnobi_jariskatsi)
+- replace the link url with the correct one (e.g., dev-soldiers.jumpstart.ge to visuals.jumpstart.ge/jariskatsi)
 - change reference to assets, for example:
   - when save en version, asset folder name might be The Known Soldier_files
   - replace this name in html with 'assets' and indicate that it is up a level
@@ -114,4 +114,4 @@ Javascript
 
     </script>
 
-If you are testing on local machine using symlinks, you will need to run the following after adding the new files: chmod -R o+x natsnobi_jariskatsi/
+If you are testing on local machine using symlinks, you will need to run the following after adding the new files: chmod -R o+x jariskatsi/
