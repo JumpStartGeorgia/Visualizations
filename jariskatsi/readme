@@ -22,7 +22,7 @@ Quick Fixes
 - change reference to assets, for example:
   - when save en version, asset folder name might be The Known Soldier_files
   - replace this name in html with 'assets' and indicate that it is up a level
-  - ex: ./The Known Soldier2_files to ../assets
+  - ex: ./The Known Soldier_files to ../assets
 - change href="/assets to href="../assets
 
 Header
