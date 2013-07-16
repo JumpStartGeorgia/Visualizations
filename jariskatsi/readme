@@ -100,7 +100,7 @@ Footer
 
 Javascript
 - replace the last script tag, addthis, with the following:     
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51d1537d4a09d85f"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51d1537d4a09d85f"></script>
 - add in the correct google analytics js
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
