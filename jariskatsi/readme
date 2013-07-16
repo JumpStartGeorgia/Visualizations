@@ -28,6 +28,8 @@ Quick Fixes
 Header
 - delete line after html tag like: <!-- saved from url=....
 - delete meta tag line between <head> and <meta charset="utf-8">
+- make sure og:url ends in '/' like http://visuals.jumpstart.ge/jariskatsi/en/
+- update og:image url file name to only be: fb.jpg
 - delete the twitter and fb js lines: <script id="twitter-wjs" src="../assets/widgets.js"></script><script id="facebook-jssdk" src="../assets/all.js"></script>
 - update favicon link to ../favicon.ico
 - after the favicon link is a lot of fb stuff - delete all up to </head>
