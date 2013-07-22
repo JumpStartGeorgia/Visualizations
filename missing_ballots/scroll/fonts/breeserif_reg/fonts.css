@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'breeserif_reg';
+	src: url('BreeSerif_Reg.eot');
+	src: local('☺'), url('BreeSerif_Reg.woff') format('woff'), url('BreeSerif_Reg.ttf') format('truetype'), url('BreeSerif_Reg.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

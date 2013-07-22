@@ -9,304 +9,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="application.css" />
+  <link rel="stylesheet" type="text/css" href="fonts/rawengulk/regular/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="fonts/breeserif_reg/fonts.css" />
 </head>
 <body>
 
 
-<div id="impress">
 
 
-    <section>
-      <h1>Was Your Vote Counted?</h1>
-    </section>
+  <section class="table fh" id="page1">
+    <h1 class="cell">was your vote counted?</h1>
+  </section>
 
-    <section>
-      <h1>Ballots are Missing</h1>
-      <p>
-        For both Proportional and Majoritarian elections in 2012, there are a total of 
-        <span style="font-size: larger; font-weight: bold;">10,914</span> ballots unaccounted for.
-      </p>
-      <ul class="standard">
-        <li>
-          Proportional - 3,051 missing ballots
-        </li>
-        <li>
-          Majoritarian - 7,863 missing ballots
-        </li>
-      </ul>
-    </section>
-
-
-    <section>
-      <h1>How Did This Happen?</h1>
-    </section>
-
-    <section>
-      <h1>How Voting Works in Georgia</h1>
-      <ul class="standard">
-        <li>
-          The procedures that take place on election day are defined by election code
-        </li>
-        <li>
-          People go to polling station
-        </li>
-        <li>
-          People sign in and get ballots
-        </li>
-        <li>
-          People fill out ballots
-        </li>
-        <li>
-          People turn in ballots
-        </li>
-        <li>
-          Polling Station staff count all ballots and record the totals on a 'protocol'
-        </li>
-        <li>
-          Protocols are sent to the CEC
-        </li>
-        <li>
-          CEC does a double-blind data entry
-        </li>
-        <li>
-          Data is now official
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h1>Where Problems Can Occur</h1>
-      <ul class="standard">
-        <li>
-          Election code allows special polling stations to be merged into other polling stations for counting
-        </li>
-        <li>
-          People do not turn in ballot(s)
-        </li>
-        <li>
-          Polling station staff miscount
-        </li>
-        <li>
-          CEC makes data entry mistakes
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h1>Election Code and Special Polling Stations</h1>
-      <ul class="standard">
-        <li>
-          A special polling station is a prison, military base, hospital or other facility
-        </li>
-        <li>
-          Votes from special polling stations are merged into a parent polling station
-        </li>
-        <li>
-          In a Majoritarian election, there is no way to properly know how many ballots were submitted from the special polling stations compared to the parent polling station, without a court order opening up the official polling station documents
-        </li>
-        <li>
-          In the 2012 Majoritarian election, there were 74 special polling stations whose voting results cannot be properly verified 
-        </li>
-      </ul>
-    </section>
-
-
-    <section>
-      <h1>People Might Not Turn in Their Ballot</h1>
-      <ul class="standard">
-        <li>
-          Polling Stations count the signatures of people that received ballots, <em>NOT</em> the total ballots put in the box
-        </li>
-        <li>
-          This means if a person signs for a ballot but does not put it in a box, the ballot is missing
-        </li>
-      </ul>
-    </section>
-
-
-    <section>
-      <h1>Polling Station Miscount</h1>
-      <h2>Vote Count Validation</h2>
-
-      <img src="../images/good_protocol.jpg" class="loupe" width="20%">
-
-      <div>
-        To validate that the ballots were counted correctly, the following equation should be true:
+  <section class="fh" id="page2">
+    <div class="row-fluid top">
+      <div class="span3 offset3">
+        <h1>3,051</h1>
+        <h4>missing ballots</h4>
       </div>
-
-      <div>
-        <br><br>
-        (4 - Ballots Signed For) - (6 - Invalid Ballots Submitted) = SUM(Votes for Each Party)
+      <div class="span3">
+        <h1>7,863</h1>
+        <h4>missing ballots</h4>
       </div>
-
-      <div id="problem-counting-ballots-validation-eq-ex">
-        Here is a protocol from Polling Station 1 in Gori.
-        For this protocol, the equation turns into:
-        <div>
-          832 - 32 = (4 + 277 + 11 + 1 + 3 + 3 + 6 + 495)
-        </div>
-        <div class="sub test">
-          800 = 800
-        </div>
-        <div>
-          <strong>Validation Passed!</strong>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h1>Polling Station Miscount</h1>
-      <h2>Vote Count Validation</h2>
-
-      <img src="../images/more_party_than_votes_protocol2.jpg" class="loupe" width="50%">
-
-      <div>
-        Keep in mind that at the bottom of every protocol, 13 Polling Station Staff
-        have signed off that the protocol is properly filled out.
-      </div>
-    </section>
-
-<!--
-    <section>
-      <h1>CEC Data Entry Mistakes</h1>
-
-      <img src="../images/spreadsheet.jpg" class="loupe" width="100%">
-
-      <ul>
-        <li>
-          The official data is entered into a database and is available from the CEC in a spreadsheet format.
-        </li>
-        <li>
-          Above is a snapshot of the spreadsheet for the Proportional election results.  
-        </li>
-        <li>
-          Notice that the columns correspond directly with the data from the protocol except the spreadsheet does not have a column to record the number of ballets on hand
-        </li>
-        <li>
-          The data that is being shown is for the ballots submitted by Georgians living overseas (district 87).
-        </li>
-      </ul>
-
-    </section>
-
-    <section>
-      <h1>Majoritarian Mistakes</h1>
-
-      <div>
-          The map shows the percent of polling stations in each district that had missing ballots.
-      </div>
-
-      <div>
-        <img src="../images/map_majoritarian.jpg" class="loupe">
-
-        <div class="map-legend">
-          <div>
-            <span style="background-color: #93BE96; opacity: 0.6; filter:alpha(opacity=60);"></span> 0%
-          </div>
-          <div>
-            <span style="background-color: #DD776B; opacity: 0.6; filter:alpha(opacity=60);"></span> 0-10%
-          </div>
-          <div>
-            <span style="background-color: #BD160D; opacity: 0.6; filter:alpha(opacity=60);"></span> 10-30%
-          </div>
-          <div>
-            <span style="background-color: #8A050A; opacity: 0.6; filter:alpha(opacity=60);"></span> &gt;30%
-          </div>
-          <div>
-            <span style="background-color: #CCCCCC"></span> No Data
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <section>
-      <h1>District Mistakes - Gori</h1>
-
-      <div>
-          Let's look at Gori as an example of what happened at the district level.
-      </div>
-      <div>
-          The map shows the number of missing ballots for each polling station in Gori.
-      </div>
-
-      <div>
-        <div id="error-stats-gori-prop">
-          <h2>Proportional Election</h2>
-          <img src="../images/gori_proportional.jpg" class="loupe" width="100%">
-        </div>
-        <div id="error-stats-gori-major">
-          <h2>Majoritarian Election</h2>
-          <img src="../images/gori_majoritarian.jpg" class="loupe" width="100%" height="421px">
-        </div>
-
-        <div class="map-legend">
-          <div>
-            <span style="background-color: #93BE96; opacity: 0.6; filter:alpha(opacity=60);"></span> 0 Missing Ballots
-          </div>
-          <div>
-            <span style="background-color: #DD776B; opacity: 0.6; filter:alpha(opacity=60);"></span> 0-10 Missing Ballots
-          </div>
-          <div>
-            <span style="background-color: #BD160D; opacity: 0.6; filter:alpha(opacity=60);"></span> 10-30 Missing Ballots
-          </div>
-          <div>
-            <span style="background-color: #8A050A; opacity: 0.6; filter:alpha(opacity=60);"></span> &gt;30 Missing Ballots
-          </div>
-          <div>
-            <span style="background-color: #E99334; opacity: 0.6; filter:alpha(opacity=60);"></span> More Votes Than Ballots
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h1>Fix Mistakes - Election Code</h1>
-      <ul class="standard">
-        <li>
-           Get rid of special polling stations or require special polling stations to tabulate their own results
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h1>Fix Mistakes - Polling Stations</h1>
-      <ul class="standard">
-        <li>
-           Properly train polling station staff on how to fill out the protocol
-        </li>
-        <li>
-           Require Polling Stations to record ballot signatures and the number of ballots submitted
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h1>Fix Mistakes - CEC Data Validation</h1>
-      <ul class="standard">
-        <li>
-           Include validation checks when the CEC is entering the data.
-           Validation equation: (Total ballots submitted) - (Invalid allots) = (Sum of party votes)
-        </li>
-        <li>
-           The Polling Station results will be audited if validation errors in the protocol are found
-        </li>
-      </ul>
-    </section>
+    </div>
+    <div class="row-fluid middle">
+      <h2>
+        For both <span>proportional</span> and <span>majoritarian</span> elections
+      </h2>
+      <h3>in 2012</h3>
+    </div>
+    <div class="row-fluid bottom">
+      <h2>
+        there are a total of <span>10,914</span> <span>ballots</span>
+      </h2>
+      <h3>unaccounted for.</h3>
+    </div>
+  </section>
 
 
-    <section>
-      <h1>Will your vote be counted in 2013?</h1>
 
-      <div>
-        Probably. But to get to 100% certainty, changes need to be made.
-      </div>
-
-    </section>
-
--->
-
-  </div>
 
 
 

@@ -1,91 +1,116 @@
-
-section:nth-child(1) {
-  background: #006F68;
-  color: #111;
+html, body, .fh {
+  height: 100%;
+  min-height: 100%;
 }
 
-section:nth-child(2) {
-  background: #000;
-  color: #ccc;
+div.table, section.table {
+  display: table;
+  margin: 0px auto;
+  width: auto;
 }
 
-section:nth-child(3) {
-  background: #00CFC1;
-  color: #333;
-  box-sizing: border-box;
+div.table .cell, section.table .cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+
+
+#page1 {
   width: 100%;
+  background: #52b2a2;
+  text-align: center;
 }
 
-section:nth-child(4) {
-  background: #002F2C;
-  color: #eee;
+#page1 h1 {
+  text-transform: uppercase;
+  font-family: rawengulk_regular;
+  color: #fff;
+  font-weight: normal; 
+  font-size: 40px;
+  margin: 0px;
 }
 
-section:nth-child(5) {
-  background: #006F68;
-  color: #111;
+
+#page2 {
+  width: 100%;
+  background: #52b2a2;
+  text-align: center;
+  font-family: breeserif_reg;
 }
 
-section:nth-child(6) {
-  background: #00FFEE;
-  color: #000;
+
+#page2 .top {
+  
 }
 
-section:nth-child(7) {
-  background: orange;
-  color: #111;
-}
-
-section:nth-child(8) {
-  background: grey;
+#page2 .top h1 {
   color: #fff;
 }
 
-section:nth-child(9) {
-  background: yellow;
-  color: #333;
-}
-
-section:nth-child(10) {
-  background: blue;
-  color: #ccc;
-}
-
-section:nth-child(11) {
-  background: purple;
+#page2 .top h4 {
   color: #fff;
 }
 
-section:nth-child(12) {
-  background: green;
-  color: #eee;
+#page2 .middle h2 {
+  color: #145649;
+  font-size: 18px;
 }
 
-section:nth-child(13) {
-  background: brown;
-  color: #000;
-}
-
-section:nth-child(14) {
-  background: navy;
+#page2 .middle h2 span {
   color: #fff;
+  font-size: 29px;
+  text-transform: uppercase;
 }
 
-section:nth-child(15) {
-  background: red;
-  color: #000;
+#page2 .middle h3 {
+  color: #145649;
+  font-size: 25px;
 }
 
-section:nth-child(16) {
-  background: coral;
+#page2 .bottom h2 {
+  color: #145649;
+  font-size: 18px;
+}
+
+#page2 .bottom h2 span {
   color: #fff;
+  font-size: 59px;
+}
+
+#page2 .bottom h2 span:last-child {
+  font-size: 18px;
+}
+
+#page2 .bottom h3 {
+  color: #fff;
+  font-size: 25px;
 }
 
 
 
-section {
-  padding: 30px 150px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
