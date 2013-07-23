@@ -22,8 +22,13 @@ h1, h2, h3, h4, h5 {
 
 #page1 {
   width: 100%;
+  height: 145%;
   background: #52b2a2;
   text-align: center;
+}
+
+#page1 .table {
+  height: 68.965%; /*100/145*/
 }
 
 #page1 h1 {
@@ -50,6 +55,7 @@ h1, h2, h3, h4, h5 {
 
 #page2 .top h1 {
   color: #fff;
+  font-size: 57px;
 }
 
 #page2 .top h4 {
@@ -63,8 +69,9 @@ h1, h2, h3, h4, h5 {
 
 #page2 .middle h2 span {
   color: #fff;
-  font-size: 29px;
+  font-size: 33px;
   text-transform: uppercase;
+  font-family: rawengulk_bold;
 }
 
 #page2 .middle h3 {
@@ -89,6 +96,37 @@ h1, h2, h3, h4, h5 {
 #page2 .bottom h3 {
   color: #fff;
   font-size: 25px;
+  padding-left: 130px;
+}
+
+
+
+
+
+#page3 {
+  background: #f7f7f0;
+}
+
+#page3 h1 {
+  padding-bottom: 20px;
+  color: #fff;
+  font-size: 48px;
+  font-family: breeserif_reg;
+  text-transform: uppercase;
+  background: #52b2a2;
+  margin: 0px;
+  text-align: center;
+  line-height: 1;
+}
+
+#page3 .caret {
+  width: 0px;
+  height: 0px;
+  margin: 0px auto;
+  border: solid transparent;
+  border-width: 60px 85px 0px;
+  border-top-color: #52b2a2;
+  display: block;
 }
 
 
