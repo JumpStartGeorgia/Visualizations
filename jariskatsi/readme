@@ -10,8 +10,10 @@ STEPS TO CREATE HTML FILES
 
 ASSETS
 - remove unneeded assets
-  - social links add css, js, etc - do not need these
-  - for text files, just need application.css, applications.js, fonts-en.css, fonts-ka.css
+  - keep only the following: 
+    - fonts folder
+    - fb.jpg, header-bg.jpg, logo.png, map-bg.jpg
+    - application.css, applications.js, fonts-en.css, fonts-ka.css
 - images used in css are not going to be preset in download of webpage; copy these images from rails project into assets folder
 - fonts used in css are not going to be preset in download of webpage; copy the fonts folder from rails project into assets folder 
 - copy xxx_with_data.json files from rails/public folder into both en and ka folder (js will look for them there)
