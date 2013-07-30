@@ -19,16 +19,34 @@ h1, h2, h3, h4, h5 {
 }
 
 
+body {
+  background: #f7f7f0;
+  padding-left: 90px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;  
+}
+
+#sidebar {
+  background: #000;
+  width: 90px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 2000;
+}
+
 
 #page1 {
   width: 100%;
-  height: 145%;
+  height: 100%;
   background: #52b2a2;
   text-align: center;
 }
 
 #page1 .table {
-  height: 68.965%; /*100/145*/
+  height: 100%; /*100/145*/
 }
 
 #page1 h1 {
@@ -42,7 +60,8 @@ h1, h2, h3, h4, h5 {
 
 
 #page2 {
-  width: 100%;
+  right: 0px;
+  height: 100%;
   background: #52b2a2;
   text-align: center;
   font-family: breeserif_reg;
@@ -50,7 +69,7 @@ h1, h2, h3, h4, h5 {
 
 
 #page2 .top {
-  
+  opacity: 0;
 }
 
 #page2 .top h1 {
@@ -79,6 +98,13 @@ h1, h2, h3, h4, h5 {
   font-size: 25px;
 }
 
+#page2 .bottom {
+  background: #52b2a2;
+  text-align: center;
+  position: relative;
+  top: 500px;
+}
+
 #page2 .bottom h2 {
   color: #145649;
   font-size: 18px;
@@ -104,11 +130,10 @@ h1, h2, h3, h4, h5 {
 
 
 #page3 {
-  background: #f7f7f0;
 }
 
 #page3 h1 {
-  padding-bottom: 20px;
+  padding: 400px 0px 20px 0px;
   color: #fff;
   font-size: 48px;
   font-family: breeserif_reg;
@@ -122,11 +147,111 @@ h1, h2, h3, h4, h5 {
 #page3 .caret {
   width: 0px;
   height: 0px;
-  margin: 0px auto;
+  margin: 0px auto 400px;
   border: solid transparent;
   border-width: 60px 85px 0px;
   border-top-color: #52b2a2;
   display: block;
+}
+
+
+
+
+
+
+#ballots {
+
+}
+
+#ballots .all {
+  z-index: 1000;
+  background: #f7f7f0;
+}
+
+#ballots .all ul {
+  list-style: none;
+}
+
+#ballots .all li {
+  float: left;
+  width: 11.1111111%;
+  text-align: center;
+  visibility: hidden;
+}
+
+#ballots .all li img {
+
+}
+
+
+#ballots .list {
+  margin-top: 20px;
+}
+
+#ballots .list ul {
+  list-style: none;
+}
+
+#ballots .list li {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin-bottom: 45px;
+}
+
+#ballots .list li img:not(.index):not(.mark) {
+  margin-top: 17px;
+}
+
+#ballots .list li img.index {
+  width: 33px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  margin: 0px 0px 0px -16.5px;
+}
+
+#ballots .list li .mark {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 11.111111%;
+  text-align: center;
+}
+
+#ballots .list li .mark img {
+}
+
+#ballots .list li:nth-child(2) .mark {
+  left: 11.11111%;
+}
+
+#ballots .list li:nth-child(3) .mark {
+  left: 22.22222%;
+}
+
+#ballots .list li:nth-child(4) .mark {
+  left: 33.33333%;
+}
+
+#ballots .list li:nth-child(5) .mark {
+  left: 44.44444%;
+}
+
+#ballots .list li:nth-child(6) .mark {
+  left: 55.55555%;
+}
+
+#ballots .list li:nth-child(7) .mark {
+  left: 66.66666%;
+}
+
+#ballots .list li:nth-child(8) .mark {
+  left: 77.77777%;
+}
+
+#ballots .list li:nth-child(9) .mark {
+  left: 88.88888%;
 }
 
 
