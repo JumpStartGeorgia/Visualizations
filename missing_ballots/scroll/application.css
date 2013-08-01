@@ -180,7 +180,7 @@ body {
 }
 
 #ballots .all li img {
-
+  cursor: pointer;
 }
 
 

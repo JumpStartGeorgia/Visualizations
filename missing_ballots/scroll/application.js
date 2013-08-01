@@ -44,6 +44,11 @@ $(function ()
       ])
     );
   }
+
+  $('#ballots .all li').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#ballots .list li').eq($(this).index()).offset().top - $(this).closest('.all').height()});
+  });
   
 
 
