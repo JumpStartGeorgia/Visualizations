@@ -213,6 +213,7 @@ body {
 
 #ballots .list li .mark {
   position: absolute;
+  z-index: 1100;
   bottom: 0px;
   left: 0px;
   width: 11.111111%;
@@ -253,6 +254,67 @@ body {
 #ballots .list li:nth-child(9) .mark {
   left: 88.88888%;
 }
+
+
+
+
+
+
+
+
+
+#page5 {
+  margin-top: 100px;
+  min-height: 100%;
+}
+
+#page5 header {
+  text-align: center;
+  font-family: rawengulk_bold;
+  color: #aa1313;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+
+
+#question_marks {
+  margin-top: 25px;
+}
+
+#question_marks > div {
+  float: left;
+}
+
+#question_marks > div:nth-child(1) {
+  
+}
+
+#question_marks > div:nth-child(2) {
+  margin-left: 45%;
+}
+
+#question_marks > div:nth-child(3) {
+  margin-left: 9%;
+}
+
+#question_marks > div:nth-child(4) {
+  margin-left: 18%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
