@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5 {
 body {
   background: #f7f7f0;
   padding-left: 90px;
+  color: #4d3534;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;  
@@ -147,7 +148,7 @@ body {
 #page3 .caret {
   width: 0px;
   height: 0px;
-  margin: 0px auto 400px;
+  margin: 0px auto 200px;
   border: solid transparent;
   border-width: 60px 85px 0px;
   border-top-color: #52b2a2;
@@ -163,6 +164,15 @@ body {
 
 }
 
+
+#ballots header {
+  font-family: breeserif_reg;
+  color: #4d3534;
+  font-size: 20px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
 #ballots .all {
   z-index: 1000;
   background: #f7f7f0;
@@ -170,6 +180,7 @@ body {
 
 #ballots .all ul {
   list-style: none;
+  margin-left: 0px;
 }
 
 #ballots .all li {
@@ -190,6 +201,7 @@ body {
 
 #ballots .list ul {
   list-style: none;
+  margin-left: 0px;
 }
 
 #ballots .list li {
@@ -284,6 +296,8 @@ body {
 
 #question_marks > div {
   float: left;
+  width: 11.111111%;
+  text-align: center;
 }
 
 #question_marks > div:nth-child(1) {
@@ -291,15 +305,74 @@ body {
 }
 
 #question_marks > div:nth-child(2) {
-  margin-left: 45%;
+  margin-left: 33.33333%;
 }
 
 #question_marks > div:nth-child(3) {
-  margin-left: 9%;
+  margin-left: 0%;
 }
 
 #question_marks > div:nth-child(4) {
-  margin-left: 18%;
+  margin-left: 11.1111111%;
+}
+
+
+#page5 .dashed {
+  float: left;
+  margin-left: 5.55555%;
+  width: 80px;
+  height: 75px;
+  border: dashed #aa1313;
+  border-width: 0px 0px 2px 2px;
+  -webkit-border-bottom-left-radius: 11px;
+  -moz-border-radius-bottomleft: 11px;
+  border-bottom-left-radius: 11px;
+}
+
+#page5 h4 {
+  margin: 68px 0px 0px 7px;
+  padding: 0px;
+  float: left;
+  font-family: breeserif_reg;
+  color: #aa1313;
+  text-transform: capitalize;
+}
+
+
+#stations {
+  font-family: breeserif_reg;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#stations > span, #stations > div {
+  display: inline-block;
+  margin: 0px 0px 0px 25px;
+}
+
+#stations > span:first-child {
+  margin: 0px;
+}
+
+#stations > div span {
+  display: block;
+  text-align: center;
+  text-transform: capitalize;
+  color: #ddc90e;
+}
+
+#stations > div:first-of-type span {
+  color: #e15e32;
+}
+
+#stations > div:last-of-type span {
+  color: #aa1313;
+}
+
+#stations > div img {
+  display: block;
+  margin-bottom: 13px;
 }
 
 

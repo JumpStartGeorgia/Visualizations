@@ -29,7 +29,7 @@ $(function ()
 
 
   $('#ballots .all').css({right: $(window).width() - $('#ballots .all').offset().left - $('#ballots .all').width()});
-  controller.pin($('#ballots .all'), 9999, {
+  controller.pin($('#ballots .all'), 9e5, {
     pushFollowers: false,
   });
 
