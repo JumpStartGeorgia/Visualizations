@@ -23,9 +23,10 @@ body {
   background: #f7f7f0;
   padding-left: 90px;
   color: #4d3534;
+  font-family: breeserif_reg;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
-        	box-sizing: border-box;  
+        	box-sizing: border-box;
 }
 
 #sidebar {
@@ -80,6 +81,11 @@ body {
 
 #page2 .top h4 {
   color: #fff;
+}
+
+#page2 .top img {
+  display: table;
+  margin: 0px auto;
 }
 
 #page2 .middle h2 {
@@ -276,8 +282,12 @@ body {
 
 
 #page5 {
-  margin-top: 100px;
+  padding-top: 100px;
   min-height: 100%;
+  right: 0px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page5 header {
@@ -375,6 +385,87 @@ body {
   margin-bottom: 13px;
 }
 
+
+
+
+#stations-connect {
+  position: relative;
+  margin-top: 20px;
+}
+
+#stations-connect h5 {
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+
+#stations-connect .img {
+  text-align: center;
+  position: relative;
+  width: 265px;
+}
+
+#stations-connect .img img {
+  width: 100%;
+}
+
+#stations-connect .img img:last-of-type {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#stations-connect .img div {
+  background: #77c1b4;
+  text-transform: capitalize;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  margin: -25px auto 0px;
+  padding: 30px 17px;
+  color: #fff;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#stations-connect .right {
+  position: relative;
+  width: 390px;
+}
+
+#stations-connect .right .top {
+  font-size: 13px;
+  line-height: 1.2;
+  border: 1px dashed #77c1b4;
+  color: #77c1b4;
+  padding: 5px 8px;
+  -webkit-border-radius: 13px;
+     -moz-border-radius: 13px;
+          border-radius: 13px;
+}
+
+#stations-connect .right .bottom {
+  margin-top: 15px;
+}
+
+#stations-connect .right .bottom img, #stations-connect .right .bottom span {
+  display: block;
+  float: left;
+}
+
+#stations-connect .right .bottom div {
+  width: 25%;
+}
+
+#stations-connect .right .bottom span {
+  width: 65%;
+  margin-left: 10%;
+  padding-top: 73px;
+}
 
 
 
