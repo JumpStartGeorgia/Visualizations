@@ -339,7 +339,7 @@ body {
   border-bottom-left-radius: 11px;
 }
 
-#page5 h4 {
+#page5 .dashed + h4 {
   margin: 68px 0px 0px 7px;
   padding: 0px;
   float: left;
@@ -358,30 +358,48 @@ body {
 
 #stations > span, #stations > div {
   display: inline-block;
+}
+
+#stations > span {
+  display: inline-block;
   margin: 0px 0px 0px 25px;
+}
+
+#stations > div {
+  width: 345px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#stations > div div {
+  display: inline-block;
+  width: 33.3333%;
+  text-align: center;
 }
 
 #stations > span:first-child {
   margin: 0px;
+  width: 27%;
 }
 
-#stations > div span {
+#stations > div div span {
   display: block;
   text-align: center;
   text-transform: capitalize;
   color: #ddc90e;
 }
 
-#stations > div:first-of-type span {
+#stations > div div:first-of-type span {
   color: #e15e32;
 }
 
-#stations > div:last-of-type span {
+#stations > div div:last-of-type span {
   color: #aa1313;
 }
 
-#stations > div img {
-  display: block;
+#stations > div div img {
+  display: table;
+  margin: 0px auto;
   margin-bottom: 13px;
 }
 
@@ -403,6 +421,7 @@ body {
   text-align: center;
   position: relative;
   width: 265px;
+  margin-left: 46%;
 }
 
 #stations-connect .img img {
@@ -468,6 +487,29 @@ body {
 }
 
 
+#page5 footer {
+  margin-top: 100px;
+}
+
+#page5 footer > * {
+  text-align: center;
+}
+
+#page5 footer h4:first-child {
+  
+}
+
+#page5 footer h4:last-of-type {
+  color: #aa1313;
+}
+
+#page5 footer h4:last-of-type span {
+  font-size: 32px;
+}
+
+#page5 footer h2 {
+  color: #aa1313;
+}
 
 
 
