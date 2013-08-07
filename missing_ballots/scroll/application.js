@@ -63,9 +63,9 @@ $(function ()
   var pinh = 3300;
   controller.pin($('#page5'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#stations').parent(), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#stations').parent().add('#page5-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#stations-connect'), .5, {css:{top: 700}}, {css:{top: 0}}))
-          .append(TweenMax.to($('#stations-connect h5'), .5, {css:{top: -500}}))
+          .append(TweenMax.to($('#stations-connect h5'), .5, {css:{top: -100, opacity: 0}, delay: 1}))
           .append(TweenMax.fromTo($('#stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page5 footer'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
@@ -83,7 +83,9 @@ $(function ()
   $('#page5').after('<div id="page5-spacer"></div>').next().height(pinh);
 
 
+  //controller.addTween($('#page5').height() + $('#page5-spacer').height() + $('#page5-spacer').offset().top, TweenMax.to($('#question_marks'), .5, {css:{position: 'fixed', top: 27}}));
 
+  //controller.pin($('#question_marks'), 500, {});
 
 
 
