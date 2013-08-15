@@ -282,7 +282,7 @@ body {
 
 
 #page5 {
-  padding-top: 100px;
+  padding-top: 5px;
   min-height: 100%;
   right: 0px;
 	-webkit-box-sizing: border-box;
@@ -363,6 +363,7 @@ body {
 #stations > span {
   display: inline-block;
   margin: 0px 0px 0px 25px;
+  width: 200px;
 }
 
 #stations > div {
@@ -378,8 +379,12 @@ body {
 }
 
 #stations > span:first-child {
-  margin: 0px;
-  width: 27%;
+  margin: 0px 25px 0px 0px;
+  text-align: right;
+}
+
+#stations > span:last-child {
+  text-align: left;
 }
 
 #stations > div div span {
@@ -421,7 +426,6 @@ body {
   text-align: center;
   position: relative;
   width: 265px;
-  margin-left: 46%;
 }
 
 #stations-connect .img img {

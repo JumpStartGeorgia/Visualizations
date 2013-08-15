@@ -63,9 +63,12 @@ $(function ()
   var pinh = 3300;
   controller.pin($('#page5'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#stations').parent().add('#page5-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
-          .append(TweenMax.fromTo($('#stations-connect'), .5, {css:{top: 700}}, {css:{top: 0}}))
-          .append(TweenMax.to($('#stations-connect h5'), .5, {css:{top: -100, opacity: 0}, delay: 1}))
+          //.append(TweenMax.fromTo($('#page5'), .5, {}, {css: {transform: 'translate(0px, -' + $('#page5 > header').outerHeight(true) + 'px)'}}))
+          //.append(TweenMax.fromTo($('#stations').parent().add('#page5-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page5-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#stations').parent(), .5, {css: {position: 'relative', top: 900}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#stations-connect'), .5, {css:{top: 700}}, {css:{top: -42}}))
+          .append(TweenMax.to($('#stations-connect h5'), .5, {css:{top: -100, opacity: 0}/*, delay: 1*/}))
           .append(TweenMax.fromTo($('#stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page5 footer'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
