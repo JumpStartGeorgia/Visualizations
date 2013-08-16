@@ -167,7 +167,7 @@ body {
 
 
 #ballots {
-
+  margin-bottom: 55px;
 }
 
 
@@ -181,7 +181,16 @@ body {
 
 #ballots .all {
   z-index: 1000;
+}
+
+#ballots .bg {
+  position: absolute;
+  left: -9999px;
+  right: -9999px;
+  bottom: 0px;
+  top: 0px;
   background: #f7f7f0;
+  z-index: -1;
 }
 
 #ballots .all ul {
@@ -295,13 +304,13 @@ body {
   font-family: rawengulk_bold;
   color: #aa1313;
   font-size: 30px;
+  margin-bottom: 25px;
   text-transform: uppercase;
 }
 
 
 
 #question_marks {
-  margin-top: 25px;
 }
 
 #question_marks > div {
@@ -422,6 +431,16 @@ body {
   text-align: center;
 }
 
+#stations-connect .cont {
+  display: table;
+  margin: 0px auto;
+}
+
+#stations-connect .cont > div {
+  float: left;
+  min-height: 1px;
+}
+
 #stations-connect .img {
   text-align: center;
   position: relative;
@@ -455,9 +474,20 @@ body {
         	box-sizing: border-box;
 }
 
+#stations-connect .left {
+  width: 400px;
+}
+
 #stations-connect .right {
   position: relative;
-  width: 390px;
+  width: 400px;
+  padding-top: 25px;
+  left: -8px;
+/*
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+*/
 }
 
 #stations-connect .right .top {
