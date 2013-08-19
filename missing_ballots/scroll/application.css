@@ -203,6 +203,8 @@ body {
   width: 11.1111111%;
   text-align: center;
   visibility: hidden;
+  opacity: .6;
+  
 }
 
 #ballots .all li img {
@@ -310,6 +312,10 @@ body {
 
 
 
+#question_marks_spacer + div {
+  background: #f7f7f0;
+}
+
 #question_marks {
 }
 
@@ -348,13 +354,19 @@ body {
   border-bottom-left-radius: 11px;
 }
 
-#page5 .dashed + h4 {
-  margin: 68px 0px 0px 7px;
+#page5 .problem1 {
+  margin: 57px 0px 0px 7px;
   padding: 0px;
   float: left;
   font-family: breeserif_reg;
   color: #aa1313;
   text-transform: capitalize;
+}
+
+#page5 .problem1_img {
+  margin-left: 5.5555%;
+  display: block;
+  float: left;
 }
 
 
@@ -544,6 +556,144 @@ body {
 #page5 footer h2 {
   color: #aa1313;
 }
+
+#page5 {
+  margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+
+#page6 {
+  right: 0px;
+  min-height: 100%;
+  padding-top: 77px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page6 .problem2_img {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#page6 .title {
+  text-align: center;
+  font-family: breeserif_reg;
+  color: #aa1313;
+  font-size: 17px;
+  margin-bottom: 60px;
+}
+
+#page6 .middle {
+  text-align: center;
+}
+
+#page6 .middle > div {
+  display: inline-block;
+  position: relative;
+}
+
+#page6 .middle span, #page6 .middle img {
+  display: inline-block;
+}
+
+#page6 .middle span {
+  margin-right: 10px;
+  position: relative;
+}
+
+#page6 .middle .left span {
+  width: 230px;
+  text-align: left;
+  top: 20px;
+}
+
+#page6 .middle .right span {
+  color: #e15e32;
+  top: 11px;
+}
+
+
+
+#page6 .bottom {
+  margin-top: 20px;
+  position: relative;
+}
+
+#page6 .bottom .circle {
+  background: #e8e8da url(img/garbage.png) center center no-repeat;
+  width: 320px;
+  height: 320px;
+  margin: 0px auto;
+  padding-top: 90px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+}
+
+#page6 .bottom .circle .text {
+  color: #aa1313;
+}
+
+#page6 .bottom .circle .text span {
+  display: block;
+  text-align: center;
+}
+
+#page6 .bottom .circle .text span:nth-child(2) {
+  font-size: 17px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
