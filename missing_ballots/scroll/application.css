@@ -168,6 +168,8 @@ body {
 
 #ballots {
   margin-bottom: 55px;
+  position: relative;
+  overflow: hidden;
 }
 
 
@@ -662,6 +664,91 @@ body {
 
 
 
+
+
+#page7 {
+  right: 0px;
+  min-height: 100%;
+  padding-top: 77px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page7 .problem3_img {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#page7 .problem3_img img {
+  margin-left: 7.333%;
+}
+
+#page7 .title {
+  text-align: center;
+  font-family: breeserif_reg;
+  color: #aa1313;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+#page7 .subtitle {
+  text-align: center;
+}
+
+#page7 .protocol {
+  width: 848px;
+  margin: 0px auto;
+}
+
+#page7 .protocol > img {
+  width: 600px;
+  display: block;
+  float: left;
+}
+
+#page7 .protocol ul {
+  width: 248px;
+  height: 884px;
+  display: block;
+  float: left;
+  background: #e8e8da;
+  list-style: none;
+  color: #77c1b4;
+  margin: 0px;
+}
+
+#page7 .protocol ul li:nth-child(1) {
+  margin-top: 81px;
+}
+
+#page7 .protocol ul li:nth-child(2) {
+  margin-top: 1px;
+}
+
+#page7 .protocol ul li:nth-child(3) {
+  margin-top: 14px;
+}
+
+#page7 .protocol ul li:nth-child(4) {
+  margin-top: 1px;
+}
+
+#page7 .protocol ul li:nth-child(5) {
+  margin-top: 3px;
+}
+
+#page7 .protocol ul li:nth-child(6) {
+  margin-top: 3px;
+}
+
+#page7 .protocol ul li:nth-child(7) {
+  margin-top: 2px;
+}
+
+#page7 .protocol ul li:nth-child(8) {
+  margin-top: 2px;
+}
 
 
 
