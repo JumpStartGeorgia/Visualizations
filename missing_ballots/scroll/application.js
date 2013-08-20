@@ -134,6 +134,55 @@ $(function ()
 
 
 
+  controller.addTween(
+    $('#page6'),
+    (new TimelineMax()).append([
+      TweenMax.to($('#ballots .all li:first'), .5, {css: {opacity: .6}}),
+      TweenMax.to($('#ballots .all li:eq(4)'), .5, {css: {opacity: 1}})
+    ])
+  );
+
+
+
+
+
+
+
+  controller.pin($('#page7 > .top'), $('#page7').height(), {
+    pushFollowers: false,
+    offset: -($('#question_marks').parent().height() + $('#ballots .all').height()),
+    anim: (new TimelineMax())
+          ,//.append(TweenMax.fromTo($('#page7 > .bottom'), .5, {css: {position: 'relative', top: 800}}, {css: {top: -$('#page7').height()}})),
+    onPin: function ()
+    {
+    },
+    onUnpin: function ()
+    {
+    }
+  });
+
+
+
+/*
+  $('#page7 > .top').css({zIndex: 9e4, right: 0});
+  controller.pin($('#page7 > .top'), 9e5, {
+    pushFollowers: false
+  });
+*/
+
+
+
+  controller.addTween(
+    $('#page7'),
+    (new TimelineMax()).append([
+      TweenMax.to($('#ballots .all li:eq(4)'), .5, {css: {opacity: .6}}),
+      TweenMax.to($('#ballots .all li:eq(5)'), .5, {css: {opacity: 1}})
+    ])
+  );
+
+
+  $('#protocol6-container .bottom').height($('#protocol6-container .bottom').height());
+
 
 
 

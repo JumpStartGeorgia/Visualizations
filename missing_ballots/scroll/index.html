@@ -235,49 +235,276 @@
 
 
   <section id="page7">
-    <div class="problem3_img">
-      <img src="img/line_problem3.png" />
-    </div>
-    <div class="title">Polling Station Miscount</div>
-    <div class="bottom">
-      <div class="subtitle">Protocol Explanation</div>
-      <div class="protocol">
-        <img src="img/protocol1.png" />
-        <ul>
-          <li>
-            <img src="img/line_blue.png" />
-            1 - Possible Voters
-          </li>
-          <li>
-            <img src="img/line_blue.png" />
-            2 - Special Voters
-          </li>
-          <li>
-            <img src="img/line_blue.png" />
-            3 - Votes by 12:00 and by 17:00
-          </li>
-          <li>
-            <img src="img/line_blue.png" />
-            4 - Ballots Signed for
-          </li>
-          <li>
-            <img src="img/line_blue.png" />
-            5 - Ballots to Hand out
-          </li>
-          <li>
-            <img src="img/lines1.png" />
-            Votes for Each Party
-          </li>
-          <li>
-            <img src="img/line_blue.png" />
-            6 - Invalid Ballots Submitted
-          </li>
-          <li>
-            <img src="img/lines2.png" />
-            Signatures of Polling Station Staff
-          </li>
-        </ul>
+    <div class="top">
+      <div class="problem3_img">
+        <img src="img/line_problem3.png" />
       </div>
+      <div class="title">Polling Station Miscount</div>
+    </div>
+    <div class="bottom">
+
+      <div class="protocol-container">
+        <div class="protocol-title">Protocol Explanation</div>
+        <div class="protocol clearfix" id="protocol1">
+          <img src="img/protocol1.png" />
+          <ul>
+            <li>
+              <img src="img/line_blue.png" />
+              1 - Possible Voters
+            </li>
+            <li>
+              <img src="img/line_blue.png" />
+              2 - Special Voters
+            </li>
+            <li>
+              <img src="img/line_blue.png" />
+              3 - Votes by 12:00 and by 17:00
+            </li>
+            <li>
+              <img src="img/line_blue.png" />
+              4 - Ballots Signed for
+            </li>
+            <li>
+              <img src="img/line_blue.png" />
+              5 - Ballots to Hand out
+            </li>
+            <li>
+              <img src="img/lines1.png" />
+              Votes for Each Party
+            </li>
+            <li>
+              <img src="img/line_blue.png" />
+              6 - Invalid Ballots Submitted
+            </li>
+            <li>
+              <img src="img/lines2.png" />
+              Signatures of Polling Station Staff
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-container">
+        <div class="protocol-title">Vote Count Validation</div>
+        <div class="protocol clearfix" id="protocol2">
+          <img src="img/protocol1.png" />
+          <ul>
+            <li>
+              To validate that the ballots were counted correctly, the following equation should be true:
+            </li>
+            <li>
+              (4 - Ballots Signed For) <br />
+              - <br />
+              (6 - Invalid Ballots Submitted) <br />
+              = <br />
+              SUM (Votes for Each Party)
+            </li>
+            <li>
+              Here is a protocol from Polling Station 1 in Gori. For this protocol, the equation turns into:
+            </li>
+            <li>
+              832 - 32 <br />
+              = <br />
+              (4 + 277 + 11 + 1 + 3 + 3 + 6 + 495) <br />
+              <img src="img/arrow_blue_small.png" /> <br />
+              800 <br />
+              = <br />
+              800
+            </li>
+            <li>
+              VALIDATION PASSED!
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-container">
+        <div class="protocol-title">Vote Count Validation</div>
+        <div class="protocol clearfix" id="protocol3">
+          <img src="img/protocol2.png" />
+          <ul>
+            <li>
+              Here is a protocol from <span>Polling Station 63 in Gori</span>. For this protocol, the equation turns into:
+            </li>
+            <li>
+              807 - 17 <br />
+              = <br />
+              (1 + 1 + 301 + 4 + 28 + 1 + 9 + 12 + 362) <br />
+              <img src="img/arrow_blue_small.png" /> <br />
+              790 <br />
+              = <br />
+              719
+            </li>
+            <li>
+              VALIDATION FAILED!
+            </li>
+            <li>
+              <div class="circle">
+                In this case, <br /> there were more <br /> ballots signed for than <br /> there were counted <br /> party votes.
+              </div>
+            </li>
+            <li>
+              How did this happen?
+            </li>
+            <li>
+              Did 71 people sign for ballots but didn't turn them in?
+            </li>
+            <li>
+              Did the Polling Station Staff not count the ballots?
+            </li>
+            <li>
+              Did the ballots get lost?
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-container">
+        <div class="protocol-title">Vote Count Validation</div>
+        <div class="protocol clearfix" id="protocol4">
+          <img src="img/protocol3.png" />
+          <ul>
+            <li>
+              Here is a protocol from <span>Polling Station 83 in Gori</span>. For this protocol, the equation turns into:
+            </li>
+            <li>
+              1514 - 40 <br />
+              = <br />
+              (5 + 1023 + 27 + 2 + 1 + 16 + 1 + 362) <br />
+              <img src="img/arrow_blue_small.png" /> <br />
+              1474 <br />
+              = <br />
+              1437
+            </li>
+            <li>
+              VALIDATION FAILED!
+            </li>
+            <li>
+              <div class="circle">
+                In this case, <br /> there were more <br /> ballots signed for than <br /> there were counted <br /> party votes.
+              </div>
+            </li>
+            <li>
+              Again, <br /> How did this happen?
+            </li>
+            <li>
+              Where are the missing <br /> <span>37</span> ballots?
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-container">
+        <div class="protocol-title">Vote Count Validation</div>
+        <div class="protocol clearfix" id="protocol5">
+          <img src="img/protocol4.png" />
+          <ul>
+            <li>
+              Here is a protocol from <span>Polling Station 84 in Gori</span>. For this protocol, the equation turns into:
+            </li>
+            <li>
+              728 - 13 <br />
+              = <br />
+              (329 + 5 + 14 + 1 + 1 + 5 + 1 + 10 + 1 + 355) <br />
+              <img src="img/arrow_blue_small.png" /> <br />
+              715 <br />
+              = <br />
+              722
+            </li>
+            <li>
+              VALIDATION FAILED!
+            </li>
+            <li>
+              <div class="circle">
+                In this case, <br /> there were more <br /> counted party votes <br /> than there were <br /> ballots signed <br /> for.
+              </div>
+            </li>
+            <li>
+              How are there more <br /> votes than ballots <br /> submitted?
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-container" id="protocol6-container">
+        <div class="protocol-title">Vote Count Validation</div>
+        <div class="protocol clearfix" id="protocol6">
+          <img src="img/protocol5.png" />
+          <ul>
+            <li>
+              Here is a protocol from <span>Polling Station 70 in Gori</span>. For this protocol, the equation turns into:
+            </li>
+            <li>
+              429 - 221 <br />
+              = <br />
+              (1 + 187 + 2 + 6 + 1 + 8 + 2 + 197) <br />
+              <img src="img/arrow_blue_small.png" /> <br />
+              208 <br />
+              = <br />
+              404
+            </li>
+            <li>
+              VALIDATION FAILED!
+            </li>
+            <li>
+              <div class="circle">
+                In this case, <br /> there were more <br /> counted party votes <br /> than there were <br /> ballots signed <br /> for.
+              </div>
+            </li>
+            <li>
+              Again, <br /> how are there more votes <br /> than ballots submitted?
+            </li>
+            <li>
+              Did not one of the Polling <br /> Station Staff notice that <br /> nearly <span>50%</span> of all ballots <br /> signed for were marked as <br /> <span>invalid?</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bottom clearfix">
+          <div class="left">
+            <div class="text">
+              <span>In this case, the Polling Station Staff</span> incorrectly filled out the protocol <br />
+              <span>by making</span> <br />
+              the number of invalid ballots <br />
+              equal to the ballots on hand <br />
+              minus the ballots signed for <br />
+              <span>instead of <br /> the number of submitted invalid ballots.</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="text">
+              (5 - Ballots to Hand Out) <br />
+              - <br />
+              (4 - Ballots Signed For) <br />
+              = <br />
+              (6 - Invalid Ballots Submitted)
+              <br /><br />
+              650 - 429 = 221 <br />
+              221 = 221
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="protocol-container">
+        <div class="protocol-title">Vote Count Validation</div>
+        <div class="protocol clearfix" id="protocol7">
+          <img src="img/protocol5.png" />
+          <ul>
+            <li>
+              Keep in mind that <br />
+              at the bottom of every <br />
+              protocol
+            </li>
+            <li>
+              <img src="img/lines2.png" />
+              <div class="circle">
+                13 Polling <br /> Station Staff have <br /> signed off that the <br /> protocol is properly <br /> filled out.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
