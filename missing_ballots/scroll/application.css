@@ -1150,6 +1150,150 @@ body {
   vertical-align: bottom;
 }
 
+#page8 .after {
+  position: relative;
+}
+
+#page8  .subtitle {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 70px;
+}
+
+#page8  .img {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#page8  .img > span {
+  display: inline-block;
+}
+
+#page8  .img-text {
+  text-align: left;
+  color: #8ea565;
+  margin-top: 5px;
+}
+
+#page8  .bottom-text {
+  margin-top: 30px;
+}
+
+#page8  .bottom-text p {
+  margin-bottom: 4px;
+}
+
+#page8  .bottom-text p:first-child {
+  text-align: center;
+  color: #aa1313;
+  font-size: 35px;
+  line-height: 1.2;
+}
+
+#page8  .bottom-text p:nth-child(2) {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+#page8  .bottom-text p:last-child {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+
+#page8 .spreadsheet {
+  width: 841px;
+  margin: 0px auto 20px;
+}
+
+#page8 .spreadsheet .top > div, #page8 .spreadsheet .bottom > div {
+  float: left;
+}
+
+#page8 .spreadsheet .top > .left {
+  width: 600px;
+  text-align: center;
+  background: #eae7e7;
+  color: #8ea565;
+  height: 137px;
+  padding-top: 20px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page8 .spreadsheet .top > .left span.big {
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+#page8 .spreadsheet .top > .left span.black {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #4d3534;
+}
+
+
+
+#page8 .spreadsheet .bottom > .left {
+}
+
+#page8 .spreadsheet .bottom > .right {
+  background: #e0e8c4;
+  width: 241px;
+  height: 512px;
+}
+
+#page8 .spreadsheet .bottom > .right ul {
+  list-style: none;
+  position: relative;
+  margin: 0px;
+}
+
+#page8 .spreadsheet .bottom > .right ul li {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#page8 .spreadsheet .bottom > .right li .bottom span {
+  display: block;
+  float: right;
+}
+
+#page8 .spreadsheet .bottom > .right li .right-border {
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  width: 100%;
+  border-right: 1px dashed #4d3534;
+  position: relative;
+  right: 2px;
+}
+
+#page8 .spreadsheet .bottom > .right li .left-border {
+  float: left;
+  height: 0px;
+  border-top: 1px dashed #4d3534;
+  position: relative;
+  top: 7px;
+}
+
+#page8 .spreadsheet .bottom > .right li:first-child {
+  width: 125px;
+}
+
+#page8 .spreadsheet .bottom > .right li .left-border {
+  width: 30px;
+}
+
+#page8 .spreadsheet .bottom > .right li .right-border {
+  height: 50px;
+}
+
 
 
 

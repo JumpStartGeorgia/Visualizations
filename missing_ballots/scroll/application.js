@@ -213,7 +213,7 @@ $(function ()
   controller.pin($('#page8'), pinh, {
     anim: (new TimelineMax())
           .append(TweenMax.fromTo($('#page8 .title'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
-          ,//.append(TweenMax.fromTo($('#page6 .bottom'), .5, {css: {top: 800}}, {css: {top: 0}})),
+          .append(TweenMax.fromTo($('#page8 .after'), .5, {css: {top: 800}}, {css: {top: 0}})),
     onPin: function ()
     {
       $('#page8-spacer').hide();
