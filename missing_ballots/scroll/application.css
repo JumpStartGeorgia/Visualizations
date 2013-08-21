@@ -167,7 +167,7 @@ body {
 
 
 #ballots {
-  margin-bottom: 55px;
+  margin-bottom: 250px;
   position: relative;
   overflow: hidden;
 }
@@ -1107,6 +1107,51 @@ body {
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
 }
+
+#page7 {
+  margin-bottom: 250px;
+}
+
+#page7 > .bottom {
+  margin-top: 1300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#page8 {
+  right: 0px;
+  padding-top: 77px;
+}
+
+#page8 .title {
+  float: right;
+  margin-right: 16.665%;
+}
+
+#page8 .title span {
+  position: relative;
+  top: 11px;
+  font-family: breeserif_reg;
+  color: #aa1313;
+  font-size: 17px;
+}
+
+#page8 .title img {
+  vertical-align: bottom;
+}
+
+
+
 
 
 

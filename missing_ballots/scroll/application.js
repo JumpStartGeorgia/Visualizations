@@ -75,6 +75,7 @@ $(function ()
     onPin: function ()
     {
       $('#page5-spacer').hide();
+      $('#ballots .all li:first').css({opacity: 1});
     },
     onUnpin: function ()
     {
@@ -82,6 +83,7 @@ $(function ()
       {
         $('#page5-spacer').show();
       }
+      $('#ballots .all li:first').css({opacity: .6});
     }
   });
   $('#page5').after('<div id="page5-spacer"></div>').next().height(pinh);
@@ -95,11 +97,13 @@ $(function ()
       TweenMax.to($('#question_marks_spacer'), .001, {css: {height: $('#question_marks').parent().outerHeight(true)}})
     ])
   );
-
+  
+/*
   controller.addTween(
     $('#page5'),
     TweenMax.to($('#ballots .all li:first'), .5, {css: {opacity: 1}})
   );
+*/
 
 
 
@@ -118,6 +122,7 @@ $(function ()
     onPin: function ()
     {
       $('#page6-spacer').hide();
+      $('#ballots .all li:eq(4)').css({opacity: 1});
     },
     onUnpin: function ()
     {
@@ -125,6 +130,7 @@ $(function ()
       {
         $('#page6-spacer').show();
       }
+      $('#ballots .all li:eq(4)').css({opacity: .6});
     }
   });
   $('#page6').after('<div id="page6-spacer"></div>').next().height(pinh);
@@ -133,7 +139,7 @@ $(function ()
 
 
 
-
+/*
   controller.addTween(
     $('#page6'),
     (new TimelineMax()).append([
@@ -141,24 +147,32 @@ $(function ()
       TweenMax.to($('#ballots .all li:eq(4)'), .5, {css: {opacity: 1}})
     ])
   );
+*/
 
 
 
 
 
-
+  controller.addTween($('#page7'), TweenMax.fromTo($('#page7 > .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}), 300);
 
   controller.pin($('#page7 > .top'), $('#page7').height(), {
     pushFollowers: false,
     offset: -($('#question_marks').parent().height() + $('#ballots .all').height()),
-    anim: (new TimelineMax())
-          ,//.append(TweenMax.fromTo($('#page7 > .bottom'), .5, {css: {position: 'relative', top: 800}}, {css: {top: -$('#page7').height()}})),
     onPin: function ()
     {
+      $('#ballots .all li:eq(5)').css({opacity: 1});
     },
     onUnpin: function ()
     {
+      $('#ballots .all li:eq(5)').css({opacity: .6});
     }
+  });
+  $(window).load(function ()
+  {
+    controller.updatePin($('#page7 > .top'), $('#page7').height(), {
+      pushFollowers: false,
+      offset: -($('#question_marks').parent().height() + $('#ballots .all').height())
+    });
   });
 
 
@@ -171,7 +185,7 @@ $(function ()
 */
 
 
-
+/*
   controller.addTween(
     $('#page7'),
     (new TimelineMax()).append([
@@ -179,9 +193,80 @@ $(function ()
       TweenMax.to($('#ballots .all li:eq(5)'), .5, {css: {opacity: 1}})
     ])
   );
-
+*/
 
   $('#protocol6-container .bottom').height($('#protocol6-container .bottom').height());
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var pinh = 2000;
+  controller.pin($('#page8'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page8 .title'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          ,//.append(TweenMax.fromTo($('#page6 .bottom'), .5, {css: {top: 800}}, {css: {top: 0}})),
+    onPin: function ()
+    {
+      $('#page8-spacer').hide();
+      $('#ballots .all li:eq(7)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page8').offset().top > $(window).scrollTop())
+      {
+        $('#page8-spacer').show();
+      }
+      $('#ballots .all li:eq(7)').css({opacity: .6});
+    }
+  });
+  $('#page8').after('<div id="page8-spacer"></div>').next().height(pinh);
+
+
+
+/*
+  controller.addTween(
+    $('#page8'),
+    (new TimelineMax()).append([
+      TweenMax.to($('#ballots .all li:eq(5)'), .5, {css: {opacity: .6}}),
+      TweenMax.to($('#ballots .all li:eq(7)'), .5, {css: {opacity: 1}})
+    ])
+  );
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
