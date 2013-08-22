@@ -1217,7 +1217,7 @@ body {
   text-align: center;
   background: #eae7e7;
   color: #8ea565;
-  height: 137px;
+  height: 120px;
   padding-top: 20px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -1235,15 +1235,21 @@ body {
   color: #4d3534;
 }
 
+#page8 .spreadsheet .top > .right {
+  width: 241px;
+  height: 137px;
+}
+
 
 
 #page8 .spreadsheet .bottom > .left {
+  margin-top: -17px;
 }
 
 #page8 .spreadsheet .bottom > .right {
   background: #e0e8c4;
   width: 241px;
-  height: 512px;
+  height: 495px;
 }
 
 #page8 .spreadsheet .bottom > .right ul {
@@ -1256,42 +1262,104 @@ body {
   display: block;
   position: absolute;
   top: 0px;
-  left: 0px;
-}
-
-#page8 .spreadsheet .bottom > .right li .bottom span {
-  display: block;
-  float: right;
+  left: -19px;
 }
 
 #page8 .spreadsheet .bottom > .right li .right-border {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  width: 100%;
-  border-right: 1px dashed #4d3534;
-  position: relative;
+  border-right: 1px dashed #3d3d3d;
+  position: absolute;
   right: 2px;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+#page8 .spreadsheet .bottom > .right li .bottom {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+}
+
+#page8 .spreadsheet .bottom > .right li .bottom span {
+  background: #e0e8c4;
+}
+
+#page8 .spreadsheet .bottom > .right li .bottom span {
+  display: block;
+  float: right;
+  position: relative;
 }
 
 #page8 .spreadsheet .bottom > .right li .left-border {
   float: left;
   height: 0px;
-  border-top: 1px dashed #4d3534;
-  position: relative;
+  border-top: 1px dashed #3d3d3d;
+  position: absolute;
+  left: 0px;
+  right: 0px;
   top: 7px;
 }
 
 #page8 .spreadsheet .bottom > .right li:first-child {
   width: 125px;
+  height: 76px;
 }
 
-#page8 .spreadsheet .bottom > .right li .left-border {
-  width: 30px;
+#page8 .spreadsheet .bottom > .right li:nth-child(2) {
+  width: 154px;
+  height: 97px;
 }
 
-#page8 .spreadsheet .bottom > .right li .right-border {
-  height: 50px;
+#page8 .spreadsheet .bottom > .right li:nth-child(3) {
+  width: 179px;
+  height: 114px;
+}
+
+#page8 .spreadsheet .bottom > .right li:nth-child(3) .line {
+  width: 272px;
+  height: 13px;
+  border-top: 1px solid #3d3d3d;
+  position: absolute;
+  right: 100%;
+  top: 7px;
+  -webkit-border-top-left-radius: 100px;
+  -moz-border-radius-topleft: 100px;
+  border-top-left-radius: 100px;
+}
+
+#page8 .spreadsheet .bottom > .right li:nth-child(4) {
+  width: 204px;
+  height: 129px;
+}
+
+#page8 .spreadsheet .bottom > .right li:nth-child(5) {
+  width: 233px;
+  height: 150px;
+}
+
+#page8 .spreadsheet .bottom > .right li:nth-child(6) {
+  width: 246px;
+  height: 173px;
+}
+
+#page8 .spreadsheet .bottom > .right li:nth-child(6) .question {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  right: -7.5px;
+  padding-top: 43px;
+  background: #e0e8c4;
+  
+}
+
+#page8 .spreadsheet .bottom > .right li:nth-child(7) {
+  width: 257px;
+  height: 227px;
 }
 
 
