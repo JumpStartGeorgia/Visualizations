@@ -343,6 +343,9 @@ body {
   margin-left: 11.1111111%;
 }
 
+#question_marks > div > img {
+  cursor: pointer;
+}
 
 #page5 .dashed {
   float: left;

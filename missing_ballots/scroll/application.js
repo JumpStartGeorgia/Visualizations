@@ -45,6 +45,7 @@ $(function ()
     );
   }
 
+  // if click on main election icons, go to that section
   $('#ballots .all li').click(function ()
   {
     $('html, body').animate({scrollTop: $('#ballots .list li').eq($(this).index()).offset().top - $(this).closest('.all').height()});
@@ -106,6 +107,23 @@ $(function ()
 */
 
 
+  // if click on question mark, go to that place
+  $('#question_marks > div:nth-child(1) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page5  #stations').offset().top });
+  });
+  $('#question_marks > div:nth-child(2) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page6 .middle').offset().top });
+  });
+  $('#question_marks > div:nth-child(3) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page7 .bottom').offset().top });
+  });
+  $('#question_marks > div:nth-child(4) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page8 .after').offset().top });
+  });
 
 
 
