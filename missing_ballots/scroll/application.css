@@ -1438,10 +1438,13 @@ body {
   position: relative;
 }
 
-#page10 #map #legend{
+
+#page10 #map #legend {
   position: absolute;
   top: 150px;
-  left: 430px;
+  margin-left: 38px;
+}
+#page10 #map #legend ul{
   list-style-type: none;
   text-align: left;
 }
@@ -1617,10 +1620,12 @@ body {
   position: relative;
 }
 
-#page11 #map #legend{
+#page11 #map #legend {
   position: absolute;
   top: 150px;
-  left: 430px;
+  margin-left: 38px;
+}
+#page11 #map #legend ul{
   list-style-type: none;
   text-align: left;
 }
@@ -1816,8 +1821,6 @@ body {
   font-size: 13px;
 }
 
-#page12 #map img {
-}
 #page12 #map #legend {
   position: absolute;
   top: 135px;
