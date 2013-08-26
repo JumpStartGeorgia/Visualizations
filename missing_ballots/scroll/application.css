@@ -699,7 +699,7 @@ body {
 }
 
 #page7 .protocol-container:not(:first-child) {
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 #page7 .protocol-title {
@@ -1205,7 +1205,7 @@ body {
 
 #page8 .spreadsheet {
   width: 841px;
-  margin: 0px auto 20px;
+  margin: 100px auto 100px;
 }
 
 #page8 .spreadsheet .top > div, #page8 .spreadsheet .bottom > div {
