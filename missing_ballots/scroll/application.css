@@ -1806,49 +1806,119 @@ body {
   position: relative;
 }
 
-#page12 #map #legend{
+#page12 #map #map_headers {
+  margin-top: 20px;
+}
+#page12 #map #map_headers > div{
+  text-align: center;
+  font-family: breeserif_reg;
+  color: #aa1313;
+  font-size: 13px;
+}
+
+#page12 #map img {
+}
+#page12 #map #legend {
   position: absolute;
-  top: 105px;
-  left: 678px;
+  top: 135px;
+  margin-left: 38px;
+}
+#page12 #map #legend ul{
   list-style-type: none;
   text-align: left;
 }
 
-#page12 #map #legend li > div{
+#page12 #map #legend ul li > div{
   display: inline-block;
   width: 20px;
   margin-right: 5px;
   margin-bottom: 5px;
   font-size: 13px;
 }
-#page12 #map #legend li:nth-child(1) > div{
+#page12 #map #legend ul li:nth-child(1) > div{
   background-color: #BBD5BA;
 }
-#page12 #map #legend li:nth-child(2) > div{
+#page12 #map #legend ul li:nth-child(2) > div{
   background-color: #E7AAA0;
 }
-#page12 #map #legend li:nth-child(3) > div{
+#page12 #map #legend ul li:nth-child(3) > div{
   background-color: #D47067;
 }
-#page12 #map #legend li:nth-child(4) > div{
+#page12 #map #legend ul li:nth-child(4) > div{
   background-color: #B56666;
 }
-#page12 #map #legend li:nth-child(5) > div{
+#page12 #map #legend ul li:nth-child(5) > div{
   background-color: #EDB87C;
 }
 
 
 
+#page12 #country_stats {
+  margin-top: 20px;
+}
+#page12 #country_stats > div{
+  text-align: center;
+  height: 195px;
+  padding: 35px 17px;
+}
+#page12 #country_stats > div:nth-child(1){
+  background: #F7F7F0 url(img/chart9.png) center center no-repeat;
+}
+#page12 #country_stats > div:nth-child(2){
+  background: #F7F7F0 url(img/chart10.png) center center no-repeat;
+}
+#page12 #country_stats > div #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
+#page12 #country_stats > div #line4 span, #page12 #country_stats > div #line5 {
+  color: #cc3737;
+}
 
 
+#page12 #polling_station_stats_text{
+  margin-top: 30px;
+}
+#page12 #polling_station_stats_text span{
+  color: #cc3737;
+}
 
+#page12 .polling_station_stats {
+  margin-top: 10px;
+}
 
+#page12 .polling_station_stats > div {
+  text-align: center;
+}
 
+#page12 .polling_station_stats > div > div {
+  background: #ddd7ce;
+  text-align: center;
+  width: 115px;
+  height: 115px;
+  padding: 24px 10px;
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
 
+#page12 .polling_station_stats > div > div #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
 
-
-
-
+#page12 .polling_station_stats > div > div #line2 {
+  font-size: 17px;
+  color: #cc3737;
+}
 
 
 
