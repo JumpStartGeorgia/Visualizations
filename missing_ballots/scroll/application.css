@@ -1788,7 +1788,7 @@ body {
   right: 0px;
   padding-top: 77px;
   text-align: center;
-  margin-bottom: 250px;
+  margin-bottom: 500px;
 }
 
 #page12 header h3 {
@@ -1924,6 +1924,128 @@ body {
 }
 
 
+/****************************************/
+#page13{
+  right: 0px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 150px;
+  margin-bottom: 1000px;
+}
+
+#page13 header h2 {
+  font-size: 27px;
+  font-family: rawengulk_regular;
+  margin-bottom: 25px;
+  line-height: 35px;
+}
+
+#page13 #line2 {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  position: relative;
+  top: 500px;
+}
+
+#page13 #line3 {
+  color: #aa1313;
+  font-size: 48px;
+  font-family: rawengulk_regular;
+  line-height: 55px;
+  position: relative;
+  top: 500px;
+}
 
 
 
+/***************************************/
+
+
+#page14{
+  right: 0px;
+  text-align: center;
+  padding-top: 150px;
+  margin-bottom: 500px;
+}
+
+
+
+/***************************************/
+
+
+#page18{
+  right: 0px;
+  text-align: center;
+  padding-top: 50px;
+  background: #52b2a2;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+#page18 header h2 {
+  font-size: 36px;
+  font-family: rawengulk_regular;
+  margin-bottom: 25px;
+  line-height: 35px;
+  text-transform: uppercase;
+}
+
+#page18 #line2 {
+  font-size: 30px;
+  line-height: 30px;
+  margin-bottom: 90px;
+  position: relative;
+  top: 500px;
+}
+
+#page18 #line3 {
+  font-size: 33px;
+  font-family: rawengulk_regular;
+  line-height: 40px;
+  text-transform: uppercase;
+  position: relative;
+  top: 500px;
+}
+
+#page18 #line4 {
+  font-size: 56px;
+  font-family: rawengulk_regular;
+  line-height: 56px;
+  text-transform: uppercase;
+  position: relative;
+  top: 500px;
+  margin-bottom: 150px;
+}
+
+#page18 #sources{
+  color: #ddd7ce;
+  font-size: 13px;
+  position: relative;
+  top: 500px;
+}
+#page18 #sources > div{
+  margin-right: 100px;
+  text-align: right;
+  position: absolute;
+  right: 0;
+}
+#page18 #sources > div > div{
+  display: inline-block;
+  vertical-align: top;
+}
+#page18 #sources > div ul{
+  list-style-type: none;
+  text-align: left;
+  display: inline-block;
+  margin-left: 5px;
+}
+#page18 #sources > div ul li a{
+  color: #ddd7ce;
+  text-decoration: underline;
+}
+#page18 #sources > div ul li a:hover{
+  text-decoration: none;
+}

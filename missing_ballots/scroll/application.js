@@ -275,6 +275,27 @@ $(function ()
 
 
 
+/////////////////////////////////
+
+
+  var pinh = 2500;
+  controller.pin($('#page13'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page13 #line2'), .5, {css:{top: 500}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page13 #line3'), .5, {css:{top: 500}}, {css:{top: 0}})),
+    onPin: function ()
+    {
+      $('#page13-spacer').hide();
+    },
+    onUnpin: function ()
+    {
+      if ($('#page13').offset().top > $(window).scrollTop())
+      {
+        $('#page13-spacer').show();
+      }
+    }
+  });
+  $('#page13').after('<div id="page13-spacer"></div>').next().height(pinh);
 
 
 
@@ -283,16 +304,45 @@ $(function ()
 
 
 
+///////////////////////////////////////
 
 
 
 
 
 
+//////////////////////////////////////
+
+
+
+  var pinh = 2500;
+  controller.pin($('#page18'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.to($('#ballots .all'), .001, {css: {display: 'none', top: -100}}))
+          .append(TweenMax.to($('#question_marks').parent(), .001, {css: {display: 'none', top: -100}}))
+          .append(TweenMax.fromTo($('#page18 #line2'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{top: 700}}, {css:{top: 0}})),
+    onPin: function ()
+    {
+      $('#page18-spacer').hide();
+    },
+    onUnpin: function ()
+    {
+      if ($('#page18').offset().top > $(window).scrollTop())
+      {
+        $('#page18-spacer').show();
+      }
+    }
+  });
+  $('#page18').after('<div id="page18-spacer"></div>').next().height(pinh);
 
 
 
 
+
+////////////////////////////////////////
 
 
   $(window).load(function ()
