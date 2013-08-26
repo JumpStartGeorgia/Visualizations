@@ -6,7 +6,7 @@ $(function ()
     playoutAnimations: true
   });
 
-
+/////////////////////////////////
   var pinh = 2500;
   controller.pin($('#page2'), pinh, {
     anim: (new TimelineMax())
@@ -27,6 +27,7 @@ $(function ()
   $('#page2').after('<div id="page2-spacer"></div>').next().height(pinh);
 
 
+/////////////////////////////////
 
   $('#ballots .all').css({right: $(window).width() - $('#ballots .all').offset().left - $('#ballots .all').width()});
   controller.pin($('#ballots .all'), 9e5, {
@@ -53,6 +54,7 @@ $(function ()
   
 
 
+/////////////////////////////////
 
 
 
@@ -70,7 +72,7 @@ $(function ()
           .append(TweenMax.fromTo($('#page5-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#stations').parent(), .5, {css: {position: 'relative', top: 900}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#stations-connect'), .5, {css:{top: 700}}, {css:{top: -42}}))
-          .append(TweenMax.to($('#stations-connect h5'), .5, {css:{top: -100, opacity: 0}/*, delay: 1*/}))
+          .append(TweenMax.to($('#stations-connect #line1'), .5, {css:{top: -100, opacity: 0}/*, delay: 1*/}))
           .append(TweenMax.fromTo($('#stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page5 footer'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
@@ -106,6 +108,7 @@ $(function ()
   );
 */
 
+/////////////////////////////////
 
   // if click on question mark, go to that place
   $('#question_marks > div:nth-child(1) > img').click(function ()
@@ -128,12 +131,13 @@ $(function ()
 
 
 
+/////////////////////////////////
 
 
   var pinh = 2000;
   controller.pin($('#page6'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page6 .title').add('#page6 .problem2_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page6 header h4').add('#page6 .problem2_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page6 .middle .left'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page6 .middle .right'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page6 .bottom'), .5, {css: {top: 800}}, {css: {top: 0}})),
@@ -168,6 +172,7 @@ $(function ()
 */
 
 
+/////////////////////////////////
 
 
 
@@ -220,6 +225,7 @@ $(function ()
 
 
 
+/////////////////////////////////
 
 
 
@@ -230,7 +236,7 @@ $(function ()
   var pinh = 2000;
   controller.pin($('#page8'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page8 .title'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page8 header h4'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page8 .after'), .5, {css: {top: 800}}, {css: {top: 0}})),
     onPin: function ()
     {

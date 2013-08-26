@@ -39,7 +39,7 @@ body {
   z-index: 2000;
 }
 
-
+/**********************************/
 #page1 {
   width: 100%;
   height: 100%;
@@ -51,7 +51,7 @@ body {
   height: 100%; /*100/145*/
 }
 
-#page1 h1 {
+#page1 header h1 {
   text-transform: uppercase;
   font-family: rawengulk_regular;
   color: #fff;
@@ -59,7 +59,7 @@ body {
   font-size: 40px;
   margin: 0px;
 }
-
+/**********************************/
 
 #page2 {
   right: 0px;
@@ -74,13 +74,17 @@ body {
   opacity: 0;
 }
 
-#page2 .top h1 {
+#page2 .top .numbers {
   color: #fff;
   font-size: 57px;
+  margin: 10px 0;
+  line-height: 40px;
 }
 
-#page2 .top h4 {
+#page2 .top .number_text {
   color: #fff;
+  font-size: 17.5px;
+  margin: 10px 0;
 }
 
 #page2 .top img {
@@ -88,21 +92,25 @@ body {
   margin: 0px auto;
 }
 
-#page2 .middle h2 {
+#page2 .middle #line1 {
   color: #145649;
   font-size: 18px;
+  line-height: 40px;
+  margin: 10px 0;
 }
 
-#page2 .middle h2 span {
+#page2 .middle #line1 span {
   color: #fff;
   font-size: 33px;
   text-transform: uppercase;
   font-family: rawengulk_bold;
 }
 
-#page2 .middle h3 {
+#page2 .middle #line2 {
   color: #145649;
   font-size: 25px;
+  line-height: 40px;
+  margin: 10px 0;
 }
 
 #page2 .bottom {
@@ -112,34 +120,38 @@ body {
   top: 500px;
 }
 
-#page2 .bottom h2 {
+#page2 .bottom #line1 {
   color: #145649;
   font-size: 18px;
+  line-height: 40px;
+  margin: 10px 0;
 }
 
-#page2 .bottom h2 span {
+#page2 .bottom #line1 span {
   color: #fff;
   font-size: 59px;
 }
 
-#page2 .bottom h2 span:last-child {
+#page2 .bottom #line1 span:last-of-type {
   font-size: 18px;
 }
 
-#page2 .bottom h3 {
+#page2 .bottom #line2 {
   color: #fff;
   font-size: 25px;
   padding-left: 130px;
+  line-height: 40px;
+  margin: 10px 0;
 }
 
 
-
+/***************************************/
 
 
 #page3 {
 }
 
-#page3 h1 {
+#page3 header h2 {
   padding: 400px 0px 20px 0px;
   color: #fff;
   font-size: 48px;
@@ -163,7 +175,7 @@ body {
 
 
 
-
+/********************************************/
 
 
 #ballots {
@@ -173,7 +185,7 @@ body {
 }
 
 
-#ballots header {
+#ballots header h3 {
   font-family: breeserif_reg;
   color: #4d3534;
   font-size: 20px;
@@ -303,7 +315,7 @@ body {
         	box-sizing: border-box;
 }
 
-#page5 header {
+#page5 header h3 {
   text-align: center;
   font-family: rawengulk_bold;
   color: #aa1313;
@@ -374,7 +386,7 @@ body {
   float: left;
 }
 
-
+/***********************************/
 #stations {
   font-family: breeserif_reg;
   font-size: 15px;
@@ -442,10 +454,11 @@ body {
   margin-top: 20px;
 }
 
-#stations-connect h5 {
+#stations-connect #line1 {
   position: relative;
   font-size: 15px;
   text-align: center;
+  margin: 10px 0;
 }
 
 #stations-connect .cont {
@@ -546,20 +559,26 @@ body {
   text-align: center;
 }
 
-#page5 footer h4:first-child {
-  
+#page5 footer #line1 {
+  font-size: 17.5px;
+  margin: 10px 0;  
 }
 
-#page5 footer h4:last-of-type {
+#page5 footer #line2 {
   color: #aa1313;
+  font-size: 17.5px;
+  margin: 10px 0;  
 }
 
-#page5 footer h4:last-of-type span {
+#page5 footer #line2 span {
   font-size: 32px;
 }
 
-#page5 footer h2 {
+#page5 footer #line3 {
   color: #aa1313;
+  font-size: 31.5px;
+  margin: 10px 0;  
+  line-height: 40px;
 }
 
 #page5 {
@@ -571,7 +590,7 @@ body {
 
 
 
-
+/*******************************************/
 
 
 #page6 {
@@ -588,7 +607,7 @@ body {
   margin-bottom: 10px;
 }
 
-#page6 .title {
+#page6 header h4 {
   text-align: center;
   font-family: breeserif_reg;
   color: #aa1313;
@@ -662,7 +681,7 @@ body {
 
 
 
-
+/****************************************************/
 
 
 
@@ -693,7 +712,7 @@ body {
   margin-left: 7.333%;
 }
 
-#page7 .title {
+#page7 header h4 {
   text-align: center;
   font-family: breeserif_reg;
   color: #aa1313;
@@ -705,8 +724,9 @@ body {
   margin-top: 80px;
 }
 
-#page7 .protocol-title {
+#page7 h5.protocol-title {
   text-align: center;
+  text-rendering: auto;
 }
 
 #page7 .protocol {
@@ -1124,7 +1144,7 @@ body {
 
 
 
-
+/***********************************************************/
 
 
 
@@ -1136,12 +1156,12 @@ body {
   padding-top: 77px;
 }
 
-#page8 .title {
+#page8 header h4 {
   float: right;
   margin-right: 16.665%;
 }
 
-#page8 .title span {
+#page8 header h4 span {
   position: relative;
   top: 11px;
   font-family: breeserif_reg;
@@ -1149,7 +1169,7 @@ body {
   font-size: 17px;
 }
 
-#page8 .title img {
+#page8 header h4 img {
   vertical-align: bottom;
 }
 
