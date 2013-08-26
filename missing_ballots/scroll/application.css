@@ -1650,6 +1650,132 @@ body {
 
 
 
+
+
+#page11 #country_stats > div:nth-child(1){
+  background: #F7F7F0 url(img/chart5.png) center center no-repeat;
+  text-align: center;
+  height: 195px;
+  padding: 54px 17px 30px;
+}
+#page11 #country_stats > div:nth-child(1) #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
+#page11 #country_stats > div:nth-child(1) #line2 {
+  font-size: 17px;
+}
+#page11 #country_stats > div:nth-child(2) {
+  text-align: center;
+}
+
+#page11 #country_stats > div:nth-child(2) > div {
+  background: #ddd7ce;
+  text-align: center;
+  width: 188px;
+  height: 188px;
+  padding: 45px 17px 30px;
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page11 #country_stats > div:nth-child(2) > div #line1,
+#page11 #country_stats > div:nth-child(2) > div #line2 {
+  font-family: rawengulk_regular;
+  font-size: 18px;
+  line-height: 20px;
+  color: #cc3737;
+}
+#page11 #country_stats > div:nth-child(2) > div #line3{
+  margin-top: 5px;
+}
+
+#page11 #country_stats_footnote{
+  margin: 15px 0 5px;
+  font-size: 13px;
+}
+
+
+
+#page11 #district_amount_text{
+  margin: 50px 0 5px;
+  font-size: 17px;
+}
+#page11 #district_amount > div {
+  text-align: center;
+}
+
+#page11 #district_amount > div > div {
+  background: #ddd7ce;
+  text-align: center;
+  width: 115px;
+  height: 115px;
+  padding: 24px 10px;
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page11 #district_amount > div > div #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
+
+#page11 #district_amount > div > div #line2 {
+  font-size: 17px;
+  color: #cc3737;
+}
+
+
+
+#page11 #district_percent_text{
+  margin: 50px 0 5px;
+  font-size: 17px;
+}
+#page11 #district_percent > div {
+  text-align: center;
+  height: 153px;
+  padding: 40px 40px;
+}
+
+#page11 #district_percent > div #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
+
+#page11 #district_percent > div #line2 {
+  font-size: 17px;
+  color: #cc3737;
+}
+
+#page11 #district_percent > div:nth-child(1) {
+  background: #F7F7F0 url(img/chart6.png) center center no-repeat;
+}
+
+#page11 #district_percent > div:nth-child(2) {
+  background: #F7F7F0 url(img/chart7.png) center center no-repeat;
+}
+
+#page11 #district_percent > div:nth-child(3) {
+  background: #F7F7F0 url(img/chart8.png) center center no-repeat;
+}
+
+
 /*****************************************/
 
 
