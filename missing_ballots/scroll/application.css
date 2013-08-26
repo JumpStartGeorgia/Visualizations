@@ -1390,56 +1390,326 @@ body {
 
 
 
+/*****************************************/
+
+
+#page9 {
+}
+
+#page9 header h2 {
+  text-align: center;
+  color: #aa1313;
+  text-transform: uppercase;
+  padding: 400px 0px 100px 0px;
+  font-size: 48px;
+  font-family: breeserif_reg;
+  margin: 0px;
+  line-height: 65px;
+}
 
 
 
 
 
+/*****************************************/
+
+
+#page10 {
+  right: 0px;
+  padding-top: 77px;
+  text-align: center;
+  margin-bottom: 250px;
+}
+
+#page10 header h3 {
+  font-family: breeserif_reg;
+  color: #aa1313;
+  font-size: 17px;
+  margin: 0px;
+}
+
+#page10 #map_text {
+  margin: 30px 0 10px;
+}
+
+
+
+#page10 #map {
+  position: relative;
+}
+
+#page10 #map #legend{
+  position: absolute;
+  top: 150px;
+  left: 430px;
+  list-style-type: none;
+  text-align: left;
+}
+
+#page10 #map #legend li > div{
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+#page10 #map #legend li:nth-child(1) > div{
+  background-color: #BBD5BA;
+}
+#page10 #map #legend li:nth-child(2) > div{
+  background-color: #E7AAA0;
+}
+#page10 #map #legend li:nth-child(3) > div{
+  background-color: #D47067;
+}
+#page10 #map #legend li:nth-child(4) > div{
+  background-color: #B56666;
+}
+#page10 #map #legend li:nth-child(5) > div{
+  background-color: #DDDDDA;
+}
 
 
 
 
+#page10 #country_stats > div:nth-child(1){
+  background: #F7F7F0 url(img/chart1.png) center center no-repeat;
+  text-align: center;
+  height: 188px;
+  padding: 54px 17px 30px;
+}
+#page10 #country_stats > div:nth-child(1) #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
+#page10 #country_stats > div:nth-child(1) #line2 {
+  font-size: 17px;
+}
+#page10 #country_stats > div:nth-child(2) {
+  text-align: center;
+}
+
+#page10 #country_stats > div:nth-child(2) > div {
+  background: #ddd7ce;
+  text-align: center;
+  width: 188px;
+  height: 188px;
+  padding: 45px 17px 30px;
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page10 #country_stats > div:nth-child(2) > div #line1,
+#page10 #country_stats > div:nth-child(2) > div #line2 {
+  font-family: rawengulk_regular;
+  font-size: 18px;
+  line-height: 20px;
+  color: #cc3737;
+}
+#page10 #country_stats > div:nth-child(2) > div #line3{
+  margin-top: 5px;
+}
 
 
 
 
+#page10 #district_amount_text{
+  margin: 50px 0 5px;
+  font-size: 17px;
+}
+#page10 #district_amount > div {
+  text-align: center;
+}
+
+#page10 #district_amount > div > div {
+  background: #ddd7ce;
+  text-align: center;
+  width: 115px;
+  height: 115px;
+  padding: 24px 17px;
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page10 #district_amount > div > div #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
+
+#page10 #district_amount > div > div #line2 {
+  font-size: 17px;
+  color: #cc3737;
+}
 
 
 
+#page10 #district_percent_text{
+  margin: 50px 0 5px;
+  font-size: 17px;
+}
+#page10 #district_percent > div {
+  text-align: center;
+  height: 153px;
+  padding: 40px 40px;
+}
+
+#page10 #district_percent > div #line1 {
+  font-family: rawengulk_regular;
+  font-size: 48px;
+  line-height: 48px;
+  color: #cc3737;
+}
+
+#page10 #district_percent > div #line2 {
+  font-size: 17px;
+  color: #cc3737;
+}
+
+#page10 #district_percent > div:nth-child(1) {
+  background: #F7F7F0 url(img/chart2.png) center center no-repeat;
+}
+
+#page10 #district_percent > div:nth-child(2) {
+  background: #F7F7F0 url(img/chart3.png) center center no-repeat;
+}
+
+#page10 #district_percent > div:nth-child(3) {
+  background: #F7F7F0 url(img/chart4.png) center center no-repeat;
+}
+
+/*****************************************/
+
+
+#page11 {
+  right: 0px;
+  padding-top: 77px;
+  text-align: center;
+  margin-bottom: 250px;
+}
+
+#page11 header h3 {
+  text-align: center;
+  font-family: breeserif_reg;
+  color: #aa1313;
+  font-size: 17px;
+  margin: 0px;
+}
+
+#page11 #map_text {
+  margin: 30px 0 10px;
+}
+
+#page11 #map {
+  position: relative;
+}
+
+#page11 #map #legend{
+  position: absolute;
+  top: 150px;
+  left: 430px;
+  list-style-type: none;
+  text-align: left;
+}
+
+#page11 #map #legend li > div{
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+#page11 #map #legend li:nth-child(1) > div{
+  background-color: #BBD5BA;
+}
+#page11 #map #legend li:nth-child(2) > div{
+  background-color: #E7AAA0;
+}
+#page11 #map #legend li:nth-child(3) > div{
+  background-color: #D47067;
+}
+#page11 #map #legend li:nth-child(4) > div{
+  background-color: #B56666;
+}
+#page11 #map #legend li:nth-child(5) > div{
+  background-color: #DDDDDA;
+}
 
 
 
+/*****************************************/
 
 
+#page12 {
+  right: 0px;
+  padding-top: 77px;
+  text-align: center;
+  margin-bottom: 250px;
+}
 
+#page12 header h3 {
+  text-align: center;
+  font-family: breeserif_reg;
+  color: #aa1313;
+  font-size: 17px;
+  margin: 0px;
+}
 
+#page12 #intro {
+  margin: 30px 0 10px;
+}
 
+#page12 #map_text {
+  margin: 10px 0;
+}
 
+#page12 #map {
+  position: relative;
+}
 
+#page12 #map #legend{
+  position: absolute;
+  top: 105px;
+  left: 678px;
+  list-style-type: none;
+  text-align: left;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#page12 #map #legend li > div{
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+#page12 #map #legend li:nth-child(1) > div{
+  background-color: #BBD5BA;
+}
+#page12 #map #legend li:nth-child(2) > div{
+  background-color: #E7AAA0;
+}
+#page12 #map #legend li:nth-child(3) > div{
+  background-color: #D47067;
+}
+#page12 #map #legend li:nth-child(4) > div{
+  background-color: #B56666;
+}
+#page12 #map #legend li:nth-child(5) > div{
+  background-color: #EDB87C;
+}
 
 
 
