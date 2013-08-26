@@ -39,6 +39,28 @@ body {
   z-index: 2000;
 }
 
+#sidebar #title {
+  color: #fff;
+  font-size: 30px;
+  font-family: rawengulk_regular;
+  text-transform: uppercase;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);  
+}
+
+
+#sidebar #logo {
+  position: absolute;
+  bottom: 10px;
+}
+
+#sidebar #logo img{
+  width: 145px;
+  margin-left: -14px;
+}
 /**********************************/
 #page1 {
   width: 100%;
