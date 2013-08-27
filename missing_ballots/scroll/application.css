@@ -1194,6 +1194,7 @@ body {
 #page8 {
   right: 0px;
   padding-top: 77px;
+  margin-bottom: 250px;
 }
 #page8 > .top{
   right: 0px;
@@ -1268,8 +1269,6 @@ body {
   font-size: 15px;
 }
 
-
-
 #page8 .spreadsheet {
   width: 841px;
   margin: 100px auto 100px;
@@ -1306,8 +1305,6 @@ body {
   width: 241px;
   height: 137px;
 }
-
-
 
 #page8 .spreadsheet .bottom > .left {
   margin-top: -17px;
@@ -1429,7 +1426,34 @@ body {
   height: 227px;
 }
 
+#page8 #spreadsheet3 .top > .left{
+  font-size: 28px;
+  color: #4d3534;
+  padding-top: 58px;
+}
 
+#page8 .spreadsheet .spreadsheet-bottom-text{
+  background-color: #eae7e7;
+  padding: 10px;
+}
+#page8 .spreadsheet .spreadsheet-bottom-text ul {
+  list-style: none;
+}
+#page8 .spreadsheet .spreadsheet-bottom-text ul li:before {
+  color: #8ea565;
+  content:"\2022"; 
+  font-size:2em; 
+  padding-right:.1em; 
+  position:relative;
+  top:.15em; 
+  margin-left: -.65em
+}
+#page8 .spreadsheet .spreadsheet-bottom-text .footer{
+  color: #8ea565;
+  font-size: 17px;
+  margin-top: 15px;
+  margin-left: 25px;
+}
 
 
 

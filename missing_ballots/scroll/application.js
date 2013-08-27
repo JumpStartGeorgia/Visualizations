@@ -254,6 +254,58 @@ $(function ()
     });
   });
 
+
+  var pinh = 2500;
+  controller.pin($('#page8 #spreadsheet1'), pinh, {
+    offset: -($('#question_marks').parent().height() + $('#ballots .all').height()),
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet1 li:nth-child(1)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet1 li:nth-child(2)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet1 li:nth-child(3)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet1 li:nth-child(4)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet1 li:nth-child(5)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet1 li:nth-child(6)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet1 li:nth-child(7)'), .5, {css: {top: 800}}, {css: {top: 0}})),
+    onPin: function ()
+    {
+      $('#page8-spreadsheet1-spacer').hide();
+    },
+    onUnpin: function ()
+    {
+      if ($('#page8 #spreadsheet1').offset().top > $(window).scrollTop())
+      {
+        $('#page8-spreadsheet1-spacer').show();
+      }
+    }
+  });
+  $('#page8 #spreadsheet1').after('<div id="page8-spreadsheet1-spacer"></div>').next().height(50);
+
+
+  var pinh = 2500;
+  controller.pin($('#page8 #spreadsheet2'), pinh, {
+    offset: -($('#question_marks').parent().height() + $('#ballots .all').height()),
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet2 li:nth-child(1)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet2 li:nth-child(2)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet2 li:nth-child(3)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet2 li:nth-child(4)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet2 li:nth-child(5)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet2 li:nth-child(6)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8 .after #spreadsheet2 li:nth-child(7)'), .5, {css: {top: 800}}, {css: {top: 0}})),
+    onPin: function ()
+    {
+      $('#page8-spreadsheet2-spacer').hide();
+    },
+    onUnpin: function ()
+    {
+      if ($('#page8 #spreadsheet2').offset().top > $(window).scrollTop())
+      {
+        $('#page8-spreadsheet2-spacer').show();
+      }
+    }
+  });
+  $('#page8 #spreadsheet2').after('<div id="page8-spreadsheet2-spacer"></div>').next().height(50);
+
 /*
 
   var pinh = 2000;
