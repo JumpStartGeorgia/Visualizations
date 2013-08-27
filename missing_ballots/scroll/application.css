@@ -1195,6 +1195,11 @@ body {
   right: 0px;
   padding-top: 77px;
   margin-bottom: 250px;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  
 }
 #page8 > .top{
   right: 0px;
@@ -1462,6 +1467,12 @@ body {
 
 
 #page9 {
+  right: 0px;
+  margin-bottom: 250px;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page9 header h2 {
@@ -1487,6 +1498,10 @@ body {
   padding-top: 77px;
   text-align: center;
   margin-bottom: 250px;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page10 header h3 {
@@ -1670,6 +1685,10 @@ body {
   padding-top: 77px;
   text-align: center;
   margin-bottom: 250px;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page11 header h3 {
@@ -1857,6 +1876,10 @@ body {
   padding-top: 77px;
   text-align: center;
   margin-bottom: 500px;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page12 header h3 {
@@ -1998,7 +2021,11 @@ body {
   text-align: center;
   text-transform: uppercase;
   padding-top: 150px;
-  margin-bottom: 1000px;
+  margin-bottom: 250px;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page13 header h2 {
@@ -2035,13 +2062,151 @@ body {
   right: 0px;
   text-align: center;
   padding-top: 150px;
-  margin-bottom: 500px;
+  margin-bottom: 250px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
+#page14 header h2 {
+  color: #47a836;
+  font-size: 38px;
+  font-family: rawengulk_regular;
+  margin-bottom: 25px;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+
+#line_fix_spacer + div {
+  background: #f7f7f0;
+}
+
+#line_fix {
+}
+
+#line_fix > div {
+  float: left;
+  width: 11.111111%;
+  text-align: center;
+}
+
+#line_fix > div:nth-child(1) {
+  
+}
+
+#line_fix > div:nth-child(2) {
+  margin-left: 33.33333%;
+}
+
+#line_fix > div:nth-child(3) {
+  margin-left: 0%;
+}
+
+#line_fix > div:nth-child(4) {
+  margin-left: 11.1111111%;
+}
+
+#line_fix > div > img {
+  cursor: pointer;
+}
 
 
 /***************************************/
 
+
+
+#page15 {
+  right: 0px;
+  min-height: 100%;
+  padding-top: 107px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+
+#page15 #page15-subtitle header h3 {
+  margin: 47px 0px 0px 4px;
+  padding: 0px;
+  float: left;
+  font-family: breeserif_reg;
+  color: #47a836;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+
+#page15 #page15-subtitle img {
+  margin-left: 5.5555%;
+  display: block;
+  float: left;
+}
+
+
+/*******************************************/
+
+#page16 {
+  right: 0px;
+  min-height: 100%;
+  padding-top: 107px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page16 .line_fix23_img {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#page16 .line_fix23_img img {
+  margin-left: 66px;
+}
+
+#page16 header h3 {
+  text-align: center;
+  font-family: breeserif_reg;
+  color: #47a836;
+  font-size: 17px;
+  margin-bottom: 60px;
+}
+
+
+/********************************************/
+
+
+#page17 {
+  right: 0px;
+  padding-top: 107px;
+  margin-bottom: 250px;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+#page17 .top header h3 {
+  float: right;
+  margin-right: 16.665%;
+}
+
+#page17 .top header h3 span {
+  position: relative;
+  top: 20px;
+  right: 5px;
+  font-family: breeserif_reg;
+  color: #47a836;
+  font-size: 17px;
+}
+
+#page17 .top header h3 img {
+  vertical-align: bottom;
+}
+
+#page17 .after {
+  position: relative;
+}
+
+
+/**************************************/
 
 #page18{
   right: 0px;
@@ -2050,7 +2215,10 @@ body {
   background: #52b2a2;
   color: #fff;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page18 header h2 {

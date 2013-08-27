@@ -374,6 +374,19 @@ $(function ()
 
 
 
+/////////////////////////////////////
+
+
+
+  controller.addTween(
+    $('#page14'),
+    (new TimelineMax()).append([
+      TweenMax.to($('#line_fix').parent(), .001, {css: {position: 'fixed', width: 'auto', left: $('#sidebar').width(), right: 0, zIndex: 9999, top: $('#ballots .all').outerHeight() + $('#question_marks').parent().height()}}),
+      TweenMax.to($('#line_fix_spacer'), .001, {css: {height: $('#line_fix').parent().outerHeight(true)}}),
+      TweenMax.to($('#question_marks img'), .001, {css: {opacity: .6}})
+    ])
+  );
+  
 
 
 
@@ -382,7 +395,77 @@ $(function ()
 ///////////////////////////////////////
 
 
+  var pinh = 3300;
+  controller.pin($('#page15'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page15-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page15-spacer').hide();
+      $('#ballots .all li:first').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page15').offset().top > $(window).scrollTop())
+      {
+        $('#page15-spacer').show();
+      }
+      $('#ballots .all li:first').css({opacity: .6});
+    }
+  });
+  $('#page15').after('<div id="page15-spacer"></div>').next().height(pinh);
 
+
+
+//////////////////////////////////////
+
+
+  var pinh = 2000;
+  controller.pin($('#page16'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page16 header h3').add('#page16 .line_fix23_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page16-spacer').hide();
+      $('#ballots .all li:eq(4)').css({opacity: 1});
+      $('#ballots .all li:eq(5)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page16').offset().top > $(window).scrollTop())
+      {
+        $('#page16-spacer').show();
+      }
+      $('#ballots .all li:eq(4)').css({opacity: .6});
+      $('#ballots .all li:eq(5)').css({opacity: .6});
+    }
+  });
+  $('#page16').after('<div id="page16-spacer"></div>').next().height(pinh);
+
+
+
+////////////////////////////////////////
+
+
+  var pinh = 2000;
+  controller.pin($('#page17'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page17  > .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page17-spacer').hide();
+      $('#ballots .all li:eq(7)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page17').offset().top > $(window).scrollTop())
+      {
+        $('#page17-spacer').show();
+      }
+      $('#ballots .all li:eq(7)').css({opacity: .6});
+    }
+  });
+  $('#page17').after('<div id="page17-spacer"></div>').next().height(pinh);
 
 
 
@@ -395,6 +478,7 @@ $(function ()
     anim: (new TimelineMax())
           .append(TweenMax.to($('#ballots .all'), .001, {css: {display: 'none', top: -100}}))
           .append(TweenMax.to($('#question_marks').parent(), .001, {css: {display: 'none', top: -100}}))
+          .append(TweenMax.to($('#line_fix').parent(), .001, {css: {display: 'none', top: -100}}))
           .append(TweenMax.fromTo($('#page18 #line2'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 700}}, {css:{top: 0}}))
