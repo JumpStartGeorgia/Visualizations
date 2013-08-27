@@ -1195,13 +1195,17 @@ body {
   right: 0px;
   padding-top: 77px;
 }
-
-#page8 header h4 {
+#page8 > .top{
+  right: 0px;
+  z-index: 99999;
+  background: #f7f7f0;
+} 
+#page8 .top header h4 {
   float: right;
   margin-right: 16.665%;
 }
 
-#page8 header h4 span {
+#page8 .top header h4 span {
   position: relative;
   top: 11px;
   font-family: breeserif_reg;
@@ -1209,7 +1213,7 @@ body {
   font-size: 17px;
 }
 
-#page8 header h4 img {
+#page8 .top header h4 img {
   vertical-align: bottom;
 }
 

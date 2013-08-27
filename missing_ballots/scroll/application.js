@@ -230,8 +230,31 @@ $(function ()
 
 
 
+  controller.addTween($('#page8'), TweenMax.fromTo($('#page8 > .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}), 300);
 
+  controller.pin($('#page8 > .top'), $('#page8').height(), {
+    pushFollowers: false,
+    offset: -($('#question_marks').parent().height() + $('#ballots .all').height()),
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page8 .after'), .5, {css: {top: 800}}, {css: {top: 0}})),
+    onPin: function ()
+    {
+      $('#ballots .all li:eq(7)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      $('#ballots .all li:eq(7)').css({opacity: .6});
+    }
+  });
+  $(window).load(function ()
+  {
+    controller.updatePin($('#page8 > .top'), $('#page8').height(), {
+      pushFollowers: false,
+      offset: -($('#question_marks').parent().height() + $('#ballots .all').height())
+    });
+  });
 
+/*
 
   var pinh = 2000;
   controller.pin($('#page8'), pinh, {
@@ -253,7 +276,7 @@ $(function ()
     }
   });
   $('#page8').after('<div id="page8-spacer"></div>').next().height(pinh);
-
+*/
 
 
 /*
@@ -281,8 +304,8 @@ $(function ()
   var pinh = 2500;
   controller.pin($('#page13'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page13 #line2'), .5, {css:{top: 500}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page13 #line3'), .5, {css:{top: 500}}, {css:{top: 0}})),
+          .append(TweenMax.to($('#page13 #line2'), .5, {css:{top: 0}}))
+          .append(TweenMax.to($('#page13 #line3'), .5, {css:{top: 0}})),
     onPin: function ()
     {
       $('#page13-spacer').hide();
