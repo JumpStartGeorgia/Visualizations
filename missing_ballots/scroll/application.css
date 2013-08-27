@@ -39,9 +39,22 @@ body {
   z-index: 2000;
 }
 
+#sidebar #lang_switcher {
+  text-align: center;
+  margin-top: 5px;
+}
+#sidebar #lang_switcher a{
+  color: #fff;
+  font-size: 13px;
+  text-decoration: underline;
+}
+#sidebar #lang_switcher a:hover{
+  text-decoration: none;
+}
+
 #sidebar #title {
   color: #fff;
-  font-size: 30px;
+  font-size: 27px;
   font-family: rawengulk_regular;
   text-transform: uppercase;
   -webkit-transform: rotate(-90deg);
@@ -49,6 +62,11 @@ body {
   -ms-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);  
+	white-space:nowrap;
+  width: 380px;
+  height: 380px;
+  margin-top: 10px;
+  margin-left: 32px;
 }
 
 
