@@ -1431,12 +1431,6 @@ body {
   height: 227px;
 }
 
-#page8 #spreadsheet3 .top > .left{
-  font-size: 28px;
-  color: #4d3534;
-  padding-top: 58px;
-}
-
 #page8 .spreadsheet .spreadsheet-bottom-text{
   background-color: #eae7e7;
   padding: 10px;
@@ -1458,6 +1452,12 @@ body {
   font-size: 17px;
   margin-top: 15px;
   margin-left: 25px;
+}
+
+#page8 #spreadsheet3 .top > .left{
+  font-size: 28px;
+  color: #4d3534;
+  padding-top: 58px;
 }
 
 
