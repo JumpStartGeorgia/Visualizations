@@ -396,9 +396,20 @@ $(function ()
 
 
   var pinh = 3300;
+  var big_circle_radius = $('#page15 .middle #circles .left .circle').css('width').replace('px', '')/2;
+  var little_circle_radius = $('#page15 .middle #circles .right .circle').css('width').replace('px', '')/2;
+  var box_width = $('#page15 .middle #circles .right').css('width').replace('px', '');
+  var move_left = (box_width/2 - big_circle_radius) + (2*little_circle_radius) + (box_width/2 - little_circle_radius);
   controller.pin($('#page15'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page15-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+          .append(TweenMax.fromTo($('#page15 .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page15 .middle #text'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page15 .middle #circles'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.to($('#page15 .middle #circles .right'), .5, {css: {left: -(move_left)}}))
+          .append(TweenMax.fromTo($('#page15 .or'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page15 .bottom #text'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page15 .bottom #circles'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.to($('#page15 .bottom #circles .right .circle'), .5, {css: {backgroundColor: "#e15e32"}})),
     onPin: function ()
     {
       $('#page15-spacer').hide();

@@ -2124,8 +2124,11 @@ body {
         	box-sizing: border-box;
 }
 
+#page15 .top{
+  margin-bottom: 20px;
+}
 
-#page15 #page15-subtitle header h3 {
+#page15 .top header h3 {
   margin: 47px 0px 0px 4px;
   padding: 0px;
   float: left;
@@ -2135,12 +2138,164 @@ body {
   font-size: 17px;
 }
 
-#page15 #page15-subtitle img {
+#page15 .top img {
   margin-left: 5.5555%;
   display: block;
   float: left;
 }
 
+
+
+#page15 .middle{
+}
+
+#page15 .middle #text{
+  position: relative;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+
+#page15 .middle > #circles {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+#page15 .middle > #circles > div {
+  display: inline-block;
+  position: relative;
+  width: 298px;
+  text-align: center;
+}
+
+#page15 .middle .left .circle{
+  text-transform: uppercase;
+  text-align: center;
+  background: #e15e32;
+  color: #fff;
+  width: 208px;
+  height: 208px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  padding: 54px 10px;
+  margin: 0 auto;
+  font-size: 36px;
+  line-height: 38px;
+  font-family: rawengulk_regular;
+}
+#page15 .middle .left .circle > div{
+}
+#page15 .middle .right {
+  height: 151px;
+  vertical-align: top;
+  padding-top: 57px;
+}
+#page15 .middle .right .circle{
+  text-transform: uppercase;
+  text-align: center;
+  background: #52b2a2;
+  color: #fff;
+  width: 104px;
+  height: 104px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  padding: 20px 10px;
+  margin: 0 auto;
+  font-size: 18px;
+  font-family: rawengulk_regular;
+}
+
+
+
+
+#page15 .or{
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 34px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+
+
+#page15 .bottom{
+}
+
+#page15 .bottom #text{
+  position: relative;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+
+#page15 .bottom > #circles {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+
+#page15 .bottom > #circles > div {
+  display: inline-block;
+  position: relative;
+  width: 298px;
+  text-align: center;
+}
+
+#page15 .bottom .left .circle{
+  text-transform: uppercase;
+  text-align: center;
+  background: #e15e32;
+  color: #fff;
+  width: 208px;
+  height: 208px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  padding: 48px 10px;
+  margin: 0 auto;
+  font-size: 36px;
+  line-height: 38px;
+  font-family: rawengulk_regular;
+}
+#page15 .bottom .left .circle span{
+  font-size: 24px;
+  line-height: 24px;
+}
+#page15 .bottom .right {
+  height: 151px;
+  vertical-align: top;
+  padding-top: 57px;
+}
+#page15 .bottom .right .circle{
+  text-transform: uppercase;
+  text-align: center;
+  background: #52b2a2;
+  color: #fff;
+  width: 104px;
+  height: 104px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  padding: 20px 10px;
+  margin: 0 auto;
+  font-size: 18px;
+  font-family: rawengulk_regular;
+}
 
 /*******************************************/
 
