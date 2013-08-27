@@ -2167,8 +2167,49 @@ body {
   font-family: breeserif_reg;
   color: #47a836;
   font-size: 17px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
+
+
+#page16 .middle {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+}
+
+
+#page16 .bottom {
+  text-align: center;
+}
+
+#page16 .bottom > div {
+  display: inline-block;
+  position: relative;
+}
+
+#page16 .bottom span, #page16 .bottom img {
+  display: inline-block;
+}
+
+#page16 .bottom span {
+  margin-right: 10px;
+  position: relative;
+  text-align: left;
+  top: 20px;
+}
+
+#page16 .bottom .left {
+  margin-right: 20px;
+}
+#page16 .bottom .left span {
+  color: #4d3534;
+}
+#page16 .bottom .right span {
+  color: #e15e32;
+}
+
+
 
 
 /********************************************/
@@ -2186,6 +2227,7 @@ body {
 #page17 .top header h3 {
   float: right;
   margin-right: 16.665%;
+  margin-bottom: 50px;
 }
 
 #page17 .top header h3 span {
@@ -2201,8 +2243,58 @@ body {
   vertical-align: bottom;
 }
 
-#page17 .after {
+#page17 .after{
+  width: 700px;
+  margin: 0 auto;
+}
+#page17 .after div#text:before, #page17 .after div.bottom:before {
+  color: #47a836;
+  content:"\2022"; 
+  font-size:2em; 
+  padding-right:.1em; 
+  position:relative;
+  top:.15em; 
+  margin-left: -.65em
+}
+
+#page17 .middle {
+  margin-bottom: 75px;
+  font-size: 16px;
+}
+#page17 .middle #text{
   position: relative;
+}
+#page17 .middle #eq_header {
+  position: relative;
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+#page17 .middle #eq_circle {
+  position: relative;
+  text-align: center;
+  background: #47a836;
+  color: #fff;
+  width: 208px;
+  height: 208px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  padding: 57px 10px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+#page17 .bottom {
+  position: relative;
+  font-size: 16px;
+}
+
+#page17 .bottom span {
+  color: #47a836;
 }
 
 
