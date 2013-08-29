@@ -1,10 +1,79 @@
+// adjust location of legend in maps
+function adjust_legend_placement(){
+  var scrn_width = $(window).width();  
+
+  // adjust country legend
+  // - reset to default values first
+  $('#page10 #map').css('margin-bottom', '0px');
+  $('#page10 #legend').css('top', '150px');
+  $('#page10 #legend ul li').css('display', 'block').css('margin-right', '0px');
+  $('#page11 #map').css('margin-bottom', '0px');
+  $('#page11 #legend').css('top', '150px');
+  $('#page11 #legend ul li').css('display', 'block').css('margin-right', '0px');
+
+  if (scrn_width > 1900){
+    $('#page10 #legend ul').css('margin-left', '125px');
+    $('#page11 #legend ul').css('margin-left', '125px');
+  }else if (scrn_width > 1800){
+    $('#page10 #legend ul').css('margin-left', '100px');
+    $('#page11 #legend ul').css('margin-left', '100px');
+  }else if (scrn_width > 1700){
+    $('#page10 #legend ul').css('margin-left', '75px');
+    $('#page11 #legend ul').css('margin-left', '75px');
+  }else if (scrn_width > 1600){
+    $('#page10 #legend ul').css('margin-left', '50px');
+    $('#page11 #legend ul').css('margin-left', '50px');
+  }else if (scrn_width > 1500){
+    $('#page10 #legend ul').css('margin-left', '25px');
+    $('#page11 #legend ul').css('margin-left', '25px');
+  }else if (scrn_width > 1350){
+    $('#page10 #legend ul').css('margin-left', '0');
+    $('#page11 #legend ul').css('margin-left', '0');
+  }else{
+    $('#page10 #map').css('margin-bottom', '75px');
+    $('#page10 #legend').css('top', '360px');
+    $('#page10 #legend ul li').css('display', 'inline-block').css('margin-right', '10px');
+
+    $('#page11 #map').css('margin-bottom', '75px');
+    $('#page11 #legend').css('top', '360px');
+    $('#page11 #legend ul li').css('display', 'inline-block').css('margin-right', '10px');
+  
+  }
+
+  // adjust gori legend
+  if (scrn_width > 1700){
+    $('#page12 #legend ul').css('margin-left', '45px');
+  } else if (scrn_width > 1350) {
+    $('#page12 #legend ul').css('margin-left', '25px');
+  } else if (scrn_width > 1175) {
+    $('#page12 #legend ul').css('font-size', '13px').css('margin-left', '15px');
+  } else if (scrn_width > 975) {
+    $('#page12 #legend ul').css('font-size', '11px').css('margin-left', '5px');
+  } else  {
+    $('#page12 #legend ul').css('font-size', '9px').css('margin-left', '0');
+  }  
+}
+
+
+
+
 $(function ()
 {
+  adjust_legend_placement();
 
   var controller = $.superscrollorama({
     triggerAtCenter: false,
     playoutAnimations: true
   });
+
+  // fix placements when window resizes
+  window.onresize = function()
+  {
+//    adjust_legend_placement();
+    window.location.reload();
+  }
+
+
 
 /////////////////////////////////
   var pinh = 2500;
@@ -313,7 +382,7 @@ $(function ()
     ])
   );
   
-
+  
 
 /////////////////////////////////
 
