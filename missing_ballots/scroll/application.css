@@ -29,6 +29,8 @@ body {
         	box-sizing: border-box;
 }
 
+/************************************************/
+
 #sidebar {
   background: #000;
   width: 90px;
@@ -69,6 +71,33 @@ body {
   margin-left: 32px;
 }
 
+#sidebar #menu{
+  list-style: none;
+  margin-left: 0px;
+  position: absolute;
+  top: 55px;
+  right: 0;
+}
+#sidebar #menu li{
+  padding: 8px 16px;
+  font-size: 6px;
+  cursor: pointer;
+}
+#sidebar #menu li div{
+  position: relative;
+  background: #424242;
+  width: 6px;
+  height: 6px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+#sidebar #menu li:hover div{
+  background: #fff;
+}
 
 #sidebar #logo {
   position: absolute;
@@ -79,6 +108,8 @@ body {
   width: 145px;
   margin-left: -14px;
 }
+
+
 /**********************************/
 #page1 {
   width: 100%;
@@ -353,6 +384,7 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
+  margin-bottom: 50px;
 }
 
 #page5 header h3 {
@@ -399,19 +431,20 @@ body {
   cursor: pointer;
 }
 
-#page5 .dashed {
-  float: left;
-  margin-left: 5.55555%;
-  width: 80px;
-  height: 75px;
-  border: dashed #aa1313;
-  border-width: 0px 0px 2px 2px;
-  -webkit-border-bottom-left-radius: 11px;
-  -moz-border-radius-bottomleft: 11px;
-  border-bottom-left-radius: 11px;
+
+/***********************************/
+
+#page5a{
+  padding-top: 77px;
+  min-height: 100%;
+  right: 0px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  margin-bottom: 50px;
 }
 
-#page5 .problem1 {
+#page5a .problem1 {
   margin: 57px 0px 0px 7px;
   padding: 0px;
   float: left;
@@ -420,67 +453,69 @@ body {
   text-transform: capitalize;
 }
 
-#page5 .problem1_img {
+#page5a .problem1_img {
   margin-left: 5.5555%;
   display: block;
   float: left;
 }
 
-/***********************************/
-#stations {
+
+
+
+#page5a #stations {
   font-family: breeserif_reg;
   font-size: 15px;
   text-align: center;
   margin-top: 30px;
 }
 
-#stations > span, #stations > div {
+#page5a #stations > span, #page5a #stations > div {
   display: inline-block;
 }
 
-#stations > span {
+#page5a #stations > span {
   display: inline-block;
   margin: 0px 0px 0px 25px;
   width: 200px;
 }
 
-#stations > div {
+#page5a #stations > div {
   width: 345px;
   text-align: center;
   white-space: nowrap;
 }
 
-#stations > div div {
+#page5a #stations > div div {
   display: inline-block;
   width: 33.3333%;
   text-align: center;
 }
 
-#stations > span:first-child {
+#page5a #stations > span:first-child {
   margin: 0px 25px 0px 0px;
   text-align: right;
 }
 
-#stations > span:last-child {
+#page5a #stations > span:last-child {
   text-align: left;
 }
 
-#stations > div div span {
+#page5a #stations > div div span {
   display: block;
   text-align: center;
   text-transform: capitalize;
   color: #ddc90e;
 }
 
-#stations > div div:first-of-type span {
+#page5a #stations > div div:first-of-type span {
   color: #e15e32;
 }
 
-#stations > div div:last-of-type span {
+#page5a #stations > div div:last-of-type span {
   color: #aa1313;
 }
 
-#stations > div div img {
+#page5a #stations > div div img {
   display: table;
   margin: 0px auto;
   margin-bottom: 13px;
@@ -489,45 +524,45 @@ body {
 
 
 
-#stations-connect {
+#page5a #stations-connect {
   position: relative;
   margin-top: 20px;
 }
 
-#stations-connect #line1 {
+#page5a #stations-connect #line1 {
   position: relative;
   font-size: 15px;
   text-align: center;
   margin: 10px 0;
 }
 
-#stations-connect .cont {
+#page5a #stations-connect .cont {
   display: table;
   margin: 0px auto;
 }
 
-#stations-connect .cont > div {
+#page5a #stations-connect .cont > div {
   float: left;
   min-height: 1px;
 }
 
-#stations-connect .img {
+#page5a #stations-connect .img {
   text-align: center;
   position: relative;
   width: 265px;
 }
 
-#stations-connect .img img {
+#page5a #stations-connect .img img {
   width: 100%;
 }
 
-#stations-connect .img img:last-of-type {
+#page5a #stations-connect .img img:last-of-type {
   position: absolute;
   top: 0px;
   left: 0px;
 }
 
-#stations-connect .img div {
+#page5a #stations-connect .img div {
   background: #77c1b4;
   text-transform: capitalize;
   text-align: center;
@@ -544,11 +579,11 @@ body {
         	box-sizing: border-box;
 }
 
-#stations-connect .left {
+#page5a #stations-connect .left {
   width: 400px;
 }
 
-#stations-connect .right {
+#page5a #stations-connect .right {
   position: relative;
   width: 400px;
   padding-top: 25px;
@@ -560,7 +595,7 @@ body {
 */
 }
 
-#stations-connect .right .top {
+#page5a #stations-connect .right .top {
   font-size: 13px;
   line-height: 1.2;
   border: 1px dashed #77c1b4;
@@ -571,60 +606,55 @@ body {
           border-radius: 13px;
 }
 
-#stations-connect .right .bottom {
+#page5a #stations-connect .right .bottom {
   margin-top: 15px;
 }
 
-#stations-connect .right .bottom img, #stations-connect .right .bottom span {
+#page5a #stations-connect .right .bottom img, #stations-connect .right .bottom span {
   display: block;
   float: left;
 }
 
-#stations-connect .right .bottom div {
+#page5a #stations-connect .right .bottom div {
   width: 25%;
 }
 
-#stations-connect .right .bottom span {
+#page5a #stations-connect .right .bottom span {
   width: 65%;
   margin-left: 10%;
   padding-top: 73px;
 }
 
 
-#page5 footer {
+#page5a .bottom {
   margin-top: 100px;
 }
 
-#page5 footer > * {
+#page5a .bottom > * {
   text-align: center;
 }
 
-#page5 footer #line1 {
+#page5a .bottom #line1 {
   font-size: 17.5px;
   margin: 10px 0;  
 }
 
-#page5 footer #line2 {
+#page5a .bottom #line2 {
   color: #aa1313;
   font-size: 17.5px;
   margin: 10px 0;  
 }
 
-#page5 footer #line2 span {
+#page5a .bottom #line2 span {
   font-size: 32px;
 }
 
-#page5 footer #line3 {
+#page5a .bottom #line3 {
   color: #aa1313;
   font-size: 31.5px;
   margin: 10px 0;  
   line-height: 40px;
 }
-
-#page5 {
-  margin-bottom: 50px;
-}
-
 
 
 

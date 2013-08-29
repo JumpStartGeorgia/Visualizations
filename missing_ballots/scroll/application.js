@@ -127,6 +127,26 @@ $(function ()
 
 
 
+////////////////////////////////
+  // create the menu
+
+  var menu_text = [];
+  var menu_position = [];
+  var menu_section = [];
+  $('header').each(function(){menu_position.push($(this).offset().top)});
+  $('header').each(function(){menu_text.push($(this).text().replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' '))});
+  $('header').each(function(){menu_section.push($(this).closest('section').attr('id'))});
+  
+  for(var i=0;i<menu_text.length;i++){
+    $('#sidebar #menu').append('<li title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '"><div>&nbsp;</div></li>');
+  }
+
+  $('#sidebar #menu li').click(function(){
+console.log('menu item click, section = ' + $(this).data('section'));
+    $('html, body').animate({scrollTop: compute_scroll_top($('section#' + $(this).data('section')).offset().top, $('section#' + $(this).data('section') + ' header').offset().top) });
+  });
+
+
 
 /////////////////////////////////
   var pinh = 2500;
@@ -185,7 +205,7 @@ $(function ()
 
 
 
-
+/*
   var pinh = 3300;
   controller.pin($('#page5'), pinh, {
     anim: (new TimelineMax())
@@ -194,7 +214,7 @@ $(function ()
           .append(TweenMax.fromTo($('#page5-subtitle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#stations').parent(), .5, {css: {position: 'relative', top: 900}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#stations-connect'), .5, {css:{top: 700}}, {css:{top: -42}}))
-          .append(TweenMax.to($('#stations-connect #line1'), .5, {css:{top: -100, opacity: 0}/*, delay: 1*/}))
+          .append(TweenMax.to($('#stations-connect #line1'), .5, {css:{top: -100, opacity: 0}}))
           .append(TweenMax.fromTo($('#stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page5 footer'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
@@ -213,7 +233,7 @@ $(function ()
   });
   $('#page5').after('<div id="page5-spacer"></div>').next().height(pinh);
 
-
+*/
 
   controller.addTween(
     $('#page5'),
@@ -229,6 +249,35 @@ $(function ()
     TweenMax.to($('#ballots .all li:first'), .5, {css: {opacity: 1}})
   );
 */
+
+
+
+  var pinh = 3300;
+  controller.pin($('#page5a'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page5a .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page5a #stations').parent(), .5, {css: {position: 'relative', top: 900}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page5a #stations-connect'), .5, {css:{top: 700}}, {css:{top: -42}}))
+          .append(TweenMax.to($('#page5a #stations-connect #line1'), .5, {css:{top: -100, opacity: 0}/*, delay: 1*/}))
+          .append(TweenMax.fromTo($('#page5a #stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page5a .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page5a-spacer').hide();
+      $('#ballots .all li:first').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page5a').offset().top > $(window).scrollTop())
+      {
+        $('#page5a-spacer').show();
+      }
+      $('#ballots .all li:first').css({opacity: .6});
+    }
+  });
+  $('#page5a').after('<div id="page5a-spacer"></div>').next().height(pinh);
+
+
 
 
 /////////////////////////////////
@@ -560,10 +609,10 @@ $(function ()
           .append(TweenMax.to($('#ballots .all'), .001, {css: {display: 'none', top: -100}}))
           .append(TweenMax.to($('#question_marks').parent(), .001, {css: {display: 'none', top: -100}}))
           .append(TweenMax.to($('#line_fix').parent(), .001, {css: {display: 'none', top: -100}}))
-          .append(TweenMax.fromTo($('#page18 #line2'), .5, {css:{top: 700}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 700}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 700}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{top: 700}}, {css:{top: 0}})),
+          .append(TweenMax.fromTo($('#page18 #line2'), .5, {css:{top: 1000}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 1000}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 1000}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{top: 1000}}, {css:{top: 0}})),
     onPin: function ()
     {
       $('#page18-spacer').hide();
