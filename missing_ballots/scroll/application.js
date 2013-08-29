@@ -54,8 +54,17 @@ function adjust_legend_placement(){
   }  
 }
 
+/////////////////////////////////////////
 
 
+function compute_scroll_top(parent, child){
+  var window_scroll_top = $(window).scrollTop();
+  if (window_scroll_top > child){
+    return parent;
+  } else{
+    return child;
+  }
+}
 
 $(function ()
 {
@@ -72,6 +81,50 @@ $(function ()
 //    adjust_legend_placement();
     window.location.reload();
   }
+
+
+  /////////////////////////////////////////////////
+  
+  
+
+  // if click on question mark, go to that place
+  $('#question_marks > div:nth-child(1) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page5').offset().top, $('#page5 #stations').offset().top) });
+  });
+  $('#question_marks > div:nth-child(2) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page6').offset().top, $('#page6 .middle').offset().top) });
+  });
+  $('#question_marks > div:nth-child(3) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page7').offset().top, $('#page7 .bottom').offset().top) });
+  });
+  $('#question_marks > div:nth-child(4) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page8').offset().top, $('#page8 .after').offset().top) });
+  });
+
+
+  // if click on fix, go to that place
+  $('#line_fix > div:nth-child(1) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page15').offset().top, $('#page15 .middle').offset().top) });
+  });
+  $('#line_fix > div:nth-child(2) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
+  });
+  $('#line_fix > div:nth-child(3) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
+  });
+  $('#line_fix > div:nth-child(4) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page17').offset().top, $('#page17 .after').offset().top) });
+  });
+
+
 
 
 
@@ -176,28 +229,6 @@ $(function ()
     TweenMax.to($('#ballots .all li:first'), .5, {css: {opacity: 1}})
   );
 */
-
-/////////////////////////////////
-
-  // if click on question mark, go to that place
-  $('#question_marks > div:nth-child(1) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page5  #stations').offset().top });
-  });
-  $('#question_marks > div:nth-child(2) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page6 .middle').offset().top });
-  });
-  $('#question_marks > div:nth-child(3) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page7 .bottom').offset().top });
-  });
-  $('#question_marks > div:nth-child(4) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page8 .after').offset().top });
-  });
-
-
 
 
 /////////////////////////////////
@@ -421,29 +452,6 @@ $(function ()
     ])
   );
   
-
-
-/////////////////////////////////
-
-  // if click on question mark, go to that place
-  $('#line_fix > div:nth-child(1) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page15  .middle').offset().top });
-  });
-  $('#line_fix > div:nth-child(2) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page16 .middle').offset().top });
-  });
-  $('#line_fix > div:nth-child(3) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page16 .middle').offset().top });
-  });
-  $('#line_fix > div:nth-child(4) > img').click(function ()
-  {
-    $('html, body').animate({scrollTop: $('#page17 .after').offset().top });
-  });
-
-
 
 
 
