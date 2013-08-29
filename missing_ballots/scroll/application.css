@@ -157,7 +157,7 @@ body {
   background: #52b2a2;
   text-align: center;
   position: relative;
-  top: 500px;
+  top: 1000px;
 }
 
 #page2 .bottom #line1 {
@@ -845,7 +845,9 @@ body {
   width: 210px;
   margin: 100px auto 0px;
 }
-
+#protocol2 ul li:nth-child(3) span {
+  color: #4d3534;
+}
 #protocol2 ul li:nth-child(4) {
   width: 225px;
   margin: 20px auto 0px;
@@ -1274,16 +1276,17 @@ body {
   font-size: 15px;
 }
 
-#page8 .spreadsheet {
+.spreadsheet {
   width: 841px;
-  margin: 100px auto 100px;
+/*  margin: 200px auto 200px;*/
+  margin: 0 auto;
 }
 
-#page8 .spreadsheet .top > div, #page8 .spreadsheet .bottom > div {
+.spreadsheet .top > div, .spreadsheet .bottom > div {
   float: left;
 }
 
-#page8 .spreadsheet .top > .left {
+.spreadsheet .top > .left {
   width: 600px;
   text-align: center;
   background: #eae7e7;
@@ -1295,46 +1298,46 @@ body {
         	box-sizing: border-box;
 }
 
-#page8 .spreadsheet .top > .left span.big {
+.spreadsheet .top > .left span.big {
   font-size: 17px;
   text-transform: uppercase;
 }
 
-#page8 .spreadsheet .top > .left span.black {
+.spreadsheet .top > .left span.black {
   font-size: 17px;
   text-transform: uppercase;
   color: #4d3534;
 }
 
-#page8 .spreadsheet .top > .right {
+.spreadsheet .top > .right {
   width: 241px;
   height: 137px;
 }
 
-#page8 .spreadsheet .bottom > .left {
+.spreadsheet .bottom > .left {
   margin-top: -17px;
 }
 
-#page8 .spreadsheet .bottom > .right {
+.spreadsheet .bottom > .right {
   background: #e0e8c4;
   width: 241px;
   height: 495px;
 }
 
-#page8 .spreadsheet .bottom > .right ul {
+.spreadsheet .bottom > .right ul {
   list-style: none;
   position: relative;
   margin: 0px;
 }
 
-#page8 .spreadsheet .bottom > .right ul li {
+.spreadsheet .bottom > .right ul li {
   display: block;
   position: absolute;
   top: 0px;
   left: -19px;
 }
 
-#page8 .spreadsheet .bottom > .right li .right-border {
+.spreadsheet .bottom > .right li .right-border {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -1346,24 +1349,24 @@ body {
   bottom: 0px;
 }
 
-#page8 .spreadsheet .bottom > .right li .bottom {
+.spreadsheet .bottom > .right li .bottom {
   position: absolute;
   right: 0px;
   left: 0px;
   bottom: 0px;
 }
 
-#page8 .spreadsheet .bottom > .right li .bottom span {
+.spreadsheet .bottom > .right li .bottom span {
   background: #e0e8c4;
 }
 
-#page8 .spreadsheet .bottom > .right li .bottom span {
+.spreadsheet .bottom > .right li .bottom span {
   display: block;
   float: right;
   position: relative;
 }
 
-#page8 .spreadsheet .bottom > .right li .left-border {
+.spreadsheet .bottom > .right li .left-border {
   float: left;
   height: 0px;
   border-top: 1px dashed #3d3d3d;
@@ -1373,22 +1376,22 @@ body {
   top: 7px;
 }
 
-#page8 .spreadsheet .bottom > .right li:first-child {
+.spreadsheet .bottom > .right li:first-child {
   width: 125px;
   height: 76px;
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(2) {
+.spreadsheet .bottom > .right li:nth-child(2) {
   width: 154px;
   height: 97px;
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(3) {
+.spreadsheet .bottom > .right li:nth-child(3) {
   width: 179px;
   height: 114px;
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(3) .line {
+.spreadsheet .bottom > .right li:nth-child(3) .line {
   width: 272px;
   height: 13px;
   border-top: 1px solid #3d3d3d;
@@ -1400,22 +1403,22 @@ body {
   border-top-left-radius: 100px;
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(4) {
+.spreadsheet .bottom > .right li:nth-child(4) {
   width: 204px;
   height: 129px;
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(5) {
+.spreadsheet .bottom > .right li:nth-child(5) {
   width: 233px;
   height: 150px;
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(6) {
+.spreadsheet .bottom > .right li:nth-child(6) {
   width: 246px;
   height: 173px;
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(6) .question {
+.spreadsheet .bottom > .right li:nth-child(6) .question {
   display: block;
   position: absolute;
   z-index: 1;
@@ -1426,19 +1429,19 @@ body {
   
 }
 
-#page8 .spreadsheet .bottom > .right li:nth-child(7) {
+.spreadsheet .bottom > .right li:nth-child(7) {
   width: 257px;
   height: 227px;
 }
 
-#page8 .spreadsheet .spreadsheet-bottom-text{
+.spreadsheet .spreadsheet-bottom-text{
   background-color: #eae7e7;
   padding: 10px;
 }
-#page8 .spreadsheet .spreadsheet-bottom-text ul {
+.spreadsheet .spreadsheet-bottom-text ul {
   list-style: none;
 }
-#page8 .spreadsheet .spreadsheet-bottom-text ul li:before {
+.spreadsheet .spreadsheet-bottom-text ul li:before {
   color: #8ea565;
   content:"\2022"; 
   font-size:2em; 
@@ -1447,14 +1450,24 @@ body {
   top:.15em; 
   margin-left: -.65em
 }
-#page8 .spreadsheet .spreadsheet-bottom-text .footer{
+.spreadsheet .spreadsheet-bottom-text .footer{
   color: #8ea565;
   font-size: 17px;
   margin-top: 15px;
   margin-left: 25px;
 }
 
-#page8 #spreadsheet3 .top > .left{
+#page8a, #page8b, #page8c, #page8d{
+  right: 0px;
+  margin-bottom: 250px;
+  min-height: 100%;
+  padding-top: 177px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page8c .spreadsheet .top > .left{
   font-size: 28px;
   color: #4d3534;
   padding-top: 58px;
@@ -2041,7 +2054,7 @@ body {
   font-weight: bold;
   margin-bottom: 50px;
   position: relative;
-  top: 500px;
+  top: 1000px;
 }
 
 #page13 #line3 {
@@ -2050,7 +2063,7 @@ body {
   font-family: rawengulk_regular;
   line-height: 55px;
   position: relative;
-  top: 500px;
+  top: 1000px;
 }
 
 
@@ -2481,7 +2494,7 @@ body {
   line-height: 30px;
   margin-bottom: 90px;
   position: relative;
-  top: 500px;
+  top: 1000px;
 }
 
 #page18 #line3 {
@@ -2490,7 +2503,7 @@ body {
   line-height: 40px;
   text-transform: uppercase;
   position: relative;
-  top: 500px;
+  top: 1000px;
 }
 
 #page18 #line4 {
@@ -2499,7 +2512,7 @@ body {
   line-height: 56px;
   text-transform: uppercase;
   position: relative;
-  top: 500px;
+  top: 1000px;
   margin-bottom: 150px;
 }
 
@@ -2507,7 +2520,7 @@ body {
   color: #ddd7ce;
   font-size: 13px;
   position: relative;
-  top: 500px;
+  top: 1000px;
 }
 #page18 #sources > div{
   margin-right: 100px;
