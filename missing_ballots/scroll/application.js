@@ -90,7 +90,7 @@ $(function ()
   // if click on question mark, go to that place
   $('#question_marks > div:nth-child(1) > img').click(function ()
   {
-    $('html, body').animate({scrollTop: compute_scroll_top($('#page5').offset().top, $('#page5 #stations').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page5a').offset().top, $('#page5a #stations').offset().top) });
   });
   $('#question_marks > div:nth-child(2) > img').click(function ()
   {
