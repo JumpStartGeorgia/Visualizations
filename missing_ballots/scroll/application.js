@@ -423,6 +423,27 @@ $(function ()
   
 
 
+/////////////////////////////////
+
+  // if click on question mark, go to that place
+  $('#line_fix > div:nth-child(1) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page15  .middle').offset().top });
+  });
+  $('#line_fix > div:nth-child(2) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page16 .middle').offset().top });
+  });
+  $('#line_fix > div:nth-child(3) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page16 .middle').offset().top });
+  });
+  $('#line_fix > div:nth-child(4) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: $('#page17 .after').offset().top });
+  });
+
+
 
 
 
