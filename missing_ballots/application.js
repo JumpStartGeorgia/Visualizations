@@ -590,7 +590,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
           .append(TweenMax.fromTo($('#page17  > .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page17 .middle #text'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page17 .middle #eq_header'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page17 .middle #eq_circle'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page17 .middle #eq_circle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page17 .bottom'), .5, {css: {top: 800}}, {css: {top: 0}})),
     onPin: function ()
     {

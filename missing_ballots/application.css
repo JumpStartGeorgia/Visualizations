@@ -1583,7 +1583,9 @@ body {
 #page10 #map #legend {
   position: absolute;
   top: 150px;
-  margin-left: 38px;
+  left: 38px;
+  right: 0px;
+  width: auto;
 }
 #page10 #map #legend ul{
   list-style-type: none;
@@ -1768,7 +1770,9 @@ body {
 #page11 #map #legend {
   position: absolute;
   top: 150px;
-  margin-left: 38px;
+  left: 38px;
+  right: 0px;
+  width: auto;
 }
 #page11 #map #legend ul{
   list-style-type: none;
@@ -1973,7 +1977,9 @@ body {
 #page12 #map #legend {
   position: absolute;
   top: 135px;
-  margin-left: 38px;
+  left: 38px;
+  right: 0px;
+  width: auto;
 }
 #page12 #map #legend ul{
   list-style-type: none;
