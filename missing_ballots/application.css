@@ -2226,26 +2226,40 @@ body {
   text-align: center;
 }
 
-#page15 .middle .left .circle{
-  text-transform: uppercase;
-  text-align: center;
-  background: #e15e32;
-  color: #fff;
+#page15 .middle .left {
+  position: relative;
+}
+
+#page15 .middle .left .circle, #page15 .middle .left .circle_text {
   width: 208px;
   height: 208px;
-  -webkit-border-radius: 50%;
-     -moz-border-radius: 50%;
-          border-radius: 50%;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
   padding: 54px 10px;
   margin: 0 auto;
+}
+
+#page15 .middle .left .circle{
+  background: #e15e32;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
   font-size: 36px;
   line-height: 38px;
   font-family: rawengulk_regular;
 }
-#page15 .middle .left .circle > div{
+#page15 .middle .left .circle_text {
+  position: absolute;
+  top: 0px;
+  left: 45px;
+  z-index: 99;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-size: 36px;
+  line-height: 38px;
+  font-family: rawengulk_regular;
 }
 #page15 .middle .right {
   height: 151px;

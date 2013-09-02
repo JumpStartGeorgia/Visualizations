@@ -289,7 +289,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
           .append(TweenMax.fromTo($('#page6 header h4').add('#page6 .problem2_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page6 .middle .left'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page6 .middle .right'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page6 .bottom'), .5, {css: {top: 800}}, {css: {top: 0}})),
+          .append(TweenMax.fromTo($('#page6 .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
     {
       $('#page6-spacer').hide();
@@ -520,15 +520,19 @@ console.log('menu item click, section = ' + $(this).data('section'));
           .append(TweenMax.fromTo($('#page15 .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page15 .middle #text'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page15 .middle #circles'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.to($('#page15 .middle #circles .right .circle > div'), .5, {css: {opacity: 0 }}))
-          .append(TweenMax.to($('#page15 .middle #circles .right'), .5, {css: {left: -(move_left) }}))
+          .append([
+            TweenMax.to($('#page15 .middle #circles .right .circle > div'), .5, {css: {opacity: 0 }}),
+            TweenMax.to($('#page15 .middle #circles .right'), .5, {css: {left: -(move_left) }})
+          ])
           .append(TweenMax.fromTo($('#page15 .or'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page15 .bottom #text'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page15 .bottom #circles'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.to($('#page15 .bottom #circles .right'), .5, {css: {paddingTop: 0}}))
-          .append(TweenMax.to($('#page15 .bottom #circles .right .circle #text1'), .5, {css: {display: 'none'}}))
-          .append(TweenMax.to($('#page15 .bottom #circles .right .circle'), .5, {css: {fontSize: '36px', lineHeight: '38px', padding: "48px 10px", backgroundColor: "#e15e32", width: '208px', height: '208px'}}))
-          .append(TweenMax.to($('#page15 .bottom #circles .right .circle #text2'), .5, {css: {display: 'inline'}})),
+          .append([
+            TweenMax.to($('#page15 .bottom #circles .right .circle #text1'), .01, {css: {display: 'none'}}),
+            TweenMax.to($('#page15 .bottom #circles .right .circle'), .5, {css: {fontSize: '36px', lineHeight: '38px', padding: "48px 10px", backgroundColor: "#e15e32", width: '208px', height: '208px'}}),
+            TweenMax.to($('#page15 .bottom #circles .right'), .5, {css: {paddingTop: 0}})
+          ])
+          .append(TweenMax.to($('#page15 .bottom #circles .right .circle #text2'), .01, {css: {display: 'inline'}})),
     onPin: function ()
     {
       $('#page15-spacer').hide();
