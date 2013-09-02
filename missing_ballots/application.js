@@ -333,6 +333,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
     onPin: function ()
     {
       $('#ballots .all li:eq(5)').css({opacity: 1});
+      $('#ballots .all li:eq(7)').css({opacity: .6});
     },
     onUnpin: function ()
     {
@@ -385,6 +386,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
     onPin: function ()
     {
       $('#page8-spacer').hide();
+      $('#ballots .all li:eq(7)').css({opacity: 1});
     },
     onUnpin: function ()
     {
@@ -458,7 +460,8 @@ console.log('menu item click, section = ' + $(this).data('section'));
   controller.addTween(
     $('#page8d'),
     (new TimelineMax()).append([
-      TweenMax.to($('#page8 > .top'), .001, {css: {zIndex: 'auto', display: 'none'}})
+      TweenMax.to($('#page8 > .top'), .001, {css: {zIndex: 'auto', display: 'none'}}),
+      TweenMax.to($('#ballots .all li:eq(7)'), .001, {css: {opacity: .6}})
     ])
   );
   
