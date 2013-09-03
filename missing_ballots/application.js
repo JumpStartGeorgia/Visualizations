@@ -262,6 +262,8 @@ console.log('menu item click, section = ' + $(this).data('section'));
 */
 
 
+/////////////////////////////////
+
 
   var pinh = 3300;
   controller.pin($('#page5a'), pinh, {
@@ -387,10 +389,10 @@ console.log('menu item click, section = ' + $(this).data('section'));
 
 /////////////////////////////////
 
-  var pinh = 2500;
+  var pinh = 1500;
   controller.pin($('#page8'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page8 > .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page8 > .top'), .3, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.to($('#page8 > .top'), .001, {css: {position: 'fixed', width: 'auto', left: $('#sidebar').width(), right: 0, zIndex: 9999, top: $('#ballots .all').outerHeight() + $('#question_marks').parent().height()}}))
           .append(TweenMax.fromTo($('#page8 .after'), .5, {css: {top: 800}}, {css: {top: 0}})),
     onPin: function ()

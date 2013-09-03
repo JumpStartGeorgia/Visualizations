@@ -534,7 +534,6 @@ body {
 
 #page5 {
   padding-top: 5px;
-  min-height: 100%;
   right: 0px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -596,7 +595,6 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  margin-bottom: 50px;
 }
 
 #page5a .problem1 {
@@ -840,7 +838,6 @@ body {
 
 #page6 {
   right: 0px;
-  min-height: 100%;
   padding-top: 77px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -962,7 +959,6 @@ body {
   font-family: breeserif_reg;
   color: #aa1313;
   font-size: 17px;
-  margin-bottom: 30px;
 }
 
 #page7 .protocol-container:not(:first-child) {
@@ -1378,10 +1374,6 @@ body {
         	box-sizing: border-box;
 }
 
-#page7 {
-  margin-bottom: 250px;
-}
-
 #page7 > .bottom {
   margin-top: 1300px;
 }
@@ -1402,7 +1394,7 @@ body {
   right: 0px;
   padding-top: 77px;
   margin-bottom: 250px;
-  min-height: 100%;
+/*  min-height: 100%;*/
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -1666,11 +1658,14 @@ body {
 #page8a, #page8b, #page8c, #page8d{
   right: 0px;
   margin-bottom: 250px;
-  min-height: 100%;
   padding-top: 177px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
+}
+
+#page8c {
+  margin-bottom: 0;
 }
 
 #page8c .spreadsheet .top > .left{
@@ -1681,13 +1676,11 @@ body {
 
 
 
-
 /*****************************************/
 
 
 #page9 {
   right: 0px;
-  margin-bottom: 250px;
   min-height: 100%;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -2618,7 +2611,6 @@ body {
 #page17 {
   right: 0px;
   padding-top: 107px;
-  margin-bottom: 250px;
   min-height: 100%;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
