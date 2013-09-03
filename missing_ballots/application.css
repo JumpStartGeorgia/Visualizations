@@ -32,7 +32,7 @@ body {
 /************************************************/
 
 #sidebar {
-  background: #000;
+  background: #141414;
   width: 90px;
   position: fixed;
   top: 0px;
@@ -78,25 +78,29 @@ body {
   top: 55px;
   right: 0;
 }
-#sidebar #menu li{
-  padding: 8px 16px;
+#sidebar #menu li {
+  padding: 4px 12px;
   font-size: 6px;
   cursor: pointer;
 }
 #sidebar #menu li div{
   position: relative;
   background: #424242;
+  background-clip: content-box;
   width: 6px;
   height: 6px;
+  padding: 3px;
+  border: 1px solid transparent;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
-	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-        	box-sizing: border-box;
+}
+#sidebar #menu li.active div {
+  background-color: #fff;
+  border-color: #fff;
 }
 #sidebar #menu li:hover div{
-  background: #fff;
+  background-color: #fff;
 }
 
 #sidebar #social_links{
@@ -532,7 +536,8 @@ body {
   font-family: breeserif_reg;
   font-size: 15px;
   text-align: center;
-  margin-top: 30px;
+  margin: 30px auto 0px;
+  display: table;
 }
 
 #page5a #stations > span, #page5a #stations > div {

@@ -143,6 +143,7 @@ $(function ()
 
   $('#sidebar #menu li').click(function(){
 console.log('menu item click, section = ' + $(this).data('section'));
+    $(this).siblings('.active').removeClass('active').end().addClass('active');
     $('html, body').animate({scrollTop: compute_scroll_top($('section#' + $(this).data('section')).offset().top, $('section#' + $(this).data('section') + ' header').offset().top) });
   });
 
