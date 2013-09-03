@@ -2587,7 +2587,6 @@ body {
   text-align: center;
   background: #52b2a2;
   color: #fff;
-  width: 100%;
   min-height: 100%;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -2642,28 +2641,25 @@ body {
 #page18 #sources{
   color: #ddd7ce;
   font-size: 13px;
-  position: relative;
+  position: absolute;
+  bottom: 1px;
+  right: 11px;
+  text-align: right;
 }
 #page18 #sources > div{
-  margin-right: 100px;
-  text-align: right;
-  position: absolute;
-  right: 0;
-}
-#page18 #sources > div > div{
   display: inline-block;
   vertical-align: top;
 }
-#page18 #sources > div ul{
+#page18 #sources ul{
   list-style-type: none;
   text-align: left;
   display: inline-block;
   margin-left: 5px;
 }
-#page18 #sources > div ul li a{
+#page18 #sources ul li a{
   color: #ddd7ce;
   text-decoration: underline;
 }
-#page18 #sources > div ul li a:hover{
+#page18 #sources ul li a:hover{
   text-decoration: none;
 }
