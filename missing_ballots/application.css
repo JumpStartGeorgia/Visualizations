@@ -126,6 +126,7 @@ body {
   height: 100%;
   background: #52b2a2;
   text-align: center;
+  position: relative;
 }
 
 #page1 .table {
@@ -140,6 +141,47 @@ body {
   font-size: 40px;
   margin: 0px;
 }
+
+#page1 #scroll_down{
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: rawengulk_regular;
+}
+
+#page1 #scroll_down > div{
+  background: #fff;
+  width: 120px;
+  height: 120px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+	margin: 0 auto;
+	padding-top: 3px;
+	padding-left: 3px;
+}
+
+#page1 #scroll_down > div > div{
+  background: #52b2a2;
+  width: 114px;
+  height: 114px;
+  color: #fff;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+	padding-top: 30px;
+}
+
+
 /**********************************/
 
 #page2 {
