@@ -630,10 +630,11 @@ console.log('menu item click, section = ' + $(this).data('section'));
           .append(TweenMax.to($('#ballots .all'), .001, {css: {display: 'none', top: -100}}))
           .append(TweenMax.to($('#question_marks').parent(), .001, {css: {display: 'none', top: -100}}))
           .append(TweenMax.to($('#line_fix').parent(), .001, {css: {display: 'none', top: -100}}))
+          .append(TweenMax.to($('#page18 .caret'), .001, {css:{opacity: 0}}))
           .append(TweenMax.fromTo($('#page18 #line2'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 1000}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{top: 1000}}, {css:{top: 0}})),
+          .append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{opacity: 0}}, {css:{opacity: 1}})),
     onPin: function ()
     {
       $('#page18-spacer').hide();

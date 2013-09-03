@@ -857,7 +857,7 @@ body {
 }
 
 #page7 .protocol-container:not(:first-child) {
-  margin-top: 80px;
+  margin-top: 150px;
 }
 
 #page7 h5.protocol-title {
@@ -2594,7 +2594,6 @@ body {
 #page18{
   right: 0px;
   text-align: center;
-  padding-top: 50px;
   background: #52b2a2;
   color: #fff;
   width: 100%;
@@ -2602,6 +2601,16 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
+}
+
+#page18 .caret {
+  width: 0px;
+  height: 0px;
+  margin: 0px auto 200px;
+  border: solid transparent;
+  border-width: 60px 85px 0px;
+  border-top-color: #F7F7F0;
+  display: block;
 }
 
 #page18 header h2 {
@@ -2643,7 +2652,6 @@ body {
   color: #ddd7ce;
   font-size: 13px;
   position: relative;
-  top: 1000px;
 }
 #page18 #sources > div{
   margin-right: 100px;
