@@ -1778,6 +1778,16 @@ body {
 
 
 
+#page10 #country_stats > div {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 60px;
+  width: 190px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
 
 #page10 #country_stats > div:nth-child(1){
   background: #F7F7F0 url(img/chart1.png) center center no-repeat;
@@ -1833,6 +1843,12 @@ body {
 }
 #page10 #district_amount > div {
   text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 30px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page10 #district_amount > div > div {
@@ -1871,7 +1887,15 @@ body {
 #page10 #district_percent > div {
   text-align: center;
   height: 153px;
+  width: 155px;
   padding: 40px 40px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 10px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page10 #district_percent > div #line1 {
@@ -1973,6 +1997,17 @@ body {
   height: 195px;
   padding: 54px 17px 30px;
 }
+
+#page11 #country_stats > div {
+  display: inline-block;
+  vertical-align: middle;
+  width: 195px;
+  margin: 0px 60px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
 #page11 #country_stats > div:nth-child(1) #line1 {
   font-family: rawengulk_regular;
   font-size: 48px;
@@ -2025,6 +2060,12 @@ body {
 }
 #page11 #district_amount > div {
   text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 30px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page11 #district_amount > div > div {
@@ -2064,6 +2105,13 @@ body {
   text-align: center;
   height: 153px;
   padding: 40px 40px;
+  width: 155px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 10px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page11 #district_percent > div #line1 {
@@ -2175,11 +2223,19 @@ body {
 #page12 #country_stats {
   margin-top: 20px;
 }
-#page12 #country_stats > div{
+#page12 #country_stats > div {
   text-align: center;
   height: 195px;
   padding: 35px 17px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 195px;
+  margin: 0px 80px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
+
 #page12 #country_stats > div:nth-child(1){
   background: #F7F7F0 url(img/chart9.png) center center no-repeat;
 }
@@ -2200,6 +2256,15 @@ body {
 #page12 #polling_station_stats_text{
   margin-top: 30px;
 }
+#page12 #polling_station_stats_text > div {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0px 80px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
 #page12 #polling_station_stats_text span{
   color: #cc3737;
 }
@@ -2210,6 +2275,25 @@ body {
 
 #page12 .polling_station_stats > div {
   text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 121px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#line2 {
+  position: relative;
+}
+
+#page12 .polling_station_stats .connector {
+  position: absolute;
+  left: 65.5%;
+  top: 6px;
+  width: 331px;
+  height: 3px;
+  background: url(img/line_red.png) center no-repeat;
 }
 
 #page12 .polling_station_stats > div > div {
