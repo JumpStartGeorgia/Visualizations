@@ -737,6 +737,22 @@ body {
 
 #page5a #stations-connect .left {
   width: 400px;
+  padding-top: 25px;
+  position: relative;
+}
+
+#page5a #stations-connect .left > div {
+  font-size: 15px;
+  line-height: 1.2;
+  border: 1px dashed #4D3534;
+  color: #4D3534;
+  padding: 5px 8px;
+  -webkit-border-radius: 13px;
+     -moz-border-radius: 13px;
+          border-radius: 13px;
+  width: 174px;
+  position: absolute;
+  right: 0;
 }
 
 #page5a #stations-connect .right {
@@ -786,7 +802,7 @@ body {
 
 
 #page5a .bottom {
-/*  margin-top: 100px;*/
+  margin-top: 25px;
 }
 
 #page5a .bottom > * {

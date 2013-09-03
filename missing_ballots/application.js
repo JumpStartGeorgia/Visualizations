@@ -268,8 +268,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
     anim: (new TimelineMax())
           .append(TweenMax.fromTo($('#page5a .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page5a #stations').parent(), .5, {css: {position: 'relative', top: 900}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page5a #stations-connect'), .5, {css:{top: 700}}, {css:{top: -42}}))
-          .append(TweenMax.to($('#page5a #stations-connect #line1'), .5, {css:{top: -100, opacity: 0}/*, delay: 1*/}))
+          .append(TweenMax.fromTo($('#page5a #stations-connect'), .5, {css:{top: 700}}, {css:{top: -15}}))
           .append(TweenMax.fromTo($('#page5a #stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page5a .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
