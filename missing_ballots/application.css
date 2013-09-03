@@ -32,7 +32,7 @@ body {
 /************************************************/
 
 #sidebar {
-  background: #000;
+  background: #141414;
   width: 90px;
   position: fixed;
   top: 0px;
@@ -78,25 +78,29 @@ body {
   top: 55px;
   right: 0;
 }
-#sidebar #menu li{
-  padding: 8px 16px;
+#sidebar #menu li {
+  padding: 4px 12px;
   font-size: 6px;
   cursor: pointer;
 }
 #sidebar #menu li div{
   position: relative;
   background: #424242;
+  background-clip: content-box;
   width: 6px;
   height: 6px;
+  padding: 3px;
+  border: 1px solid transparent;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
-	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-        	box-sizing: border-box;
+}
+#sidebar #menu li.active div {
+  background-color: #fff;
+  border-color: #fff;
 }
 #sidebar #menu li:hover div{
-  background: #fff;
+  background-color: #fff;
 }
 
 #sidebar #social_links{
@@ -142,44 +146,129 @@ body {
   margin: 0px;
 }
 
-#page1 #scroll_down{
+#page1 #scroll_down, #loading .circle {
   position: absolute;
   bottom: 50px;
-  width: 100%;
+  width: 120px;
+  height: 120px;
+  margin-left: -60px;
+  left: 50%;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   font-family: rawengulk_regular;
-}
-
-#page1 #scroll_down > div{
-  background: #fff;
-  width: 120px;
-  height: 120px;
-  -webkit-border-radius: 50%;
-     -moz-border-radius: 50%;
-          border-radius: 50%;
-	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-        	box-sizing: border-box;
-	margin: 0 auto;
-	padding-top: 3px;
-	padding-left: 3px;
-}
-
-#page1 #scroll_down > div > div{
-  background: #52b2a2;
-  width: 114px;
-  height: 114px;
   color: #fff;
+  border: 1px solid #fff;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-	padding-top: 30px;
 }
+
+#page1 #scroll_down{
+  padding-top: 30px;
+}
+
+#loading {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 90px;
+  right: 0px;
+  bottom: 0px;
+  background: #52b2a2;
+  z-index: 90000;
+}
+
+#loading .circle div {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: 30px;
+  right: 30px;
+  background: #52b2a2;
+          animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+          animation-name: loading_rotate;
+  -webkit-animation-name: loading_rotate;
+          animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+          animation-direction: normal;
+  -webkit-animation-direction: normal;
+          animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+}
+
+#loading span {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  line-height: 120px;  
+}
+
+@keyframes loading_rotate
+{
+  from {
+            transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+  }
+  to {
+            transform:rotate(360deg);
+        -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+  }
+}
+@-webkit-keyframes loading_rotate
+{
+  from {
+            transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+  }
+  to {
+            transform:rotate(360deg);
+        -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+  }
+}
+
+#scroll_down img {
+  position: relative;
+          animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+          animation-name: move_arrow;
+  -webkit-animation-name: move_arrow;
+          animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+          animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+}
+
+@keyframes move_arrow
+{
+  from {
+    top: 0px;
+  }
+  to {
+    top: 15px;
+  }
+}
+@-webkit-keyframes move_arrow
+{
+  from {
+    top: 0px;
+  }
+  to {
+    top: 15px;
+  }
+}
+
+
 
 
 /**********************************/
@@ -532,7 +621,8 @@ body {
   font-family: breeserif_reg;
   font-size: 15px;
   text-align: center;
-  margin-top: 30px;
+  margin: 30px auto 0px;
+  display: table;
 }
 
 #page5a #stations > span, #page5a #stations > div {
@@ -2599,7 +2689,6 @@ body {
   text-align: center;
   background: #52b2a2;
   color: #fff;
-  width: 100%;
   min-height: 100%;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -2654,28 +2743,25 @@ body {
 #page18 #sources{
   color: #ddd7ce;
   font-size: 13px;
-  position: relative;
+  position: absolute;
+  bottom: 1px;
+  right: 11px;
+  text-align: right;
 }
 #page18 #sources > div{
-  margin-right: 100px;
-  text-align: right;
-  position: absolute;
-  right: 0;
-}
-#page18 #sources > div > div{
   display: inline-block;
   vertical-align: top;
 }
-#page18 #sources > div ul{
+#page18 #sources ul{
   list-style-type: none;
   text-align: left;
   display: inline-block;
   margin-left: 5px;
 }
-#page18 #sources > div ul li a{
+#page18 #sources ul li a{
   color: #ddd7ce;
   text-decoration: underline;
 }
-#page18 #sources > div ul li a:hover{
+#page18 #sources ul li a:hover{
   text-decoration: none;
 }
