@@ -633,12 +633,17 @@ $(window).load(function ()
   var menu_text = [];
   var menu_position = [];
   var menu_section = [];
+  var css_class = '';
+
   $('header').each(function(){menu_position.push($(this).offset().top)});
   $('header').each(function(){menu_text.push($(this).text().replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' '))});
   $('header').each(function(){menu_section.push($(this).closest('section').attr('id'))});
+  // override the first item position to 0
+  menu_position[0] = 0;
   
   for(var i=0;i<menu_text.length;i++){
-    $('#sidebar #menu').append('<li title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '"><div>&nbsp;</div></li>');
+    css_class = i == 0 ? "class=active" : ""
+    $('#sidebar #menu').append('<li title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '" ' + css_class + '><div>&nbsp;</div></li>');
   }
 
   $('#sidebar #menu li').click(function(){
@@ -649,7 +654,23 @@ console.log('menu item click, section = ' + $(this).data('section'));
   });
 
 
-
+  // adjust side menu
+  // from: http://jsfiddle.net/m2zQE/
+  var topRange      = 200,  // measure from the top of the viewport to X pixels down
+       edgeMargin    = 20
+  $(window).scroll(function(){
+    var winTop = $(window).scrollTop(),
+        bodyHt = $(document).height(),
+        vpHt = $(window).height() + edgeMargin;  // viewport height + margin
+    for(var i=0;i<menu_position.length;i++){
+     if ( ( menu_position[i] > winTop - edgeMargin && ( menu_position[i] < winTop + topRange || ( winTop + vpHt ) >= bodyHt ) ) ){
+      $('#sidebar #menu li')
+       .removeClass('active')
+       .eq(i).addClass('active');
+       break;
+     }
+    }
+  });
 
 
 ////////////////////////////////////////
