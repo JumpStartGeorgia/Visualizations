@@ -670,30 +670,33 @@ body {
   -webkit-border-radius: 13px;
      -moz-border-radius: 13px;
           border-radius: 13px;
+  width: 252px;
 }
 
-#page5a #stations-connect .right .bottom {
+#page5a #stations-connect .right .bottom_judge {
   margin-top: 15px;
 }
 
-#page5a #stations-connect .right .bottom img, #stations-connect .right .bottom span {
+#page5a #stations-connect .right .bottom_judge img, #stations-connect .right .bottom_judge span {
   display: block;
   float: left;
 }
 
-#page5a #stations-connect .right .bottom div {
-  width: 25%;
+#page5a #stations-connect .right .bottom_judge div {
+  width: 100px;
 }
 
-#page5a #stations-connect .right .bottom span {
-  width: 65%;
-  margin-left: 10%;
-  padding-top: 73px;
+#page5a #stations-connect .right .bottom_judge span {
+  text-align: left;
+  width: 180px;
+  padding-left: 12px;
+  padding-top: 63px;
+  line-height: 16px;
 }
 
 
 #page5a .bottom {
-  margin-top: 100px;
+/*  margin-top: 100px;*/
 }
 
 #page5a .bottom > * {

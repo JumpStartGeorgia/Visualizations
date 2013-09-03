@@ -152,7 +152,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
 
   controller.addTween(
     $('#page1'),
-    (new TimelineMax()).append(TweenMax.to($('#page1 #scroll_down'), .5, {css: {opacity: 0}}))
+    (new TimelineMax()).append(TweenMax.fromTo($('#page1 #scroll_down'), .5, {css: {opacity: 1}}, {css: {opacity: 0}}))
   );
 
 
