@@ -58,8 +58,7 @@ function adjust_legend_placement(){
 
 
 function compute_scroll_top(parent, child){
-  var window_scroll_top = $(window).scrollTop();
-  if (window_scroll_top > child){
+  if ($(window).scrollTop() > child){
     return parent;
   } else{
     return child;
@@ -124,28 +123,6 @@ $(window).load(function ()
     $('html, body').animate({scrollTop: compute_scroll_top($('#page17').offset().top, $('#page17 .after').offset().top) });
   });
 
-
-
-
-////////////////////////////////
-  // create the menu
-
-  var menu_text = [];
-  var menu_position = [];
-  var menu_section = [];
-  $('header').each(function(){menu_position.push($(this).offset().top)});
-  $('header').each(function(){menu_text.push($(this).text().replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' '))});
-  $('header').each(function(){menu_section.push($(this).closest('section').attr('id'))});
-  
-  for(var i=0;i<menu_text.length;i++){
-    $('#sidebar #menu').append('<li title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '"><div>&nbsp;</div></li>');
-  }
-
-  $('#sidebar #menu li').click(function(){
-console.log('menu item click, section = ' + $(this).data('section'));
-    $(this).siblings('.active').removeClass('active').end().addClass('active');
-    $('html, body').animate({scrollTop: compute_scroll_top($('section#' + $(this).data('section')).offset().top, $('section#' + $(this).data('section') + ' header').offset().top) });
-  });
 
 
 
@@ -408,8 +385,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
       }
     }
   });
-  $('#page8').after('<div id="page8-spacer"></div>').next().height(50);
-
+  $('#page8').after('<div id="page8-spacer"></div>').next().height(pinh);
 
 
 
@@ -436,8 +412,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
       }
     }
   });
-  $('#page8a').after('<div id="page8a-spacer"></div>').next().height(50);
-
+  $('#page8a').after('<div id="page8a-spacer"></div>').next().height(pinh);
 
 
 
@@ -464,9 +439,7 @@ console.log('menu item click, section = ' + $(this).data('section'));
       }
     }
   });
-  $('#page8b').after('<div id="page8b-spacer"></div>').next().height(50);
-
-
+  $('#page8b').after('<div id="page8b-spacer"></div>').next().height(pinh);
 
   
   controller.addTween(
@@ -650,6 +623,30 @@ console.log('menu item click, section = ' + $(this).data('section'));
     }
   });
   $('#page18').after('<div id="page18-spacer"></div>').next().height(pinh);
+
+
+
+
+////////////////////////////////
+  // create the menu
+
+  var menu_text = [];
+  var menu_position = [];
+  var menu_section = [];
+  $('header').each(function(){menu_position.push($(this).offset().top)});
+  $('header').each(function(){menu_text.push($(this).text().replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' '))});
+  $('header').each(function(){menu_section.push($(this).closest('section').attr('id'))});
+  
+  for(var i=0;i<menu_text.length;i++){
+    $('#sidebar #menu').append('<li title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '"><div>&nbsp;</div></li>');
+  }
+
+  $('#sidebar #menu li').click(function(){
+console.log('menu item click, section = ' + $(this).data('section'));
+    $(this).siblings('.active').removeClass('active').end().addClass('active');
+//    $('html, body').animate({scrollTop: compute_scroll_top($('section#' + $(this).data('section')).offset().top, $('section#' + $(this).data('section') + ' header').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($(this).data('position'), $(this).data('position'))});
+  });
 
 
 
