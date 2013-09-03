@@ -66,7 +66,7 @@ function compute_scroll_top(parent, child){
   }
 }
 
-$(function ()
+$(window).load(function ()
 {
   adjust_legend_placement();
 
@@ -657,10 +657,13 @@ console.log('menu item click, section = ' + $(this).data('section'));
 ////////////////////////////////////////
 
 
-  $(window).load(function ()
-  {
-    //setTimeout(function (){ $(window).scroll(); }, 10);
-  });
+
+
+
+
+  $('#loading').fadeOut();
+
+
 
 
 

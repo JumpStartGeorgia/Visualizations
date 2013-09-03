@@ -146,7 +146,7 @@ body {
   margin: 0px;
 }
 
-#page1 #scroll_down{
+#page1 #scroll_down, #loading .circle {
   position: absolute;
   bottom: 50px;
   width: 120px;
@@ -159,7 +159,6 @@ body {
   font-family: rawengulk_regular;
   color: #fff;
   border: 1px solid #fff;
-  padding-top: 30px;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -167,6 +166,109 @@ body {
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
 }
+
+#page1 #scroll_down{
+  padding-top: 30px;
+}
+
+#loading {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 90px;
+  right: 0px;
+  bottom: 0px;
+  background: #52b2a2;
+  z-index: 90000;
+}
+
+#loading .circle div {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: 30px;
+  right: 30px;
+  background: #52b2a2;
+          animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+          animation-name: loading_rotate;
+  -webkit-animation-name: loading_rotate;
+          animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+          animation-direction: normal;
+  -webkit-animation-direction: normal;
+          animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+}
+
+#loading span {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  line-height: 120px;  
+}
+
+@keyframes loading_rotate
+{
+  from {
+            transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+  }
+  to {
+            transform:rotate(360deg);
+        -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+  }
+}
+@-webkit-keyframes loading_rotate
+{
+  from {
+            transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+  }
+  to {
+            transform:rotate(360deg);
+        -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+  }
+}
+
+#scroll_down img {
+  position: relative;
+          animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+          animation-name: move_arrow;
+  -webkit-animation-name: move_arrow;
+          animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+          animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+}
+
+@keyframes move_arrow
+{
+  from {
+    top: 0px;
+  }
+  to {
+    top: 15px;
+  }
+}
+@-webkit-keyframes move_arrow
+{
+  from {
+    top: 0px;
+  }
+  to {
+    top: 15px;
+  }
+}
+
+
 
 
 /**********************************/
