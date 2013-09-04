@@ -2867,3 +2867,30 @@ body {
 #page18 #sources ul li a:hover{
   text-decoration: none;
 }
+
+#page18 #by_js{
+  font-family: rawengulk_regular;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+#page18 #by_js > div:nth-child(1){
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#page18 #by_js > div:nth-child(2){
+  font-size: 18px;
+  font-style:italic;
+  margin-bottom: 10px;
+}
+#page18 #by_js > div:nth-child(3){
+  font-size: 17px;
+}
+#page18 #by_js > div:nth-child(3) a{
+  text-decoration: none;
+  margin-left: 10px;
+}
+#page18 #by_js > div:nth-child(3) a:hover{
+  opacity: 0.6;
+}
+
