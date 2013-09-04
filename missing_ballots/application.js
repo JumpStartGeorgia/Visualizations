@@ -1,3 +1,25 @@
+  var topRange = 200;  // measure from the top of the viewport to X pixels down
+  var edgeMargin = 20;
+  var menu_text = [];
+  var menu_position = [];
+  var menu_section = [];
+  var css_class = '';
+
+  // highlight correct menu item based on position
+  function highlight_correct_menu_item(){
+    var winTop = $(window).scrollTop();
+    for(var i=0;i<menu_position.length;i++){
+     if ( winTop >= menu_position[i] && (i == menu_position.length-1 || (i < menu_position.length && winTop < menu_position[i+1]))){
+      $('#sidebar #menu li')
+       .removeClass('active')
+       .eq(i).addClass('active');
+       break;
+     }
+    }
+  }
+
+
+
 // adjust location of legend in maps
 function adjust_legend_placement(){
   var scrn_width = $(window).width();  
@@ -634,11 +656,6 @@ $(window).load(function ()
 ////////////////////////////////
   // create the menu
 
-  var menu_text = [];
-  var menu_position = [];
-  var menu_section = [];
-  var css_class = '';
-
   $('header').each(function(){menu_position.push($(this).offset().top)});
   $('header').each(function(){menu_text.push($(this).text().replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' '))});
   $('header').each(function(){menu_section.push($(this).closest('section').attr('id'))});
@@ -657,24 +674,13 @@ $(window).load(function ()
   });
 
 
-  // adjust side menu
-  // from: http://jsfiddle.net/m2zQE/
-  var topRange      = 200,  // measure from the top of the viewport to X pixels down
-       edgeMargin    = 20
+  // highlight correct menu item based on position
   $(window).scroll(function(){
-    var winTop = $(window).scrollTop(),
-        bodyHt = $(document).height(),
-        vpHt = $(window).height() + edgeMargin;  // viewport height + margin
-    for(var i=0;i<menu_position.length;i++){
-     if ( ( menu_position[i] > winTop - edgeMargin && ( menu_position[i] < winTop + topRange || ( winTop + vpHt ) >= bodyHt ) ) ){
-      $('#sidebar #menu li')
-       .removeClass('active')
-       .eq(i).addClass('active');
-       break;
-     }
-    }
+    highlight_correct_menu_item();
   });
 
+  // highlight the correct menu item when the page loads
+  highlight_correct_menu_item();
 
 ////////////////////////////////////////
 
