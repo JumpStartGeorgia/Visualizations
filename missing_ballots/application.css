@@ -641,7 +641,7 @@ body {
 
 #page5a #stations > div div {
   display: inline-block;
-  width: 33.3333%;
+  width: 115px;
   text-align: center;
 }
 
@@ -1407,7 +1407,7 @@ body {
 } 
 #page8 .top header h4 {
   float: right;
-  margin-right: 16.665%;
+  margin-right: 146px;
   margin-bottom: 30px;
 }
 
@@ -2282,7 +2282,7 @@ body {
 
 #page12 .polling_station_stats .connector {
   position: absolute;
-  left: 65.5%;
+  left: 62px;
   top: 6px;
   width: 331px;
   height: 3px;
