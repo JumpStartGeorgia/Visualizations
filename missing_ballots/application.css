@@ -2800,7 +2800,7 @@ body {
 #page18 .caret {
   width: 0px;
   height: 0px;
-  margin: 0px auto 200px;
+  margin: 0 auto;
   border: solid transparent;
   border-width: 60px 85px 0px;
   border-top-color: #F7F7F0;
@@ -2839,7 +2839,6 @@ body {
   text-transform: uppercase;
   position: relative;
   top: 1000px;
-  margin-bottom: 150px;
 }
 
 #page18 #sources{
@@ -2873,24 +2872,28 @@ body {
   color: #fff;
   text-align: center;
   position: relative;
+  margin-top: 100px;
 }
 #page18 #by_js > div:nth-child(1){
   font-size: 20px;
   margin-bottom: 10px;
 }
 #page18 #by_js > div:nth-child(2){
-  font-size: 18px;
-  font-style:italic;
   margin-bottom: 10px;
 }
 #page18 #by_js > div:nth-child(3){
+  font-size: 18px;
+  font-style:italic;
+  margin-bottom: 5px;
+}
+#page18 #by_js > div:nth-child(4){
   font-size: 17px;
 }
-#page18 #by_js > div:nth-child(3) a{
+#page18 #by_js > div:nth-child(4) a{
   text-decoration: none;
   margin-left: 10px;
 }
-#page18 #by_js > div:nth-child(3) a:hover{
+#page18 #by_js > div:nth-child(4) a:hover{
   opacity: 0.6;
 }
 
