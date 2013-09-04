@@ -1881,7 +1881,7 @@ body {
   text-align: center;
   height: 153px;
   width: 155px;
-  padding: 40px 40px;
+  padding: 40px 15px;
   text-align: center;
   display: inline-block;
   vertical-align: middle;
@@ -2097,7 +2097,7 @@ body {
 #page11 #district_percent > div {
   text-align: center;
   height: 153px;
-  padding: 40px 40px;
+  padding: 40px 15px;
   width: 155px;
   display: inline-block;
   vertical-align: middle;
@@ -2174,6 +2174,11 @@ body {
   font-family: breeserif_reg;
   color: #aa1313;
   font-size: 13px;
+  padding: 0px 17px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 195px;
+  margin: 0px 80px;
 }
 
 #page12 #map #legend {

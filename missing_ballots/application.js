@@ -5,11 +5,14 @@ function adjust_legend_placement(){
   // adjust country legend
   // - reset to default values first
   $('#page10 #map').css('margin-bottom', '0px');
+  $('#page10 #legend ul').css('margin-left', '0');
   $('#page10 #legend').css('top', '150px');
   $('#page10 #legend ul li').css('display', 'block').css('margin-right', '0px');
   $('#page11 #map').css('margin-bottom', '0px');
   $('#page11 #legend').css('top', '150px');
+  $('#page11 #legend ul').css('margin-left', '0');
   $('#page11 #legend ul li').css('display', 'block').css('margin-right', '0px');
+
 
   if (scrn_width > 1900){
     $('#page10 #legend ul').css('margin-left', '125px');
@@ -77,8 +80,8 @@ $(window).load(function ()
   // fix placements when window resizes
   window.onresize = function()
   {
-//    adjust_legend_placement();
-    window.location.reload();
+    adjust_legend_placement();
+//    window.location.reload();
   }
 
 
