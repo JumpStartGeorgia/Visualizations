@@ -419,6 +419,12 @@ body {
   text-transform: capitalize;
 }
 
+#ballots .allc, #question_marks, #page5a .top > div, #page7 .problem3_img, #page8 > .top > div, #line_fix, #page15 .top > div, #page17 .top > div {
+  width: 576px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #ballots .all {
   z-index: 1000;
 }
@@ -947,11 +953,11 @@ body {
 
 #page7 .problem3_img {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #page7 .problem3_img img {
-  margin-left: 7.333%;
+  margin-left: 11%;
 }
 
 #page7 header h4 {
@@ -959,6 +965,7 @@ body {
   font-family: breeserif_reg;
   color: #aa1313;
   font-size: 17px;
+  margin-top: 1px;
 }
 
 #page7 .protocol-container:not(:first-child) {
@@ -1392,7 +1399,7 @@ body {
 
 #page8 {
   right: 0px;
-  padding-top: 77px;
+  padding-top: 71px;
   margin-bottom: 250px;
 /*  min-height: 100%;*/
 	-webkit-box-sizing: border-box;
@@ -1407,8 +1414,7 @@ body {
 } 
 #page8 .top header h4 {
   float: right;
-  margin-right: 146px;
-  margin-bottom: 30px;
+  margin: 0px 16.4% 30px 0px;
 }
 
 #page8 .top header h4 span {
@@ -2420,7 +2426,7 @@ body {
 #page15 {
   right: 0px;
   min-height: 100%;
-  padding-top: 107px;
+  padding-top: 95px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -2624,7 +2630,7 @@ body {
 #page16 {
   right: 0px;
   min-height: 100%;
-  padding-top: 107px;
+  padding-top: 94px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -2632,7 +2638,7 @@ body {
 
 #page16 .line_fix23_img {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 #page16 .line_fix23_img img {
@@ -2644,7 +2650,7 @@ body {
   font-family: breeserif_reg;
   color: #47a836;
   font-size: 17px;
-  margin-bottom: 20px;
+  margin: 0px 0px 20px 0px;
 }
 
 
@@ -2694,7 +2700,7 @@ body {
 
 #page17 {
   right: 0px;
-  padding-top: 107px;
+  padding-top: 95px;
   min-height: 100%;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -2702,8 +2708,7 @@ body {
 }
 #page17 .top header h3 {
   float: right;
-  margin-right: 16.665%;
-  margin-bottom: 50px;
+  margin: 0px 16.3% 50px 0px;
 }
 
 #page17 .top header h3 span {
