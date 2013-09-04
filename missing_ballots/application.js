@@ -606,6 +606,7 @@ $(window).load(function ()
     {
       $('#page17-spacer').hide();
       $('#ballots .all li:eq(7)').css({opacity: 1});
+    //$('#ballots .all').add($('#line_fix').parent()).add($('#question_marks').parent()).show();
     },
     onUnpin: function ()
     {
@@ -614,11 +615,16 @@ $(window).load(function ()
         $('#page17-spacer').show();
       }
       $('#ballots .all li:eq(7)').css({opacity: .6});
+    //$('#ballots .all').add($('#line_fix').parent()).add($('#question_marks').parent()).hide();
     }
   });
   $('#page17').after('<div id="page17-spacer"></div>').next().height(pinh);
 
 
+//////////////////////////////////////
+
+  controller.addTween($('#page18'), TweenMax.fromTo($('#ballots .all'), .1, {css: {top: 0}}, {css: {top: '-=100', display: 'none'}}), 100, -300);
+  controller.addTween($('#page18'), TweenMax.to($('#line_fix').parent().add($('#question_marks').parent()), .1, {css: {top: '-=100', display: 'none'}}), 100, -300);
 
 //////////////////////////////////////
 
@@ -627,10 +633,7 @@ $(window).load(function ()
   var pinh = 2500;
   controller.pin($('#page18'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.to($('#ballots .all'), .001, {css: {display: 'none', top: -100}}))
-          .append(TweenMax.to($('#question_marks').parent(), .001, {css: {display: 'none', top: -100}}))
-          .append(TweenMax.to($('#line_fix').parent(), .001, {css: {display: 'none', top: -100}}))
-          .append(TweenMax.to($('#page18 .caret'), .001, {css:{opacity: 0}}))
+          .append(TweenMax.to($('#page18 .caret'), .05, {css:{opacity: 0}}))
           .append(TweenMax.fromTo($('#page18 #line2'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 1000}}, {css:{top: 0}}))
@@ -668,7 +671,7 @@ $(window).load(function ()
   }
 
   $('#sidebar #menu li').click(function(){
-    $(this).siblings('.active').removeClass('active').end().addClass('active');
+    //$(this).addClass('active').siblings('.active').removeClass('active');
 //    $('html, body').animate({scrollTop: compute_scroll_top($('section#' + $(this).data('section')).offset().top, $('section#' + $(this).data('section') + ' header').offset().top) });
     $('html, body').animate({scrollTop: compute_scroll_top($(this).data('position'), $(this).data('position'))});
   });
