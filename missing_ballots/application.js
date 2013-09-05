@@ -538,13 +538,16 @@ $(window).load(function ()
 //////////////////////////////////////
 
 
-  var pinh = 2000;
+  var pinh = 3500;
   controller.pin($('#page16'), pinh, {
     anim: (new TimelineMax())
           .append(TweenMax.fromTo($('#page16 header h3').add('#page16 .line_fix23_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page16 .middle'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page16 .bottom .left'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page16 .bottom .right'), .5, {css: {top: 800}}, {css: {top: 0}})),
+          .append(TweenMax.fromTo($('#page16 .bottom .right'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page16 .bottom2 .left'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page16 .bottom2 .middle'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page16 .bottom2 .right'), .5, {css: {top: 800}}, {css: {top: 0}})),
     onPin: function ()
     {
       $('#page16-spacer').hide();
