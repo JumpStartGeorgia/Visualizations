@@ -148,6 +148,23 @@ body {
   margin: 0px;
 }
 
+#page1 #explanation {
+  margin-top: 20px;
+}
+
+#page1 #explanation p span{
+  font-size: 24px;
+  color: #fff;
+  font-family: rawengulk_regular;
+  text-transform: uppercase;
+}
+#page1 #explanation p span#scroll{
+  margin-right: 10px;
+}
+#page1 #explanation p span#arrow{
+  margin-left: 10px;
+}
+
 #page1 #scroll_down, #loading .circle {
   position: absolute;
   bottom: 50px;
@@ -241,7 +258,7 @@ body {
   }
 }
 
-#scroll_down img {
+#scroll_down img, #explanation img {
   position: relative;
           animation-duration: 1.5s;
   -webkit-animation-duration: 1.5s;
