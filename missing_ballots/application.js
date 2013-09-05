@@ -641,9 +641,39 @@ $(window).load(function ()
   
   for(var i=0;i<menu_text.length;i++){
     css_class = i == 0 ? "class=active" : ""
-    $('#sidebar #menu').append('<li title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '" ' + css_class + '><div>&nbsp;</div></li>');
+    $('#sidebar #menu').append('<li original-title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '" ' + css_class + '><div>&nbsp;</div></li>');
   }
 
+	// tipsy tooltips
+  // main menu
+	$('#sidebar #menu li').tipsy({
+		gravity: 'w',
+		opacity: 1.0
+	});
+
+  // ballot icons
+	$('#ballots .all img').tipsy({
+		gravity: 'n',
+		opacity: 1.0,
+		className: 'tt-ballots'
+	});
+
+  // errors
+	$('#question_marks img').tipsy({
+		gravity: 'n',
+		opacity: 1.0,
+		className: 'tt-questions'
+	});
+
+  // fix
+	$('#line_fix img').tipsy({
+		gravity: 'n',
+		opacity: 1.0,
+		className: 'tt-fix'
+	});
+
+
+  // menu click
   $('#sidebar #menu li').click(function(){
     //$(this).addClass('active').siblings('.active').removeClass('active');
 //    $('html, body').animate({scrollTop: compute_scroll_top($('section#' + $(this).data('section')).offset().top, $('section#' + $(this).data('section') + ' header').offset().top) });
