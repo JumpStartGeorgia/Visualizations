@@ -157,6 +157,7 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-family: rawengulk_regular;
+  font-size: 12px;
   color: #fff;
   border: 1px solid #fff;
   -webkit-border-radius: 50%;
@@ -168,7 +169,8 @@ body {
 }
 
 #page1 #scroll_down{
-  padding-top: 30px;
+  padding-top: 23px;
+  line-height: 17px;
 }
 
 #loading {
