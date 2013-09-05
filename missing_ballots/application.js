@@ -424,7 +424,8 @@ $(window).load(function ()
           .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(4)'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(5)'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(6)'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(7)'), .5, {css: {top: 800}}, {css: {top: 0}})),
+          .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(7)'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8a .spreadsheet-bottom-text'), .5, {css: {top: 800}}, {css: {top: 0}})),
     onPin: function ()
     {
       $('#page8a-spacer').hide();
@@ -438,33 +439,6 @@ $(window).load(function ()
     }
   });
   $('#page8a').after('<div id="page8a-spacer"></div>').next().height(pinh);
-
-
-
-  var pinh = 2500;
-  controller.pin($('#page8b'), pinh, {
-    anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page8b .spreadsheet'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8b .spreadsheet li:nth-child(1)'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8b .spreadsheet li:nth-child(2)'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8b .spreadsheet li:nth-child(3)'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8b .spreadsheet li:nth-child(4)'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8b .spreadsheet li:nth-child(5)'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8b .spreadsheet li:nth-child(6)'), .5, {css: {top: 800}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page8b .spreadsheet li:nth-child(7)'), .5, {css: {top: 800}}, {css: {top: 0}})),
-    onPin: function ()
-    {
-      $('#page8b-spacer').hide();
-    },
-    onUnpin: function ()
-    {
-      if ($('#page8b').offset().top > $(window).scrollTop())
-      {
-        $('#page8b-spacer').show();
-      }
-    }
-  });
-  $('#page8b').after('<div id="page8b-spacer"></div>').next().height(pinh);
 
   
   controller.addTween(
