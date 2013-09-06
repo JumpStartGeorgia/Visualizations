@@ -115,8 +115,16 @@ $(window).load(function ()
 
   // if screen size is too small, show message
   if ($(window).width() < 950){
-    $('#screen_size').show();
+    $.fancybox({
+		  fitToView	: true,
+		  autoSize	: true,
+		  href: '#screen_size'
+	  });
+	    
+//    $('#screen_size').show();
   }
+
+
 
   // popup menu
   $("#popup_menu_button img").click(function () {
