@@ -264,16 +264,16 @@ $(window).load(function ()
 */
 
 
-/////////////////////////////////
 
+/////////////////////////////////////////////////////
 
   var pinh = 3300;
   controller.pin($('#page5a'), pinh, {
     anim: (new TimelineMax())
           .append(TweenMax.fromTo($('#page5a .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page5a #stations').parent(), .5, {css: {position: 'relative', top: 900}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page5a #stations-connect'), .5, {css:{top: 700}}, {css:{top: -15}}))
-          .append(TweenMax.fromTo($('#page5a #stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page5a #stations-connect'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page5a #stations-connect .img img:last-of-type, #page5a #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page5a .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
     {
@@ -290,7 +290,6 @@ $(window).load(function ()
     }
   });
   $('#page5a').after('<div id="page5a-spacer"></div>').next().height(pinh);
-
 
 
 
