@@ -167,6 +167,7 @@ body {
   bottom: 0px;
   z-index: 999999;
   display: none;
+  font-family: museo;
 }
 #slide_menu ul{
   list-style: none;
@@ -177,7 +178,7 @@ body {
 #slide_menu ul li {
   padding: 5px 0;
   margin: 0 15px;
-  border-bottom: dashed 1px #fff;
+  border-bottom: dashed 1px rgba(255, 255, 255, .3);
   color: #fff;
   font-size: 11px;
   cursor: pointer;
