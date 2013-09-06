@@ -471,6 +471,29 @@ $(window).load(function ()
       TweenMax.to($('#ballots .all li:eq(7)'), .001, {css: {opacity: .6}})
     ])
   );
+
+
+
+/////////////////////////////////
+
+
+  var pinh = 1500;
+  controller.pin($('#page10'), pinh, {
+    anim: (new TimelineMax())
+           .append(TweenMax.to($('#page10').children(':not(header)'), .5, {css: {position: 'relative', top: -($('#page10').height() - $(window).height() + $('#ballots .all').height() + $('#question_marks').height()) - 50}})),
+    onPin: function ()
+    {
+      $('#page10-spacer').hide();
+    },
+    onUnpin: function ()
+    {
+      if ($('#page10').offset().top > $(window).scrollTop())
+      {
+        $('#page10-spacer').show();
+      }
+    }
+  });
+  $('#page10').after('<div id="page10-spacer"></div>').next().height(pinh);
   
   
 
