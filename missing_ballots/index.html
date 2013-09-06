@@ -22,10 +22,15 @@
     </div>
   </div>
 
+
   <div id="sidebar">
 
     <div id="lang_switcher">
         <a href="#">ქართული</a>
+    </div>
+
+    <div id="popup_menu_button">
+      <img src="img/menu_icon.png" alt="menu" title="menu" />
     </div>
   
     <div id="title">
@@ -54,23 +59,39 @@
   </div>
 
 
+  
+  <div id="slide_menu">
+    <ul>
+    </ul>
+  </div>
+
+
+
+  <section id="screen_size">
+    <div>
+      We reccomend you use a larger screen size (minimum of 950 px) to get the best experience with this visualization.
+    </div>
+  </section>
+
 
   <section id="page1">
     <div class="table">
       <div class="cell">
+
         <header><h1>Was Your Vote Counted?</h1></header>
 
         <div id="explanation">
           <p>
-            This visualization explains how ballots go missing during elections in Georgia.
+            This visualization explains how not all votes are counted during elections in Georgia.
           </p>
           <p>
-            To explore the missing ballots story, you will need to <br />
+            To explore the visualization, you will need to <br />
             <span id="scroll">Scroll Down</span> or use the <span id="arrow">Down Arrow Key</span> <br />
             until you get to the end of the story.
           </p>
           <img src="img/scroll_arrow.png" alt="scroll down" />
         </div>
+        
       </div>
     </div>
     <div id="scroll_down" style="display:none;">
@@ -205,19 +226,19 @@
     </div>
   </section>
   
-  
-  
+
+
   <section id="page5a">
-    <div class="row-fluid top">
-      <div class="">
+    <div class="top clearfix">
+      <div>
         <img class="problem1_img" src="img/line_problem1.png" />
         <header><h4 class="problem1">Election Code and Special Polling Stations</h4></header>
       </div>
     </div>
     <div>
       <div id="stations">
-        <span>A special polling station is</span>
-        <div>
+        <div>A special polling station is a facility like</div>
+        <div id="places">
           <div>
             <img src="img/military.png" alt="military base" />
             <span>military base</span>
@@ -231,7 +252,6 @@
             <span>hospital</span>
           </div>
         </div>
-        <span>or other facility</span>
       </div>
     </div>
     <div id="stations-connect">
@@ -258,7 +278,7 @@
       </div>
     </div>
     <div class="bottom">
-      <div id="line1">As a result of the merging of special polling stations into parent polling stations,<br/>The 2012 Majoritarian election has</div>
+      <div id="line1">As a result of the merging of special polling stations into parent polling stations,<br/> the 2012 Majoritarian election has</div>
       <div id="line2"><span>74</span> special polling stations whose voting results</div>
       <div id="line3">cannot be properly verified</div>
     </div>
@@ -402,7 +422,7 @@
             </li>
             <li>
               <div class="circle">
-                In this case, <br /> there are more <br /> ballots signed for than <br /> there are counted <br /> party votes.
+                In this case, <br /> there are more <br /> ballots signed for <br /> than there are <br /> counted party <br /> votes.
               </div>
             </li>
             <li>

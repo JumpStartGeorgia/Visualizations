@@ -13,7 +13,13 @@
       $('#sidebar #menu li')
        .removeClass('active')
        .eq(i).addClass('active');
+
+      $('#slide_menu ul li')
+      .removeClass('active')
+       .eq(i).addClass('active');
+
        break;
+
      }
     }
   }
@@ -102,10 +108,20 @@ $(window).load(function ()
   // fix placements when window resizes
   window.onresize = function()
   {
-    adjust_legend_placement();
-//    window.location.reload();
+//    adjust_legend_placement();
+    window.location.reload();
   }
 
+
+  // if screen size is too small, show message
+  if ($(window).width() < 950){
+    $('#screen_size').show();
+  }
+
+  // popup menu
+  $("#popup_menu_button img").click(function () {
+    $("#slide_menu").animate({width:'toggle'},340);
+  });
 
   /////////////////////////////////////////////////
   
@@ -264,16 +280,16 @@ $(window).load(function ()
 */
 
 
-/////////////////////////////////
 
+/////////////////////////////////////////////////////
 
   var pinh = 3300;
   controller.pin($('#page5a'), pinh, {
     anim: (new TimelineMax())
           .append(TweenMax.fromTo($('#page5a .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page5a #stations').parent(), .5, {css: {position: 'relative', top: 900}}, {css: {top: 0}}))
-          .append(TweenMax.fromTo($('#page5a #stations-connect'), .5, {css:{top: 700}}, {css:{top: -15}}))
-          .append(TweenMax.fromTo($('#page5a #stations-connect .img img:last-of-type, #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page5a #stations-connect'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page5a #stations-connect .img img:last-of-type, #page5a #stations-connect .right'), .5, {css:{top: 700}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page5a .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
     {
@@ -290,7 +306,6 @@ $(window).load(function ()
     }
   });
   $('#page5a').after('<div id="page5a-spacer"></div>').next().height(pinh);
-
 
 
 
@@ -645,6 +660,8 @@ $(window).load(function ()
   for(var i=0;i<menu_text.length;i++){
     css_class = i == 0 ? "class=active" : ""
     $('#sidebar #menu').append('<li original-title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '" ' + css_class + '><div>&nbsp;</div></li>');
+
+    $('#slide_menu ul').append('<li data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '" ' + css_class + '>' + menu_text[i] + '</li>');
   }
 
 	// tipsy tooltips
@@ -677,9 +694,7 @@ $(window).load(function ()
 
 
   // menu click
-  $('#sidebar #menu li').click(function(){
-    //$(this).addClass('active').siblings('.active').removeClass('active');
-//    $('html, body').animate({scrollTop: compute_scroll_top($('section#' + $(this).data('section')).offset().top, $('section#' + $(this).data('section') + ' header').offset().top) });
+  $('#sidebar #menu li, #slide_menu ul li').click(function(){
     $('html, body').animate({scrollTop: compute_scroll_top($(this).data('position'), $(this).data('position'))});
   });
 

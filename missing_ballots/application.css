@@ -27,6 +27,7 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
+  min-width: 950px;
 }
 
 /************************************************/
@@ -54,6 +55,19 @@ body {
   text-decoration: none;
 }
 
+#sidebar #popup_menu_button{
+  text-align: center;
+  margin: 15px auto;
+}
+
+#sidebar #popup_menu_button img{
+  cursor: pointer;
+}
+
+#sidebar #popup_menu_button img:hover{
+  opacity: 0.6;
+}
+
 #sidebar #title {
   color: #fff;
   font-size: 30px;
@@ -67,9 +81,9 @@ body {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 */
 	white-space: nowrap;
-  width: 380px;
-  height: 380px;
   margin-top: 52px;
+  width: 370px;
+  height: 370px;
   margin-left: 32px;
 }
 
@@ -77,7 +91,7 @@ body {
   list-style: none;
   margin-left: 0px;
   position: absolute;
-  top: 55px;
+  top: 90px;
   right: 0;
 }
 #sidebar #menu li {
@@ -126,7 +140,62 @@ body {
 }
 
 
+
+/************************************/
+#slide_menu{
+  background: #4c4c4c;
+  width: 250px;
+  position: fixed;
+  top: 0px;
+  left: 90px;
+  bottom: 0px;
+  z-index: 999999;
+  display: none;
+}
+#slide_menu ul{
+  list-style: none;
+  margin-left: 0px;
+  margin-top: 30px;
+}
+
+#slide_menu ul li {
+  padding: 5px 0;
+  margin: 0 15px;
+  border-bottom: dashed 1px #fff;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+#slide_menu ul li.active {
+  color: #52b2a2;
+}
+#slide_menu ul li:hover {
+  color: #52b2a2;
+}
+
 /**********************************/
+
+
+#screen_size{
+  display: none;
+}
+
+#screen_size div{
+  display: inline-block;
+  text-align: center;
+  color: #4d3534;
+  background-color: #fff;
+  padding: 20px;
+  -webkit-border-radius: 13px;
+     -moz-border-radius: 13px;
+          border-radius: 13px;
+}
+
+
+
+/**********************************/
+
+
 #page1 {
   width: 100%;
   height: 100%;
@@ -302,8 +371,6 @@ body {
     top: 15px;
   }
 }
-
-
 
 
 /**********************************/
@@ -645,7 +712,11 @@ body {
 }
 
 
+
+
 /***********************************/
+
+
 
 #page5a{
   padding-top: 71px;
@@ -656,17 +727,25 @@ body {
         	box-sizing: border-box;
 }
 
-#page5a .problem1 {
+#page5a .top .problem1 {
   margin: 57px 0px 0px 7px;
   padding: 0px;
   float: left;
+}
+
+#page5a .top .problem1, #page6 header h4, #page7 header h4, #page8 .top header h4 span, 
+#page15 .top header h3, #page16 header h3, #page17 .top header h3 span {
   font-family: breeserif_reg;
   font-size: 18px;
   color: #aa1313;
   text-transform: capitalize;
 }
 
-#page5a .problem1_img {
+#page15 .top header h3, #page16 header h3, #page17 .top header h3 span {
+  color: #47a836;
+}
+
+#page5a .top .problem1_img {
   margin-left: 31.5px;
   display: block;
   float: left;
@@ -674,63 +753,40 @@ body {
 
 
 
-
-#page5a #stations {
+#page5a #stations{
+  width: 660px;
   font-family: breeserif_reg;
   font-size: 16px;
   text-align: center;
   margin: 30px auto 0px;
-  display: table;
+  position: relative;
 }
 
-#page5a #stations > span, #page5a #stations > div {
-  display: inline-block;
+#page5a #stations div#places{
+  margin-top: 10px;
 }
-
-#page5a #stations > span {
-  display: inline-block;
-  margin: 0px 0px 0px 25px;
-  width: 200px;
-}
-
-#page5a #stations > div {
-  width: 345px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-#page5a #stations > div div {
-  display: inline-block;
+#page5a #stations div#places > div{
   width: 115px;
   text-align: center;
+  display: inline-block;
 }
 
-#page5a #stations > span:first-child {
-  margin: 0px 25px 0px 0px;
-  text-align: right;
-}
-
-#page5a #stations > span:last-child {
-  text-align: left;
-}
-
-#page5a #stations > div div span {
+#page5a #stations div#places span {
   display: block;
   text-align: center;
   text-transform: capitalize;
   color: #ddc90e;
 }
 
-#page5a #stations > div div:first-of-type span {
+#page5a #stations div#places div:first-of-type span {
   color: #e15e32;
 }
 
-#page5a #stations > div div:last-of-type span {
+#page5a #stations div#places div:last-of-type span {
   color: #aa1313;
 }
 
-#page5a #stations > div div img {
-  display: table;
+#page5a #stations div#places img {
   margin: 0px auto;
   margin-bottom: 13px;
 }
@@ -738,42 +794,34 @@ body {
 
 
 
-#page5a #stations-connect {
+
+#page5a #stations-connect{
+  width: 801px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
-  margin-top: 20px;
 }
 
-#page5a #stations-connect #line1 {
-  position: relative;
-  font-size: 15px;
-  text-align: center;
-  margin: 10px 0;
+#page5a #stations-connect .cont > div{
+  display: inline-block;
+  vertical-align: top;
 }
 
-#page5a #stations-connect .cont {
-  display: table;
-  margin: 0px auto;
-}
-
-#page5a #stations-connect .cont > div {
-  float: left;
-  min-height: 1px;
-}
-
-#page5a #stations-connect .img {
-  text-align: center;
+#page5a #stations-connect .cont .left{
   position: relative;
   width: 265px;
+  padding-top: 25px;
 }
 
-#page5a #stations-connect .img img {
-  width: 100%;
+#page5a #stations-connect .cont .img{
+  text-align: center;
+  width: 265px;
+  position: relative;
 }
 
 #page5a #stations-connect .img img:last-of-type {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  left: 0;
 }
 
 #page5a #stations-connect .img div {
@@ -813,16 +861,12 @@ body {
   right: 0;
 }
 
-#page5a #stations-connect .right {
+#page5a #stations-connect .cont .right{
+  text-align: left;
+  width: 265px;
   position: relative;
-  width: 400px;
   padding-top: 25px;
   left: -8px;
-/*
-	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-        	box-sizing: border-box;
-*/
 }
 
 #page5a #stations-connect .right .top {
@@ -841,26 +885,37 @@ body {
   margin-top: 15px;
 }
 
-#page5a #stations-connect .right .bottom_judge img, #stations-connect .right .bottom_judge span {
+#page5a #stations-connect .right .bottom_judge img, #page5a #stations-connect .right .bottom_judge span {
   display: block;
   float: left;
 }
 
+#page5a #stations-connect .right .bottom_judge img {
+  width: 90px;
+}
 #page5a #stations-connect .right .bottom_judge div {
   width: 100px;
 }
 
 #page5a #stations-connect .right .bottom_judge span {
   text-align: left;
-  width: 180px;
-  padding-left: 12px;
-  padding-top: 63px;
+  width: 161px;
+  padding-left: 10px;
+  padding-top: 53px;
   line-height: 16px;
 }
 
 
-#page5a .bottom {
-  margin-top: 25px;
+
+
+
+
+#page5a .bottom{
+  width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 65px;
+  position: relative;
 }
 
 #page5a .bottom > * {
@@ -869,13 +924,14 @@ body {
 
 #page5a .bottom #line1 {
   font-size: 16px;
-  margin: 10px 0;  
+  margin: 10px 0 0px;
+  line-height: 1.5;
 }
 
 #page5a .bottom #line2 {
   color: #aa1313;
   font-size: 16px;
-  margin: 10px 0;  
+  margin: 0px 0;  
 }
 
 #page5a .bottom #line2 span {
@@ -888,9 +944,6 @@ body {
   margin: 10px 0;  
   line-height: 40px;
 }
-
-
-
 
 
 /*******************************************/
@@ -911,14 +964,12 @@ body {
 
 #page6 header h4 {
   text-align: center;
-  font-family: breeserif_reg;
-  color: #aa1313;
-  font-size: 17px;
-  margin: 0px 60px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 #page6 .middle {
   text-align: center;
+  margin-top: 30px;
 }
 
 #page6 .middle > div {
@@ -974,10 +1025,11 @@ body {
 #page6 .bottom .circle .text span {
   display: block;
   text-align: center;
+  font-size: 15px;
 }
 
 #page6 .bottom .circle .text span:nth-child(2) {
-  font-size: 17px;
+  font-size: 20px;
 }
 
 
@@ -1016,9 +1068,6 @@ body {
 
 #page7 header h4 {
   text-align: center;
-  font-family: breeserif_reg;
-  color: #aa1313;
-  font-size: 17px;
   margin-top: 1px;
 }
 
@@ -1048,7 +1097,7 @@ body {
   display: block;
   float: left;
   list-style: none;
-  color: #77c1b4;
+  color: #53bcbc;
   margin: 0px;
 }
 
@@ -1101,6 +1150,8 @@ body {
   margin: 20px auto 0px;
   color: #4d3534;
   text-align: center;
+  font-size: 16px;
+  line-height: 1;
 }
 
 #protocol2 ul li:nth-child(3) {
@@ -1115,12 +1166,16 @@ body {
   margin: 20px auto 0px;
   color: #4d3534;
   text-align: center;
+  font-size: 16px;
+}
+#protocol2 ul li:nth-child(4) img {
+  margin-bottom: 10px;
 }
 
 #protocol2 ul li:nth-child(5) {
   margin: 50px auto 0px;
   text-align: center;
-  font-size: 21px;
+  font-size: 23px;
 }
 
 
@@ -1140,13 +1195,17 @@ body {
   margin: 20px auto 0px;
   color: #4d3534;
   text-align: center;
+  font-size: 16px;
+}
+#protocol3 ul li:nth-child(2) img {
+  margin-bottom: 10px;
 }
 
 #protocol3 ul li:nth-child(3) {
   margin: 50px auto 0px;
   color: #aa1313;
   text-align: center;
-  font-size: 21px;
+  font-size: 23px;
 }
 
 #protocol3 ul li:nth-child(4) {
@@ -1156,11 +1215,12 @@ body {
 #protocol3 ul li:nth-child(4) .circle {
   width: 208px;
   height: 208px;
+  font-size: 18px;
   margin: 0px auto;
   color: #f7f7f0;
   text-align: center;
   background: #53bcbc;
-  padding: 50px 15px 0px;
+  padding: 46px 15px 0px;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -1223,7 +1283,7 @@ body {
   margin: 50px auto 0px;
   color: #aa1313;
   text-align: center;
-  font-size: 21px;
+  font-size: 23px;
 }
 
 #protocol5 ul li:nth-child(4) {
@@ -1236,6 +1296,7 @@ body {
   margin: 0px auto;
   color: #f7f7f0;
   text-align: center;
+  font-size: 18px;
   background: #53bcbc;
   padding: 50px 15px 0px;
   -webkit-border-radius: 50%;
@@ -1281,7 +1342,9 @@ body {
 #protocol7 ul li:nth-child(1) {
   margin: 475px auto 0px;
   text-align: center;
+  font-size: 21px;
   color: #4d3534;
+  line-height: 1.2;
 }
 
 #protocol7 ul li:nth-child(2) {
@@ -1294,6 +1357,7 @@ body {
   display: inline-block;
   vertical-align: middle;
   color: #f7f7f0;
+  font-size: 18px;
   text-align: center;
   background: #53bcbc;
   padding: 50px 15px 0px;
@@ -1344,9 +1408,6 @@ body {
 #page8 .top header h4 span {
   position: relative;
   top: 11px;
-  font-family: breeserif_reg;
-  color: #aa1313;
-  font-size: 17px;
   vertical-align: bottom;
 }
 
@@ -2386,10 +2447,6 @@ body {
   margin: 47px 0px 0px 4px;
   padding: 0px;
   float: left;
-  font-family: breeserif_reg;
-  color: #47a836;
-  text-transform: capitalize;
-  font-size: 17px;
 }
 
 #page15 .top img {
@@ -2593,9 +2650,6 @@ body {
 
 #page16 header h3 {
   text-align: center;
-  font-family: breeserif_reg;
-  color: #47a836;
-  font-size: 17px;
   margin: 0px 0px 20px 0px;
 }
 
@@ -2711,10 +2765,6 @@ body {
   position: relative;
   top: 20px;
   right: 5px;
-  font-family: breeserif_reg;
-  color: #47a836;
-  font-size: 17px;
-  vertical-align: bottom;
 }
 
 #page17 .top header h3 img {
