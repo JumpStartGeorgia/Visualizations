@@ -691,6 +691,27 @@ $(window).load(function ()
 		opacity: 1.0,
 		className: 'tt-fix'
 	});
+	
+	// social icons
+	$('#sidebar #social_links li a').tipsy({
+		gravity: 'w',
+		opacity: 1.0,
+		className: 'tt-menu'
+	});
+	
+	// popup menu
+	$('#sidebar #popup_menu_button img').tipsy({
+		gravity: 'w',
+		opacity: 1.0,
+		className: 'tt-menu'
+	});
+
+	// logo
+	$('#sidebar #logo a').tipsy({
+		gravity: 'w',
+		opacity: 1.0,
+		className: 'tt-menu'
+	});
 
 
   // menu click

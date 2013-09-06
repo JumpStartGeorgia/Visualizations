@@ -2991,5 +2991,12 @@ body {
 .tt-fix .tipsy-arrow-w { border-right-color: #47A836; }
 
 
+/************************************/
+.tt-menu .tipsy-inner { background-color: #fff; color: #52B2A2; }
 
+/* Rules to colour arrows */
+.tt-menu .tipsy-arrow-n { border-bottom-color: #fff; }
+.tt-menu .tipsy-arrow-s { border-top-color: #fff; }
+.tt-menu .tipsy-arrow-e { border-left-color: #fff; }
+.tt-menu .tipsy-arrow-w { border-right-color: #fff; }
 
