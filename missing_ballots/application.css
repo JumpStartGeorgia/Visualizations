@@ -56,7 +56,7 @@ body {
 
 #sidebar #title {
   color: #fff;
-  font-size: 27px;
+  font-size: 30px;
   font-family: rawengulk_regular;
   text-transform: uppercase;
   -webkit-transform: rotate(-90deg);
@@ -66,10 +66,10 @@ body {
 /*
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 */
-	white-space:nowrap;
+	white-space: nowrap;
   width: 380px;
   height: 380px;
-  margin-top: 10px;
+  margin-top: 52px;
   margin-left: 32px;
 }
 
@@ -150,10 +150,24 @@ body {
 
 #page1 #explanation {
   margin-top: 20px;
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  color: #308272;
+  font-family: museo;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+#page1 #explanation p:first-child {
+  margin-bottom: 0px;
 }
 
 #page1 #explanation p span{
-  font-size: 24px;
+  font-size: 18px;
+  line-height: 1.2;
   color: #fff;
   font-family: rawengulk_regular;
   text-transform: uppercase;
@@ -309,14 +323,14 @@ body {
 
 #page2 .top .numbers {
   color: #fff;
-  font-size: 57px;
+  font-size: 58px;
   margin: 10px 0;
   line-height: 40px;
 }
 
 #page2 .top .number_text {
   color: #fff;
-  font-size: 17.5px;
+  font-size: 19px;
   margin: 10px 0;
 }
 
@@ -336,7 +350,8 @@ body {
   color: #fff;
   font-size: 33px;
   text-transform: uppercase;
-  font-family: rawengulk_bold;
+  font-family: rawengulk_demibold;
+  margin: 0px 10px;
 }
 
 #page2 .middle #line2 {
@@ -357,7 +372,7 @@ body {
   color: #145649;
   font-size: 18px;
   line-height: 40px;
-  margin: 10px 0;
+  margin: 10px 0 0px;
   text-align: center;
 }
 
@@ -374,7 +389,9 @@ body {
 
 #page2 .bottom #line1 div:nth-child(2) {
   color: #fff;
-  font-size: 59px;
+  font-size: 90px;
+  line-height: .51;
+  margin-top: 20px;
 }
 
 #page2 .bottom #line1 div:last-of-type {
@@ -388,7 +405,7 @@ body {
   font-size: 25px;
   padding-left: 0px;
   line-height: 40px;
-  margin: 10px 0;
+  margin: 0px 0;
 }
 
 
@@ -413,7 +430,7 @@ body {
 #page3 .caret {
   width: 0px;
   height: 0px;
-  margin: 0px auto 200px;
+  margin: 0px auto 3px;
   border: solid transparent;
   border-width: 60px 85px 0px;
   border-top-color: #52b2a2;
@@ -438,6 +455,8 @@ body {
   font-size: 20px;
   text-align: center;
   text-transform: capitalize;
+  margin-bottom: 0px;
+  margin-top: 50px;
 }
 
 #ballots .allc, #question_marks, #page5a .top > div, #page7 .problem3_img, #page8 > .top > div, #line_fix, #page15 .top > div, #page17 .top > div {
@@ -481,7 +500,7 @@ body {
 
 
 #ballots .list {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 #ballots .list ul {
@@ -580,7 +599,7 @@ body {
 
 #page5 header h3 {
   text-align: center;
-  font-family: rawengulk_bold;
+  font-family: rawengulk_demibold;
   color: #aa1313;
   font-size: 30px;
   margin-bottom: 25px;
@@ -642,6 +661,7 @@ body {
   padding: 0px;
   float: left;
   font-family: breeserif_reg;
+  font-size: 18px;
   color: #aa1313;
   text-transform: capitalize;
 }
@@ -657,7 +677,7 @@ body {
 
 #page5a #stations {
   font-family: breeserif_reg;
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
   margin: 30px auto 0px;
   display: table;
@@ -780,7 +800,7 @@ body {
 }
 
 #page5a #stations-connect .left > div {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.2;
   border: 1px dashed #4D3534;
   color: #4D3534;
@@ -806,7 +826,7 @@ body {
 }
 
 #page5a #stations-connect .right .top {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.2;
   border: 1px dashed #77c1b4;
   color: #77c1b4;
@@ -848,23 +868,23 @@ body {
 }
 
 #page5a .bottom #line1 {
-  font-size: 17.5px;
+  font-size: 16px;
   margin: 10px 0;  
 }
 
 #page5a .bottom #line2 {
   color: #aa1313;
-  font-size: 17.5px;
+  font-size: 16px;
   margin: 10px 0;  
 }
 
 #page5a .bottom #line2 span {
-  font-size: 32px;
+  font-size: 44px;
 }
 
 #page5a .bottom #line3 {
   color: #aa1313;
-  font-size: 31.5px;
+  font-size: 36px;
   margin: 10px 0;  
   line-height: 40px;
 }
