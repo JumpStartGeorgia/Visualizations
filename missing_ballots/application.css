@@ -139,7 +139,23 @@ body {
   bottom: 10px;
 }
 
+@media (max-height: 685px) {
+  #sidebar #popup_menu_button{
+    margin: 5px auto;
+  }
 
+  #sidebar #menu{
+    top: 75px;
+  }
+
+  #sidebar #social_links{
+    margin-left: 4px;
+  }
+  #sidebar #social_links li{
+    display: inline-block;
+  }
+
+}
 
 /************************************/
 #slide_menu{
