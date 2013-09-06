@@ -115,8 +115,16 @@ $(window).load(function ()
 
   // if screen size is too small, show message
   if ($(window).width() < 950){
-    $('#screen_size').show();
+    $.fancybox({
+		  fitToView	: true,
+		  autoSize	: true,
+		  href: '#screen_size'
+	  });
+	    
+//    $('#screen_size').show();
   }
+
+
 
   // popup menu
   $("#popup_menu_button img").click(function () {
@@ -690,6 +698,27 @@ $(window).load(function ()
 		gravity: 'n',
 		opacity: 1.0,
 		className: 'tt-fix'
+	});
+	
+	// social icons
+	$('#sidebar #social_links li a').tipsy({
+		gravity: 'w',
+		opacity: 1.0,
+		className: 'tt-menu'
+	});
+	
+	// popup menu
+	$('#sidebar #popup_menu_button img').tipsy({
+		gravity: 'w',
+		opacity: 1.0,
+		className: 'tt-menu'
+	});
+
+	// logo
+	$('#sidebar #logo a').tipsy({
+		gravity: 'w',
+		opacity: 1.0,
+		className: 'tt-menu'
 	});
 
 

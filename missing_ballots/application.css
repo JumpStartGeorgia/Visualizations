@@ -139,7 +139,23 @@ body {
   bottom: 10px;
 }
 
+@media (max-height: 685px) {
+  #sidebar #popup_menu_button{
+    margin: 5px auto;
+  }
 
+  #sidebar #menu{
+    top: 75px;
+  }
+
+  #sidebar #social_links{
+    margin-left: 4px;
+  }
+  #sidebar #social_links li{
+    display: inline-block;
+  }
+
+}
 
 /************************************/
 #slide_menu{
@@ -181,14 +197,11 @@ body {
 }
 
 #screen_size div{
-  display: inline-block;
   text-align: center;
   color: #4d3534;
-  background-color: #fff;
   padding: 20px;
-  -webkit-border-radius: 13px;
-     -moz-border-radius: 13px;
-          border-radius: 13px;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 
@@ -3082,5 +3095,12 @@ body {
 .tt-fix .tipsy-arrow-w { border-right-color: #47A836; }
 
 
+/************************************/
+.tt-menu .tipsy-inner { background-color: #fff; color: #52B2A2; }
 
+/* Rules to colour arrows */
+.tt-menu .tipsy-arrow-n { border-bottom-color: #fff; }
+.tt-menu .tipsy-arrow-s { border-top-color: #fff; }
+.tt-menu .tipsy-arrow-e { border-left-color: #fff; }
+.tt-menu .tipsy-arrow-w { border-right-color: #fff; }
 
