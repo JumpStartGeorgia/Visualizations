@@ -2878,33 +2878,40 @@ body {
   text-decoration: none;
 }
 
-#page18 #by_js{
+
+#by_js {
   font-family: rawengulk_regular;
-  color: #fff;
   text-align: center;
   position: relative;
   margin-top: 100px;
+  min-height: 100%;
+  padding-top: 400px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
-#page18 #by_js > div:nth-child(1){
+#by_js > div:nth-child(1){
   font-size: 20px;
   margin-bottom: 10px;
 }
-#page18 #by_js > div:nth-child(2){
+#by_js > div:nth-child(2){
   margin-bottom: 10px;
 }
-#page18 #by_js > div:nth-child(3){
+#by_js > div:nth-child(3){
   font-size: 18px;
   font-style:italic;
   margin-bottom: 5px;
 }
-#page18 #by_js > div:nth-child(4){
+#by_js > div:nth-child(4){
   font-size: 17px;
 }
-#page18 #by_js > div:nth-child(4) a{
+#by_js > div:nth-child(4) a{
   text-decoration: none;
   margin-left: 10px;
+  background-color: rgba(0, 0, 0, .1);
+  display: inline-block;
 }
-#page18 #by_js > div:nth-child(4) a:hover{
+#by_js > div:nth-child(4) a:hover{
   opacity: 0.6;
 }
 
