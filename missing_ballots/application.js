@@ -528,7 +528,7 @@ $(window).load(function ()
           .append(TweenMax.fromTo($('#page15 .bottom #circles'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append([
             TweenMax.to($('#page15 .bottom #circles .right .circle #text1'), .01, {css: {display: 'none'}}),
-            TweenMax.to($('#page15 .bottom #circles .right .circle'), .5, {css: {fontSize: '36px', lineHeight: '38px', padding: "48px 10px", backgroundColor: "#e15e32", width: '208px', height: '208px'}}),
+            TweenMax.to($('#page15 .bottom #circles .right .circle'), .5, {css: {fontSize: '29px', lineHeight: '38px', padding: "48px 10px", backgroundColor: "#e15e32", width: '208px', height: '208px'}}),
             TweenMax.to($('#page15 .bottom #circles .right'), .5, {css: {paddingTop: 0}})
           ])
           .append(TweenMax.to($('#page15 .bottom #circles .right .circle #text2'), .01, {css: {display: 'inline'}})),
@@ -615,8 +615,8 @@ $(window).load(function ()
 
 //////////////////////////////////////
 
-  controller.addTween($('#page18'), TweenMax.fromTo($('#ballots .all'), .1, {css: {top: 0}}, {css: {top: '-=100', display: 'none'}}), 100, -300);
-  controller.addTween($('#page18'), TweenMax.to($('#line_fix').parent().add($('#question_marks').parent()), .1, {css: {top: '-=100', display: 'none'}}), 100, -300);
+  controller.addTween($('#page18'), TweenMax.fromTo($('#ballots .all'), .1, {css: {top: 0}}, {css: {top: '-=100', display: 'none'}}), 100, -200);
+  controller.addTween($('#page18'), TweenMax.to($('#line_fix').parent().add($('#question_marks').parent()), .1, {css: {top: '-=100', display: 'none'}}), 100, -200);
 
 //////////////////////////////////////
 

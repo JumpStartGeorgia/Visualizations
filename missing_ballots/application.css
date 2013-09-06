@@ -224,7 +224,7 @@ body {
   left: 0px;
   right: 0px;
   text-align: center;
-  color: #308272;
+  color: #1a594d;
   font-family: museo;
   font-weight: normal;
   font-size: 12px;
@@ -1420,7 +1420,7 @@ body {
 }
 
 #page8  .subtitle {
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
   margin-top: 70px;
 }
@@ -1428,6 +1428,21 @@ body {
 #page8  .img {
   text-align: center;
   margin-top: 30px;
+}
+
+#page8  .img > div {
+  display: block;
+  border-bottom: 1px solid #4d3534;
+  width: 737px;
+  line-height: 33px;
+  height: 33px;
+  font-size: 16px;
+  margin: 0px auto;  
+  color: #4d3534;
+  background: #b5ce91;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
 #page8  .img > span {
@@ -1451,19 +1466,21 @@ body {
 #page8  .bottom-text p:first-child {
   text-align: center;
   color: #aa1313;
-  font-size: 35px;
+  font-size: 40px;
   line-height: 1.2;
 }
 
 #page8  .bottom-text p:nth-child(2) {
   text-align: center;
   margin-bottom: 0px;
+  font-size: 16px;
 }
 
 #page8  .bottom-text p:last-child {
   text-transform: uppercase;
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
+
 }
 
 .spreadsheet {
@@ -1525,6 +1542,7 @@ body {
   position: absolute;
   top: 0px;
   left: -19px;
+  font-size: 12px;
 }
 
 .spreadsheet .bottom > .right li .right-border {
@@ -1625,16 +1643,18 @@ body {
 }
 
 .spreadsheet .spreadsheet-bottom-text{
-/*  background-color: #eae7e7;*/
-  padding: 10px;
+  background-color: #eae7e7;
+  padding: 20px 0px 10px;
   position: relative;
-  margin-top: 20px;
+  margin-top: 0px;
+  border-top: 1px solid #4d3534;
 }
 
 .spreadsheet .spreadsheet-bottom-text .mistakes-header{
   font-size: 28px;
   color: #4d3534;
   text-align: center;
+  line-height: 1.2;
 }
 
 .spreadsheet .spreadsheet-bottom-text ul {
@@ -1650,7 +1670,7 @@ body {
   margin-left: -.65em
 }
 .spreadsheet .spreadsheet-bottom-text .footer{
-  color: #8ea565;
+  color: #859354;
   font-size: 17px;
   margin-top: 15px;
   margin-left: 25px;
@@ -1663,6 +1683,9 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
+}
+
+#page8a {
 }
 
 #page8c {
@@ -1693,7 +1716,7 @@ body {
   color: #aa1313;
   text-transform: uppercase;
   padding: 400px 0px 100px 0px;
-  font-size: 48px;
+  font-size: 40px;
   font-family: breeserif_reg;
   margin: 0px;
   line-height: 65px;
@@ -1720,7 +1743,7 @@ body {
 #page10 header h3 {
   font-family: breeserif_reg;
   color: #aa1313;
-  font-size: 17px;
+  font-size: 18px;
   margin: 0px;
 }
 
@@ -1791,12 +1814,12 @@ body {
 }
 #page10 #country_stats > div:nth-child(1) #line1 {
   font-family: rawengulk_regular;
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 50px;
+  line-height: 1;
   color: #cc3737;
 }
 #page10 #country_stats > div:nth-child(1) #line2 {
-  font-size: 17px;
+  font-size: 20px;
 }
 #page10 #country_stats > div:nth-child(2) {
   text-align: center;
@@ -1820,12 +1843,25 @@ body {
 #page10 #country_stats > div:nth-child(2) > div #line1,
 #page10 #country_stats > div:nth-child(2) > div #line2 {
   font-family: rawengulk_regular;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 20px;
   color: #cc3737;
 }
-#page10 #country_stats > div:nth-child(2) > div #line3{
-  margin-top: 5px;
+#page10 #country_stats > div:nth-child(2) > div #line3,
+#page11 #country_stats > div:nth-child(2) > div #line3 {
+  margin-top: 15px;
+}
+
+#page10 #country_stats > div:nth-child(2) > div #line3,
+#page10 #country_stats > div:nth-child(2) > div #line4,
+#page10 #country_stats > div:nth-child(2) > div #line5,
+#page10 #country_stats > div:nth-child(1) #line3,
+#page10 #country_stats > div:nth-child(1) #line4,
+#page11 #country_stats > div:nth-child(2) > div #line3,
+#page11 #country_stats > div:nth-child(2) > div #line4,
+#page11 #country_stats > div:nth-child(1) #line3,
+#page11 #country_stats > div:nth-child(1) #line4 {
+  line-height: 1.2;
 }
 
 
@@ -1833,7 +1869,7 @@ body {
 
 #page10 #district_amount_text{
   margin: 50px 0 5px;
-  font-size: 17px;
+  font-size: 20px;
 }
 #page10 #district_amount > div {
   text-align: center;
@@ -1848,9 +1884,9 @@ body {
 #page10 #district_amount > div > div {
   background: #ddd7ce;
   text-align: center;
-  width: 115px;
-  height: 115px;
-  padding: 24px 17px;
+  width: 122px;
+  height: 122px;
+  padding: 15px 17px;
   margin: 0 auto;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
@@ -1862,13 +1898,13 @@ body {
 
 #page10 #district_amount > div > div #line1 {
   font-family: rawengulk_regular;
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 60px;
+  line-height: 1;
   color: #cc3737;
 }
 
 #page10 #district_amount > div > div #line2 {
-  font-size: 17px;
+  font-size: 18px;
   color: #cc3737;
 }
 
@@ -1876,7 +1912,7 @@ body {
 
 #page10 #district_percent_text{
   margin: 50px 0 5px;
-  font-size: 17px;
+  font-size: 20px;
 }
 #page10 #district_percent > div {
   text-align: center;
@@ -1900,7 +1936,7 @@ body {
 }
 
 #page10 #district_percent > div #line2 {
-  font-size: 17px;
+  font-size: 16px;
   color: #cc3737;
 }
 
@@ -2020,7 +2056,7 @@ body {
   text-align: center;
   width: 188px;
   height: 188px;
-  padding: 45px 17px 30px;
+  padding: 36px 17px 30px;
   margin: 0 auto;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
@@ -2033,12 +2069,12 @@ body {
 #page11 #country_stats > div:nth-child(2) > div #line1,
 #page11 #country_stats > div:nth-child(2) > div #line2 {
   font-family: rawengulk_regular;
-  font-size: 18px;
-  line-height: 20px;
+  font-size: 30px;
+  line-height: 1;
   color: #cc3737;
 }
 #page11 #country_stats > div:nth-child(2) > div #line3{
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 #page11 #country_stats_footnote{
@@ -2050,7 +2086,7 @@ body {
 
 #page11 #district_amount_text{
   margin: 50px 0 5px;
-  font-size: 17px;
+  font-size: 20px;
 }
 #page11 #district_amount > div {
   text-align: center;
@@ -2065,9 +2101,9 @@ body {
 #page11 #district_amount > div > div {
   background: #ddd7ce;
   text-align: center;
-  width: 115px;
-  height: 115px;
-  padding: 24px 10px;
+  width: 122px;
+  height: 122px;
+  padding: 22px 10px;
   margin: 0 auto;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
@@ -2079,13 +2115,13 @@ body {
 
 #page11 #district_amount > div > div #line1 {
   font-family: rawengulk_regular;
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 54px;
+  line-height: 1;
   color: #cc3737;
 }
 
 #page11 #district_amount > div > div #line2 {
-  font-size: 17px;
+  font-size: 16px;
   color: #cc3737;
 }
 
@@ -2093,12 +2129,12 @@ body {
 
 #page11 #district_percent_text{
   margin: 50px 0 5px;
-  font-size: 17px;
+  font-size: 20px;
 }
 #page11 #district_percent > div {
   text-align: center;
   height: 153px;
-  padding: 40px 15px;
+  padding: 48px 15px;
   width: 155px;
   display: inline-block;
   vertical-align: middle;
@@ -2110,13 +2146,13 @@ body {
 
 #page11 #district_percent > div #line1 {
   font-family: rawengulk_regular;
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 40px;
+  line-height: 1;
   color: #cc3737;
 }
 
 #page11 #district_percent > div #line2 {
-  font-size: 17px;
+  font-size: 16px;
   color: #cc3737;
 }
 
@@ -2156,11 +2192,16 @@ body {
 }
 
 #page12 #intro {
-  margin: 30px 0 10px;
+  margin: 30px 0 0px;
+  line-height: 1;
+}
+
+#page12 #country_stats [id*="line"]:not(#line1) {
+  line-height: 1.2;
 }
 
 #page12 #map_text {
-  margin: 10px 0;
+  margin: 0px 0 10px;
 }
 
 #page12 #map {
@@ -2184,22 +2225,24 @@ body {
 
 #page12 #map #legend {
   position: absolute;
-  top: 135px;
-  left: 67px;
+  top: 105px;
+  left: 88px;
   right: 0px;
   width: auto;
 }
 #page12 #map #legend ul{
   list-style-type: none;
   text-align: left;
+  font-size: 12px;
 }
 
 #page12 #map #legend ul li > div{
   display: inline-block;
-  width: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 5px;
   margin-bottom: 5px;
-  font-size: 13px;
+  font-size: 0px;
 }
 #page12 #map #legend ul li:nth-child(1) > div{
   background-color: #BBD5BA;
@@ -2243,8 +2286,8 @@ body {
 }
 #page12 #country_stats > div #line1 {
   font-family: rawengulk_regular;
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 54px;
+  line-height: 1;
   color: #cc3737;
 }
 #page12 #country_stats > div #line4 span, #page12 #country_stats > div #line5 {
@@ -2288,7 +2331,7 @@ body {
 
 #page12 .polling_station_stats .connector {
   position: absolute;
-  left: 62px;
+  left: 68px;
   top: 6px;
   width: 331px;
   height: 3px;
@@ -2298,9 +2341,9 @@ body {
 #page12 .polling_station_stats > div > div {
   background: #ddd7ce;
   text-align: center;
-  width: 115px;
-  height: 115px;
-  padding: 24px 10px;
+  width: 122px;
+  height: 122px;
+  padding: 30px 10px;
   margin: 0 auto;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
@@ -2337,24 +2380,25 @@ body {
 }
 
 #page13 header h2 {
-  font-size: 27px;
+  font-size: 24px;
   font-family: rawengulk_regular;
   margin-bottom: 25px;
   line-height: 35px;
+  color: #141414;
 }
 
 #page13 #line2 {
   font-size: 30px;
   line-height: 30px;
-  font-weight: bold;
   margin-bottom: 50px;
+  color: #141414;
   position: relative;
   top: 1000px;
 }
 
 #page13 #line3 {
   color: #aa1313;
-  font-size: 48px;
+  font-size: 40px;
   font-family: rawengulk_regular;
   line-height: 55px;
   position: relative;
@@ -2378,10 +2422,10 @@ body {
 
 #page14 header h2 {
   color: #47a836;
-  font-size: 38px;
+  font-size: 30px;
   font-family: rawengulk_regular;
   margin-bottom: 25px;
-  line-height: 50px;
+  line-height: 1;
   text-transform: uppercase;
 }
 
@@ -2464,7 +2508,7 @@ body {
   position: relative;
   text-align: center;
   margin-bottom: 15px;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 #page15 .middle > #circles {
@@ -2489,7 +2533,7 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  padding: 54px 10px;
+  padding: 47px 10px;
   margin: 0 auto;
 }
 
@@ -2510,9 +2554,9 @@ body {
   text-transform: uppercase;
   text-align: center;
   color: #fff;
-  font-size: 36px;
+  font-size: 29px;
   line-height: 38px;
-  font-family: rawengulk_regular;
+  font-family: rawengulk_demibold;
 }
 #page15 .middle .right {
   height: 151px;
@@ -2534,7 +2578,7 @@ body {
         	box-sizing: border-box;
   padding: 20px 10px;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 15px;
   font-family: rawengulk_regular;
 }
 
@@ -2546,8 +2590,8 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
-/*  margin-top: 25px;*/
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 40px;
 }
 
 
@@ -2588,15 +2632,15 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  padding: 48px 10px;
+  padding: 44px 10px;
   margin: 0 auto;
-  font-size: 36px;
+  font-size: 29px;
   line-height: 38px;
-  font-family: rawengulk_regular;
+  font-family: rawengulk_demibold;
 }
 #page15 .bottom .left .circle span{
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 19px;
+  line-height: 1;
 }
 #page15 .bottom .right {
   height: 151px;
@@ -2617,15 +2661,16 @@ body {
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
   padding: 20px 10px;
+  line-height: 1;
   margin: 0 auto;
-  font-size: 18px;
-  font-family: rawengulk_regular;
+  font-size: 15px;
+  font-family: rawengulk_demibold;
 }
 
 #page15 .bottom .right .circle #text2{
   display: none;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 19px;
+  line-height: 1;
 }
 
 /*******************************************/
@@ -2655,7 +2700,7 @@ body {
 
 
 #page16 .middle {
-/*  margin-bottom: 50px;*/
+  margin-bottom: 30px;
   text-align: center;
   font-size: 16px;
   position: relative;
@@ -2699,10 +2744,18 @@ body {
 
 #page16 .bottom2 > div{
   display: inline-block;
-  width: 208px;
   margin-right: 10px;
   text-align: center;
   position: relative;
+}
+
+#page16 .bottom2 > div .bottom_text {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+#page16 .bottom2 > div .bottom_text span {
+  color: #47a836;
 }
 
 #page16 .bottom2 .left {
@@ -2712,7 +2765,7 @@ body {
 
 #page16 .bottom2 .middle #eq_header {
   position: relative;
-  font-size: 17px;
+  font-size: 14px;
   margin-bottom: 20px;
   margin-top: 15px;
 }
@@ -2731,6 +2784,14 @@ body {
   padding: 57px 10px;
   margin: 0 auto;
   font-size: 14px;
+  line-height: 1;
+}
+#page16 .bottom2 .middle #eq_circle span {
+  font-size: 16px;
+  color: #236814;
+  display: block;
+  margin-bottom: 20px;
+  line-height: 1;
 }
 #page16 .bottom2 .right {
   font-size: 16px;
@@ -2791,15 +2852,16 @@ body {
 }
 #page17 .middle #text{
   position: relative;
+  margin-bottom: 40px;
 }
 #page17 .middle #eq_header {
   position: relative;
   text-align: center;
   font-size: 17px;
-  margin-bottom: 20px;
   margin-top: 15px;
 }
 #page17 .middle #eq_circle {
+  margin-top: 20px;
   position: relative;
   text-align: center;
   background: #47a836;
@@ -2815,7 +2877,16 @@ body {
   padding: 57px 10px;
   margin: 0 auto;
   font-size: 14px;
+  line-height: 1;
 }
+#page17 .middle #eq_circle span {
+  font-size: 16px;
+  color: #236814;
+  display: block;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+#page16 .bottom2 
 #page17 .bottom {
   position: relative;
   font-size: 16px;
@@ -2849,6 +2920,10 @@ body {
   display: block;
 }
 
+#page18 header {
+  margin-top: 100px;
+}
+
 #page18 header h2 {
   font-size: 36px;
   font-family: rawengulk_regular;
@@ -2866,7 +2941,7 @@ body {
 }
 
 #page18 #line3 {
-  font-size: 33px;
+  font-size: 30px;
   font-family: rawengulk_regular;
   line-height: 40px;
   text-transform: uppercase;
@@ -2875,7 +2950,7 @@ body {
 }
 
 #page18 #line4 {
-  font-size: 56px;
+  font-size: 50px;
   font-family: rawengulk_regular;
   line-height: 56px;
   text-transform: uppercase;
@@ -2884,12 +2959,13 @@ body {
 }
 
 #page18 #sources{
-  color: #ddd7ce;
+  color: #1a594d;
   font-size: 13px;
   position: absolute;
   bottom: 1px;
   right: 11px;
   text-align: right;
+  font-family: museo;
 }
 #page18 #sources > div{
   display: inline-block;
