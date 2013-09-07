@@ -1769,10 +1769,7 @@ body {
         	box-sizing: border-box;
 }
 
-#page10 header {
-  right: 0px;
-  top: 70px;
-  left: 90px;
+#page10 header, #page11 header, #page12 header {
   z-index: 900;
   background: #f7f7f0;
 }
@@ -1831,10 +1828,8 @@ body {
 }
 
 
-#page10 #country_stats {
-  top: 110px;
-  left: 90px;
-  right: 0px;
+#country_stats {
+  background: #f7f7f0;
 }
 
 #page10 #country_stats > div {
