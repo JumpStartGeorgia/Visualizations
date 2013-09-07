@@ -742,7 +742,7 @@ body {
 }
 
 #page5a .top .problem1 {
-  margin: 57px 0px 0px 7px;
+  margin: 11px 0px 0px 7px;
   padding: 0px;
   float: left;
 }
@@ -760,7 +760,7 @@ body {
 }
 
 #page5a .top .problem1_img {
-  margin-left: 31.5px;
+  margin-left: 31px;
   display: block;
   float: left;
 }
@@ -973,7 +973,7 @@ body {
 
 #page6 .problem2_img {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 #page6 header h4 {
@@ -1073,7 +1073,7 @@ body {
 
 #page7 .problem3_img {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
 
 #page7 .problem3_img img {
@@ -2508,13 +2508,13 @@ body {
 }
 
 #page15 .top header h3 {
-  margin: 47px 0px 0px 4px;
+  margin: 1px 0px 0px 4px;
   padding: 0px;
   float: left;
 }
 
 #page15 .top img {
-  margin-left: 5.5555%;
+  margin-left: 5.3%;
   display: block;
   float: left;
 }
@@ -2716,6 +2716,7 @@ body {
 #page16 header h3 {
   text-align: center;
   margin: 0px 0px 20px 0px;
+  line-height: 1.5;
 }
 
 
@@ -2844,12 +2845,12 @@ body {
 
 #page17 .top header h3 span {
   position: relative;
-  top: 20px;
+  top: -1px;
   right: 5px;
 }
 
 #page17 .top header h3 img {
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 #page17 .after{
@@ -2906,7 +2907,7 @@ body {
   margin-bottom: 20px;
   line-height: 1;
 }
-#page16 .bottom2 
+#page16 .bottom2, 
 #page17 .bottom {
   position: relative;
   font-size: 16px;
