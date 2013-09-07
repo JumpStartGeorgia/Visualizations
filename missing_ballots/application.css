@@ -1259,12 +1259,6 @@ body {
   background: #53bcbc;
 }
 
-#protocol3 ul li.mistakes .text {
-  border: 1px dashed #77c1b4;
-  text-align: center;
-  padding: 10px 5px;
-  margin-top: 48px;
-}
 #protocol3 ul li.mistakes .text .header{
   color: #4d3534;
 }
@@ -1276,6 +1270,18 @@ body {
 }
 
 
+
+#page7 #protocol3, #page7 #protocol5 {
+  position: relative;
+}
+
+#page7 #protocol3 ul, #page7 #protocol5 ul {
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  
+}
 
 #protocol5 ul li:nth-child(1) {
   width: 210px;
@@ -1327,17 +1333,25 @@ body {
   font-size: 17px;
 }
 
+#protocol3 ul li.mistakes,
 #protocol5 ul li.mistakes {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
   background: #53bcbc;
-  width: 210px;
+  width: 100%;
   margin: 7px auto 0px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
 
+#protocol3 ul li.mistakes .text,
 #protocol5 ul li.mistakes .text {
-  border: 1px dashed #77c1b4;
+  border: 1px dashed #E8E8DA;
   text-align: center;
   padding: 10px 5px;
-  margin-top: 42px;
 }
 #protocol5 ul li.mistakes .text .header{
   color: #4d3534;
@@ -1348,6 +1362,7 @@ body {
 #protocol5 ul li.mistakes .text .number{
   color: #AA1313;
 }
+
 
 
 
