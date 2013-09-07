@@ -3051,7 +3051,6 @@ body {
 #by_js > div:nth-child(4) a{
   text-decoration: none;
   margin-left: 10px;
-  background-color: rgba(0, 0, 0, .1);
   display: inline-block;
 }
 #by_js > div:nth-child(4) a:hover{
