@@ -476,8 +476,22 @@ $(window).load(function ()
 
 /////////////////////////////////
 
-
-  var pinh = 1500;
+  //controller.addTween($('#page10'), TweenMax.to($('#page10 header'), .5, {css: {position: 'fixed'}}));
+  controller.pin($('#page10 header'), 5e5, {
+    offset: -70,
+    pushFollowers: false
+  });
+  //controller.addTween($('#page10 .country_stats_position'), TweenMax.to($('#page10 #country_stats'), .5, {css: {position: 'fixed'}}), 0, -200);
+  controller.pin($('#page10 #country_stats'), 2000, {
+    offset: -110,
+    anim: (new TimelineMax())
+      .append(TweenMax.fromTo($('#page10 #district_amount_text, #page10 #district_amount'), .5, {css: {position: 'relative', top: 800}}, {css: {top: 0}}))
+      .append(TweenMax.fromTo($('#page10 #district_percent_text, #page10 #district_percent'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+      //.append(TweenMax.to($('#page10 header'), .5, {ease: Linear.easeNone, css: {top: -50}}))
+  });
+  
+/*
+  var pinh = 900;
   controller.pin($('#page10'), pinh, {
     anim: (new TimelineMax())
            .append(TweenMax.to($('#page10').children(':not(header)'), .5, {css: {position: 'relative', top: -($('#page10').height() - $(window).height() + $('#ballots .all').height() + $('#question_marks').height()) - 50}})),
@@ -494,8 +508,7 @@ $(window).load(function ()
     }
   });
   $('#page10').after('<div id="page10-spacer"></div>').next().height(pinh);
-  
-  
+*/
 
 /////////////////////////////////
 

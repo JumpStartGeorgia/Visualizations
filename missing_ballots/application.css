@@ -1770,7 +1770,9 @@ body {
 }
 
 #page10 header {
-  position: relative;
+  right: 0px;
+  top: 70px;
+  left: 90px;
   z-index: 900;
   background: #f7f7f0;
 }
@@ -1829,6 +1831,11 @@ body {
 }
 
 
+#page10 #country_stats {
+  top: 110px;
+  left: 90px;
+  right: 0px;
+}
 
 #page10 #country_stats > div {
   text-align: center;
