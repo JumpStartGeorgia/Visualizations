@@ -22,8 +22,8 @@ h1, h2, h3, h4, h5 {
 body {
   background: #f7f7f0;
   padding-left: 90px;
+  font-family: bpgns;
   color: #4d3534;
-  font-family: breeserif_reg;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -71,7 +71,7 @@ body {
 #sidebar #title {
   color: #fff;
   font-size: 30px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   text-transform: uppercase;
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
@@ -167,7 +167,7 @@ body {
   bottom: 0px;
   z-index: 999999;
   display: none;
-  font-family: museo;
+  /*font-family: museo;*/
 }
 #slide_menu ul{
   list-style: none;
@@ -224,7 +224,7 @@ body {
 
 #page1 header h1 {
   text-transform: uppercase;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   color: #fff;
   font-weight: normal; 
   font-size: 40px;
@@ -239,7 +239,7 @@ body {
   right: 0px;
   text-align: center;
   color: #1a594d;
-  font-family: museo;
+  /*font-family: museo;*/
   font-weight: normal;
   font-size: 12px;
 }
@@ -252,7 +252,7 @@ body {
   font-size: 18px;
   line-height: 1.2;
   color: #fff;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   text-transform: uppercase;
 }
 #page1 #explanation p span#scroll{
@@ -272,7 +272,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   font-size: 12px;
   color: #fff;
   border: 1px solid #fff;
@@ -394,7 +394,6 @@ body {
   height: 100%;
   background: #52b2a2;
   text-align: center;
-  font-family: breeserif_reg;
 }
 
 
@@ -405,19 +404,24 @@ body {
 #page2 .top .numbers {
   color: #fff;
   font-size: 58px;
-  margin: 10px 0;
-  line-height: 40px;
+  margin: 10px 0 0px;
+  line-height: 1;
+  font-family: breeserif_reg;
 }
 
 #page2 .top .number_text {
   color: #fff;
   font-size: 19px;
-  margin: 10px 0;
+  margin: -5px 0 10px;
 }
 
 #page2 .top img {
   display: table;
   margin: 0px auto;
+}
+
+#page2 .middle {
+  position: relative;
 }
 
 #page2 .middle #line1 {
@@ -431,7 +435,7 @@ body {
   color: #fff;
   font-size: 33px;
   text-transform: uppercase;
-  font-family: rawengulk_demibold;
+  font-family: bpg_dejavu;/*demibold*/
   margin: 0px 10px;
 }
 
@@ -439,7 +443,15 @@ body {
   color: #145649;
   font-size: 25px;
   line-height: 40px;
-  margin: 10px 0;
+  margin: 0;
+  position: absolute;
+  top: -77%;
+  left: 0px;
+  right: 0px;
+}
+
+#page2 .middle #line2 span {
+  font-family: breeserif_reg;
 }
 
 #page2 .bottom {
@@ -458,27 +470,23 @@ body {
 }
 
 #page2 .bottom #line1 div {
-  display: inline-block;
+  display: block;
   margin: 0px 0px 0px 5px;
 }
 
 #page2 .bottom #line1 div:first-child {
-  width: 200px;
-  text-align: right;
-  margin-left: 0px;
+  color: #fff;
+  font-size: 47px;
+  line-height: 1.3;
+  margin-top: 20px;
 }
 
 #page2 .bottom #line1 div:nth-child(2) {
   color: #fff;
   font-size: 90px;
-  line-height: .51;
+  line-height: 1;
+  font-family: breeserif_reg;
   margin-top: 20px;
-}
-
-#page2 .bottom #line1 div:last-of-type {
-  width: 200px;
-  text-align: left;
-  font-size: 18px;
 }
 
 #page2 .bottom #line2 {
@@ -500,7 +508,7 @@ body {
   padding: 400px 0px 20px 0px;
   color: #fff;
   font-size: 48px;
-  font-family: breeserif_reg;
+  font-family: bpg_dejavu;
   text-transform: uppercase;
   background: #52b2a2;
   margin: 0px;
@@ -680,7 +688,7 @@ body {
 
 #page5 header h3 {
   text-align: center;
-  font-family: rawengulk_demibold;
+  font-family: bpg_dejavu;/*demibold*/
   color: #aa1313;
   font-size: 30px;
   margin-bottom: 25px;
@@ -741,10 +749,14 @@ body {
         	box-sizing: border-box;
 }
 
-#page5a .top .problem1 {
+#page5a header {
   margin: 11px 0px 0px 7px;
   padding: 0px;
   float: left;
+}
+
+#page5a .top .problem1 {
+  margin: 0px;
 }
 
 #page5a .top .problem1, #page6 header h4, #page7 header h4, #page8 .top header h4 span, 
@@ -783,6 +795,10 @@ body {
   width: 115px;
   text-align: center;
   display: inline-block;
+}
+
+#page5a #stations div#places + div{
+  margin: 10px 0px;
 }
 
 #page5a #stations div#places span {
@@ -950,6 +966,8 @@ body {
 
 #page5a .bottom #line2 span {
   font-size: 44px;
+  font-family: breeserif_reg;
+  margin-right: 5px;
 }
 
 #page5a .bottom #line3 {
@@ -1006,9 +1024,14 @@ body {
   top: 20px;
 }
 
-#page6 .middle .right span {
+#page6 .middle .right > span {
   color: #e15e32;
   top: 11px;
+}
+
+#page6 .middle .right > span span {
+  font-family: bpg_dejavu;
+  margin: 0px 5px 0px 0px;
 }
 
 
@@ -1023,7 +1046,7 @@ body {
   width: 320px;
   height: 320px;
   margin: 0px auto;
-  padding-top: 90px;
+  padding-top: 50px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -1039,11 +1062,16 @@ body {
 #page6 .bottom .circle .text span {
   display: block;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 22px;
 }
 
-#page6 .bottom .circle .text span:nth-child(2) {
-  font-size: 20px;
+#page6 .bottom .circle .text span:nth-child(2), #page6 .bottom .circle .text span:last-child {
+  font-size: 18px;
+}
+
+#page6 .bottom .circle .text span:nth-child(3) {
+  font-size: 21px;
 }
 
 
@@ -1117,6 +1145,7 @@ body {
 
 #protocol1 ul li {
   margin-left: -7px;
+  font-size: 12px;
 }
 
 #protocol1 ul li:nth-child(1) {
@@ -1190,6 +1219,7 @@ body {
   margin: 50px auto 0px;
   text-align: center;
   font-size: 23px;
+  font-family: bpg_dejavu;
 }
 
 
@@ -1220,6 +1250,7 @@ body {
   color: #aa1313;
   text-align: center;
   font-size: 23px;
+  font-family: bpg_dejavu;
 }
 
 #protocol3 ul li:nth-child(4) {
@@ -1234,7 +1265,7 @@ body {
   color: #f7f7f0;
   text-align: center;
   background: #53bcbc;
-  padding: 46px 15px 0px;
+  padding: 39px 15px 0px;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -1304,6 +1335,7 @@ body {
   color: #aa1313;
   text-align: center;
   font-size: 23px;
+  font-family: bpg_dejavu;
 }
 
 #protocol5 ul li:nth-child(4) {
@@ -1318,7 +1350,7 @@ body {
   text-align: center;
   font-size: 18px;
   background: #53bcbc;
-  padding: 50px 15px 0px;
+  padding: 32px 15px 0px;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -1438,10 +1470,12 @@ body {
   position: relative;
   top: 11px;
   vertical-align: bottom;
+  display: inline-block;
+  width: 285px;
 }
 
 #page8 .top header h4 img {
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 #page8 .after {
@@ -1509,7 +1543,7 @@ body {
   text-transform: uppercase;
   text-align: center;
   font-size: 18px;
-
+  font-family: bpg_dejavu;
 }
 
 .spreadsheet {
@@ -1614,17 +1648,17 @@ body {
 }
 
 .spreadsheet .bottom > .right li:first-child {
-  width: 125px;
+  width: 148px;
   height: 76px;
 }
 
 .spreadsheet .bottom > .right li:nth-child(2) {
-  width: 154px;
+  width: 178px;
   height: 97px;
 }
 
 .spreadsheet .bottom > .right li:nth-child(3) {
-  width: 179px;
+  width: 200px;
   height: 114px;
 }
 
@@ -1641,17 +1675,17 @@ body {
 }
 
 .spreadsheet .bottom > .right li:nth-child(4) {
-  width: 204px;
+  width: 220px;
   height: 129px;
 }
 
 .spreadsheet .bottom > .right li:nth-child(5) {
-  width: 233px;
+  width: 245px;
   height: 150px;
 }
 
 .spreadsheet .bottom > .right li:nth-child(6) {
-  width: 246px;
+  width: 258px;
   height: 173px;
 }
 
@@ -1667,7 +1701,7 @@ body {
 }
 
 .spreadsheet .bottom > .right li:nth-child(7) {
-  width: 257px;
+  width: 271px;
   height: 227px;
 }
 
@@ -1746,7 +1780,7 @@ body {
   text-transform: uppercase;
   padding: 400px 0px 100px 0px;
   font-size: 40px;
-  font-family: breeserif_reg;
+  font-family: bpg_dejavu;
   margin: 0px;
   line-height: 65px;
 }
@@ -1879,7 +1913,7 @@ body {
 
 #page10 #country_stats > div:nth-child(2) > div #line1,
 #page10 #country_stats > div:nth-child(2) > div #line2 {
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   font-size: 24px;
   line-height: 20px;
   color: #cc3737;
@@ -2105,8 +2139,8 @@ body {
 
 #page11 #country_stats > div:nth-child(2) > div #line1,
 #page11 #country_stats > div:nth-child(2) > div #line2 {
-  font-family: rawengulk_regular;
-  font-size: 30px;
+  font-family: bpg_dejavu;
+  font-size: 23px;
   line-height: 1;
   color: #cc3737;
 }
@@ -2327,6 +2361,12 @@ body {
   line-height: 1;
   color: #cc3737;
 }
+#page12 #country_stats > div #line1 span {
+  font-family: rawengulk_regular;
+  font-size: 14px;
+  line-height: 1;
+  color: #4d3534;
+}
 #page12 #country_stats > div #line4 span, #page12 #country_stats > div #line5 {
   color: #cc3737;
 }
@@ -2400,6 +2440,7 @@ body {
 #page12 .polling_station_stats > div > div #line2 {
   font-size: 17px;
   color: #cc3737;
+  font-family: breeserif_reg;
 }
 
 
@@ -2418,7 +2459,7 @@ body {
 
 #page13 header h2 {
   font-size: 24px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   margin-bottom: 25px;
   line-height: 35px;
   color: #141414;
@@ -2426,6 +2467,7 @@ body {
 
 #page13 #line2 {
   font-size: 30px;
+  font-family: bpg_dejavu;
   line-height: 30px;
   margin-bottom: 50px;
   color: #141414;
@@ -2436,7 +2478,7 @@ body {
 #page13 #line3 {
   color: #aa1313;
   font-size: 40px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   line-height: 55px;
   position: relative;
   top: 1000px;
@@ -2460,7 +2502,7 @@ body {
 #page14 header h2 {
   color: #47a836;
   font-size: 30px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   margin-bottom: 25px;
   line-height: 1;
   text-transform: uppercase;
@@ -2581,7 +2623,7 @@ body {
           border-radius: 50%;
   font-size: 36px;
   line-height: 38px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
 }
 #page15 .middle .left .circle_text {
   position: absolute;
@@ -2593,7 +2635,7 @@ body {
   color: #fff;
   font-size: 29px;
   line-height: 38px;
-  font-family: rawengulk_demibold;
+  font-family: bpg_dejavu;/*demibold*/
 }
 #page15 .middle .right {
   height: 151px;
@@ -2616,7 +2658,7 @@ body {
   padding: 20px 10px;
   margin: 0 auto;
   font-size: 15px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
 }
 
 
@@ -2624,6 +2666,7 @@ body {
 
 #page15 .or{
   position: relative;
+  font-family: bpg_dejavu;
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
@@ -2673,7 +2716,7 @@ body {
   margin: 0 auto;
   font-size: 29px;
   line-height: 38px;
-  font-family: rawengulk_demibold;
+  font-family: bpg_dejavu;/*demibold*/
 }
 #page15 .bottom .left .circle span{
   font-size: 19px;
@@ -2701,7 +2744,7 @@ body {
   line-height: 1;
   margin: 0 auto;
   font-size: 15px;
-  font-family: rawengulk_demibold;
+  font-family: bpg_dejavu;/*demibold*/
 }
 
 #page15 .bottom .right .circle #text2{
@@ -2964,7 +3007,7 @@ body {
 
 #page18 header h2 {
   font-size: 36px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   margin-bottom: 25px;
   line-height: 35px;
   text-transform: uppercase;
@@ -2980,7 +3023,7 @@ body {
 
 #page18 #line3 {
   font-size: 30px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   line-height: 40px;
   text-transform: uppercase;
   position: relative;
@@ -2989,7 +3032,7 @@ body {
 
 #page18 #line4 {
   font-size: 50px;
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   line-height: 56px;
   text-transform: uppercase;
   position: relative;
@@ -3003,7 +3046,7 @@ body {
   bottom: 1px;
   right: 11px;
   text-align: right;
-  font-family: museo;
+  /*font-family: museo;*/
 }
 #page18 #sources > div{
   display: inline-block;
@@ -3025,7 +3068,7 @@ body {
 
 
 #by_js {
-  font-family: rawengulk_regular;
+  font-family: bpg_dejavu;
   text-align: center;
   position: relative;
   margin-top: 100px;

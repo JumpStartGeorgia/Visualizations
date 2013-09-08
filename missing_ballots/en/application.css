@@ -741,10 +741,14 @@ body {
         	box-sizing: border-box;
 }
 
-#page5a .top .problem1 {
+#page5a header {
   margin: 11px 0px 0px 7px;
   padding: 0px;
   float: left;
+}
+
+#page5a .top .problem1 {
+  margin: 0px;
 }
 
 #page5a .top .problem1, #page6 header h4, #page7 header h4, #page8 .top header h4 span, 
