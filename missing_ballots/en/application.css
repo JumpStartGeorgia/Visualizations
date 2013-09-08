@@ -1019,7 +1019,7 @@ body {
 }
 
 #page6 .bottom .circle {
-  background: #e8e8da url(img/garbage.png) center center no-repeat;
+  background: #e8e8da url(../img/garbage.png) center center no-repeat;
   width: 320px;
   height: 320px;
   margin: 0px auto;
@@ -1844,7 +1844,7 @@ body {
 }
 
 #page10 #country_stats > div:nth-child(1){
-  background: #F7F7F0 url(img/chart1.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart1.png) center center no-repeat;
   text-align: center;
   height: 188px;
   padding: 54px 17px 30px;
@@ -1978,15 +1978,15 @@ body {
 }
 
 #page10 #district_percent > div:nth-child(1) {
-  background: #F7F7F0 url(img/chart2.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart2.png) center center no-repeat;
 }
 
 #page10 #district_percent > div:nth-child(2) {
-  background: #F7F7F0 url(img/chart3.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart3.png) center center no-repeat;
 }
 
 #page10 #district_percent > div:nth-child(3) {
-  background: #F7F7F0 url(img/chart4.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart4.png) center center no-repeat;
 }
 
 /*****************************************/
@@ -2059,7 +2059,7 @@ body {
 
 
 #page11 #country_stats > div:nth-child(1){
-  background: #F7F7F0 url(img/chart5.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart5.png) center center no-repeat;
   text-align: center;
   height: 195px;
   padding: 54px 17px 30px;
@@ -2194,15 +2194,15 @@ body {
 }
 
 #page11 #district_percent > div:nth-child(1) {
-  background: #F7F7F0 url(img/chart6.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart6.png) center center no-repeat;
 }
 
 #page11 #district_percent > div:nth-child(2) {
-  background: #F7F7F0 url(img/chart7.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart7.png) center center no-repeat;
 }
 
 #page11 #district_percent > div:nth-child(3) {
-  background: #F7F7F0 url(img/chart8.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart8.png) center center no-repeat;
 }
 
 
@@ -2316,10 +2316,10 @@ body {
 }
 
 #page12 #country_stats > div:nth-child(1){
-  background: #F7F7F0 url(img/chart9.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart9.png) center center no-repeat;
 }
 #page12 #country_stats > div:nth-child(2){
-  background: #F7F7F0 url(img/chart10.png) center center no-repeat;
+  background: #F7F7F0 url(../img/chart10.png) center center no-repeat;
 }
 #page12 #country_stats > div #line1 {
   font-family: rawengulk_regular;
@@ -2372,7 +2372,7 @@ body {
   top: 6px;
   width: 331px;
   height: 3px;
-  background: url(img/line_red.png) center no-repeat;
+  background: url(../img/line_red.png) center no-repeat;
 }
 
 #page12 .polling_station_stats > div > div {
