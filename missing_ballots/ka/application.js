@@ -440,7 +440,7 @@ $(window).load(function ()
   var pinh = 2500;
   controller.pin($('#page8a'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page8a .spreadsheet'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page8a .spreadsheet'), .5, {css: {position: 'relative', top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(1)'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(2)'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page8a .spreadsheet li:nth-child(3)'), .5, {css: {top: 800}}, {css: {top: 0}}))
