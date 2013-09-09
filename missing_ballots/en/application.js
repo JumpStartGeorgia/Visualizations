@@ -767,7 +767,24 @@ $(window).load(function ()
   $('header').each(function(){menu_section.push($(this).closest('section').attr('id'))});
   // override the first item position to 0
   menu_position[0] = 0;
-  
+  // adjust the menu positions so at least the title is showing
+  adjust_positions = new Array(menu_position.length);
+  for (var i = 0; i < adjust_positions.length; i++) adjust_positions[i] = 0;
+  adjust_positions[1] = 159;
+  adjust_positions[3] = -161;
+  adjust_positions[4] = 533;
+  adjust_positions[5] = 373;
+  adjust_positions[6] = 319;
+  adjust_positions[7] = 480;
+  adjust_positions[8] = 106;
+  adjust_positions[12] = -747;
+  adjust_positions[13] = -960;
+  adjust_positions[14] = -480;
+  adjust_positions[15] = -374;
+  adjust_positions[16] = -480;
+  adjust_positions[17] = -854;
+  for (var i = 0; i < adjust_positions.length; i++) menu_position[i] += adjust_positions[i];
+
   for(var i=0;i<menu_text.length;i++){
     css_class = i == 0 ? "class=active" : ""
     $('#sidebar #menu').append('<li original-title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '" ' + css_class + '><div>&nbsp;</div></li>');
