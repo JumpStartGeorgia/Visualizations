@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'dejavu_regular';
+	src: url('ttf3.eot');
+	src: local('☺'), url('ttf3.woff') format('woff'), url('ttf3.ttf') format('truetype'), url('ttf3.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+

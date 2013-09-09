@@ -71,7 +71,7 @@ body {
 #sidebar #title {
   color: #fff;
   font-size: 30px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   text-transform: uppercase;
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
@@ -224,10 +224,10 @@ body {
 
 #page1 header h1 {
   text-transform: uppercase;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   color: #fff;
   font-weight: normal; 
-  font-size: 40px;
+  font-size: 38px;
   margin: 0px;
 }
 
@@ -252,7 +252,7 @@ body {
   font-size: 18px;
   line-height: 1.2;
   color: #fff;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   text-transform: uppercase;
 }
 #page1 #explanation p span#scroll{
@@ -272,7 +272,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   font-size: 12px;
   color: #fff;
   border: 1px solid #fff;
@@ -435,7 +435,7 @@ body {
   color: #fff;
   font-size: 33px;
   text-transform: uppercase;
-  font-family: bpg_dejavu;/*demibold*/
+  font-family: dejavu_extralight;/*demibold*/
   margin: 0px 10px;
 }
 
@@ -508,7 +508,7 @@ body {
   padding: 400px 0px 20px 0px;
   color: #fff;
   font-size: 48px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   text-transform: uppercase;
   background: #52b2a2;
   margin: 0px;
@@ -688,7 +688,7 @@ body {
 
 #page5 header h3 {
   text-align: center;
-  font-family: bpg_dejavu;/*demibold*/
+  font-family: dejavu_extralight;/*demibold*/
   color: #aa1313;
   font-size: 30px;
   margin-bottom: 25px;
@@ -1030,7 +1030,7 @@ body {
 }
 
 #page6 .middle .right > span span {
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   margin: 0px 5px 0px 0px;
 }
 
@@ -1219,7 +1219,7 @@ body {
   margin: 50px auto 0px;
   text-align: center;
   font-size: 23px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
 }
 
 
@@ -1250,7 +1250,7 @@ body {
   color: #aa1313;
   text-align: center;
   font-size: 23px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
 }
 
 #protocol3 ul li:nth-child(4) {
@@ -1335,7 +1335,7 @@ body {
   color: #aa1313;
   text-align: center;
   font-size: 23px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
 }
 
 #protocol5 ul li:nth-child(4) {
@@ -1543,7 +1543,7 @@ body {
   text-transform: uppercase;
   text-align: center;
   font-size: 18px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
 }
 
 .spreadsheet {
@@ -1780,7 +1780,7 @@ body {
   text-transform: uppercase;
   padding: 400px 0px 100px 0px;
   font-size: 40px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   margin: 0px;
   line-height: 65px;
 }
@@ -1913,7 +1913,7 @@ body {
 
 #page10 #country_stats > div:nth-child(2) > div #line1,
 #page10 #country_stats > div:nth-child(2) > div #line2 {
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   font-size: 24px;
   line-height: 20px;
   color: #cc3737;
@@ -2139,7 +2139,7 @@ body {
 
 #page11 #country_stats > div:nth-child(2) > div #line1,
 #page11 #country_stats > div:nth-child(2) > div #line2 {
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   font-size: 23px;
   line-height: 1;
   color: #cc3737;
@@ -2459,7 +2459,7 @@ body {
 
 #page13 header h2 {
   font-size: 24px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   margin-bottom: 25px;
   line-height: 35px;
   color: #141414;
@@ -2467,7 +2467,7 @@ body {
 
 #page13 #line2 {
   font-size: 30px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   line-height: 30px;
   margin-bottom: 50px;
   color: #141414;
@@ -2478,7 +2478,7 @@ body {
 #page13 #line3 {
   color: #aa1313;
   font-size: 40px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   line-height: 55px;
   position: relative;
   top: 1000px;
@@ -2502,7 +2502,7 @@ body {
 #page14 header h2 {
   color: #47a836;
   font-size: 30px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   margin-bottom: 25px;
   line-height: 1;
   text-transform: uppercase;
@@ -2623,7 +2623,7 @@ body {
           border-radius: 50%;
   font-size: 36px;
   line-height: 38px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
 }
 #page15 .middle .left .circle_text {
   position: absolute;
@@ -2635,7 +2635,7 @@ body {
   color: #fff;
   font-size: 29px;
   line-height: 38px;
-  font-family: bpg_dejavu;/*demibold*/
+  font-family: dejavu_extralight;/*demibold*/
 }
 #page15 .middle .right {
   height: 151px;
@@ -2658,7 +2658,7 @@ body {
   padding: 20px 10px;
   margin: 0 auto;
   font-size: 15px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
 }
 
 
@@ -2666,7 +2666,7 @@ body {
 
 #page15 .or{
   position: relative;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
@@ -2716,7 +2716,7 @@ body {
   margin: 0 auto;
   font-size: 29px;
   line-height: 38px;
-  font-family: bpg_dejavu;/*demibold*/
+  font-family: dejavu_extralight;/*demibold*/
 }
 #page15 .bottom .left .circle span{
   font-size: 19px;
@@ -2744,7 +2744,7 @@ body {
   line-height: 1;
   margin: 0 auto;
   font-size: 15px;
-  font-family: bpg_dejavu;/*demibold*/
+  font-family: dejavu_extralight;/*demibold*/
 }
 
 #page15 .bottom .right .circle #text2{
@@ -3007,7 +3007,7 @@ body {
 
 #page18 header h2 {
   font-size: 36px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   margin-bottom: 25px;
   line-height: 35px;
   text-transform: uppercase;
@@ -3023,7 +3023,7 @@ body {
 
 #page18 #line3 {
   font-size: 30px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   line-height: 40px;
   text-transform: uppercase;
   position: relative;
@@ -3032,7 +3032,7 @@ body {
 
 #page18 #line4 {
   font-size: 50px;
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   line-height: 56px;
   text-transform: uppercase;
   position: relative;
@@ -3068,7 +3068,7 @@ body {
 
 
 #by_js {
-  font-family: bpg_dejavu;
+  font-family: dejavu_extralight;
   text-align: center;
   position: relative;
   margin-top: 100px;
