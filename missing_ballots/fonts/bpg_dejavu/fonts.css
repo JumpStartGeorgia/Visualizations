@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'bpg_dejavu';
 	src: url('BPG DejaVu Sans ExtraLight Caps 2012s.eot');
-	src: local('☺'), url('BPG DejaVu Sans ExtraLight Caps 2012s.woff') format('woff'), url('BPG DejaVu Sans ExtraLight Caps 2012s.ttf') format('truetype'), url('BPG DejaVu Sans ExtraLight Caps 2012s.svg') format('svg');
+	src: local('☺'), url('BPG DejaVu Sans ExtraLight Caps 2012s.ttf') format('truetype'), url('BPG DejaVu Sans ExtraLight Caps 2012s.woff') format('woff'), url('BPG DejaVu Sans ExtraLight Caps 2012s.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
