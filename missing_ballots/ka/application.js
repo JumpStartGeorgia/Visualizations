@@ -179,7 +179,7 @@ $(window).load(function ()
 
   controller.addTween(
     $('#page1'),
-    (new TimelineMax()).append(TweenMax.fromTo($('#page1 #scroll_down'), .5, {css: {opacity: 1}}, {css: {opacity: 0}}))
+    (new TimelineMax()).append(TweenMax.fromTo($('#page1 #scroll_down, #explanation'), .5, {css: {opacity: 1}}, {css: {opacity: 0}}))
   );
 
 
@@ -741,7 +741,7 @@ $(window).load(function ()
           .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #by_js'), .5, {css:{opacity: 0}}, {css:{opacity: 1}}))
-          .append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{opacity: 0}}, {css:{opacity: 1}})),
+          ,//.append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{opacity: 0}}, {css:{opacity: 1}})),
     onPin: function ()
     {
       $('#page18-spacer').hide();

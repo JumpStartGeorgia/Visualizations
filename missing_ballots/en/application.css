@@ -1546,7 +1546,7 @@ body {
 .spreadsheet .top > .left span.black {
   font-size: 17px;
   text-transform: uppercase;
-  color: #4d3534;
+  color: #3d3d3d;
 }
 
 .spreadsheet .top > .right {
@@ -1566,6 +1566,7 @@ body {
 
 .spreadsheet .bottom > .right ul {
   list-style: none;
+  color: #3d3d3d;
   position: relative;
   margin: 0px;
 }
@@ -3000,31 +3001,32 @@ body {
   top: 1000px;
 }
 
-#page18 #sources{
-  color: #1a594d;
-  font-size: 13px;
+#sources{
+  color: #4d3534;
+  font-size: 12px;
   position: absolute;
   bottom: 1px;
   right: 11px;
   text-align: right;
   font-family: museo;
 }
-#page18 #sources > div{
+#sources > div{
   display: inline-block;
   vertical-align: top;
+  font-size: 13px;
 }
-#page18 #sources ul{
+#sources ul{
   list-style-type: none;
   text-align: left;
   display: inline-block;
   margin-left: 5px;
 }
-#page18 #sources ul li a{
-  color: #ddd7ce;
-  text-decoration: underline;
-}
-#page18 #sources ul li a:hover{
+#sources ul li a{
+  color: #4d3534;
   text-decoration: none;
+}
+#sources ul li a:hover{
+  text-decoration: underline;
 }
 
 

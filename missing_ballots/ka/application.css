@@ -70,7 +70,7 @@ body {
 
 #sidebar #title {
   color: #fff;
-  font-size: 30px;
+  font-size: 29px;
   font-family: dejavu_extralight;
   text-transform: uppercase;
   -webkit-transform: rotate(-90deg);
@@ -249,10 +249,10 @@ body {
 }
 
 #page1 #explanation p span{
-  font-size: 18px;
+  font-size: 12px;
   line-height: 1.2;
   color: #fff;
-  font-family: dejavu_extralight;
+  font-family: dejavu_regular;
   text-transform: uppercase;
 }
 #page1 #explanation p span#scroll{
@@ -433,7 +433,7 @@ body {
 
 #page2 .middle #line1 span {
   color: #fff;
-  font-size: 33px;
+  font-size: 36px;
   text-transform: uppercase;
   font-family: dejavu_extralight;/*demibold*/
   margin: 0px 10px;
@@ -441,7 +441,7 @@ body {
 
 #page2 .middle #line2 {
   color: #145649;
-  font-size: 25px;
+  font-size: 26px;
   line-height: 40px;
   margin: 0;
   position: absolute;
@@ -476,7 +476,7 @@ body {
 
 #page2 .bottom #line1 div:first-child {
   color: #fff;
-  font-size: 47px;
+  font-size: 45px;
   line-height: 1.3;
   margin-top: 20px;
 }
@@ -491,7 +491,7 @@ body {
 
 #page2 .bottom #line2 {
   color: #fff;
-  font-size: 25px;
+  font-size: 18px;
   padding-left: 0px;
   line-height: 40px;
   margin: 0px 0;
@@ -507,8 +507,8 @@ body {
 #page3 header h2 {
   padding: 400px 0px 20px 0px;
   color: #fff;
-  font-size: 48px;
-  font-family: dejavu_extralight;
+  font-size: 44px;
+  font-family: dejavu_regular;
   text-transform: uppercase;
   background: #52b2a2;
   margin: 0px;
@@ -539,7 +539,7 @@ body {
 
 
 #ballots header h3 {
-  font-family: breeserif_reg;
+  font-family: bpgns;
   color: #4d3534;
   font-size: 20px;
   text-align: center;
@@ -757,12 +757,13 @@ body {
 
 #page5a .top .problem1 {
   margin: 0px;
+  text-align: center;
 }
 
 #page5a .top .problem1, #page6 header h4, #page7 header h4, #page8 .top header h4 span, 
 #page15 .top header h3, #page16 header h3, #page17 .top header h3 span {
-  font-family: breeserif_reg;
-  font-size: 18px;
+  font-family: bpgns;
+  font-size: 19px;
   color: #aa1313;
   text-transform: capitalize;
 }
@@ -781,7 +782,7 @@ body {
 
 #page5a #stations{
   width: 660px;
-  font-family: breeserif_reg;
+  font-family: bpgns;
   font-size: 16px;
   text-align: center;
   margin: 30px auto 0px;
@@ -826,7 +827,7 @@ body {
 
 
 #page5a #stations-connect{
-  width: 801px;
+  display: table;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -837,9 +838,12 @@ body {
   vertical-align: top;
 }
 
+#page5a #stations-connect .cont .right, #page5a #stations-connect .cont .left {
+  width: 325px;
+}
+
 #page5a #stations-connect .cont .left{
   position: relative;
-  width: 265px;
   padding-top: 25px;
 }
 
@@ -893,14 +897,13 @@ body {
 
 #page5a #stations-connect .cont .right{
   text-align: left;
-  width: 265px;
   position: relative;
   padding-top: 25px;
   left: -8px;
 }
 
 #page5a #stations-connect .right .top {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.2;
   border: 1px dashed #77c1b4;
   color: #77c1b4;
@@ -908,7 +911,7 @@ body {
   -webkit-border-radius: 13px;
      -moz-border-radius: 13px;
           border-radius: 13px;
-  width: 252px;
+  width: 280px;
 }
 
 #page5a #stations-connect .right .bottom_judge {
@@ -929,7 +932,7 @@ body {
 
 #page5a #stations-connect .right .bottom_judge span {
   text-align: left;
-  width: 161px;
+  width: 200px;
   padding-left: 10px;
   padding-top: 53px;
   line-height: 16px;
@@ -1001,12 +1004,16 @@ body {
 
 #page6 .middle {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 70px;
 }
 
 #page6 .middle > div {
   display: inline-block;
   position: relative;
+}
+
+#page6 .middle .right {
+  margin-left: 50px;
 }
 
 #page6 .middle span, #page6 .middle img {
@@ -1015,6 +1022,7 @@ body {
 
 #page6 .middle span {
   margin-right: 10px;
+  line-height: 1;
   position: relative;
 }
 
@@ -1026,11 +1034,12 @@ body {
 
 #page6 .middle .right > span {
   color: #e15e32;
+  text-align: left;
   top: 11px;
 }
 
 #page6 .middle .right > span span {
-  font-family: dejavu_extralight;
+  font-family: dejavu_regular;
   margin: 0px 5px 0px 0px;
 }
 
@@ -1063,15 +1072,25 @@ body {
   display: block;
   text-align: center;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 1.2;
 }
 
-#page6 .bottom .circle .text span:nth-child(2), #page6 .bottom .circle .text span:last-child {
+#page6 .bottom .circle .text span:nth-child(2) {
   font-size: 18px;
+  margin-bottom: 3px;
+}
+
+#page6 .bottom .circle .text span:last-child {
+  font-size: 16px;
 }
 
 #page6 .bottom .circle .text span:nth-child(3) {
   font-size: 21px;
+  line-height: 1;
+}
+
+#page6 .bottom .circle .text span:nth-child(4) {
+  font-size: 23px;
 }
 
 
@@ -1119,6 +1138,7 @@ body {
 
 #page7 h5.protocol-title {
   text-align: center;
+  font-size: 16px;
   text-rendering: auto;
 }
 
@@ -1184,21 +1204,29 @@ body {
 
 
 #protocol2 ul li:nth-child(1) {
-  width: 210px;
-  margin: 42px auto 0px;
+  width: 240px;
+  text-align: center;
+  margin: 25px auto 0px;
 }
 
 #protocol2 ul li:nth-child(2) {
-  width: 220px;
+  width: 100%;
   margin: 20px auto 0px;
   color: #4d3534;
   text-align: center;
-  font-size: 16px;
-  line-height: 1;
+  font-size: 13px;
+  letter-spacing: 0px;
+  line-height: 1.5;
+}
+
+#protocol2 ul li:nth-child(2) span {
+  font-size: 15px;
 }
 
 #protocol2 ul li:nth-child(3) {
-  width: 210px;
+  width: 85%;
+  text-align: left;
+  font-size: 14px;
   margin: 100px auto 0px;
 }
 #protocol2 ul li:nth-child(3) span {
@@ -1208,6 +1236,7 @@ body {
   width: 225px;
   margin: 20px auto 0px;
   color: #4d3534;
+  font-family: breeserif_reg;
   text-align: center;
   font-size: 16px;
 }
@@ -1219,7 +1248,7 @@ body {
   margin: 50px auto 0px;
   text-align: center;
   font-size: 23px;
-  font-family: dejavu_extralight;
+  font-family: dejavu_bold;
 }
 
 
@@ -1235,11 +1264,12 @@ body {
 }
 
 #protocol3 ul li:nth-child(2) {
-  width: 225px;
+  width: 100%;
   margin: 20px auto 0px;
   color: #4d3534;
   text-align: center;
-  font-size: 16px;
+  font-family: breeserif_reg;
+  font-size: 15px;
 }
 #protocol3 ul li:nth-child(2) img {
   margin-bottom: 10px;
@@ -1250,7 +1280,7 @@ body {
   color: #aa1313;
   text-align: center;
   font-size: 23px;
-  font-family: dejavu_extralight;
+  font-family: dejavu_bold;
 }
 
 #protocol3 ul li:nth-child(4) {
@@ -1265,7 +1295,7 @@ body {
   color: #f7f7f0;
   text-align: center;
   background: #53bcbc;
-  padding: 39px 15px 0px;
+  padding: 57px 10px 0px;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -1281,8 +1311,10 @@ body {
 }
 
 #protocol3 ul li:nth-child(n + 6) {
-  width: 210px;
-  margin: 7px auto 0px;
+  width: 90%;
+  font-size: 15px;
+  margin: 10px auto 0px;
+  line-height: 1.1;
   color: #4d3534;
 }
 
@@ -1325,9 +1357,14 @@ body {
 
 #protocol5 ul li:nth-child(2) {
   width: 225px;
+  font-family: breeserif_reg;
   margin: 20px auto 0px;
   color: #4d3534;
   text-align: center;
+}
+
+#protocol5 ul li:nth-child(2) img {
+  margin-bottom: 5px;
 }
 
 #protocol5 ul li:nth-child(3) {
@@ -1335,7 +1372,7 @@ body {
   color: #aa1313;
   text-align: center;
   font-size: 23px;
-  font-family: dejavu_extralight;
+  font-family: dejavu_bold;
 }
 
 #protocol5 ul li:nth-child(4) {
@@ -1350,7 +1387,7 @@ body {
   text-align: center;
   font-size: 18px;
   background: #53bcbc;
-  padding: 32px 15px 0px;
+  padding: 38px 15px 0px;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -1360,7 +1397,7 @@ body {
 }
 
 #protocol5 ul li:nth-child(5) {
-  margin: 50px auto 0px;
+  margin: 26px auto 0px;
   text-align: center;
   font-size: 17px;
 }
@@ -1374,6 +1411,7 @@ body {
   background: #53bcbc;
   width: 100%;
   margin: 7px auto 0px;
+  line-height: 1.4;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -1383,7 +1421,7 @@ body {
 #protocol5 ul li.mistakes .text {
   border: 1px dashed #E8E8DA;
   text-align: center;
-  padding: 10px 5px;
+  padding: 13px 8px;
 }
 #protocol5 ul li.mistakes .text .header{
   color: #4d3534;
@@ -1401,7 +1439,7 @@ body {
 
 
 #protocol7 ul li:nth-child(1) {
-  margin: 475px auto 0px;
+  margin: 500px auto 0px;
   text-align: center;
   font-size: 21px;
   color: #4d3534;
@@ -1409,7 +1447,7 @@ body {
 }
 
 #protocol7 ul li:nth-child(2) {
-  margin: 20px auto 0px;
+  margin: 2px auto 0px;
 }
 
 #protocol7 ul li:nth-child(2) .circle {
@@ -1421,7 +1459,8 @@ body {
   font-size: 18px;
   text-align: center;
   background: #53bcbc;
-  padding: 50px 15px 0px;
+  padding: 45px 15px 0px;
+  line-height: 1.2;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -1468,10 +1507,12 @@ body {
 
 #page8 .top header h4 span {
   position: relative;
-  top: 11px;
+  text-align: center;
+  margin-right: -62px;
+  top: 10px;
   vertical-align: bottom;
   display: inline-block;
-  width: 285px;
+  width: 310px;
 }
 
 #page8 .top header h4 img {
@@ -1483,7 +1524,7 @@ body {
 }
 
 #page8  .subtitle {
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
   margin-top: 70px;
 }
@@ -1499,7 +1540,7 @@ body {
   width: 775px;
   line-height: 33px;
   height: 33px;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0px auto;  
   color: #4d3534;
   background: #b5ce91;
@@ -1514,6 +1555,7 @@ body {
 
 #page8  .img-text {
   text-align: left;
+  font-size: 13px;
   color: #8ea565;
   margin-top: 5px;
 }
@@ -1542,8 +1584,8 @@ body {
 #page8  .bottom-text p:last-child {
   text-transform: uppercase;
   text-align: center;
-  font-size: 18px;
-  font-family: dejavu_extralight;
+  font-size: 16px;
+  font-family: dejavu_regular;
 }
 
 .spreadsheet {
@@ -1562,21 +1604,22 @@ body {
   background: #eae7e7;
   color: #8ea565;
   height: 187px;
-  padding-top: 50px;
+  padding-top: 35px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
 }
 
 .spreadsheet .top > .left span.big {
-  font-size: 17px;
+  font-size: 15px;
+  font-family: dejavu_regular;
   text-transform: uppercase;
 }
 
 .spreadsheet .top > .left span.black {
   font-size: 17px;
   text-transform: uppercase;
-  color: #4d3534;
+  color: #3d3d3d;
 }
 
 .spreadsheet .top > .right {
@@ -1596,6 +1639,7 @@ body {
 
 .spreadsheet .bottom > .right ul {
   list-style: none;
+  color: #3d3d3d;
   position: relative;
   margin: 0px;
 }
@@ -1779,10 +1823,10 @@ body {
   color: #aa1313;
   text-transform: uppercase;
   padding: 400px 0px 100px 0px;
-  font-size: 40px;
-  font-family: dejavu_extralight;
+  font-size: 34px;
+  font-family: dejavu_bold;
   margin: 0px;
-  line-height: 65px;
+  line-height: 1.2;
 }
 
 
@@ -1809,7 +1853,7 @@ body {
 }
 
 #page10 header h3 {
-  font-family: breeserif_reg;
+  font-family: bpgns;
   color: #aa1313;
   font-size: 18px;
   margin: 0px;
@@ -2039,9 +2083,9 @@ body {
 
 #page11 header h3 {
   text-align: center;
-  font-family: breeserif_reg;
+  font-family: bpgns;
   color: #aa1313;
-  font-size: 17px;
+  font-size: 18px;
   margin: 0px;
 }
 
@@ -2056,7 +2100,8 @@ body {
 #page11 #map #legend {
   position: absolute;
   top: 150px;
-  left: 67px;
+  margin-top: -20px;
+  left: 10px;
   right: 0px;
   width: auto;
 }
@@ -2174,7 +2219,7 @@ body {
   text-align: center;
   width: 122px;
   height: 122px;
-  padding: 22px 10px;
+  padding: 28px 10px;
   margin: 0 auto;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
@@ -2256,10 +2301,14 @@ body {
 
 #page12 header h3 {
   text-align: center;
-  font-family: breeserif_reg;
+  font-family: bpgns;
   color: #aa1313;
-  font-size: 17px;
+  font-size: 18px;
   margin: 0px;
+}
+
+#page12 header h3 span {
+  font-size: 23px;
 }
 
 #page12 #intro {
@@ -2378,8 +2427,9 @@ body {
 #page12 #polling_station_stats_text > div {
   display: inline-block;
   text-align: center;
+  font-size: 18px;
   vertical-align: middle;
-  margin: 0px 80px;
+  margin: 0px 30px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -2461,13 +2511,13 @@ body {
   font-size: 24px;
   font-family: dejavu_extralight;
   margin-bottom: 25px;
-  line-height: 35px;
+  line-height: 1.3;
   color: #141414;
 }
 
 #page13 #line2 {
-  font-size: 30px;
-  font-family: dejavu_extralight;
+  font-size: 28px;
+  font-family: dejavu_bold;
   line-height: 30px;
   margin-bottom: 50px;
   color: #141414;
@@ -2477,9 +2527,9 @@ body {
 
 #page13 #line3 {
   color: #aa1313;
-  font-size: 40px;
+  font-size: 38px;
   font-family: dejavu_extralight;
-  line-height: 55px;
+  line-height: 1.3;
   position: relative;
   top: 1000px;
 }
@@ -2504,7 +2554,7 @@ body {
   font-size: 30px;
   font-family: dejavu_extralight;
   margin-bottom: 25px;
-  line-height: 1;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -2567,9 +2617,11 @@ body {
 }
 
 #page15 .top header h3 {
-  margin: 1px 0px 0px 4px;
+  margin: 9px 0px 0px 18px;
   padding: 0px;
   float: left;
+  text-align: center;
+  line-height: 1.2;
 }
 
 #page15 .top img {
@@ -2655,9 +2707,10 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  padding: 20px 10px;
+  padding: 35px 10px;
   margin: 0 auto;
-  font-size: 15px;
+  line-height: 1.2;
+  font-size: 13px;
   font-family: dejavu_extralight;
 }
 
@@ -2666,10 +2719,10 @@ body {
 
 #page15 .or{
   position: relative;
-  font-family: dejavu_extralight;
+  font-family: dejavu_regular;
   text-align: center;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 40px;
   margin-top: 25px;
   margin-bottom: 40px;
 }
@@ -2740,11 +2793,11 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  padding: 20px 10px;
-  line-height: 1;
+  padding: 35px 10px;
   margin: 0 auto;
-  font-size: 15px;
-  font-family: dejavu_extralight;/*demibold*/
+  line-height: 1.2;
+  font-size: 13px;
+  font-family: dejavu_extralight;
 }
 
 #page15 .bottom .right .circle #text2{
@@ -2805,17 +2858,22 @@ body {
   margin-right: 10px;
   position: relative;
   text-align: left;
-  top: 20px;
+  top: 30px;
 }
 
 #page16 .bottom .left {
   margin-right: 20px;
 }
 #page16 .bottom .left span {
-  color: #4d3534;
+  color: #4d3534;;
+  line-height: 1.1;
+  margin-top: 10px;
+  right: -73px;
 }
 #page16 .bottom .right span {
   color: #e15e32;
+  text-align: right;
+  line-height: 1.1;
 }
 
 #page16 .bottom2 {
@@ -2862,7 +2920,7 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  padding: 57px 10px;
+  padding: 37px 10px;
   margin: 0 auto;
   font-size: 14px;
   line-height: 1;
@@ -2871,7 +2929,7 @@ body {
   font-size: 16px;
   color: #236814;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   line-height: 1;
 }
 #page16 .bottom2 .right {
@@ -2901,12 +2959,16 @@ body {
 #page17 .top header h3 {
   float: right;
   margin: 0px 16.3% 50px 0px;
+  line-height: 1;
 }
 
 #page17 .top header h3 span {
   position: relative;
-  top: -1px;
-  right: 5px;
+  display: inline-block;
+  vertical-align: top;
+  top: 9px;
+  right: -5px;
+  text-align: center;
 }
 
 #page17 .top header h3 img {
@@ -2955,7 +3017,7 @@ body {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
-  padding: 57px 10px;
+  padding: 37px 10px;
   margin: 0 auto;
   font-size: 14px;
   line-height: 1;
@@ -2964,7 +3026,7 @@ body {
   font-size: 16px;
   color: #236814;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   line-height: 1;
 }
 #page16 .bottom2, 
@@ -3022,7 +3084,7 @@ body {
 }
 
 #page18 #line3 {
-  font-size: 30px;
+  font-size: 26px;
   font-family: dejavu_extralight;
   line-height: 40px;
   text-transform: uppercase;
@@ -3031,7 +3093,7 @@ body {
 }
 
 #page18 #line4 {
-  font-size: 50px;
+  font-size: 43px;
   font-family: dejavu_extralight;
   line-height: 56px;
   text-transform: uppercase;
@@ -3039,31 +3101,32 @@ body {
   top: 1000px;
 }
 
-#page18 #sources{
-  color: #1a594d;
+#sources{
+  color: #4d3534;
   font-size: 13px;
   position: absolute;
   bottom: 1px;
   right: 11px;
   text-align: right;
+  font-family: bpgns;
   /*font-family: museo;*/
 }
-#page18 #sources > div{
+#sources > div{
   display: inline-block;
   vertical-align: top;
 }
-#page18 #sources ul{
+#sources ul{
   list-style-type: none;
   text-align: left;
   display: inline-block;
   margin-left: 5px;
 }
-#page18 #sources ul li a{
-  color: #ddd7ce;
-  text-decoration: underline;
-}
-#page18 #sources ul li a:hover{
+#sources ul li a{
+  color: #4d3534;
   text-decoration: none;
+}
+#sources ul li a:hover{
+  text-decoration: underline;
 }
 
 
