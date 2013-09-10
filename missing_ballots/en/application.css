@@ -6255,6 +6255,20 @@ button.close {
   }
 }
 @font-face {
+  font-family: 'rawengulk_regular';
+  src: url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.eot');
+  src: local('☺'), url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.woff') format('woff'), url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.ttf') format('truetype'), url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'rawengulk_demibold';
+  src: url('../fonts/rawengulk/demibold/RawengulkDemibold-fMac-093.eot');
+  src: local('☺'), url('../fonts/rawengulk/demibold/RawengulkDemibold-fMac-093.woff') format('woff'), url('../fonts/rawengulk/demibold/RawengulkDemibold-fMac-093.ttf') format('truetype'), url('../fonts/rawengulk/demibold/RawengulkDemibold-fMac-093.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: 'breeserif_reg';
   src: url('../fonts/breeserif_reg/BreeSerif_Reg.eot');
   src: local('☺'), url('../fonts/breeserif_reg/BreeSerif_Reg.woff') format('woff'), url('../fonts/breeserif_reg/BreeSerif_Reg.ttf') format('truetype'), url('../fonts/breeserif_reg/BreeSerif_Reg.svg') format('svg');
@@ -6262,47 +6276,9 @@ button.close {
   font-style: normal;
 }
 @font-face {
-  font-family: 'dejavu_extralight';
-  src: url('../fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.eot');
-  src: local('☺'), url('../fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.ttf') format('truetype'), url('../fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.woff') format('woff'), url('../fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'dejavu_bold';
-  src: url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.eot');
-  src: local('☺'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.woff') format('woff'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.ttf') format('truetype'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'dejavu_regular';
-  src: url('../fonts/dejavu/regular/ttf3.eot');
-  src: local('☺'), url('../fonts/dejavu/regular/ttf3.woff') format('woff'), url('../fonts/dejavu/regular/ttf3.ttf') format('truetype'), url('../fonts/dejavu/regular/ttf3.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-/*
-@font-face {
-    font-family: 'bpgns';
-    src: url('bpgns.eot');
-    src: url('bpgns.eot') format('embedded-opentype'),
-         url('bpgns.woff') format('woff'),
-         url('bpgns.ttf') format('truetype'),
-         url('bpgns.svg#BPGnsRegular') format('svg');
-}
-*/
-@font-face {
-  font-family: 'bpgns';
-  src: url('../fonts/bpgns/bpgns.eot');
-  src: local('☺'), url('../fonts/bpgns/bpgns.woff') format('woff'), url('../fonts/bpgns/bpgns.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'rawengulk_regular';
-  src: url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.eot');
-  src: local('☺'), url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.woff') format('woff'), url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.ttf') format('truetype'), url('../fonts/rawengulk/regular/RawengulkRegular-fMac-093.svg') format('svg');
+  font-family: 'museo';
+  src: url('../fonts/museo/exljbris - MuseoSlab-500.eot');
+  src: local('☺'), url('../fonts/museo/exljbris - MuseoSlab-500.woff') format('woff'), url('../fonts/museo/exljbris - MuseoSlab-500.ttf') format('truetype'), url('../fonts/museo/exljbris - MuseoSlab-500.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
