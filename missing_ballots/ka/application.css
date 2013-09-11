@@ -6733,6 +6733,18 @@ body {
 #slide_menu ul li:hover {
   color: #52b2a2;
 }
+@media (max-height: 665px) {
+  #slide_menu ul li {
+    line-height: 18px;
+    padding: 4px 0px;
+  }
+}
+@media (max-height: 550px) {
+  #slide_menu ul li {
+    line-height: 16px;
+    padding: 3px 0px;
+  }
+}
 /**********************************/
 #screen_size {
   display: none;
