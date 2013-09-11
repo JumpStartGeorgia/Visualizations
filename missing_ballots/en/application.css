@@ -6677,6 +6677,11 @@ body {
     display: inline-block;
   }
 }
+@media (max-height: 701px) {
+  #sidebar #social_links {
+    margin-top: 30px;
+  }
+}
 /************************************/
 #slide_menu {
   background: #4c4c4c;
@@ -6707,6 +6712,12 @@ body {
 }
 #slide_menu ul li:hover {
   color: #52b2a2;
+}
+@media (max-height: 701px) {
+  #slide_menu ul li {
+    line-height: 18px;
+    padding: 4px 0px;
+  }
 }
 /**********************************/
 #screen_size {
@@ -7287,6 +7298,12 @@ body {
   position: absolute;
   right: 0;
 }
+#page5a #stations-connect .cont {
+  text-align: center;
+}
+#page5a #stations-connect .cont .left {
+  text-align: left;
+}
 #page5a #stations-connect .cont .right {
   text-align: left;
   width: 265px;
@@ -7326,6 +7343,18 @@ body {
   padding-top: 53px;
   line-height: 16px;
 }
+@media (max-width: 1030px) {
+  #page5a #stations-connect .cont .right,
+  #page5a #stations-connect .cont .left {
+    width: 260px;
+  }
+  #page5a #stations-connect .right .bottom_judge img {
+    width: 80px;
+  }
+  #page5a #stations-connect .right .bottom_judge span {
+    padding-top: 49px;
+  }
+}
 #page5a .bottom {
   width: 660px;
   margin-left: auto;
@@ -7354,6 +7383,17 @@ body {
   font-size: 36px;
   margin: 10px 0;
   line-height: 40px;
+}
+@media (max-height: 801px) {
+  #page5a #stations {
+    margin-top: 15px;
+  }
+  #page5a #stations div#places {
+    margin-top: 5px;
+  }
+  #page5a .bottom {
+    margin-top: 35px;
+  }
 }
 /*******************************************/
 #page6 {
@@ -7795,6 +7835,17 @@ body {
   text-align: center;
   font-size: 18px;
 }
+@media (max-height: 701px) {
+  #page8 .img {
+    margin-top: 20px;
+  }
+  #page8 .subtitle {
+    margin-top: 60px;
+  }
+  #page8 .bottom-text {
+    margin-top: 15px;
+  }
+}
 .spreadsheet {
   width: 841px;
   /*  margin: 200px auto 200px;*/
@@ -7982,6 +8033,14 @@ body {
   color: #4d3534;
   padding-top: 58px;
 }
+@media (max-height: 901px) {
+  #page8 .top header h4 {
+    margin-bottom: 8px;
+  }
+  #page8a {
+    padding-top: 105px;
+  }
+}
 /*****************************************/
 #page9 {
   right: 0px;
@@ -8025,6 +8084,11 @@ body {
 }
 #page10 #map_text {
   margin: 30px 0 10px;
+}
+@media (max-height: 801px) {
+  #page10 #map_text {
+    margin-top: 5px;
+  }
 }
 #page10 #map {
   position: relative;
@@ -8558,6 +8622,95 @@ body {
   font-size: 17px;
   color: #cc3737;
 }
+@media (max-height: 801px) {
+  #page10 #district_percent_text,
+  #page11 #district_percent_text,
+  #page10 #district_amount_text,
+  #page11 #district_amount_text {
+    margin-top: 35px !important;
+  }
+  #page10 #map,
+  #page11 #map {
+    margin-bottom: 37px !important;
+  }
+  #page10 #map_text,
+  #page11 #map_text {
+    margin-top: 0px;
+  }
+  #page11 #country_stats_footnote {
+    margin-top: 10px;
+  }
+  #page12 #intro {
+    margin-top: 25px;
+  }
+  #page12 #map #map_headers {
+    margin-top: 10px;
+  }
+  #page12 header h3 {
+    line-height: 1.2;
+  }
+  #page12 #polling_station_stats_text {
+    margin-top: 15px;
+  }
+}
+@media (max-height: 751px) {
+  #page10 #district_percent_text,
+  #page11 #district_percent_text,
+  #page10 #district_amount_text,
+  #page11 #district_amount_text {
+    margin-top: 10px !important;
+  }
+  #page10 #map_text,
+  #page11 #map_text {
+    margin-bottom: 2px;
+  }
+  #page10 header h3,
+  #page11 header h3 {
+    line-height: 1.3;
+  }
+  #page10 #legend > div,
+  #page11 #legend > div {
+    text-align: center;
+    width: 100%;
+    margin: 0px;
+  }
+  #page10 #legend ul,
+  #page11 #legend ul {
+    display: inline-block;
+    margin: 0px;
+  }
+  #page11 #legend ul {
+    margin: 15px 0px 0px;
+  }
+  #page11 #country_stats_footnote {
+    margin-top: 2px;
+  }
+  #page12 #country_stats {
+    margin-top: 40px;
+  }
+  #page12 .polling_station_stats {
+    margin-top: 2px;
+  }
+  #page12 #intro {
+    margin-top: 5px;
+  }
+  #page12 #map img {
+    width: 600px;
+  }
+  #page12 #map #map_headers {
+    margin-top: 7px;
+  }
+  #page12 #map #legend {
+    left: 67px;
+    top: 49px;
+  }
+  #page12 #polling_station_stats_text {
+    margin-top: 2px;
+  }
+  #page12 #map_text {
+    margin-bottom: 1px;
+  }
+}
 /****************************************/
 #page13 {
   right: 0px;
@@ -8928,6 +9081,31 @@ body {
 }
 #page16 .bottom2 .right span {
   color: #47a836;
+}
+@media (max-height: 801px) {
+  #page15 .top {
+    margin-bottom: 5px;
+  }
+  #page15 #middle .text {
+    margin-bottom: 5px;
+  }
+  #page15 .or {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  #page16 header h3 {
+    margin-bottom: 5px;
+  }
+  #page16 .middle {
+    margin-bottom: 10px;
+  }
+  #page16 .bottom2 .middle #eq_header {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  #page16 .bottom2 > div .bottom_text {
+    margin-top: 10px;
+  }
 }
 /********************************************/
 #page17 {

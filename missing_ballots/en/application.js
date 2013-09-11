@@ -527,7 +527,7 @@ $(window).load(function ()
   controller.pin($('#page11'), pinh, {
     anim: (new TimelineMax())
             .append([
-              TweenMax.to($('#page11 header'), .01, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
+              TweenMax.to($('#page11 header'), .001, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
               TweenMax.to($('#page11 #map_text'), .01, {css: {marginTop: '+=' + $('#page11 header').height()}})
             ])
             .append(TweenMax.to($('#page11 #map_text'), .5, {delay: 1, css: {marginTop: '-=429'}}))
@@ -558,7 +558,7 @@ $(window).load(function ()
               TweenMax.to($('#page12 header'), .01, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
               TweenMax.to($('#page12 #intro'), .01, {css: {marginTop: '+=' + $('#page12 header').height()}})
             ])
-            .append(TweenMax.to($('#page12 #intro'), .5, {delay: 1, css: {marginTop: '-=470'}}))
+            .append(TweenMax.to($('#page12 #intro'), .5, {delay: 1, css: {marginTop: '-=' + ($('#page12 #map').offset().top + $('#page12 #map').outerHeight(true) - $('#intro').offset().top + parseInt($('#intro').css('marginTop')) + 30)}}))
             .append(TweenMax.fromTo($('#page12 #polling_station_stats_text'), .5, {css: {position: 'relative', top: 800}}, {css: {top: 0}}))
             .append(TweenMax.fromTo($('#page12 .polling_station_stats'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
             .append(TweenMax.from($('#page12 .polling_station_stats .connector'), .5, {css: {width: 0}}))
