@@ -782,7 +782,16 @@ $(window).load(function ()
   menu_position[15] -= 350;
   menu_position[16] -= 400;
   menu_position[17] -= 800;
-  
+
+  if ($(window).height < 851)
+  {
+    var diffs = [-100, -300, -400, -400, -400, -400, -400];
+    for (var i = 11; i < 18; i ++)
+    {
+      menu_position[i] += diffs[i - 11];
+    }
+  }
+
   for(var i=0;i<menu_text.length;i++){
     css_class = i == 0 ? "class=active" : ""
     $('#sidebar #menu').append('<li original-title="' + menu_text[i] + '" data-position="' + menu_position[i] + '" data-section="' + menu_section[i] + '" ' + css_class + '><div>&nbsp;</div></li>');
