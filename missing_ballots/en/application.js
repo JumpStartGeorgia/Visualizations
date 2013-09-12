@@ -788,7 +788,7 @@ $(window).load(function ()
   adjust_positions[14] = -480;
   adjust_positions[15] = -374;
   adjust_positions[16] = -480;
-  adjust_positions[17] = -854;
+  adjust_positions[17] = -750;
   for (var i = 0; i < adjust_positions.length; i++) menu_position[i] += adjust_positions[i];
 
   for(var i=0;i<menu_text.length;i++){
