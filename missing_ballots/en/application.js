@@ -788,9 +788,18 @@ $(window).load(function ()
   menu_position[16] -= 480;
   menu_position[17] -= 750;
 
-  if ($(window).height < 851)
+  if ($(window).height() < 830)
   {
-    var diffs = [-100, -300, -400, -400, -400, -400, -400];
+    var diffs = [-100, -400, -450, -500, -500, -500, -450];
+    for (var i = 11; i < 18; i ++)
+    {
+      menu_position[i] += diffs[i - 11];
+    }
+  }
+  if ($(window).width() < 1351 && $(window).height() >= 830)
+  {
+    alert(2);
+    var diffs = [-200, -250, -240, -240, -240, -240, -240];
     for (var i = 11; i < 18; i ++)
     {
       menu_position[i] += diffs[i - 11];
