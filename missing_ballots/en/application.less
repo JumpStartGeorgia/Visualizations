@@ -1,6 +1,7 @@
 @import "../bootstrap.less";
 @import "../fonts/rawengulk/regular/fonts.less";
 @import "../fonts/rawengulk/demibold/fonts.less";
+@import "../fonts/rawengulk/bold/fonts.less";
 @import "../fonts/breeserif_reg/fonts.less";
 @import "../fonts/museo/fonts.less";
 @import "../fancybox/jquery.fancybox.less";
@@ -3243,28 +3244,42 @@ body {
   top: 1000px;
 }
 
-#sources{
+#sources {
+  background: #c84244;
+  color: #fff;
+  padding: 25px 44px;
+  width: 415px;
+  font-size: 14px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+/*
   color: #4d3534;
-  font-size: 12px;
+*/
   position: absolute;
-  bottom: 1px;
-  right: 11px;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -207px;
   text-align: right;
   font-family: museo;
 }
 #sources > div{
-  display: inline-block;
-  vertical-align: top;
-  font-size: 13px;
+  margin-bottom: 5px;
+  display: block;
+  font-family: rawengulk_bold;
+  text-transform: uppercase;
+  text-align: center;
 }
 #sources ul{
   list-style-type: none;
   text-align: left;
   display: inline-block;
-  margin-left: 5px;
+  font-family: rawengulk_demibold;
+  margin: 0px 0px 0px 5px;
 }
 #sources ul li a{
   color: #4d3534;
+  color: #fff;
   text-decoration: none;
 }
 #sources ul li a:hover{

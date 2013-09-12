@@ -9389,28 +9389,42 @@ body {
   top: 1000px;
 }
 #sources {
+  background: #c84244;
+  color: #fff;
+  padding: 25px 44px;
+  width: 370px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*
   color: #4d3534;
+*/
+
   font-size: 13px;
   position: absolute;
-  bottom: 1px;
-  right: 11px;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -185px;
   text-align: right;
   font-family: bpgns;
   /*font-family: museo;*/
 
 }
 #sources > div {
-  display: inline-block;
-  vertical-align: top;
+  margin-bottom: 5px;
+  display: block;
+  font-family: dejavu_bold;
+  text-align: center;
 }
 #sources ul {
   list-style-type: none;
   text-align: left;
   display: inline-block;
-  margin-left: 5px;
+  margin: 0px 0px 0px 5px;
 }
 #sources ul li a {
   color: #4d3534;
+  color: #fff;
   text-decoration: none;
 }
 #sources ul li a:hover {
