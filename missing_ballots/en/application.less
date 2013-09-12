@@ -3248,7 +3248,8 @@ body {
   background: #c84244;
   color: #fff;
   padding: 25px 44px;
-  width: 415px;
+  @width: 415px;
+  width: @width;
   font-size: 14px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -3259,7 +3260,7 @@ body {
   position: absolute;
   bottom: 0px;
   left: 50%;
-  margin-left: -207px;
+  margin-left: -@width/2;
   text-align: right;
   font-family: museo;
 }
