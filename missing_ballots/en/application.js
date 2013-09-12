@@ -774,22 +774,19 @@ $(window).load(function ()
   // override the first item position to 0
   menu_position[0] = 0;
   // adjust the menu positions so at least the title is showing
-  adjust_positions = new Array(menu_position.length);
-  for (var i = 0; i < adjust_positions.length; i++) adjust_positions[i] = 0;
-  adjust_positions[1] = 159;
-  adjust_positions[3] = -161;
-  adjust_positions[4] = 533;
-  adjust_positions[5] = 373;
-  adjust_positions[6] = 319;
-  adjust_positions[7] = 480;
-  adjust_positions[8] = 106;
-  adjust_positions[12] = -747;
-  adjust_positions[13] = -960;
-  adjust_positions[14] = -480;
-  adjust_positions[15] = -374;
-  adjust_positions[16] = -480;
-  adjust_positions[17] = -750;
-  for (var i = 0; i < adjust_positions.length; i++) menu_position[i] += adjust_positions[i];
+  menu_position[1] += 159;
+  menu_position[3] -= 161;
+  menu_position[4] += 533;
+  menu_position[5] += 373;
+  menu_position[6] += 319;
+  menu_position[7] += 480;
+  menu_position[8] += 50;
+  menu_position[12] -= 747;
+  menu_position[13] -= 960;
+  menu_position[14] -= 480;
+  menu_position[15] -= 374;
+  menu_position[16] -= 480;
+  menu_position[17] -= 750;
 
   for(var i=0;i<menu_text.length;i++){
     css_class = i == 0 ? "class=active" : ""

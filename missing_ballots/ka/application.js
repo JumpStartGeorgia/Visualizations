@@ -775,14 +775,13 @@ $(window).load(function ()
   menu_position[4] += 500;
   menu_position[5] += 300;
   menu_position[6] += 300;
-  menu_position[7] += 300;
+  menu_position[7] += 450;
   menu_position[12] -= 700;
   menu_position[13] -= 1000;
   menu_position[14] -= 400;
   menu_position[15] -= 350;
   menu_position[16] -= 400;
   menu_position[17] -= 800;
-  console.log(menu_position);
   
   for(var i=0;i<menu_text.length;i++){
     css_class = i == 0 ? "class=active" : ""
