@@ -7461,7 +7461,7 @@ body {
   width: 320px;
   height: 320px;
   margin: 0px auto;
-  padding-top: 90px;
+  padding-top: 70px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -9275,7 +9275,7 @@ body {
   position: absolute;
   bottom: 0px;
   left: 50%;
-  margin-left: -207.5px;
+  margin-left: -415px/2;
   text-align: right;
   font-family: museo;
 }

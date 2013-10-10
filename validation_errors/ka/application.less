@@ -531,15 +531,15 @@ body {
 }
 
 #page2 .bottom #line1 div {
-  display: block;
+  display: inline-block;
   margin: 0px 0px 0px 5px;
 }
 
 #page2 .bottom #line1 div:first-child {
-  color: #fff;
-  font-size: 45px;
-  line-height: 1.3;
-  margin-top: 20px;
+  width: 250px;
+  text-align: right;
+  margin-left: 0px;
+  line-height: 20px;
 }
 
 #page2 .bottom #line1 div:nth-child(2) {
@@ -548,6 +548,12 @@ body {
   line-height: 1;
   font-family: breeserif_reg;
   margin-top: 20px;
+}
+
+#page2 .bottom #line1 div:last-of-type {
+  width: 250px;
+  text-align: left;
+  font-size: 18px;
 }
 
 #page2 .bottom #line2 {
@@ -1158,7 +1164,7 @@ body {
   width: 320px;
   height: 320px;
   margin: 0px auto;
-  padding-top: 50px;
+  padding-top: 30px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
