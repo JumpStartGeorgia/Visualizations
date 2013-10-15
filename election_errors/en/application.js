@@ -734,7 +734,7 @@ $(window).load(function ()
   var pinh = 3500;
   controller.pin($('#page16'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page16 header h3').add('#page16 .line_fix23_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page16 header h3').add('#page16 .line_fix24_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
           .append(TweenMax.fromTo($('#page16 .middle'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page16 .bottom .left'), .5, {css: {top: 800}}, {css: {top: 0}}))
           .append(TweenMax.fromTo($('#page16 .bottom .right'), .5, {css: {top: 800}}, {css: {top: 0}}))
@@ -745,7 +745,7 @@ $(window).load(function ()
     {
       $('#page16-spacer').hide();
       $('#ballots .all li:eq(4)').css({opacity: 1});
-      $('#ballots .all li:eq(5)').css({opacity: 1});
+      $('#ballots .all li:eq(6)').css({opacity: 1});
     },
     onUnpin: function ()
     {
@@ -754,10 +754,37 @@ $(window).load(function ()
         $('#page16-spacer').show();
       }
       $('#ballots .all li:eq(4)').css({opacity: .6});
-      $('#ballots .all li:eq(5)').css({opacity: .6});
+      $('#ballots .all li:eq(6)').css({opacity: .6});
     }
   });
   $('#page16').after('<div id="page16-spacer"></div>').next().height(pinh);
+
+
+//////////////////////////////////////
+
+
+  var pinh = 2000;
+  controller.pin($('#page16a'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page16a header h3').add('#page16a .line_fix3_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page16a .title'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page16a .item1'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page16a .item2'), .5, {css: {top: 800}}, {css: {top: 0}})),
+    onPin: function ()
+    {
+      $('#page16a-spacer').hide();
+      $('#ballots .all li:eq(5)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page16a').offset().top > $(window).scrollTop())
+      {
+        $('#page16a-spacer').show();
+      }
+      $('#ballots .all li:eq(5)').css({opacity: .6});
+    }
+  });
+  $('#page16a').after('<div id="page16a-spacer"></div>').next().height(pinh);
 
 
 

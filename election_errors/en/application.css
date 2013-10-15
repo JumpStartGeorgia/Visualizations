@@ -7304,6 +7304,7 @@ body {
 #page8 .top header h4 span,
 #page15 .top header h3,
 #page16 header h3,
+#page16a header h3,
 #page17 .top header h3 span {
   font-family: breeserif_reg;
   font-size: 18px;
@@ -7312,6 +7313,7 @@ body {
 }
 #page15 .top header h3,
 #page16 header h3,
+#page16a header h3,
 #page17 .top header h3 span {
   color: #47a836;
 }
@@ -9177,11 +9179,11 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#page16 .line_fix23_img {
+#page16 .line_fix24_img {
   text-align: center;
   margin-bottom: 0px;
 }
-#page16 .line_fix23_img img {
+#page16 .line_fix24_img img {
   margin-left: 66px;
 }
 #page16 header h3 {
@@ -9306,6 +9308,40 @@ body {
     margin-top: 10px;
   }
 }
+/*******************************************/
+#page16a {
+  right: 0px;
+  min-height: 100%;
+  padding-top: 94px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#page16a .line_fix3_img {
+  text-align: center;
+  margin-bottom: 0px;
+}
+#page16a .line_fix3_img img {
+  margin-left: 66px;
+}
+#page16a header h3 {
+  text-align: center;
+  margin: 0px 0px 20px 0px;
+  line-height: 1.5;
+}
+#page16a .title, #page16a .item1, #page16a .item2 {
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  width: 300px;
+  margin: 0 auto 5px;
+}
+
+#page16a .item1 > div, #page16a .item2 > div {
+  text-align: left;
+  color: #E15E32;
+}
+
 /********************************************/
 #page17 {
   right: 0px;
