@@ -526,6 +526,20 @@ body {
 }
 
 
+/**********************************/
+
+#page2a {
+  right: 0px;
+  height: 100%;
+  background: #52b2a2;
+  text-align: center;
+  font-family: breeserif_reg;
+}
+
+
+
+
+
 /***************************************/
 
 
@@ -577,7 +591,7 @@ body {
 }
 
 #ballots .allc, #question_marks, #page5a .top > div, #page7 .problem3_img, #page8 > .top > div, #line_fix, #page15 .top > div, #page17 .top > div {
-  width: 576px;
+  width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -604,7 +618,6 @@ body {
 #ballots .all li {
   float: left;
   width: 64px;
-  /* FUCK OPERA! */
   text-align: center;
   visibility: hidden;
   opacity: .6;
@@ -650,7 +663,6 @@ body {
   bottom: 0px;
   left: 0px;
   width: 64px;
-  /* FUCK OPERA! */
   text-align: center;
 }
 
@@ -659,42 +671,37 @@ body {
 
 #ballots .list li:nth-child(2) .mark {
   left: 64px;
-  /* FUCK OPERA! */
 }
 
 #ballots .list li:nth-child(3) .mark {
   left: 128px;
-  /* FUCK OPERA! */
 }
 
 #ballots .list li:nth-child(4) .mark {
   left: 192px;
-  /* FUCK OPERA! */
 }
 
 #ballots .list li:nth-child(5) .mark {
   left: 256px;
-  /* FUCK OPERA! */
 }
 
 #ballots .list li:nth-child(6) .mark {
   left: 320px;
-  /* FUCK OPERA! */
 }
 
 #ballots .list li:nth-child(7) .mark {
   left: 384px;
-  /* FUCK OPERA! */
 }
 
 #ballots .list li:nth-child(8) .mark {
   left: 448px;
-  /* FUCK OPERA! */
 }
 
 #ballots .list li:nth-child(9) .mark {
   left: 512px;
-  /* FUCK OPERA! */
+}
+#ballots .list li:nth-child(10) .mark {
+  left: 576px;
 }
 
 
@@ -735,7 +742,6 @@ body {
 #question_marks > div {
   float: left;
   width: 64px;
-  /* FUCK OPERA! */
   text-align: center;
 }
 
@@ -745,7 +751,6 @@ body {
 
 #question_marks > div:nth-child(2) {
   margin-left: 192px;
-  /* FUCK OPERA! */
 }
 
 #question_marks > div:nth-child(3) {
@@ -753,8 +758,11 @@ body {
 }
 
 #question_marks > div:nth-child(4) {
+  margin-left: 0px;
+}
+
+#question_marks > div:nth-child(5) {
   margin-left: 64px;
-  /* FUCK OPERA! */
 }
 
 #question_marks > div > img {
@@ -1104,35 +1112,113 @@ body {
   width: 320px;
   height: 320px;
   margin: 0px auto;
-  padding-top: 70px;
-	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-        	box-sizing: border-box;
+  padding-top: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-border-radius: 50%;
-     -moz-border-radius: 50%;
-          border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
 }
-
 #page6 .bottom .circle .text {
   color: #aa1313;
 }
-
 #page6 .bottom .circle .text span {
   display: block;
   text-align: center;
   font-size: 15px;
 }
-
-#page6 .bottom .circle .text span:nth-child(2) {
+#page6 .bottom .circle .text span:nth-child(3), #page6 .bottom .circle .text span:nth-child(6) {
   font-size: 20px;
 }
 
+#page6 .bottom .circle .text span:nth-child(5), #page6 .bottom .circle .text span:nth-child(7) {
+  color: #4d3534;
+}
 
+#page6 .bottom .circle .text span:nth-child(5){
+  margin-top: 110px;
+}
 
 
 /****************************************************/
 
 
+#page6a {
+  right: 0px;
+  padding-top: 71px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#page6a .problem3_img {
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+#page6a header h4 {
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+}
+
+#page6a .middle {
+  margin: 100px auto 0;
+  width: 550px;
+}
+
+#page6a .middle > div{
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+#page6a .middle .center{
+  margin-left: -86px;
+}
+
+#page6a .middle .left, #page6a .middle .right{
+  padding-bottom: 20px;
+}
+
+#page6a .middle .left .text, #page6a .middle .right .text{
+  display: inline-block;
+  vertical-align: bottom;
+}
+#page6a .middle .left .text > div, #page6a .middle .right .text > div{
+  line-height: 17px;
+}
+#page6a .middle .left .text{
+  margin-left: -26px;
+  padding-bottom: 16px;
+}
+
+#page6a .middle .left .text span{
+  color: #3C9662;
+}
+
+#page6a .middle .left .text > div:last-of-type{
+  color: #3C9662;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+#page6a .middle .right .text{
+  margin: 0 3px;
+  padding-bottom: 9px;
+}
+#page6a .middle .right .text > div{
+  text-align: right;
+}
+#page6a .middle .right .text div:nth-child(3), #page6a .middle .right .text div:nth-child(4){
+  color: #aa1313;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+
+/*******************************************/
 
 
 
@@ -2690,7 +2776,6 @@ body {
 #line_fix > div {
   float: left;
   width: 64px;
-  /* FUCK OPERA! */
   text-align: center;
 }
 
@@ -2708,8 +2793,11 @@ body {
 }
 
 #line_fix > div:nth-child(4) {
+  margin-left: 0px;
+}
+
+#line_fix > div:nth-child(5) {
   margin-left: 64px;
-  /* FUCK OPERA! */
 }
 
 #line_fix > div > img {

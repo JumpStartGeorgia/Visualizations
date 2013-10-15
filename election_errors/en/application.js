@@ -146,9 +146,13 @@ $(window).load(function ()
   });
   $('#question_marks > div:nth-child(3) > img').click(function ()
   {
-    $('html, body').animate({scrollTop: compute_scroll_top($('#page7').offset().top, $('#page7 .bottom').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page6a').offset().top, $('#page6a .bottom').offset().top) });
   });
   $('#question_marks > div:nth-child(4) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page7').offset().top, $('#page7 .bottom').offset().top) });
+  });
+  $('#question_marks > div:nth-child(5) > img').click(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page8').offset().top, $('#page8 .after').offset().top) });
   });
@@ -164,6 +168,10 @@ $(window).load(function ()
     $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
   });
   $('#line_fix > div:nth-child(3) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page16a').offset().top, $('#page16a .middle').offset().top) });
+  });
+  $('#line_fix > div:nth-child(4) > img').click(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
   });
@@ -204,6 +212,31 @@ $(window).load(function ()
     }
   });
   $('#page2').after('<div id="page2-spacer"></div>').next().height(pinh);
+
+
+
+
+/////////////////////////////////
+  var pinh = 2500;
+  controller.pin($('#page2a'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page2a .top .title'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .top .eq1'), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .top .or').add($('#page2a .top .eq2')), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page2a-spacer').hide();
+    },
+    onUnpin: function ()
+    {
+      if ($('#page2a').offset().top > $(window).scrollTop())
+      {
+        $('#page2a-spacer').show();
+      }
+    }
+  });
+  $('#page2a').after('<div id="page2a-spacer"></div>').next().height(pinh);
 
 
 /////////////////////////////////
@@ -361,6 +394,34 @@ $(window).load(function ()
 /////////////////////////////////
 
 
+  var pinh = 2000;
+  controller.pin($('#page6a'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page6a header h4').add('#page6a .problem3_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page6a .middle .center'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page6a .middle .left'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page6a .middle .right'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page6a-spacer').hide();
+      $('#ballots .all li:eq(5)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page6a').offset().top > $(window).scrollTop())
+      {
+        $('#page6a-spacer').show();
+      }
+      $('#ballots .all li:eq(5)').css({opacity: .6});
+    }
+  });
+  $('#page6a').after('<div id="page6a-spacer"></div>').next().height(pinh);
+
+
+
+/////////////////////////////////
+
+
 
   controller.addTween($('#page7'), TweenMax.fromTo($('#page7 > .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}), 300);
 
@@ -369,12 +430,11 @@ $(window).load(function ()
     offset: -($('#question_marks').parent().height() + $('#ballots .all').height()),
     onPin: function ()
     {
-      $('#ballots .all li:eq(5)').css({opacity: 1});
-      $('#ballots .all li:eq(7)').css({opacity: .6});
+      $('#ballots .all li:eq(6)').css({opacity: 1});
     },
     onUnpin: function ()
     {
-      $('#ballots .all li:eq(5)').css({opacity: .6});
+      $('#ballots .all li:eq(6)').css({opacity: .6});
     }
   });
   $(window).load(function ()
@@ -423,7 +483,7 @@ $(window).load(function ()
     onPin: function ()
     {
       $('#page8-spacer').hide();
-      $('#ballots .all li:eq(7)').css({opacity: 1});
+      $('#ballots .all li:eq(8)').css({opacity: 1});
     },
     onUnpin: function ()
     {
@@ -431,6 +491,7 @@ $(window).load(function ()
       {
         $('#page8-spacer').show();
       }
+      $('#ballots .all li:eq(8)').css({opacity: .6});
     }
   });
   $('#page8').after('<div id="page8-spacer"></div>').next().height(pinh);
