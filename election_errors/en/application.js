@@ -687,6 +687,32 @@ $(window).load(function ()
 ///////////////////////////////////////
 
 
+
+  var pinh = 2500;
+  controller.pin($('#page15'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page15 .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page15 .middle .left').add($('#page15 .middle .right')), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page15 .center .center-top'), .5, {css: {left: -800, opacity: 0}}, {css: {left: 0, opacity: 1}}))
+          .append(TweenMax.fromTo($('#page15 .center .center-bottom'), .5, {css: {right: -800, opacity: 0}}, {css: {right: 0, opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page15-spacer').hide();
+      $('#ballots .all li:first').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page15').offset().top > $(window).scrollTop())
+      {
+        $('#page15-spacer').show();
+      }
+      $('#ballots .all li:first').css({opacity: .6});
+    }
+  });
+  $('#page15').after('<div id="page15-spacer"></div>').next().height(pinh);
+
+
+/* ORIGINAL VERSION 
   var pinh = 3300;
   var big_circle_radius = $('#page15 .middle #circles .left .circle').css('width').replace('px', '')/2;
   var little_circle_radius = $('#page15 .middle #circles .right .circle').css('width').replace('px', '')/2;
@@ -726,7 +752,7 @@ $(window).load(function ()
   });
   $('#page15').after('<div id="page15-spacer"></div>').next().height(pinh);
 
-
+*/
 
 //////////////////////////////////////
 

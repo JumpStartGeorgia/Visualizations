@@ -9019,6 +9019,111 @@ body {
   display: block;
   float: left;
 }
+
+#page15 .middle{
+  margin: 75px auto 0;
+  width: 550px;
+}
+
+#page15 .middle > div{
+  display: inline-block;
+  vertical-align: top;
+}
+
+#page15 .middle .left{
+  position: relative;
+
+}
+
+#page15 .middle .left .circle {
+  background: #52B2A2;
+  color: #fff;
+  width: 160px;
+  height: 160px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 35px 10px;
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 30px;
+  line-height: 30px;
+  font-family: rawengulk_regular;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#page15 .middle .center {
+  margin-top: 23px;
+}
+#page15 .middle .center .center-top {
+  position: relative;
+}
+
+#page15 .middle .center .center-top div{
+  margin-bottom: -12px;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+#page15 .middle .center .center-top span{
+  color: #52B2A2;
+}
+
+#page15 .middle .center .center-bottom{
+  position: relative;
+  margin-top: 10px;
+}
+#page15 .middle .center .center-bottom div{
+  margin-bottom: -12px;
+  margin-top: 28px;
+  padding-left: 16px;
+  font-size: 12px;
+}
+#page15 .middle .center .center-bottom span{
+  color: #e15e32;
+}
+
+#page15 .middle .right{
+  margin-top: 23px;
+  position: relative;
+}
+
+#page15 .middle .right > div{
+  position: absolute;
+  top: 43px;
+  left: 27px;
+  color: #fff;
+  font-family: rawengulk_demibold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+
+/* ORIGINAL VERSION
+#page15 {
+  right: 0px;
+  min-height: 100%;
+  padding-top: 95px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#page15 .top {
+  margin-bottom: 20px;
+}
+#page15 .top header h3 {
+  margin: 1px 0px 0px 4px;
+  padding: 0px;
+  float: left;
+}
+#page15 .top img {
+  margin-left: 5.3%;
+  display: block;
+  float: left;
+}
 #page15 .middle #text {
   position: relative;
   text-align: center;
@@ -9170,6 +9275,7 @@ body {
   font-size: 19px;
   line-height: 1;
 }
+*/
 /*******************************************/
 #page16 {
   right: 0px;
