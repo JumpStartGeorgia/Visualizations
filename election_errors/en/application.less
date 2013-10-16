@@ -526,6 +526,33 @@ body {
 }
 
 
+.moreless {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  background: #f7f7f0;
+  border: 1px solid #4D3534;
+  color: #4D3534;
+  text-align: center;
+  position: absolute;
+  cursor: default;
+  font-size: 24px;
+  left: -16px;
+  top: 50%;
+  font-family: rawengulk_demibold;
+  margin-top: -16px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
+  &.less {
+  }
+}
+
+
+
 /**********************************/
 #page2a {
   right: 0px;
@@ -2215,6 +2242,7 @@ body {
   height: 122px;
   padding: 15px 17px;
   margin: 0 auto;
+  position: relative;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -2658,6 +2686,7 @@ body {
 
 #page12 .polling_station_stats .connector {
   position: absolute;
+  z-index: 1;
   left: 68px;
   top: 6px;
   width: 331px;
@@ -2672,6 +2701,7 @@ body {
   height: 122px;
   padding: 30px 10px;
   margin: 0 auto;
+  position: relative;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -2815,9 +2845,6 @@ body {
   color: #141414;
   position: relative;
   top: 1000px;
-  img {
-    display: none;
-  }
 }
 
 #page13 #line3 {
