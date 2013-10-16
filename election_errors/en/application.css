@@ -6995,7 +6995,6 @@ body {
   margin: 0px 0;
 }
 /**********************************/
-
 #page2a {
   right: 0px;
   height: 100%;
@@ -7004,94 +7003,7 @@ body {
   font-family: breeserif_reg;
 }
 #page2a header h2 {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  color: #fff;
-  font-size: 38px;
-  font-family: rawengulk_regular;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 1;
-}
-
-#page2a .top .title{
-  color: #145649;
-  font-size: 20px;
-  padding-bottom: 20px;
-  position: relative;
-}
-#page2a .top .eq1, #page2a .top .eq2{
-  position: relative;
-  background-color: #fff;
-  padding: 15px;
-  color: #52b2a2;
-  font-family: rawengulk_demibold;
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  -khtml-border-radius: 25px;
-  border-radius: 25px;
-  font-size: 20px;
-  width: 500px;
-  margin: 0 auto 5px;
-}
-#page2a .top .eq1 span, #page2a .top .eq2 span{
-  color: #4d3534;
-  font-family: rawengulk_demibold;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-#page2a .top .or{
-  position: relative;
-  color: #fff;
-  font-size: 20px;
-  text-transform: uppercase;
-  padding: 3px;
-}
-
-
-#page2a .bottom{
-  padding-top: 50px;
-  color: #fff;
-}
-
-#page2a .bottom .title{
-  color: #145649;
-  font-size: 18px;
-}
-#page2a .bottom .title span{
-  display: block;
-}
-#page2a .bottom .title span:nth-child(1){
-  font-size: 23px;
-  line-height: 23px;
-}
-#page2a .bottom .bottom-arrows > div{
-  display: inline-block;
-}
-#page2a .bottom .bottom-arrows div:nth-child(1){
-  text-align: right;
-  margin-right: 140px;
-}
-#page2a .bottom .bottom-arrows div:nth-child(2){
-  text-align: left;
-}
-
-#page2a .bottom .bottom-container{
-  margin-top: 10px;
-}
-#page2a .bottom .bottom-container > div{
-  display: inline-block;
-}
-#page2a .bottom .bottom-container div:nth-child(1) {
-  margin-right: 100px;
-}
-#page2a .bottom .bottom-container > div span{
-  display: block;
-}
-#page2a .bottom .bottom-container > div span:nth-child(1){
-  font-size: 50px;
-  line-height: 50px;
+  margin: 0px;
 }
 /***************************************/
 #page3 header h2 {
@@ -7160,7 +7072,6 @@ body {
 #ballots .all li {
   float: left;
   width: 64px;
-
   text-align: center;
   visibility: hidden;
   opacity: .6;
@@ -7197,44 +7108,34 @@ body {
   bottom: 0px;
   left: 0px;
   width: 64px;
-
   text-align: center;
 }
 #ballots .list li:nth-child(2) .mark {
   left: 64px;
-
 }
 #ballots .list li:nth-child(3) .mark {
   left: 128px;
-
 }
 #ballots .list li:nth-child(4) .mark {
   left: 192px;
-
 }
 #ballots .list li:nth-child(5) .mark {
   left: 256px;
-
 }
 #ballots .list li:nth-child(6) .mark {
   left: 320px;
-
 }
 #ballots .list li:nth-child(7) .mark {
   left: 384px;
-
 }
 #ballots .list li:nth-child(8) .mark {
   left: 448px;
-
 }
 #ballots .list li:nth-child(9) .mark {
   left: 512px;
-
 }
 #ballots .list li:nth-child(10) .mark {
   left: 576px;
-
 }
 #page5 {
   padding-top: 5px;
@@ -7258,22 +7159,17 @@ body {
 #question_marks > div {
   float: left;
   width: 64px;
-
   text-align: center;
 }
-
 #question_marks > div:nth-child(2) {
   margin-left: 192px;
 }
-
 #question_marks > div:nth-child(3) {
   margin-left: 0px;
 }
-
 #question_marks > div:nth-child(4) {
   margin-left: 0px;
 }
-
 #question_marks > div:nth-child(5) {
   margin-left: 64px;
 }
@@ -7299,12 +7195,10 @@ body {
 }
 #page5a .top .problem1,
 #page6 header h4,
-#page6a header h4,
 #page7 header h4,
 #page8 .top header h4 span,
 #page15 .top header h3,
 #page16 header h3,
-#page16a header h3,
 #page17 .top header h3 span {
   font-family: breeserif_reg;
   font-size: 18px;
@@ -7313,7 +7207,6 @@ body {
 }
 #page15 .top header h3,
 #page16 header h3,
-#page16a header h3,
 #page17 .top header h3 span {
   color: #47a836;
 }
@@ -7575,97 +7468,85 @@ body {
   text-align: center;
   font-size: 15px;
 }
-#page6 .bottom .circle .text span:nth-child(3), #page6 .bottom .circle .text span:nth-child(6) {
+#page6 .bottom .circle .text span:nth-child(3),
+#page6 .bottom .circle .text span:nth-child(6) {
   font-size: 20px;
 }
-
-#page6 .bottom .circle .text span:nth-child(5), #page6 .bottom .circle .text span:nth-child(7) {
+#page6 .bottom .circle .text span:nth-child(5),
+#page6 .bottom .circle .text span:nth-child(7) {
   color: #4d3534;
 }
-
-#page6 .bottom .circle .text span:nth-child(5){
+#page6 .bottom .circle .text span:nth-child(5) {
   margin-top: 110px;
 }
 /****************************************************/
-
-
 #page6a {
   right: 0px;
   padding-top: 71px;
-	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-        	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 #page6a .problem3_img {
   text-align: center;
   margin-bottom: 2px;
 }
-
 #page6a header h4 {
   text-align: center;
   margin: 0px 0px 0px 0px;
 }
-
 #page6a .middle {
   margin: 100px auto 0;
   width: 550px;
 }
-
-#page6a .middle > div{
+#page6a .middle > div {
   display: inline-block;
   vertical-align: bottom;
 }
-
-#page6a .middle .center{
+#page6a .middle .center {
   margin-left: -86px;
-  position: relative;
-  
 }
-
-#page6a .middle .left, #page6a .middle .right{
+#page6a .middle .left,
+#page6a .middle .right {
   padding-bottom: 20px;
 }
-
-#page6a .middle .left .text, #page6a .middle .right .text{
+#page6a .middle .left .text,
+#page6a .middle .right .text {
   display: inline-block;
   vertical-align: bottom;
 }
-#page6a .middle .left .text > div, #page6a .middle .right .text > div{
+#page6a .middle .left .text > div,
+#page6a .middle .right .text > div {
   line-height: 17px;
 }
-#page6a .middle .left .text{
+#page6a .middle .left .text {
   margin-left: -26px;
   padding-bottom: 16px;
 }
-
-#page6a .middle .left .text span{
+#page6a .middle .left .text span {
   color: #3C9662;
 }
-
-#page6a .middle .left .text > div:last-of-type{
+#page6a .middle .left .text > div:last-of-type {
   color: #3C9662;
   text-transform: uppercase;
   font-size: 18px;
   line-height: 18px;
 }
-
-#page6a .middle .right .text{
+#page6a .middle .right .text {
   margin: 0 3px;
   padding-bottom: 9px;
 }
-#page6a .middle .right .text > div{
+#page6a .middle .right .text > div {
   text-align: right;
 }
-#page6a .middle .right .text div:nth-child(3), #page6a .middle .right .text div:nth-child(4){
+#page6a .middle .right .text div:nth-child(3),
+#page6a .middle .right .text div:nth-child(4) {
   color: #aa1313;
   text-transform: uppercase;
   font-size: 18px;
   line-height: 18px;
 }
-
-
-/****************************************************/
+/*******************************************/
 #page7 {
   right: 0px;
   min-height: 100%;
@@ -8978,11 +8859,11 @@ body {
 #line_fix > div {
   float: left;
   width: 64px;
-
   text-align: center;
 }
 #line_fix > div:nth-child(2) {
   margin-left: 192px;
+  /* FUCK OPERA! */
 }
 #line_fix > div:nth-child(3) {
   margin-left: 0px;
@@ -8990,7 +8871,6 @@ body {
 #line_fix > div:nth-child(4) {
   margin-left: 0px;
 }
-
 #line_fix > div:nth-child(5) {
   margin-left: 64px;
 }
@@ -9002,6 +8882,7 @@ body {
   right: 0px;
   min-height: 100%;
   padding-top: 95px;
+  overflow: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -9019,22 +8900,17 @@ body {
   display: block;
   float: left;
 }
-
-#page15 .middle{
+#page15 .middle {
   margin: 75px auto 0;
   width: 550px;
 }
-
-#page15 .middle > div{
+#page15 .middle > div {
   display: inline-block;
   vertical-align: top;
 }
-
-#page15 .middle .left{
+#page15 .middle .left {
   position: relative;
-
 }
-
 #page15 .middle .left .circle {
   background: #52B2A2;
   color: #fff;
@@ -9054,43 +8930,38 @@ body {
   text-transform: uppercase;
   text-align: center;
 }
-
 #page15 .middle .center {
   margin-top: 23px;
 }
 #page15 .middle .center .center-top {
   position: relative;
 }
-
-#page15 .middle .center .center-top div{
+#page15 .middle .center .center-top div {
   margin-bottom: -12px;
   margin-top: 10px;
   padding-left: 10px;
 }
-#page15 .middle .center .center-top span{
+#page15 .middle .center .center-top span {
   color: #52B2A2;
 }
-
-#page15 .middle .center .center-bottom{
+#page15 .middle .center .center-bottom {
   position: relative;
   margin-top: 10px;
 }
-#page15 .middle .center .center-bottom div{
+#page15 .middle .center .center-bottom div {
   margin-bottom: -12px;
   margin-top: 28px;
   padding-left: 16px;
   font-size: 12px;
 }
-#page15 .middle .center .center-bottom span{
+#page15 .middle .center .center-bottom span {
   color: #e15e32;
 }
-
-#page15 .middle .right{
+#page15 .middle .right {
   margin-top: 23px;
   position: relative;
 }
-
-#page15 .middle .right > div{
+#page15 .middle .right > div {
   position: absolute;
   top: 50px;
   left: 27px;
@@ -9099,37 +8970,44 @@ body {
   text-transform: uppercase;
   text-align: center;
 }
-
-
-
-/* ORIGINAL VERSION
+/* ORIGINAL
 #page15 {
   right: 0px;
   min-height: 100%;
   padding-top: 95px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
 }
-#page15 .top {
+
+#page15 .top{
   margin-bottom: 20px;
 }
+
 #page15 .top header h3 {
   margin: 1px 0px 0px 4px;
   padding: 0px;
   float: left;
 }
+
 #page15 .top img {
   margin-left: 5.3%;
   display: block;
   float: left;
 }
-#page15 .middle #text {
+
+
+
+#page15 .middle{
+}
+
+#page15 .middle #text{
   position: relative;
   text-align: center;
   margin-bottom: 15px;
   font-size: 18px;
 }
+
 #page15 .middle > #circles {
   position: relative;
   width: 600px;
@@ -9141,24 +9019,26 @@ body {
   width: 298px;
   text-align: center;
 }
+
 #page15 .middle .left {
   position: relative;
 }
-#page15 .middle .left .circle,
-#page15 .middle .left .circle_text {
+
+#page15 .middle .left .circle, #page15 .middle .left .circle_text {
   width: 208px;
   height: 208px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
   padding: 47px 10px;
   margin: 0 auto;
 }
-#page15 .middle .left .circle {
+
+#page15 .middle .left .circle{
   background: #e15e32;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
   font-size: 36px;
   line-height: 38px;
   font-family: rawengulk_regular;
@@ -9180,7 +9060,7 @@ body {
   vertical-align: top;
   padding-top: 57px;
 }
-#page15 .middle .right .circle {
+#page15 .middle .right .circle{
   text-transform: uppercase;
   text-align: center;
   background: #52b2a2;
@@ -9188,17 +9068,21 @@ body {
   width: 104px;
   height: 104px;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
   padding: 20px 10px;
   margin: 0 auto;
   font-size: 15px;
   font-family: rawengulk_regular;
 }
-#page15 .or {
+
+
+
+
+#page15 .or{
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -9206,24 +9090,33 @@ body {
   margin-top: 25px;
   margin-bottom: 40px;
 }
-#page15 .bottom #text {
+
+
+
+#page15 .bottom{
+}
+
+#page15 .bottom #text{
   position: relative;
   text-align: center;
   margin-bottom: 15px;
   font-size: 17px;
 }
+
 #page15 .bottom > #circles {
   position: relative;
   width: 600px;
   margin: 0 auto;
 }
+
 #page15 .bottom > #circles > div {
   display: inline-block;
   position: relative;
   width: 298px;
   text-align: center;
 }
-#page15 .bottom .left .circle {
+
+#page15 .bottom .left .circle{
   text-transform: uppercase;
   text-align: center;
   background: #e15e32;
@@ -9231,18 +9124,18 @@ body {
   width: 208px;
   height: 208px;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
   padding: 44px 10px;
   margin: 0 auto;
   font-size: 29px;
   line-height: 38px;
   font-family: rawengulk_demibold;
 }
-#page15 .bottom .left .circle span {
+#page15 .bottom .left .circle span{
   font-size: 19px;
   line-height: 1;
 }
@@ -9251,7 +9144,7 @@ body {
   vertical-align: top;
   padding-top: 57px;
 }
-#page15 .bottom .right .circle {
+#page15 .bottom .right .circle{
   text-transform: uppercase;
   text-align: center;
   background: #52b2a2;
@@ -9259,18 +9152,19 @@ body {
   width: 104px;
   height: 104px;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        	box-sizing: border-box;
   padding: 20px 10px;
   line-height: 1;
   margin: 0 auto;
   font-size: 15px;
   font-family: rawengulk_demibold;
 }
-#page15 .bottom .right .circle #text2 {
+
+#page15 .bottom .right .circle #text2{
   display: none;
   font-size: 19px;
   line-height: 1;
@@ -9285,11 +9179,11 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#page16 .line_fix24_img {
+#page16 .line_fix23_img {
   text-align: center;
   margin-bottom: 0px;
 }
-#page16 .line_fix24_img img {
+#page16 .line_fix23_img img {
   margin-left: 66px;
 }
 #page16 header h3 {
@@ -9435,19 +9329,20 @@ body {
   margin: 0px 0px 20px 0px;
   line-height: 1.5;
 }
-#page16a .title, #page16a .item1, #page16a .item2 {
+#page16a .title,
+#page16a .item1,
+#page16a .item2 {
   text-align: center;
   font-size: 16px;
   position: relative;
   width: 300px;
   margin: 0 auto 5px;
 }
-
-#page16a .item1 > div, #page16a .item2 > div {
+#page16a .item1 > div,
+#page16a .item2 > div {
   text-align: left;
   color: #E15E32;
 }
-
 /********************************************/
 #page17 {
   right: 0px;
