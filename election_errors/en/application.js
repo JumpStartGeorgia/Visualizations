@@ -659,13 +659,6 @@ $(window).load(function ()
     }
   });
   $('#page13').after('<div id="page13-spacer"></div>').next().height(pinh);
-  $('#page13 #line2').click(function (){ window.ictime = +new Date(); });
-  $('#page13 header').click(function () {
-    if (+new Date() - window.ictime < 255) {
-      $('#page13 #line2').children('img').show().siblings().hide();
-      setTimeout(function (){ $('#page13 #line2').children('span').show().siblings().hide(); }, 500);
-    }
-  });
 
 
 /////////////////////////////////////
