@@ -175,7 +175,7 @@ $(window).load(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
   });
-  $('#line_fix > div:nth-child(4) > img').click(function ()
+  $('#line_fix > div:nth-child(5) > img').click(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page17').offset().top, $('#page17 .after').offset().top) });
   });
