@@ -886,14 +886,14 @@ body {
 }
 
 #page5a .top .problem1, #page6 header h4, #page6a header h4, #page7 header h4, #page8 .top header h4 span, 
-#page15 .top header h3, #page16 header h3, #page17 .top header h3 span {
+#page15 .top header h3, #page16 header h3, #page17 .top header h3 span, #page16a header h3 {
   font-family: breeserif_reg;
   font-size: 18px;
   color: #aa1313;
   text-transform: capitalize;
 }
 
-#page15 .top header h3, #page16 header h3, #page17 .top header h3 span {
+#page15 .top header h3, #page16 header h3, #page17 .top header h3 span, #page16a header h3 {
   color: #47a836;
 }
 
@@ -3379,6 +3379,36 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  .item1, .item2 {
+    margin: 13px auto 0px !important;
+    img {
+      padding-right: 37px;
+    }
+    div {
+      width: 165px;
+      margin: 0px auto;
+      text-align: left;
+      @color: #E15E32;
+      color: @color;
+      position: relative;
+      &:first-of-type {
+        margin-top: 5px;
+      }
+      &::before {
+        position: absolute;
+        top: 3.5px;
+        left: -15px;
+        width: 8px;
+        height: 8px;
+        -webkit-border-radius: 50%;
+           -moz-border-radius: 50%;
+                border-radius: 50%;
+        background: @color;
+        display: block;
+        content: '';
+      }
+    }
+  }
 }
 #page16a .line_fix3_img {
   text-align: center;
@@ -3398,11 +3428,6 @@ body {
   position: relative;
   width: 300px;
   margin: 0 auto 5px;
-}
-
-#page16a .item1 > div, #page16a .item2 > div {
-  text-align: left;
-  color: #E15E32;
 }
 
 
