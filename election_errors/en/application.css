@@ -7002,6 +7002,9 @@ body {
   text-align: center;
   font-family: breeserif_reg;
 }
+#page2a header h2 {
+  margin: 0px;
+}
 /***************************************/
 #page3 header h2 {
   padding: 400px 0px 20px 0px;
