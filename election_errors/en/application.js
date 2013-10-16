@@ -220,9 +220,9 @@ $(window).load(function ()
   var pinh = 2500;
   controller.pin($('#page2a'), pinh, {
     anim: (new TimelineMax())
-          .append(TweenMax.fromTo($('#page2a .top .title'), .5, {css:{top: 700}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page2a .top .eq1'), .5, {css:{top: 700}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page2a .top .or').add($('#page2a .top .eq2')), .5, {css:{top: 700}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .top .title'), .5, {css:{top: 800}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .top .eq1'), .5, {css:{top: 800}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .top .or').add($('#page2a .top .eq2')), .5, {css:{top: 800}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page2a .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
     onPin: function ()
     {
