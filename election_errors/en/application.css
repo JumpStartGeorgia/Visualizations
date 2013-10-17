@@ -6990,6 +6990,7 @@ body {
   line-height: 40px;
   margin: 0px 0;
 }
+/**********************************/
 .moreless {
   width: 32px;
   height: 32px;
@@ -7335,6 +7336,9 @@ body {
   width: 115px;
   text-align: center;
   display: inline-block;
+}
+#page5a #stations div#places + div {
+  margin: 10px 0px;
 }
 #page5a #stations div#places span {
   display: block;
@@ -7968,7 +7972,8 @@ body {
 #page8 .top header h4 span {
   position: relative;
   top: 11px;
-  vertical-align: bottom;
+  vertical-align: middle;
+  margin-right: 3px;
 }
 #page8 .top header h4 img {
   vertical-align: bottom;
@@ -8218,6 +8223,9 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+#page8a {
+  padding-top: 125px;
 }
 #page8c {
   margin-bottom: 0;
@@ -8976,7 +8984,6 @@ body {
 }
 #line_fix > div:nth-child(2) {
   margin-left: 192px;
-  /* FUCK OPERA! */
 }
 #line_fix > div:nth-child(3) {
   margin-left: 0px;
@@ -9637,7 +9644,7 @@ body {
   position: absolute;
   bottom: 0px;
   left: 50%;
-  margin-left: -415px/2;
+  margin-left: -207.5px;
   text-align: right;
   font-family: museo;
 }

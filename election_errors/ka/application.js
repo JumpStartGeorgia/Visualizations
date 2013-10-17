@@ -560,7 +560,7 @@ $(window).load(function ()
   controller.pin($('#page10'), pinh, {
     anim: (new TimelineMax())
             .append([
-              TweenMax.to($('#page10 header'), .001, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
+              TweenMax.to($('#page10 header'), .01, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
               TweenMax.to($('#page10 #map_text'), .01, {css: {marginTop: '+=' + $('#page10 header').height()}})
             ])
             .append(TweenMax.to($('#page10 #map_text'), .5, {delay: 1, css: {marginTop: '-=420'}}))
