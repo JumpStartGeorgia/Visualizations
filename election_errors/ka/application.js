@@ -1,6 +1,3 @@
-// @koala-prepend "../superscrollorama/js/jquery.superscrollorama.js"
-
-
   var topRange = 200;  // measure from the top of the viewport to X pixels down
   var edgeMargin = 20;
   var menu_text = [];
@@ -149,9 +146,13 @@ $(window).load(function ()
   });
   $('#question_marks > div:nth-child(3) > img').click(function ()
   {
-    $('html, body').animate({scrollTop: compute_scroll_top($('#page7').offset().top, $('#page7 .bottom').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page6a').offset().top, $('#page6a .middle').offset().top + 100) });
   });
   $('#question_marks > div:nth-child(4) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page7 .top').offset().top, $('#page7 .bottom').offset().top) });
+  });
+  $('#question_marks > div:nth-child(5) > img').click(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page8').offset().top, $('#page8 .after').offset().top) });
   });
@@ -168,9 +169,13 @@ $(window).load(function ()
   });
   $('#line_fix > div:nth-child(3) > img').click(function ()
   {
-    $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page16a').offset().top, $('#page16a .item2').offset().top) });
   });
   $('#line_fix > div:nth-child(4) > img').click(function ()
+  {
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
+  });
+  $('#line_fix > div:nth-child(5) > img').click(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page17').offset().top, $('#page17 .after').offset().top) });
   });
@@ -207,6 +212,31 @@ $(window).load(function ()
     }
   });
   $('#page2').after('<div id="page2-spacer"></div>').next().height(pinh);
+
+
+
+/////////////////////////////////
+  var pinh = 2500;
+  controller.pin($('#page2a'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page2a .top .title'), .5, {css:{top: 800}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .top .eq1'), .5, {css:{top: 800}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .top .or').add($('#page2a .top .eq2')), .5, {css:{top: 800}}, {css:{top: 0}}))
+          .append(TweenMax.fromTo($('#page2a .bottom'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page2a-spacer').hide();
+    },
+    onUnpin: function ()
+    {
+      if ($('#page2a').offset().top > $(window).scrollTop())
+      {
+        $('#page2a-spacer').show();
+      }
+    }
+  });
+  $('#page2a').after('<div id="page2a-spacer"></div>').next().height(pinh);
+
 
 
 /////////////////////////////////
@@ -363,6 +393,34 @@ $(window).load(function ()
 
 /////////////////////////////////
 
+
+
+  var pinh = 2000;
+  controller.pin($('#page6a'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page6a header h4').add('#page6a .problem3_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page6a .middle .center'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page6a .middle .left'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page6a .middle .right'), .5, {css: {opacity: 0}}, {css: {opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page6a-spacer').hide();
+      $('#ballots .all li:eq(5)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page6a').offset().top > $(window).scrollTop())
+      {
+        $('#page6a-spacer').show();
+      }
+      $('#ballots .all li:eq(5)').css({opacity: .6});
+    }
+  });
+  $('#page6a').after('<div id="page6a-spacer"></div>').next().height(pinh);
+
+
+
+/////////////////////////////////
 
 
   controller.addTween($('#page7'), TweenMax.fromTo($('#page7 > .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}), 300);
@@ -623,6 +681,32 @@ $(window).load(function ()
 ///////////////////////////////////////
 
 
+  var pinh = 2500;
+  controller.pin($('#page15'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page15 .top'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page15 .middle .left').add($('#page15 .middle .right')), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page15 .center .center-top'), .5, {css: {left: -800, opacity: 0}}, {css: {left: 0, opacity: 1}}))
+          .append(TweenMax.fromTo($('#page15 .center .center-bottom'), .5, {css: {right: -800, opacity: 0}}, {css: {right: 0, opacity: 1}})),
+    onPin: function ()
+    {
+      $('#page15-spacer').hide();
+      $('#ballots .all li:first').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page15').offset().top > $(window).scrollTop())
+      {
+        $('#page15-spacer').show();
+      }
+      $('#ballots .all li:first').css({opacity: .6});
+    }
+  });
+  $('#page15').after('<div id="page15-spacer"></div>').next().height(pinh);
+
+
+/* ORIGINAL VERSION 
+
   var pinh = 3300;
   var big_circle_radius = $('#page15 .middle #circles .left .circle').css('width').replace('px', '')/2;
   var little_circle_radius = $('#page15 .middle #circles .right .circle').css('width').replace('px', '')/2;
@@ -662,7 +746,7 @@ $(window).load(function ()
   });
   $('#page15').after('<div id="page15-spacer"></div>').next().height(pinh);
 
-
+*/
 
 //////////////////////////////////////
 
@@ -695,6 +779,32 @@ $(window).load(function ()
   });
   $('#page16').after('<div id="page16-spacer"></div>').next().height(pinh);
 
+
+//////////////////////////////////////
+
+
+  var pinh = 2000;
+  controller.pin($('#page16a'), pinh, {
+    anim: (new TimelineMax())
+          .append(TweenMax.fromTo($('#page16a header h3').add('#page16a .line_fix3_img'), .5, {css: {opacity: 0}}, {css: {opacity: 1}}))
+          .append(TweenMax.fromTo($('#page16a .title'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page16a .item1'), .5, {css: {top: 800}}, {css: {top: 0}}))
+          .append(TweenMax.fromTo($('#page16a .item2'), .5, {css: {top: 800}}, {css: {top: 0}})),
+    onPin: function ()
+    {
+      $('#page16a-spacer').hide();
+      $('#ballots .all li:eq(5)').css({opacity: 1});
+    },
+    onUnpin: function ()
+    {
+      if ($('#page16a').offset().top > $(window).scrollTop())
+      {
+        $('#page16a-spacer').show();
+      }
+      $('#ballots .all li:eq(5)').css({opacity: .6});
+    }
+  });
+  $('#page16a').after('<div id="page16a-spacer"></div>').next().height(pinh);
 
 
 ////////////////////////////////////////

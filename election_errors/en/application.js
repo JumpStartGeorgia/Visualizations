@@ -853,8 +853,8 @@ $(window).load(function ()
           .append(TweenMax.fromTo($('#page18 #line2'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line3'), .5, {css:{top: 1000}}, {css:{top: 0}}))
           .append(TweenMax.fromTo($('#page18 #line4'), .5, {css:{top: 1000}}, {css:{top: 0}}))
-          .append(TweenMax.fromTo($('#page18 #by_js'), .5, {css:{opacity: 0}}, {css:{opacity: 1}}))
-          .append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{opacity: 0}}, {css:{opacity: 1}})),
+          .append(TweenMax.fromTo($('#page18 #by_js'), .5, {css:{opacity: 0}}, {css:{opacity: 1}})),
+          //.append(TweenMax.fromTo($('#page18 #sources'), .5, {css:{opacity: 0}}, {css:{opacity: 1}})),
     onPin: function ()
     {
       $('#page18-spacer').hide();
