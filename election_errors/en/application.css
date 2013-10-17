@@ -7522,6 +7522,8 @@ body {
 #page6 .problem2_img {
   text-align: center;
   margin-bottom: 2px;
+  position: relative;
+  left: -15px;
 }
 #page6 header h4 {
   text-align: center;
@@ -7600,6 +7602,10 @@ body {
   text-align: center;
   margin-bottom: 2px;
 }
+#page6a .problem3_img img {
+  position: relative;
+  right: -15px;
+}
 #page6a header h4 {
   text-align: center;
   margin: 0px 0px 0px 0px;
@@ -7675,7 +7681,7 @@ body {
   margin-bottom: 1px;
 }
 #page7 .problem3_img img {
-  margin-left: 11%;
+  margin-left: 15%;
 }
 #page7 header h4 {
   text-align: center;
@@ -9290,11 +9296,11 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#page16 .line_fix23_img {
+#page16 .line_fix24_img {
   text-align: center;
   margin-bottom: 0px;
 }
-#page16 .line_fix23_img img {
+#page16 .line_fix24_img img {
   margin-left: 66px;
 }
 #page16 header h3 {

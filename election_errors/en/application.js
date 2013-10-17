@@ -146,11 +146,11 @@ $(window).load(function ()
   });
   $('#question_marks > div:nth-child(3) > img').click(function ()
   {
-    $('html, body').animate({scrollTop: compute_scroll_top($('#page6a').offset().top, $('#page6a .bottom').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page6a').offset().top, $('#page6a .middle').offset().top + 100) });
   });
   $('#question_marks > div:nth-child(4) > img').click(function ()
   {
-    $('html, body').animate({scrollTop: compute_scroll_top($('#page7').offset().top, $('#page7 .bottom').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page7 .top').offset().top, $('#page7 .bottom').offset().top) });
   });
   $('#question_marks > div:nth-child(5) > img').click(function ()
   {
@@ -169,13 +169,13 @@ $(window).load(function ()
   });
   $('#line_fix > div:nth-child(3) > img').click(function ()
   {
-    $('html, body').animate({scrollTop: compute_scroll_top($('#page16a').offset().top, $('#page16a .middle').offset().top) });
+    $('html, body').animate({scrollTop: compute_scroll_top($('#page16a').offset().top, $('#page16a .item2').offset().top) });
   });
   $('#line_fix > div:nth-child(4) > img').click(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page16').offset().top, $('#page16 .middle').offset().top) });
   });
-  $('#line_fix > div:nth-child(4) > img').click(function ()
+  $('#line_fix > div:nth-child(5) > img').click(function ()
   {
     $('html, body').animate({scrollTop: compute_scroll_top($('#page17').offset().top, $('#page17 .after').offset().top) });
   });
