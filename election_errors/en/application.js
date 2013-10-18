@@ -821,7 +821,7 @@ $(window).load(function ()
     onPin: function ()
     {
       $('#page17-spacer').hide();
-      $('#ballots .all li:eq(7)').css({opacity: 1});
+      $('#ballots .all li:eq(8)').css({opacity: 1});
     //$('#ballots .all').add($('#line_fix').parent()).add($('#question_marks').parent()).show();
     },
     onUnpin: function ()
@@ -830,7 +830,7 @@ $(window).load(function ()
       {
         $('#page17-spacer').show();
       }
-      $('#ballots .all li:eq(7)').css({opacity: .6});
+      $('#ballots .all li:eq(8)').css({opacity: .6});
     //$('#ballots .all').add($('#line_fix').parent()).add($('#question_marks').parent()).hide();
     }
   });
