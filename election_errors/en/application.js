@@ -72,16 +72,18 @@ function adjust_legend_placement(){
   }
 
   // adjust gori legend
-  if (scrn_width > 1700){
-    $('#page12 #legend ul').css('margin-left', '45px');
+  if (scrn_width > 1850){
+    $('#page12 #legend ul').css('margin-left', '40px');
+  } else if (scrn_width > 1700){
+    $('#page12 #legend ul').css('margin-left', '30px');
   } else if (scrn_width > 1350) {
-    $('#page12 #legend ul').css('margin-left', '25px');
+    $('#page12 #legend ul').css('margin-left', '20px');
   } else if (scrn_width > 1175) {
-    $('#page12 #legend ul').css('font-size', '13px').css('margin-left', '15px');
+    $('#page12 #legend ul').css('margin-left', '5px');
   } else if (scrn_width > 975) {
-    $('#page12 #legend ul').css('font-size', '11px').css('margin-left', '5px');
+    $('#page12 #legend ul').css('font-size', '11px').css('margin-left', '0px');
   } else  {
-    $('#page12 #legend ul').css('font-size', '9px').css('margin-left', '0');
+    $('#page12 #legend ul').css('font-size', '11px').css('margin-left', '0');
   }  
 }
 

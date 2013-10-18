@@ -8828,6 +8828,24 @@ body {
   font-size: 17px;
   color: #cc3737;
 }
+#page12 #map #legend ul {
+  width: 60%;
+}
+@media (max-width: 1365px) {
+  #page12 #map #legend ul {
+    margin-left: 0px !important;
+    width: 67%;
+  }
+}
+@media (max-width: 1280px) {
+  #page12 #map #legend {
+    top: 80px !important;
+  }
+  #page12 #map #legend ul {
+    margin-left: 0px !important;
+    width: 80%;
+  }
+}
 @media (max-height: 801px) {
   #page10 #district_percent_text,
   #page11 #district_percent_text,
