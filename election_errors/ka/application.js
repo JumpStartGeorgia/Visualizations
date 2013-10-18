@@ -903,7 +903,6 @@ $(window).load(function ()
   }
   if ($(window).width() < 1351 && $(window).height() >= 830)
   {
-    alert(2);
     var diffs = [-200, -250, -240, -240, -240, -240, -240];
     for (var i = 11; i < 18; i ++)
     {

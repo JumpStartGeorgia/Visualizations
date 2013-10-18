@@ -7517,6 +7517,11 @@ body {
   padding-top: 53px;
   line-height: 16px;
 }
+@media (max-width: 1365px) {
+  #page11 #map #legend {
+    margin-top: 0px !important;
+  }
+}
 @media (max-width: 1030px) {
   #page5a #stations-connect .cont .right,
   #page5a #stations-connect .cont .left {
