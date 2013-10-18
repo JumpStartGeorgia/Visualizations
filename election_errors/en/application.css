@@ -7042,7 +7042,7 @@ body {
 #page2a .top .eq2 {
   position: relative;
   background-color: #fff;
-  padding: 15px;
+  padding: 10px 10px 10px 16px;
   color: #52b2a2;
   font-family: rawengulk_demibold;
   -moz-border-radius: 25px;
@@ -7555,15 +7555,15 @@ body {
   top: 11px;
 }
 #page6 .bottom {
-  margin-top: 20px;
+  margin-top: 50px;
   position: relative;
 }
 #page6 .bottom .circle {
   background: #e8e8da url(../img/garbage.png) center center no-repeat;
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   margin: 0px auto;
-  padding-top: 28px;
+  padding-top: 35px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -7588,7 +7588,7 @@ body {
   color: #4d3534;
 }
 #page6 .bottom .circle .text span:nth-child(5) {
-  margin-top: 110px;
+  margin-top: 140px;
 }
 /****************************************************/
 #page6a {
@@ -8685,30 +8685,51 @@ body {
   position: relative;
 }
 #page12 #map #map_headers {
-  margin-top: 20px;
+  margin: 20px auto 0px;
+  display: table;
 }
 #page12 #map #map_headers > div {
   text-align: center;
   font-family: breeserif_reg;
   color: #aa1313;
   font-size: 13px;
-  padding: 0px 17px;
-  display: inline-block;
+  padding: 0px;
+  display: block;
   vertical-align: middle;
-  width: 195px;
-  margin: 0px 80px;
+  width: 273px;
+  float: left;
+  margin: 0px 0px 0px 0px;
 }
-#page12 #map #legend {
-  position: absolute;
-  top: 105px;
-  left: 88px;
-  right: 0px;
-  width: auto;
+#page12 #map #map_headers > div:last-child {
+  margin-left: -70px;
 }
-#page12 #map #legend ul {
+#page12 #map #map_headers > div:first-child {
+  margin-right: 20px;
+}
+#page12 #map #map_headers > div:not(#legend) span,
+#page12 #map #map_headers > div:not(#legend) img {
+  display: block;
+}
+#page12 #map #map_headers > div#legend {
+  width: 210px;
+  margin-top: 130px;
+}
+#page12 #map #map_headers > div#legend ul {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
   list-style-type: none;
-  text-align: left;
   font-size: 12px;
+}
+#page12 #map #map_headers > div#legend ul li {
+  text-align: left;
+  color: #4D3534;
+}
+@media (max-width: 1365px) {
+  
+}
+@media (max-width: 1280px) {
+  
 }
 #page12 #map #legend ul li > div {
   display: inline-block;
@@ -8827,24 +8848,6 @@ body {
 #page12 .polling_station_stats > div > div #line2 {
   font-size: 17px;
   color: #cc3737;
-}
-#page12 #map #legend ul {
-  width: 60%;
-}
-@media (max-width: 1365px) {
-  #page12 #map #legend ul {
-    margin-left: 0px !important;
-    width: 67%;
-  }
-}
-@media (max-width: 1280px) {
-  #page12 #map #legend {
-    top: 80px !important;
-  }
-  #page12 #map #legend ul {
-    margin-left: 0px !important;
-    width: 80%;
-  }
 }
 @media (max-height: 801px) {
   #page10 #district_percent_text,
@@ -9057,13 +9060,13 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 35px 10px;
+  padding: 42px 10px;
   margin: 0 auto;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 24px;
+  line-height: 24px;
   font-family: rawengulk_regular;
   text-transform: uppercase;
   text-align: center;
@@ -9385,8 +9388,8 @@ body {
 #page16 .bottom2 .middle #eq_header {
   position: relative;
   font-size: 14px;
-  margin-bottom: 20px;
-  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-top: 30px;
 }
 #page16 .bottom2 .middle #eq_circle {
   text-align: center;

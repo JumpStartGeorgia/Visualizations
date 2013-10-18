@@ -602,7 +602,7 @@ body {
   padding-bottom: 50px;
   color: #fff;
   font-size: 38px;
-  font-family: rawengulk_regular;
+  font-family: dejavu_extralight;
   text-transform: uppercase;
   text-align: center;
   line-height: 1;
@@ -2675,31 +2675,46 @@ body {
 }
 
 #page12 #map #map_headers {
-  margin-top: 20px;
+  margin: 20px auto 0px;
+  display: table;
 }
 #page12 #map #map_headers > div{
   text-align: center;
   font-family: breeserif_reg;
   color: #aa1313;
   font-size: 13px;
-  padding: 0px 17px;
-  display: inline-block;
+  padding: 0px;
+  display: block;
   vertical-align: middle;
-  width: 195px;
-  margin: 0px 80px;
-}
-
-#page12 #map #legend {
-  position: absolute;
-  top: 105px;
-  left: 88px;
-  right: 0px;
-  width: auto;
-}
-#page12 #map #legend ul{
-  list-style-type: none;
-  text-align: left;
-  font-size: 12px;
+  width: 273px;
+  float: left;
+  margin: 0px 0px 0px 0px;
+  &:last-child {
+    margin-left: -70px;
+  }
+  &:first-child {
+    margin-right: 20px;
+  }
+  &:not(#legend) {
+    span, img {
+      display: block;
+    }
+  }
+  &#legend {
+    width: 210px;
+    margin-top: 130px;
+    ul {
+      display: inline-block;
+      margin: 0px;
+      padding: 0px;
+      list-style-type: none;
+      font-size: 12px;
+      li {
+        text-align: left;
+        color: #4D3534;
+      }
+    }
+  }
 }
 
 #page12 #map #legend ul li > div{

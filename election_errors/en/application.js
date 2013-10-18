@@ -71,6 +71,7 @@ function adjust_legend_placement(){
   
   }
 
+/*
   // adjust gori legend
   if (scrn_width > 1850){
     $('#page12 #legend ul').css('margin-left', '40px');
@@ -84,7 +85,8 @@ function adjust_legend_placement(){
     $('#page12 #legend ul').css('font-size', '11px').css('margin-left', '0px');
   } else  {
     $('#page12 #legend ul').css('font-size', '11px').css('margin-left', '0');
-  }  
+  }
+*/
 }
 
 /////////////////////////////////////////
