@@ -588,7 +588,7 @@ $(window).load(function ()
   controller.pin($('#page11'), pinh, {
     anim: (new TimelineMax())
             .append([
-              TweenMax.to($('#page11 header'), .001, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
+              TweenMax.to($('#page11 header'), .01, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
               TweenMax.to($('#page11 #map_text'), .01, {css: {marginTop: '+=' + $('#page11 header').height()}})
             ])
             .append(TweenMax.to($('#page11 #map_text'), .5, {delay: 1, css: {marginTop: '-=429'}}))
