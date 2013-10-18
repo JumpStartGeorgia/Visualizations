@@ -430,12 +430,12 @@ $(window).load(function ()
     offset: -($('#question_marks').parent().height() + $('#ballots .all').height()),
     onPin: function ()
     {
-      $('#ballots .all li:eq(5)').css({opacity: 1});
-      $('#ballots .all li:eq(7)').css({opacity: .6});
+      $('#ballots .all li:eq(6)').css({opacity: 1});
+      $('#ballots .all li:eq(8)').css({opacity: .6});
     },
     onUnpin: function ()
     {
-      $('#ballots .all li:eq(5)').css({opacity: .6});
+      $('#ballots .all li:eq(6)').css({opacity: .6});
     }
   });
   $(window).load(function ()
@@ -484,7 +484,7 @@ $(window).load(function ()
     onPin: function ()
     {
       $('#page8-spacer').hide();
-      $('#ballots .all li:eq(7)').css({opacity: 1});
+      $('#ballots .all li:eq(8)').css({opacity: 1});
     },
     onUnpin: function ()
     {
@@ -529,7 +529,7 @@ $(window).load(function ()
     $('#page8d'),
     (new TimelineMax()).append([
       TweenMax.to($('#page8 > .top'), .001, {css: {zIndex: 'auto', display: 'none'}}),
-      TweenMax.to($('#ballots .all li:eq(7)'), .001, {css: {opacity: .6}})
+      TweenMax.to($('#ballots .all li:eq(8)'), .001, {css: {opacity: .6}})
     ])
   );
 
