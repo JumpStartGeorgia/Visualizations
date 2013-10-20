@@ -7704,7 +7704,7 @@ body {
 }
 #page6a .middle {
   margin: 100px auto 0;
-  width: 550px;
+  display: table;
 }
 #page6a .middle > div {
   display: inline-block;
@@ -7740,6 +7740,9 @@ body {
   font-size: 18px;
   line-height: 18px;
 }
+#page6a .middle .right {
+  margin-left: 5px;
+}
 #page6a .middle .right .text {
   margin: 0 3px;
   padding-bottom: 9px;
@@ -7747,8 +7750,8 @@ body {
 #page6a .middle .right .text > div {
   text-align: right;
 }
-#page6a .middle .right .text div:nth-child(3),
-#page6a .middle .right .text div:nth-child(4) {
+#page6a .middle .right .text div:nth-child(2) span,
+#page6a .middle .right .text div:last-child {
   color: #aa1313;
   text-transform: uppercase;
   font-size: 18px;
