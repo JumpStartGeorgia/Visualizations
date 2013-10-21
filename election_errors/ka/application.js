@@ -883,17 +883,23 @@ $(window).load(function ()
   // override the first item position to 0
   menu_position[0] = 0;
 
-  menu_position[3] -= 200;
-  menu_position[4] += 500;
-  menu_position[5] += 300;
-  menu_position[6] += 300;
-  menu_position[7] += 450;
-  menu_position[12] -= 700;
-  menu_position[13] -= 1000;
-  menu_position[14] -= 400;
-  menu_position[15] -= 350;
-  menu_position[16] -= 400;
-  menu_position[17] -= 800;
+  menu_position[1] -= 200;
+  menu_position[3] -= 21;
+  menu_position[4] -= 130;
+  menu_position[5] += 550;
+  menu_position[6] += 400;
+  menu_position[7] += 390;
+  menu_position[8] += 315;
+  menu_position[9] += 477;
+  menu_position[12] -= 270;
+  menu_position[13] -= 430;
+  menu_position[14] -= 904;
+  menu_position[15] -= 957;
+  menu_position[16] -= 162;
+  menu_position[17] -= 326;
+  menu_position[18] -= 318;
+  menu_position[19] -= 424;
+  menu_position[20] -= 742;
 
   if ($(window).height() < 830)
   {
