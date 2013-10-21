@@ -8755,19 +8755,22 @@ body {
   background-color: #EDB87C;
 }
 #page12 #country_stats {
-  margin-top: 20px;
+  margin: 20px auto 0px;
+  display: table;
 }
 #page12 #country_stats > div {
   text-align: center;
   height: 195px;
   padding: 35px 17px;
-  display: inline-block;
-  vertical-align: middle;
-  width: 195px;
-  margin: 0px 80px;
+  display: block;
+  float: left;
+  width: 273px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+#page12 #country_stats > div:first-child {
+  margin: 0px 160px 0px 0px;
 }
 #page12 #country_stats > div:nth-child(1) {
   background: #f7f7f0 url(../img/chart9.png) center center no-repeat;

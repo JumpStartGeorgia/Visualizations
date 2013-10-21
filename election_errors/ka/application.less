@@ -2764,16 +2764,19 @@ body {
 
 
 #page12 #country_stats {
-  margin-top: 20px;
+  margin: 20px auto 0px;
+  display: table;
 }
 #page12 #country_stats > div {
   text-align: center;
   height: 195px;
   padding: 40px 17px;
-  display: inline-block;
-  vertical-align: middle;
-  width: 195px;
-  margin: 0px 80px;
+  display: block;
+  float: left;
+  width: 273px;
+  &:first-child {
+    margin: 0px 160px 0px 0px;
+  }
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
