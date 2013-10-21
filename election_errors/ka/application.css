@@ -6271,7 +6271,7 @@ button.close {
 @font-face {
   font-family: 'dejavu_bold';
   src: url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.eot');
-  src: local('☺'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.woff') format('woff'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.ttf') format('truetype'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.svg') format('svg');
+  src: local('☺'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.ttf') format('truetype'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.woff') format('woff'), url('../fonts/dejavu/bold/BPG DejaVuSans-Bold_2s.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -7276,6 +7276,7 @@ body {
   left: 0px;
   width: 64px;
   text-align: center;
+  opacity: .6;
 }
 #ballots .list li:nth-child(2) .mark {
   left: 64px;
@@ -7451,7 +7452,7 @@ body {
   left: 0;
 }
 #page5a #stations-connect .img div {
-  background: #77c1b4;
+  background: #52b2a2;
   text-transform: capitalize;
   text-align: center;
   width: 120px;
@@ -7499,8 +7500,8 @@ body {
 #page5a #stations-connect .right .top {
   font-size: 16px;
   line-height: 1.2;
-  border: 1px dashed #77c1b4;
-  color: #77c1b4;
+  border: 1px dashed #52b2a2;
+  color: #52b2a2;
   padding: 5px 8px;
   -webkit-border-radius: 13px;
   -moz-border-radius: 13px;
