@@ -8919,32 +8919,41 @@ body {
   color: #cc3737;
 }
 #page12 #polling_station_stats_text {
-  margin-top: 30px;
+  margin: 30px auto 0px;
+  display: table;
 }
 #page12 #polling_station_stats_text > div {
-  display: inline-block;
+  display: block;
+  float: left;
+  width: 273px;
   text-align: center;
   font-size: 18px;
-  vertical-align: middle;
-  margin: 0px 30px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+#page12 #polling_station_stats_text > div:first-child {
+  margin: 0px 160px 0px 0px;
 }
 #page12 #polling_station_stats_text span {
   color: #cc3737;
 }
 #page12 .polling_station_stats {
-  margin-top: 10px;
+  margin: 10px auto 0px;
+  display: table;
 }
 #page12 .polling_station_stats > div {
   text-align: center;
   display: inline-block;
-  vertical-align: middle;
-  margin: 0px 121px;
+  display: block;
+  float: left;
+  width: 273px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+#page12 .polling_station_stats > div:first-child {
+  margin: 0px 160px 0px 0px;
 }
 #line2 {
   position: relative;
@@ -8954,9 +8963,9 @@ body {
   z-index: 1;
   left: 68px;
   top: 6px;
-  width: 331px;
+  width: 399px;
   height: 3px;
-  background: url(../img/line_red.png) center no-repeat;
+  background: url(../img/line_red.png) center repeat-x;
 }
 #page12 .polling_station_stats > div > div {
   background: #ddd7ce;

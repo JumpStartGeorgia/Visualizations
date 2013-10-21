@@ -2686,13 +2686,17 @@ body {
 
 
 #page12 #polling_station_stats_text{
-  margin-top: 30px;
+  margin: 30px auto 0px;
+  display: table;
 }
 #page12 #polling_station_stats_text > div {
-  display: inline-block;
   text-align: center;
-  vertical-align: middle;
-  margin: 0px 80px;
+  display: block;
+  float: left;
+  width: 273px;
+  &:first-child {
+    margin: 0px 160px 0px 0px;
+  }
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -2702,14 +2706,18 @@ body {
 }
 
 #page12 .polling_station_stats {
-  margin-top: 10px;
+  margin: 10px auto 0px;
+  display: table;
 }
 
 #page12 .polling_station_stats > div {
   text-align: center;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0px 121px;
+  display: block;
+  float: left;
+  width: 273px;
+  &:first-child {
+    margin: 0px 160px 0px 0px;
+  }
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
         	box-sizing: border-box;
@@ -2724,9 +2732,9 @@ body {
   z-index: 1;
   left: 68px;
   top: 6px;
-  width: 331px;
+  width: 399px;
   height: 3px;
-  background: url(../img/line_red.png) center no-repeat;
+  background: url(../img/line_red.png) center repeat-x;
 }
 
 #page12 .polling_station_stats > div > div {
