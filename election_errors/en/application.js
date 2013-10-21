@@ -887,7 +887,7 @@ $(window).load(function ()
   // adjust the menu positions so at least the title is showing
   menu_position[1] -= 200;
   menu_position[3] -= 21;
-  menu_position[4] -= 130;
+  menu_position[4] -= 70;
   menu_position[5] += 550;
   menu_position[6] += 400;
   menu_position[7] += 390;
@@ -905,7 +905,10 @@ $(window).load(function ()
 
   if ($(window).height() < 830)
   {
-    var diffs = [-159, -530, -424, -477, -477, -430, -424];
+    menu_position[1] += 100;
+    menu_position[2] += 212;
+    menu_position[10] += 112;
+    var diffs = [-159, -370, -424, -477, -477, -430, -424];
     for (var i = 14; i <= 20; i ++)
     {
       menu_position[i] += diffs[i - 14];
@@ -913,11 +916,15 @@ $(window).load(function ()
   }
   if ($(window).width() < 1351 && $(window).height() >= 830)
   {
+    menu_position[1] += 53;
+    menu_position[2] += 159;
+    menu_position[10] += 170;
     menu_position[14] -= 53;
     for (var i = 15; i <= 20; i ++)
     {
       menu_position[i] -= 265;
     }
+    menu_position[15] -= 53;
   }
 
   for(var i=0;i<menu_text.length;i++){
