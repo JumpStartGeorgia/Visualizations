@@ -544,7 +544,7 @@ $(window).load(function ()
 /*
   var ph = $('#page10 header');
   ph.wrap('<div style="position: relative; height: ' + ph.outerHeight() + 'px;"></div>').css({position: 'absolute', left: 0});
-  controller.addTween(ph, TweenMax.to($('#page10 header'), .01, {css: {position: 'fixed', left: 90, top: 70}}), 0);
+  controller.addTween(ph, TweenMax.to($('#page10 header'), .01, {css: {position: 'fixed', left: 90, top: 72}}), 0);
 
   var cs = $('#page10 #country_stats');
   cs.wrap('<div style="position: relative; height: ' + cs.outerHeight() + 'px;"></div>').css({position: 'absolute', right: 0, left: 0, zIndex: 100});
@@ -564,8 +564,8 @@ $(window).load(function ()
   controller.pin($('#page10'), pinh, {
     anim: (new TimelineMax())
             .append([
-              TweenMax.to($('#page10 header'), .01, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
-              TweenMax.to($('#page10 #map_text'), .01, {css: {marginTop: '+=' + $('#page10 header').height()}})
+              TweenMax.to($('#page10 header'), .001, {css: {position: 'fixed', right: 0, left: 90, top: 72}}),
+              TweenMax.to($('#page10 #map_text'), .001, {css: {marginTop: '+=' + $('#page10 header').height()}})
             ])
             .append(TweenMax.to($('#page10 #map_text'), .5, {delay: 1, css: {marginTop: '-=420'}}))
             .append(TweenMax.fromTo($('#page10 [id*="district_amount"]'), .5, {css: {position: 'relative', top: 800}}, {css: {top: 0}}))
@@ -592,8 +592,8 @@ $(window).load(function ()
   controller.pin($('#page11'), pinh, {
     anim: (new TimelineMax())
             .append([
-              TweenMax.to($('#page11 header'), .001, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
-              TweenMax.to($('#page11 #map_text'), .01, {css: {marginTop: '+=' + $('#page11 header').height()}})
+              TweenMax.to($('#page11 header'), .001, {css: {position: 'fixed', right: 0, left: 90, top: 72}}),
+              TweenMax.to($('#page11 #map_text'), .001, {css: {marginTop: '+=' + $('#page11 header').height()}})
             ])
             .append(TweenMax.to($('#page11 #map_text'), .5, {delay: 1, css: {marginTop: '-=429'}}))
             .append(TweenMax.fromTo($('#page11 [id*="district_amount"]'), .5, {css: {position: 'relative', top: 800}}, {css: {top: 0}}))
@@ -620,7 +620,7 @@ $(window).load(function ()
   controller.pin($('#page12'), pinh, {
     anim: (new TimelineMax())
             .append([
-              TweenMax.to($('#page12 header'), .01, {css: {position: 'fixed', right: 0, left: 90, top: 70}}),
+              TweenMax.to($('#page12 header'), .01, {css: {position: 'fixed', right: 0, left: 90, top: 72}}),
               TweenMax.to($('#page12 #intro'), .01, {css: {marginTop: '+=' + $('#page12 header').height()}})
             ])
             .append(TweenMax.to($('#page12 #intro'), .5, {delay: 1, css: {marginTop: '-=' + ($('#page12 #map').offset().top + $('#page12 #map').outerHeight(true) - $('#intro').offset().top + parseInt($('#intro').css('marginTop')) + 30)}}))
@@ -905,10 +905,10 @@ $(window).load(function ()
 
   if ($(window).height() < 830)
   {
-    var diffs = [-100, -400, -450, -500, -500, -500, -450];
-    for (var i = 11; i < 18; i ++)
+    var diffs = [-159, -530, -424, -477, -477, -430, -424];
+    for (var i = 14; i <= 20; i ++)
     {
-      menu_position[i] += diffs[i - 11];
+      menu_position[i] += diffs[i - 14];
     }
   }
   if ($(window).width() < 1351 && $(window).height() >= 830)
