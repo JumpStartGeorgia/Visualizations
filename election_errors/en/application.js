@@ -885,19 +885,23 @@ $(window).load(function ()
   // override the first item position to 0
   menu_position[0] = 0;
   // adjust the menu positions so at least the title is showing
-  menu_position[1] += 159;
-  menu_position[3] -= 161;
-  menu_position[4] += 533;
-  menu_position[5] += 373;
-  menu_position[6] += 319;
-  menu_position[7] += 480;
-  menu_position[8] += 50;
-  menu_position[12] -= 747;
-  menu_position[13] -= 960;
-  menu_position[14] -= 480;
-  menu_position[15] -= 374;
-  menu_position[16] -= 480;
-  menu_position[17] -= 750;
+  menu_position[1] -= 200;
+  menu_position[3] -= 21;
+  menu_position[4] -= 130;
+  menu_position[5] += 550;
+  menu_position[6] += 400;
+  menu_position[7] += 390;
+  menu_position[8] += 315;
+  menu_position[9] += 477;
+  menu_position[12] -= 270;
+  menu_position[13] -= 430;
+  menu_position[14] -= 904;
+  menu_position[15] -= 957;
+  menu_position[16] -= 162;
+  menu_position[17] -= 326;
+  menu_position[18] -= 318;
+  menu_position[19] -= 424;
+  menu_position[20] -= 742;
 
   if ($(window).height() < 830)
   {
