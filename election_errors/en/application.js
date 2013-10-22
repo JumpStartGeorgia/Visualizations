@@ -1,4 +1,3 @@
-// @koala-prepend "../fancybox/jquery.fancybox.pack.js?v=2.1.5"
 // @koala-prepend "../superscrollorama/js/jquery.superscrollorama.js"
 // @koala-prepend "../tipsy/jquery.tipsy.js"
 
