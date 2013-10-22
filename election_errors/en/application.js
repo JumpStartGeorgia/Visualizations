@@ -1,3 +1,8 @@
+// @koala-prepend "../fancybox/jquery.fancybox.pack.js?v=2.1.5"
+// @koala-prepend "../superscrollorama/js/jquery.superscrollorama.js"
+// @koala-prepend "../tipsy/jquery.tipsy.js"
+
+
   var topRange = 200;  // measure from the top of the viewport to X pixels down
   var edgeMargin = 20;
   var menu_text = [];
