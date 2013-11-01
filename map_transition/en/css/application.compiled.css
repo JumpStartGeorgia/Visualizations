@@ -1,0 +1,49 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+body {
+  background: #e2e2e2;
+}
+#wrapper {
+  display: table;
+  margin: 35px auto 0px;
+}
+#object {
+  position: relative;
+}
+#object .step {
+  position: relative;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+#object .step:not(.active) {
+  -webkit-transition: opacity 1s ease-out;
+  -moz-transition: opacity 1s ease-out;
+  -ms-transition: opacity 1s ease-out;
+  -o-transition: opacity 1s ease-out;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+#object .step.active {
+  -webkit-transition: opacity 0.5s ease-out;
+  -moz-transition: opacity 0.5s ease-out;
+  -ms-transition: opacity 0.5s ease-out;
+  -o-transition: opacity 0.5s ease-out;
+}
+#object .step .title {
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

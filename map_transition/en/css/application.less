@@ -1,0 +1,99 @@
+@import "mixins.less";
+
+@ptsans: 'PT Sans Narrow', sans-serif;
+
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+
+body {
+  background: #e2e2e2;
+}
+
+
+
+#wrapper {
+  display: table;
+  margin: 35px auto 0px;
+}
+
+
+#object {
+  position: relative;
+  .step {
+    position: relative;
+    .opacity(1);
+    &:not(.active) {
+      .transition(opacity 1.0s ease-out);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      .opacity(0);
+    }
+    &.active {
+      .transition(opacity 0.5s ease-out);
+    }
+    .title {
+      font-family: @ptsans;
+      text-transform: uppercase;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    img {
+      
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
