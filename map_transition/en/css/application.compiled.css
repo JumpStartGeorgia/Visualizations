@@ -12,6 +12,12 @@ body {
   display: table;
   margin: 35px auto 0px;
 }
+#locale {
+  position: absolute;
+  z-index: 100;
+  top: -25px;
+  right: 10px;
+}
 #object {
   position: relative;
 }
