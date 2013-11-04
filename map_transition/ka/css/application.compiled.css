@@ -22,7 +22,7 @@ body {
 #locale {
   position: absolute;
   z-index: 100;
-  top: -25px;
+  top: 5px;
   right: 10px;
 }
 #object {
