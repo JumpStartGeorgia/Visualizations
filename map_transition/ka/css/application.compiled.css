@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'dejavu_extralight';
-  src: url('./fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.eot');
-  src: local('☺'), url('../fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.ttf') format('truetype'), url('../fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.woff') format('woff'), url('../fonts/dejavu/extralight/BPG DejaVu Sans ExtraLight Caps 2012s.svg') format('svg');
+  font-family: 'dejavu_regular';
+  src: url('../fonts/dejavu/regular/ttf3.eot');
+  src: local('☺'), url('../fonts/dejavu/regular/ttf3.woff') format('woff'), url('../fonts/dejavu/regular/ttf3.ttf') format('truetype'), url('../fonts/dejavu/regular/ttf3.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -17,7 +17,18 @@ body {
 }
 #wrapper {
   display: table;
-  margin: 35px auto 0px;
+  margin: 10px auto 0px;
+}
+#wrapper header {
+  font-family: 'dejavu_regular';
+  text-align: center;
+}
+#wrapper header h1 {
+  margin: 0px;
+}
+#wrapper header h5 {
+  margin: 2px 0px 0px;
+  font-size: 16px;
 }
 #locale {
   position: absolute;
@@ -26,6 +37,7 @@ body {
   right: 10px;
 }
 #object {
+  margin-top: 20px;
   position: relative;
 }
 #object .step {
@@ -54,9 +66,66 @@ body {
   -o-transition: opacity 0.5s ease-out;
 }
 #object .step .title {
-  font-family: 'dejavu_extralight';
+  font-family: 'dejavu_regular';
   text-transform: uppercase;
   position: absolute;
   top: 10px;
   right: 10px;
+}
+#object-container {
+  position: relative;
+}
+#legend {
+  position: absolute;
+  z-index: 200;
+  right: 0px;
+  top: 80px;
+}
+#legend .title {
+  margin-bottom: 5px;
+  font-family: 'dejavu_regular';
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1.5;
+}
+#legend .items .item {
+  font-size: 14px;
+  line-height: 1.3;
+}
+#legend .items .item:not(:last-child) {
+  margin-bottom: 5px;
+}
+#legend .items .item div {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin: 0px 3px 0px 0px;
+  vertical-align: middle;
+}
+#legend .items .item.no div {
+  background-color: #ccc;
+}
+#legend .items .item.gd div {
+  background-color: #1B70AF;
+}
+#legend .items .item.unm div {
+  background-color: #CA4748;
+}
+#buttons {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#buttons .play,
+#buttons .pause {
+  width: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#buttons .play {
+  display: none;
 }

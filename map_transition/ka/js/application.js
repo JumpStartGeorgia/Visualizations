@@ -17,16 +17,28 @@ $(function ()
     change('right');
   }
 
-  var timer = setTimeout(automatic, 5000);
-
-
   var steps = $('#object .step');
 
-  $('#buttons .btn').click(function ()
+  var timer = setTimeout(automatic, 5000);;
+
+
+  $('#buttons .btn.left, #buttons .btn.right').click(function ()
   {
     clearTimeout(timer);
     change($(this).hasClass('left') ? 'left' : 'right');
+    $(this).siblings('.pause').hide().siblings('.play').css('display', 'inline-block');
+  })
+  .siblings('.play').click(function ()
+  {
+    automatic();
+    $(this).hide().siblings('.pause').css('display', 'inline-block');
+  })
+  .siblings('.pause').click(function ()
+  {
+    clearTimeout(timer);
+    $(this).hide().siblings('.play').css('display', 'inline-block');
   });
+
 
 
 
