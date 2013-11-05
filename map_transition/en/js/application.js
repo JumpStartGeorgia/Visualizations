@@ -10,33 +10,34 @@ $(function ()
     steps.eq(nexti).addClass('active');
   }
 
+  var delay = 2000;
 
   function automatic ()
   {
-    timer = setTimeout(automatic, 5000);
+    timer = setTimeout(automatic, delay);
     change('right');
   }
 
   var steps = $('#object .step');
 
-  var timer = setTimeout(automatic, 5000);;
+  var timer = setTimeout(automatic, delay);;
 
 
   $('#buttons .btn.left, #buttons .btn.right').click(function ()
   {
     clearTimeout(timer);
     change($(this).hasClass('left') ? 'left' : 'right');
-    $(this).siblings('.pause').hide().siblings('.play').css('display', 'inline-block');
+    $(this).siblings('.pause').removeClass('visible').siblings('.play').addClass('visible');
   })
   .siblings('.play').click(function ()
   {
     automatic();
-    $(this).hide().siblings('.pause').css('display', 'inline-block');
+    $(this).removeClass('visible').siblings('.pause').addClass('visible');
   })
   .siblings('.pause').click(function ()
   {
     clearTimeout(timer);
-    $(this).hide().siblings('.play').css('display', 'inline-block');
+    $(this).removeClass('visible').siblings('.play').addClass('visible');
   });
 
 

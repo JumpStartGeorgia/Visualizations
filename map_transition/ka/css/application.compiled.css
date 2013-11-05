@@ -125,7 +125,9 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-#buttons .play {
   display: none;
+}
+#buttons .play.active,
+#buttons .pause.active {
+  display: inline-block;
 }

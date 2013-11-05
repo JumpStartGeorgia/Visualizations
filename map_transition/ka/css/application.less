@@ -128,9 +128,12 @@ body {
   .play, .pause {
     width: 40px;
     .box-sizing();
+    display: none;
+    &.active {
+      display: inline-block;
+    }
   }
   .play {
-    display: none;
   }
   .pause {
   }
