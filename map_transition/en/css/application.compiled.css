@@ -123,3 +123,24 @@ body {
 #buttons .pause.visible {
   display: inline-block;
 }
+footer {
+  margin-top: 100px;
+}
+#logo-container {
+  float: right;
+}
+#logo-container a {
+  display: block;
+  text-decoration: none;
+}
+#logo-container a div {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+}
+#logo-container a div img {
+  width: auto;
+  max-width: none;
+}
