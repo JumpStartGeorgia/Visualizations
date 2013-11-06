@@ -1,3 +1,35 @@
+
+
+(function ($)
+{
+
+  var images = $('.visual .imgc img');
+  images.each(function (i)
+  {
+    var img = new Image();
+    var self = $(this);
+    img.onload = function ()
+    {
+      self.attr('src', this.src).parent().animate({height: this.height}, 1500);
+      if (i == images.length - 1)
+      {
+        callback();
+      }
+    };
+    img.src = self.attr('src');
+  });
+
+
+  function callback ()
+  {
+    $('img.loading').hide();
+  }
+
+
+})(jQuery);
+
+
+
 $(function ()
 {
 
