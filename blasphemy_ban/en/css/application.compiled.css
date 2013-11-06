@@ -1,0 +1,26 @@
+#sidebar {
+  background: #e6e6e6;
+  width: 300px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 2000;
+}
+
+#sidebar header h1{
+  font-size: 18px;
+  text-align: center;
+}
+
+
+main{
+  margin-left: 300px;
+  padding: 10px;
+}
+
+main section.visual{
+  margin: 20px 0;
+  text-align: center;
+}
+
