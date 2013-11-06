@@ -1,3 +1,53 @@
+@font-face {
+  font-family: 'themix_light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('http://feradi.info/assets/themix-3-light-webfont.ttf');
+}
+@font-face {
+  font-family: 'themix_regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('http://feradi.info/assets/themix-5-regular-webfont.ttf');
+}
+@font-face {
+  font-family: 'exo_regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('http://feradi.info/assets/Exo-Regular.otf');
+}
+@font-face {
+  font-family: 'exo_light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('http://feradi.info/assets/Exo-Light.otf');
+}
+/*
+@font-face
+{
+  font-family: 'dejavu';
+  font-style: normal;
+  font-weight: normal;
+  src: url('http://feradi.info/assets/BPG_Dejavu_Sans_M.ttf');
+}
+
+@font-face
+{
+  font-family: 'ingiri';
+  font-style: normal;
+  font-weight: normal;
+  src: url('http://feradi.info/assets/bpg_ingiri_arial.ttf');
+}
+*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 body > header {
   height: 55px;
 }
@@ -8,4 +58,16 @@ body > footer {
 }
 body > footer .logo {
   text-align: right;
+}
+main .visual {
+  display: table;
+  margin: 20px auto;
+  text-align: left;
+}
+main .visual header {
+  font-family: exo_regular;
+  text-transform: uppercase;
+}
+main .visual footer {
+  font-family: themix_light;
 }

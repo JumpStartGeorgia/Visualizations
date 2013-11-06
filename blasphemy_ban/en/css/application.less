@@ -2,6 +2,13 @@
 @import "fonts.less";
 
 
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
 body > header {
   height: 55px;
 }
@@ -16,8 +23,17 @@ body > footer {
 }
 
 
-.main {
+main {
   .visual {
-    
+    display: table;
+    margin: 20px auto;
+    text-align: left;
+    header {
+      font-family: exo_regular;
+      text-transform: uppercase;
+    }
+    footer {
+      font-family: themix_light;
+    }
   }
 }
