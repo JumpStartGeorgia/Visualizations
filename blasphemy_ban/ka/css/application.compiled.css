@@ -54,3 +54,13 @@ body > footer {
 body > footer .logo {
   text-align: right;
 }
+.navbar .nav > li.social_link > a {
+  padding: 10px 5px 10px;
+  opacity: 0.7;
+}
+.navbar .nav > li.social_link > a img {
+  width: 20px;
+}
+.navbar .nav > li.social_link > a:hover {
+  opacity: 1.0;
+}
