@@ -41,6 +41,13 @@ body > footer {
 }
 
 main {
+  a {
+    &, &:hover {
+      color: #DE4355;
+    }
+  }
+
+
   .text {
     max-width: 1000px;
     margin: 0px auto;
@@ -63,7 +70,19 @@ main {
     }
     footer {
       font-family: ingiri;
-      margin-top: 5px;
+      margin-top: 15px;
+      a {
+        background: #FAFDDC;
+        border: none;
+        color: #F87364;
+        padding: 7px 13px;
+        .border-radius(0px);
+        text-decoration: none;
+        &:hover {
+          background: #FAFDDC;
+          color: #DE4355;
+        }
+      }
     }
   }
 }
