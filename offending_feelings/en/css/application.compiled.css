@@ -76,6 +76,10 @@ body > footer .logo {
 .navbar .nav > li.social_link > a:hover {
   opacity: 1.0;
 }
+main a,
+main a:hover {
+  color: #DE4355;
+}
 main .text {
   max-width: 1000px;
   margin: 0px auto;
@@ -98,7 +102,24 @@ main .visual header {
 }
 main .visual footer {
   font-family: themix_light;
-  margin-top: 5px;
+  margin-top: 15px;
+}
+main .visual footer a {
+  background: #FAFDDC;
+  border: none;
+  color: #F87364;
+  padding: 7px 13px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  text-decoration: none;
+}
+main .visual footer a:hover {
+  background: #FAFDDC;
+  color: #DE4355;
 }
 #scroll_up {
   display: none;
