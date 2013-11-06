@@ -1,26 +1,11 @@
-#sidebar {
-  background: #e6e6e6;
-  width: 300px;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  z-index: 2000;
+body > header {
+  height: 55px;
 }
-
-#sidebar header h1{
-  font-size: 18px;
-  text-align: center;
+body > footer {
+  border-top: 1px solid #ccc;
+  background: #eee;
+  padding: 20px 25px 10px;
 }
-
-
-main{
-  margin-left: 300px;
-  padding: 10px;
+body > footer .logo {
+  text-align: right;
 }
-
-main section.visual{
-  margin: 20px 0;
-  text-align: center;
-}
-

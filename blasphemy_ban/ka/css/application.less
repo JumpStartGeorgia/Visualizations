@@ -1,26 +1,23 @@
-#sidebar {
-  background: #e6e6e6;
-  width: 300px;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  z-index: 2000;
+@import "mixins.less";
+@import "fonts.less";
+
+
+body > header {
+  height: 55px;
 }
 
-#sidebar header h1{
-  font-size: 18px;
-  text-align: center;
+body > footer {
+  border-top: 1px solid #ccc;
+  background: #eee;
+  padding: 20px 25px 10px;
+  .logo {
+    text-align: right;
+  }
 }
 
 
-main{
-  margin-left: 300px;
-  padding: 10px;
+.main {
+  .visual {
+    
+  }
 }
-
-main section.visual{
-  margin: 20px 0;
-  text-align: center;
-}
-
