@@ -4,6 +4,8 @@
 
 h1, h2, h3, h4, h5 {
   font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 
@@ -15,14 +17,37 @@ body > footer {
   border-top: 1px solid #ccc;
   background: #eee;
   padding: 20px 25px 10px;
+  margin-top: 100px;
   .logo {
     text-align: right;
   }
 }
 
 
-.main {
+main {
+  .text {
+    max-width: 1000px;
+    margin: 0px auto;
+    font-family: ingiri;
+    p {
+      text-indent: 15px;
+    }
+  }
+
   .visual {
-    
+    max-width: 1000px;
+    margin: 40px auto 0px;
+    border-top: 3px ridge #ccc;
+    padding-top: 40px;
+    text-align: left;
+    header {
+      font-family: dejavu;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    footer {
+      font-family: ingiri;
+      margin-top: 5px;
+    }
   }
 }

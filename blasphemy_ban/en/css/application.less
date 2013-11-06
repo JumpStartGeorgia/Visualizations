@@ -17,6 +17,7 @@ body > footer {
   border-top: 1px solid #ccc;
   background: #eee;
   padding: 20px 25px 10px;
+  margin-top: 100px;
   .logo {
     text-align: right;
   }
@@ -24,16 +25,29 @@ body > footer {
 
 
 main {
+  .text {
+    max-width: 1000px;
+    margin: 0px auto;
+    font-family: themix_regular;
+    p {
+      text-indent: 15px;
+    }
+  }
+
   .visual {
-    display: table;
-    margin: 20px auto;
+    max-width: 1000px;
+    margin: 40px auto 0px;
+    border-top: 3px ridge #ccc;
+    padding-top: 40px;
     text-align: left;
     header {
       font-family: exo_regular;
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
     footer {
       font-family: themix_light;
+      margin-top: 5px;
     }
   }
 }
