@@ -11,19 +11,28 @@
     img.onload = function ()
     {
       self.attr('src', this.src).parent().animate({height: this.height}, 1500);
+      self.parent().siblings('.loading').hide(function ()
+      {
+        $(this).remove();
+      });
+    /*
       if (i == images.length - 1)
       {
+        return;
         callback();
       }
-    };
+    */
+    }
     img.src = self.attr('src');
   });
 
 
+/*
   function callback ()
   {
     $('img.loading').hide();
   }
+*/
 
 
 })(jQuery);
