@@ -5,31 +5,44 @@
 @dejavu_regular: 'dejavu_regular';
 
 
-h1, h2, h3, h4, h5 {
-  font-weight: normal;
+html, body {
+  height: 100%;
+  min-height: 100%;
 }
 
+@footerheight: 50px;
 
 body {
   background: #e2e2e2;
 }
 
 
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+
 
 #wrapper {
-  display: table;
-  margin: 10px auto 0px;
+  min-height: 100%;
+  margin: 0px;
+  position: relative;
   header {
     font-family: @dejavu_regular;
     text-align: center;
     h1 {
       margin: 0px;
+      line-height: 1.3;
     }
     h5 {
       margin: 2px 0px 0px;
       font-size: 16px;
     }
   }
+}
+
+#content {
+  padding: 10px 0px @footerheight;
 }
 
 
@@ -74,6 +87,8 @@ body {
 
 #object-container {
   position: relative;
+  display: table;
+  margin: 0px auto;
 }
 
 #legend {
@@ -129,7 +144,7 @@ body {
     width: 40px;
     .box-sizing();
     display: none;
-    &.active {
+    &.visible {
       display: inline-block;
     }
   }
@@ -144,7 +159,16 @@ body {
 
 
 footer {
-  margin-top: 100px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: @footerheight;
+  .row-fluid {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
 }
 
 

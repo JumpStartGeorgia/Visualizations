@@ -2,21 +2,27 @@
 
 @ptsans: 'PT Sans Narrow', sans-serif;
 
-
-h1, h2, h3, h4, h5 {
-  font-weight: normal;
+html, body {
+  height: 100%;
 }
 
+@footerheight: 50px;
 
 body {
   background: #e2e2e2;
 }
 
 
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+
 
 #wrapper {
-  display: table;
-  margin: 5px auto 0px;
+  min-height: 100%;
+  margin: 0px;
+  position: relative;
   header {
     font-family: @ptsans;
     text-align: center;
@@ -28,6 +34,10 @@ body {
       font-size: 16px;
     }
   }
+}
+
+#content {
+  padding: 5px 0px @footerheight;
 }
 
 
@@ -72,6 +82,8 @@ body {
 
 #object-container {
   position: relative;
+  display: table;
+  margin: 0px auto;
 }
 
 #legend {
@@ -141,7 +153,16 @@ body {
 
 
 footer {
-  margin-top: 100px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: @footerheight;
+  .row-fluid {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
 }
 
 

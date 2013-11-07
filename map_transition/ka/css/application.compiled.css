@@ -5,6 +5,14 @@
   font-weight: normal;
   font-style: normal;
 }
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+body {
+  background: #e2e2e2;
+}
 h1,
 h2,
 h3,
@@ -12,12 +20,10 @@ h4,
 h5 {
   font-weight: normal;
 }
-body {
-  background: #e2e2e2;
-}
 #wrapper {
-  display: table;
-  margin: 10px auto 0px;
+  min-height: 100%;
+  margin: 0px;
+  position: relative;
 }
 #wrapper header {
   font-family: 'dejavu_regular';
@@ -25,10 +31,14 @@ body {
 }
 #wrapper header h1 {
   margin: 0px;
+  line-height: 1.3;
 }
 #wrapper header h5 {
   margin: 2px 0px 0px;
   font-size: 16px;
+}
+#content {
+  padding: 10px 0px 50px;
 }
 #locale {
   position: absolute;
@@ -74,6 +84,8 @@ body {
 }
 #object-container {
   position: relative;
+  display: table;
+  margin: 0px auto;
 }
 #legend {
   position: absolute;
@@ -127,12 +139,21 @@ body {
   box-sizing: border-box;
   display: none;
 }
-#buttons .play.active,
-#buttons .pause.active {
+#buttons .play.visible,
+#buttons .pause.visible {
   display: inline-block;
 }
 footer {
-  margin-top: 100px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+}
+footer .row-fluid {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 #logo-container {
   float: right;
