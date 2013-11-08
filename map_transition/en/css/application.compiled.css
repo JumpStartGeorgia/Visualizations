@@ -8,7 +8,7 @@
 @font-face {
   font-family: 'nexa_light';
   src: url('../fonts/nexa/light/nexa_light.eot');
-  src: local('☺'), url('../fonts/nexa/light/nexa_light.ttf') format('truetype'), url('../fonts/nexa/light/nexa_light.woff') format('woff'), url('../fonts/nexa/light/nexa_light.svg') format('svg');
+  src: local('☺'), url('../fonts/nexa/light/nexa_light.woff') format('woff'), url('../fonts/nexa/light/nexa_light.ttf') format('truetype'), url('../fonts/nexa/light/nexa_light.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -169,10 +169,7 @@ h5 {
   user-select: none;
   width: 31px;
   height: 31px;
-  line-height: 31px;
-  text-align: center;
   padding: 0px;
-  color: #fff;
   background: #e5a3a3 center center no-repeat;
   border: 3px solid #dadada;
   -webkit-border-radius: 50%;
@@ -181,8 +178,6 @@ h5 {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  text-shadow: none;
-  font-size: 18px;
   -webkit-opacity: 0.8;
   -moz-opacity: 0.8;
   opacity: 0.8;
