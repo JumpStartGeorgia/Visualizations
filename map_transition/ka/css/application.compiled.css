@@ -157,6 +157,8 @@ h5 {
   left: 861px;
 }
 #buttons {
+  position: relative;
+  z-index: 333;
   margin: -20px 0px 0px 13px;
 }
 #buttons .btn {
