@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5 {
     &.active {
       .transition(opacity 0.5s ease-out);
     }
-    .title {
+    & > .title {
       font-family: @dejavu_regular;
       text-transform: uppercase;
       position: absolute;
@@ -79,6 +79,55 @@ h1, h2, h3, h4, h5 {
     }
     img {
       
+    }
+  }
+  .legend {
+    position: absolute;
+    z-index: 200;
+    right: 0px;
+    top: 80px;
+    .title {
+      margin-bottom: 5px;
+      font-family: @dejavu_regular;
+      text-transform: uppercase;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .items {
+      .item {
+        font-size: 14px;
+        line-height: 1.3;
+        &:not(:last-child) {
+          margin-bottom: 5px;
+        }
+        div {
+          width: 15px;
+          height: 15px;
+          display: inline-block;
+          margin: 0px 3px 0px 0px;
+          vertical-align: middle;
+        }
+        &.no {
+          div {
+            background-color: #ccc;
+          }
+        }
+        &.gd {
+          div {
+            background-color: #1B70AF;
+          }
+        }
+        &.unm {
+          div {
+            background-color: #CA4748;
+          }
+        }
+        &.pk {
+          div {
+            background-color: navajowhite;
+          }
+        }
+      }
     }
   }
 }
@@ -91,58 +140,31 @@ h1, h2, h3, h4, h5 {
   margin: 0px auto;
 }
 
-#legend {
-  position: absolute;
-  z-index: 200;
-  right: 0px;
-  top: 80px;
-  .title {
-    margin-bottom: 5px;
-    font-family: @dejavu_regular;
-    text-transform: uppercase;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .items {
-    .item {
-      font-size: 14px;
-      line-height: 1.3;
-      &:not(:last-child) {
-        margin-bottom: 5px;
-      }
-      div {
-        width: 15px;
-        height: 15px;
-        display: inline-block;
-        margin: 0px 3px 0px 0px;
-        vertical-align: middle;
-      }
-      &.no {
-        div {
-          background-color: #ccc;
-        }
-      }
-      &.gd {
-        div {
-          background-color: #1B70AF;
-        }
-      }
-      &.unm {
-        div {
-          background-color: #CA4748;
-        }
-      }
-    }
-  }
-}
+
 
 
 
 #buttons {
-  .no-highlight();
+  .btn {
+    .no-highlight();
+    width: 31px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    padding: 0px;
+    color: #fff;
+    background: #e5a3a3;
+    border: 3px solid #dadada;
+    .border-radius(50%);
+    text-shadow: none;
+    font-size: 18px;
+    .opacity(.8);
+    .transition(opacity .2s);
+    &:hover {
+      .opacity(1);
+    }
+  }
   .play, .pause {
-    width: 40px;
-    .box-sizing();
     display: none;
     &.visible {
       display: inline-block;
