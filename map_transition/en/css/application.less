@@ -1,6 +1,7 @@
 @import "mixins.less";
+@import "../fonts/bebas/fonts.less";
+@import "../fonts/nexa/light/fonts.less";
 
-@ptsans: 'PT Sans Narrow', sans-serif;
 
 html, body {
   height: 100%;
@@ -9,7 +10,7 @@ html, body {
 @footerheight: 50px;
 
 body {
-  background: #e2e2e2;
+  background: #e2e2e2 url('http://data.electionportal.ge/assets/body-bg.jpg');
 }
 
 
@@ -24,32 +25,38 @@ h1, h2, h3, h4, h5 {
   margin: 0px;
   position: relative;
   header {
-    font-family: @ptsans;
     text-align: center;
     h1 {
+      font-family: bebas;
+      word-spacing: 2px;
+      font-size: 20px;
+      color: #111;
       margin: 0px;
     }
     h5 {
-      margin: 2px 0px 0px;
-      font-size: 16px;
+      margin: 0px 0px 0px;
+      font-size: 14px;
+      font-family: nexa_light;
+      color: #4d4d4d;
     }
   }
 }
 
 #content {
-  padding: 5px 0px @footerheight;
+  padding: 20px 0px @footerheight;
 }
 
 
 #locale {
   position: absolute;
   z-index: 100;
-  top: 5px;
-  right: 10px;
+  top: 10px;
+  right: 25px;
+  color: #5d5d5d;
 }
 
 #object {
-  margin-top: 20px;
+  margin-top: 50px;
   position: relative;
   .step {
     position: relative;
@@ -66,11 +73,6 @@ h1, h2, h3, h4, h5 {
       .transition(opacity 0.5s ease-out);
     }
     & > .title {
-      font-family: @ptsans;
-      text-transform: uppercase;
-      position: absolute;
-      top: 10px;
-      right: 10px;
     }
     img {
       
@@ -79,48 +81,40 @@ h1, h2, h3, h4, h5 {
   .legend {
     position: absolute;
     z-index: 200;
-    right: 0px;
-    top: 80px;
+    left: 798px;
+    top: 0px;
     .title {
-      margin-bottom: 5px;
-      font-family: @ptsans;
-      text-transform: uppercase;
+      margin: 0px 0px 14px;
+      line-height: 1.2;
       font-size: 16px;
+      font-family: bebas;
+      word-spacing: 2px;
+      color: #7d7d7d;
+      font-size: 16px;
+      text-transform: uppercase;
     }
     .items {
       .item {
-        font-size: 14px;
+        font-size: 12px;
         line-height: 1.3;
+        color: #3d3d3d;
+        font-family: nexa_light;
         &:not(:last-child) {
           margin-bottom: 5px;
         }
         div {
-          width: 15px;
-          height: 15px;
+          width: 12px;
+          height: 12px;
           display: inline-block;
           margin: 0px 3px 0px 0px;
           vertical-align: middle;
         }
-        &.no {
-          div {
-            background-color: #ccc;
-          }
-        }
-        &.gd {
-          div {
-            background-color: #1B70AF;
-          }
-        }
-        &.unm {
-          div {
-            background-color: #CA4748;
-          }
-        }
-        &.pk {
-          div {
-            background-color: navajowhite;
-          }
-        }
+        &.no { div { background-color: #cecece; } }
+        &.gd { div { background-color: #1B70AF; } }
+        &.unm { div { background-color: #c94647; } }
+        &.pk { div { background-color: #cad182; } }
+        &.gch { div { background-color: #d9c4a4; } }
+        &.shalva { div { background-color: #ac8383; } }
       }
     }
   }
@@ -132,12 +126,32 @@ h1, h2, h3, h4, h5 {
   position: relative;
   display: table;
   margin: 0px auto;
+
+  .map-title {
+    position: absolute;
+    z-index: 333;
+    line-height: 1.2;
+    font-family: bebas;
+    letter-spacing: 1px;
+    color: #7D7D7D;
+    font-size: 16px;
+    &.georgia {
+      top: 95px;
+      left: 383px;
+    }
+    &.tbilisi {
+      top: 310px;
+      left: 857px;
+    }
+  }
 }
 
 
 
 
 #buttons {
+  margin: -20px 0px 0px 13px;
+
   .btn {
     .no-highlight();
     width: 31px;
@@ -146,7 +160,7 @@ h1, h2, h3, h4, h5 {
     text-align: center;
     padding: 0px;
     color: #fff;
-    background: #e5a3a3;
+    background: #e5a3a3 center center no-repeat;
     border: 3px solid #dadada;
     .border-radius(50%);
     text-shadow: none;
@@ -164,8 +178,16 @@ h1, h2, h3, h4, h5 {
     }
   }
   .play {
+    background-image: url(../../img/play.png);
   }
   .pause {
+    background-image: url(../../img/pause.png);
+  }
+  .left {
+    background-image: url(../../img/left.png);
+  }
+  .right {
+    background-image: url(../../img/right.png);
   }
 }
 

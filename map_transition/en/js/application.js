@@ -10,7 +10,7 @@ $(function ()
     steps.eq(nexti).addClass('active');
   }
 
-  var delay = 2000;
+  var delay = 3500;
 
   function automatic ()
   {

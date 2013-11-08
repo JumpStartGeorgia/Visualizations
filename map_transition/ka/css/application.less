@@ -1,8 +1,9 @@
 @import "mixins.less";
 @import "../fonts/dejavu/regular/fonts.less";
+@import "../fonts/bpg_nino_elite_exp/fonts.less";
 
-@ptsans: 'PT Sans Narrow', sans-serif;
-@dejavu_regular: 'dejavu_regular';
+
+@nino: 'bpg_nino_elite_exp';
 
 
 html, body {
@@ -13,7 +14,7 @@ html, body {
 @footerheight: 50px;
 
 body {
-  background: #e2e2e2;
+  background: #e2e2e2 url('http://data.electionportal.ge/assets/body-bg.jpg');
 }
 
 
@@ -28,33 +29,39 @@ h1, h2, h3, h4, h5 {
   margin: 0px;
   position: relative;
   header {
-    font-family: @dejavu_regular;
     text-align: center;
     h1 {
+      font-family: dejavu_regular;
+      font-size: 18px;
+      color: #111;
       margin: 0px;
-      line-height: 1.3;
+      line-height: 1.5;
     }
     h5 {
-      margin: 2px 0px 0px;
-      font-size: 16px;
+      margin: 9px 0px 0px;
+      font-size: 14px;
+      line-height: 1.2;
+      font-family: @nino;
+      color: #4D4D4D;
     }
   }
 }
 
 #content {
-  padding: 10px 0px @footerheight;
+  padding: 37px 0px @footerheight;
 }
 
 
 #locale {
   position: absolute;
   z-index: 100;
-  top: 5px;
-  right: 10px;
+  top: 10px;
+  right: 25px;
+  color: #5d5d5d;
 }
 
 #object {
-  margin-top: 20px;
+  margin-top: 50px;
   position: relative;
   .step {
     position: relative;
@@ -71,11 +78,6 @@ h1, h2, h3, h4, h5 {
       .transition(opacity 0.5s ease-out);
     }
     & > .title {
-      font-family: @dejavu_regular;
-      text-transform: uppercase;
-      position: absolute;
-      top: 10px;
-      right: 10px;
     }
     img {
       
@@ -84,49 +86,36 @@ h1, h2, h3, h4, h5 {
   .legend {
     position: absolute;
     z-index: 200;
-    right: 0px;
-    top: 80px;
+    left: 730px;
+    top: 40px;
     .title {
-      margin-bottom: 5px;
-      font-family: @dejavu_regular;
-      text-transform: uppercase;
-      font-size: 16px;
-      line-height: 1.5;
+      margin: 0px 0px 8px;
+      line-height: 1.6;
+      font-family: dejavu_regular;
+      color: #7D7D7D;
+      font-size: 14px;
     }
     .items {
       .item {
-        font-size: 14px;
+        font-size: 12px;
+        font-family: @nino;
         line-height: 1.3;
         &:not(:last-child) {
           margin-bottom: 5px;
         }
         div {
-          width: 15px;
-          height: 15px;
+          width: 12px;
+          height: 12px;
           display: inline-block;
           margin: 0px 3px 0px 0px;
           vertical-align: middle;
         }
-        &.no {
-          div {
-            background-color: #ccc;
-          }
-        }
-        &.gd {
-          div {
-            background-color: #1B70AF;
-          }
-        }
-        &.unm {
-          div {
-            background-color: #CA4748;
-          }
-        }
-        &.pk {
-          div {
-            background-color: navajowhite;
-          }
-        }
+        &.no { div { background-color: #cecece; } }
+        &.gd { div { background-color: #1B70AF; } }
+        &.unm { div { background-color: #c94647; } }
+        &.pk { div { background-color: #cad182; } }
+        &.gch { div { background-color: #d9c4a4; } }
+        &.shalva { div { background-color: #ac8383; } }
       }
     }
   }
@@ -138,6 +127,24 @@ h1, h2, h3, h4, h5 {
   position: relative;
   display: table;
   margin: 0px auto;
+
+  .map-title {
+    position: absolute;
+    z-index: 333;
+    line-height: 1.6;
+    font-family: dejavu_regular;
+    letter-spacing: 1px;
+    color: #7D7D7D;
+    font-size: 16px;
+    &.georgia {
+      top: 92px;
+      left: 365px;
+    }
+    &.tbilisi {
+      top: 310px;
+      left: 861px;
+    }
+  }
 }
 
 
@@ -145,15 +152,15 @@ h1, h2, h3, h4, h5 {
 
 
 #buttons {
+  margin: -20px 0px 0px 13px;
+
   .btn {
     .no-highlight();
     width: 31px;
     height: 31px;
-    line-height: 31px;
-    text-align: center;
     padding: 0px;
     color: #fff;
-    background: #e5a3a3;
+    background: #e5a3a3 center center no-repeat;
     border: 3px solid #dadada;
     .border-radius(50%);
     text-shadow: none;
@@ -171,8 +178,16 @@ h1, h2, h3, h4, h5 {
     }
   }
   .play {
+    background-image: url(../../img/play.png);
   }
   .pause {
+    background-image: url(../../img/pause.png);
+  }
+  .left {
+    background-image: url(../../img/left.png);
+  }
+  .right {
+    background-image: url(../../img/right.png);
   }
 }
 
