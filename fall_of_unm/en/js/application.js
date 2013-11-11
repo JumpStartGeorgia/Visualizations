@@ -20,7 +20,7 @@ $(function ()
 
   var steps = $('#object .step');
 
-  var timer = setTimeout(automatic, delay);;
+  var timer = setTimeout(automatic, delay);
 
 
   $('#buttons .btn.left, #buttons .btn.right').click(function ()

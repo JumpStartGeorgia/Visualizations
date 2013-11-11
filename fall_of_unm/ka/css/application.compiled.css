@@ -94,6 +94,7 @@ h5 {
   font-family: dejavu_regular;
   color: #7D7D7D;
   font-size: 14px;
+  margin: 0px;
 }
 #object .legend {
   position: absolute;
