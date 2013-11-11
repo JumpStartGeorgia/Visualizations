@@ -117,8 +117,8 @@ h5 {
 #object .legend {
   position: absolute;
   z-index: 200;
-  left: 730px;
-  top: 40px;
+  left: 750px;
+  bottom: 8px;
 }
 #object .legend .items .item {
   font-size: 12px;
@@ -142,16 +142,16 @@ h5 {
   background-color: #1B70AF;
 }
 #object .legend .items .item.unm div {
-  background-color: #c94647;
+  background-color: #bc4243;
 }
 #object .legend .items .item.pk div {
-  background-color: #cad182;
+  background-color: #6c3595;
 }
 #object .legend .items .item.gch div {
-  background-color: #d9c4a4;
+  background-color: #6eaa30;
 }
 #object .legend .items .item.shalva div {
-  background-color: #ac8383;
+  background-color: #5ead9e;
 }
 #object-container {
   position: relative;
@@ -170,11 +170,12 @@ h5 {
   font-size: 16px;
 }
 #object-container .map-title.georgia {
+  display: none;
   top: 92px;
   left: 365px;
 }
 #object-container .map-title.tbilisi {
-  top: 310px;
+  top: 80px;
   left: 861px;
 }
 #object-container #object,
