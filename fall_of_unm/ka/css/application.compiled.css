@@ -113,6 +113,9 @@ h5 {
   font-size: 16px;
   margin: 0px;
 }
+#object .step > .title span {
+  font-size: 18px;
+}
 #object .legend {
   position: absolute;
   z-index: 200;
@@ -294,4 +297,8 @@ footer .row-fluid {
 #logo-container a div img {
   width: auto;
   max-width: none;
+}
+span.arial {
+  font-family: arial;
+  color: #666;
 }

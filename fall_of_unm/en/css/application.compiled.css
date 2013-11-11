@@ -297,3 +297,7 @@ footer .row-fluid {
   width: auto;
   max-width: none;
 }
+span.arial {
+  font-family: arial;
+  color: #666;
+}
