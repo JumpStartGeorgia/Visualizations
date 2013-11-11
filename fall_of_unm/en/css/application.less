@@ -51,23 +51,26 @@ h1, h2, h3, h4, h5 {
 }
 
 
-#locale {
+#sharenav {
   position: absolute;
   z-index: 100;
-  top: 10px;
-  right: 20px;
-  color: #5d5d5d;
-  padding: 1px 4px;
-  text-decoration: none;
-  @bc: #7d7d7d;
-  border-top: 1px solid @bc;
-  border-bottom: 1px solid transparent;
-  border-left: 1px solid transparent;
-  .transition(border .3s);
-  &:hover {
-    border-top-color: transparent;
-    border-left-color: @bc;
-    border-bottom-color: @bc;
+  top: 7px;
+  right: 15px;
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    width: 26px;
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
+
+  #locale {
+    font-size: 12px;
+    margin-left: 6px;
+    width: auto;
+    color: #5d5d5d;
   }
 }
 
@@ -192,7 +195,7 @@ h1, h2, h3, h4, h5 {
 #buttons {
   position: relative;
   z-index: 333;
-  margin: -20px 0px 0px 13px;
+  margin: 0px 0px 0px 13px;
 
   .btn {
     .no-highlight();
@@ -251,7 +254,8 @@ footer {
   a {
     display: block;
     text-decoration: none;
-    img {
+    & > img {
+      margin-bottom: 3px;
     }
     div {
       width: 35px;

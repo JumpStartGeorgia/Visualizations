@@ -56,26 +56,25 @@ h5 {
 #content {
   padding: 37px 0px 50px;
 }
-#locale {
+#sharenav {
   position: absolute;
   z-index: 100;
-  top: 10px;
-  right: 20px;
-  color: #5d5d5d;
-  padding: 1px 4px;
-  text-decoration: none;
-  border-top: 1px solid #7d7d7d;
-  border-bottom: 1px solid transparent;
-  border-left: 1px solid transparent;
-  -webkit-transition: border 0.3s;
-  -moz-transition: border 0.3s;
-  -ms-transition: border 0.3s;
-  -o-transition: border 0.3s;
+  top: 7px;
+  right: 15px;
 }
-#locale:hover {
-  border-top-color: transparent;
-  border-left-color: #7d7d7d;
-  border-bottom-color: #7d7d7d;
+#sharenav a {
+  display: inline-block;
+  vertical-align: middle;
+  width: 26px;
+}
+#sharenav a:not(:last-child) {
+  margin-right: 6px;
+}
+#sharenav #locale {
+  font-size: 12px;
+  margin-left: 6px;
+  width: auto;
+  color: #5d5d5d;
 }
 #object {
   margin-top: 50px;
@@ -210,7 +209,7 @@ h5 {
 #buttons {
   position: relative;
   z-index: 333;
-  margin: -20px 0px 0px 13px;
+  margin: 0px 0px 0px 13px;
 }
 #buttons .btn {
   -webkit-touch-callout: none;
@@ -281,6 +280,9 @@ footer .row-fluid {
 #logo-container a {
   display: block;
   text-decoration: none;
+}
+#logo-container a > img {
+  margin-bottom: 3px;
 }
 #logo-container a div {
   width: 35px;
