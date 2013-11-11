@@ -106,10 +106,11 @@ h5 {
 #object .step > .title {
   text-align: center;
   line-height: 1.2;
+  font-size: 16px;
   font-family: bebas;
   word-spacing: 2px;
   color: #7d7d7d;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   margin: 0px;
 }
@@ -178,7 +179,7 @@ h5 {
   font-family: bebas;
   letter-spacing: 1px;
   color: #7D7D7D;
-  font-size: 16px;
+  font-size: 14px;
 }
 #object-container .map-title.georgia {
   display: none;

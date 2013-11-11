@@ -110,7 +110,7 @@ h5 {
   line-height: 1.6;
   font-family: dejavu_regular;
   color: #7D7D7D;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0px;
 }
 #object .legend {
@@ -177,7 +177,7 @@ h5 {
   font-family: dejavu_regular;
   letter-spacing: 1px;
   color: #7D7D7D;
-  font-size: 16px;
+  font-size: 14px;
 }
 #object-container .map-title.georgia {
   display: none;
