@@ -21,6 +21,18 @@
 
   function callback ()
   {
+    var els = {
+      window: $(window),
+      footer: $('#wrapper > footer'),
+      header: $('#content > header'),
+      cont: $('#object-container')
+    };
+    els.cont.css({
+      position: 'absolute',
+      top: (els.window.height() - els.footer.outerHeight(true) - els.header.outerHeight(true) - els.cont.outerHeight()) / 2,
+      left: (els.window.width() - els.cont.width()) / 2
+    });
+
     $('.loading').removeClass('loading');
 
 
