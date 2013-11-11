@@ -12,6 +12,10 @@
   font-weight: normal;
   font-style: normal;
 }
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
 html,
 body {
   height: 100%;
@@ -56,8 +60,22 @@ h5 {
   position: absolute;
   z-index: 100;
   top: 10px;
-  right: 25px;
+  right: 20px;
   color: #5d5d5d;
+  padding: 1px 4px;
+  text-decoration: none;
+  border-top: 1px solid #7d7d7d;
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -ms-transition: border 0.3s;
+  -o-transition: border 0.3s;
+}
+#locale:hover {
+  border-top-color: transparent;
+  border-left-color: #7d7d7d;
+  border-bottom-color: #7d7d7d;
 }
 #object {
   margin-top: 50px;
@@ -139,6 +157,8 @@ h5 {
   position: relative;
   display: table;
   margin: 0px auto;
+  min-height: 350px;
+  background: center 155px no-repeat;
 }
 #object-container .map-title {
   position: absolute;
@@ -156,6 +176,24 @@ h5 {
 #object-container .map-title.tbilisi {
   top: 310px;
   left: 861px;
+}
+#object-container #object,
+#object-container .map-title,
+#object-container #buttons {
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+}
+#object-container.loading {
+  background-image: url('../../img/loader.gif');
+}
+#object-container.loading #object,
+#object-container.loading .map-title,
+#object-container.loading #buttons {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
 }
 #buttons {
   position: relative;

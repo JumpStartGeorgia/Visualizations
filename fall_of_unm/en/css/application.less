@@ -2,6 +2,10 @@
 @import "../fonts/bebas/fonts.less";
 @import "../fonts/nexa/light/fonts.less";
 
+html {
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
+}
 
 html, body {
   height: 100%;
@@ -51,8 +55,20 @@ h1, h2, h3, h4, h5 {
   position: absolute;
   z-index: 100;
   top: 10px;
-  right: 25px;
+  right: 20px;
   color: #5d5d5d;
+  padding: 1px 4px;
+  text-decoration: none;
+  @bc: #7d7d7d;
+  border-top: 1px solid @bc;
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+  .transition(border .3s);
+  &:hover {
+    border-top-color: transparent;
+    border-left-color: @bc;
+    border-bottom-color: @bc;
+  }
 }
 
 #object {
@@ -145,6 +161,20 @@ h1, h2, h3, h4, h5 {
       left: 857px;
     }
   }
+
+
+  min-height: 350px;
+  background: center 155px no-repeat;
+  #object, .map-title, #buttons {
+    .transition(opacity 1s);
+  }
+  &.loading {
+    background-image: url('../../img/loader.gif');
+    #object, .map-title, #buttons {
+      .opacity(0);
+    }
+  }
+
 }
 
 
