@@ -121,11 +121,13 @@ h1, h2, h3, h4, h5 {
         &:not(:last-child) {
           margin-bottom: 5px;
         }
+        @l: 18px;
+        padding-left: @l;
         div {
           width: 12px;
           height: 12px;
           display: inline-block;
-          margin: 0px 3px 0px 0px;
+          margin: 0px 3px 0px -@l;
           vertical-align: middle;
         }
         &.no { div { background-color: #cecece; } }
