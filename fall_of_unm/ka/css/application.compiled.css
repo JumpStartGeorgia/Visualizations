@@ -88,18 +88,18 @@ h5 {
   -ms-transition: opacity 0.5s ease-out;
   -o-transition: opacity 0.5s ease-out;
 }
+#object .title {
+  text-align: center;
+  line-height: 1.6;
+  font-family: dejavu_regular;
+  color: #7D7D7D;
+  font-size: 14px;
+}
 #object .legend {
   position: absolute;
   z-index: 200;
   left: 730px;
   top: 40px;
-}
-#object .legend .title {
-  margin: 0px 0px 8px;
-  line-height: 1.6;
-  font-family: dejavu_regular;
-  color: #7D7D7D;
-  font-size: 14px;
 }
 #object .legend .items .item {
   font-size: 12px;
