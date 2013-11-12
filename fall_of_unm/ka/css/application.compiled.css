@@ -265,6 +265,24 @@ h5 {
 #buttons .right {
   background-image: url(../../img/right.png);
 }
+#buttons .gif {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  width: auto;
+  height: 37px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px 10px 0px;
+  color: #fff;
+  font-family: arial;
+  text-shadow: none;
+}
 footer {
   position: absolute;
   bottom: 0px;
