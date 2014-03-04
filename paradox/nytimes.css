@@ -440,7 +440,7 @@ a:hover {
   .ios .video-sequence:first-child .video:first-of-type .video-container:first-child {
     padding-top: 0;
     padding-bottom: 60px;
-    height: 360px;
+    /*height: 360px;*/
   }
 
   /* HEADLINE AND INTRO */
@@ -724,10 +724,10 @@ a:hover {
   }
 
   .ios .ios-loaded:first-child .video:first-of-type .video-container {
-    background-size: 200%;
+/*    background-size: 200%;
     background-position: 59% 0px;
-    background-image: url(http://i1.nyt.com/newsgraphics/2013/10/24/south-china-sea-videos/assets/720/sierra-madre.jpg);
-    background-repeat: no-repeat;
+    background-image: url(http://temurkikava.files.wordpress.com/2013/12/1258985453_oac6jm.jpg);
+    background-repeat: no-repeat;*/
   }
 
   .ios .video-caption--head {
