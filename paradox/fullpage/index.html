@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Jumpstart</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>    
+
+
+ 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+ 	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+ 	<link rel="stylesheet" href="leaflet.markercluster/MarkerCluster.css" />
+ 	<link rel="stylesheet" href="leaflet.markercluster/MarkerCluster.Default.css" />
+ 	<script type="text/javascript" src="leaflet.markercluster/leaflet.markercluster.js"></script> 	
+ 	
+
+	<!-- This following line needed in the case of setting the plugin option `scrollOverflow` to `true` -->
+	<script type="text/javascript" src="vendors/jquery.slimscroll.min.js"></script>
+
+	<script type="text/javascript" src="jquery.fullPage.js"></script>
+	<script type="text/javascript">
+	var currentVideo = -1;
+		$(document).ready(function() {
+    		$.fn.fullpage({
+    			scrollingSpeed: 500,
+    			anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+    			menu: '#myMenu',
+    			resize: true,
+    			verticalCentered:false,
+    			slidesColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],    			
+    			//paddingTop:'50px',
+				//paddingBottom:'50px',
+    			navigation:true,
+    			navigationPosition:'right',
+    			slidesNavigation:true,
+    			slidesNavPosition:'top',
+    			easing: 'easeInOutSine',
+    			autoScrolling: true,
+    			fixedElements: '#myMenu',    			
+    			loopBottom:true,
+ 				afterLoad: function(anchorLink, index){
+		            //using index
+		            if(index == '3' && currentVideo != 3){
+		            	$('#testVideo').get(0).play();
+		            	//  $('.testVideo').get(0).paused 
+		              		                
+		            }
+		            else 
+		            {
+		            	$('#testVideo').get(0).pause();
+						                
+		            }
+					currentVideo = index;
+		         
+		           
+		        }
+    		});
+
+    				// create a map in the "map" div, set the view to a given place and zoom
+var map = L.map('map',{scrollWheelZoom: false, zoom:13, center: L.LatLng(41.703656435,44.7840714455)}).setView([41.69,44.80], 14);
+
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);     
+
+		var markers = L.markerClusterGroup({ spiderfyOnMaxZoom: false, showCoverageOnHover: true, zoomToBoundsOnClick: true,disableClusteringAtZoom: 12 });
+		var markerCount = 1000;
+		for (var i = 0; i < markerCount; i++) {
+
+			var lat = Math.floor((Math.random()*100000000)+1)/100000000 + 41;
+			var lon = Math.floor((Math.random()*100000000)+1)/100000000 + 44;					
+			var marker = L.marker(new L.LatLng(lat, lon), { title: "title" });
+			marker.bindPopup("popup");
+			markers.addLayer(marker);
+		}
+
+		map.addLayer(markers);
+		});
+
+		window.onresize = resizing;
+		function resizing()
+		{
+			var innerHeigth = $( window ).height();
+			var innerWidth = $( window ).width();
+
+		}
+	</script>
+	<style>
+	    .section{background-color: #ccc;}
+	     #testVideo {width:100%; }
+	     #map { width:100%; height: 100%; }
+	     #menu {
+position: fixed;
+top: 0;
+left: 0;
+height: 25px;
+z-index: 70;
+width: 100%;
+padding: 0;
+margin: 0;
+}
+ul#menu  li
+{
+	color:#fff;
+	background-color: #ccc;
+	text-decoration:none;
+	display: inline;
+list-style-type: none;
+padding: 10px;
+
+
+}
+ a,a:hover,a:visited,a:focus
+{	
+	text-decoration:none;
+	color:#000;
+}
+	</style>
+
+  </head>
+
+  <body>
+
+ <ul id="menu">
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
+    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
+    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
+</ul>
+
+
+
+  <div>
+  	<div class="section firstSection" data-anchor="firstPage"><div id="map"></div>
+  	</div>
+	<div class="section" data-anchor="secondPage">
+	    <div class="slide" data-anchor="slide1"> <p style="text-shadow:2px 0px 4px rgba(255,255,255,1);font-weight:bold;color:#2373A8;letter-spacing:6pt;word-spacing:2pt;font-size:32px;text-align:left;font-family:georgia, serif;line-height:1;padding:50px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+	</div>
+	    <div class="slide" data-anchor="slide2"> 
+	    		<span class="toSlide" data-index="3">Slide 3</span>
+	   <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/vIu85WQTPRc" allowfullscreen frameborder="0">
+</iframe>
+	    </div>
+	    <div class="slide" data-anchor="slide3"> 
+	    	<img src="http://www.highsnobiety.com/files/2013/05/lamborghini-egoista-concept-car-9.jpg" width="100%" alt="Car"></div>
+	      
+	    <div class="slide" data-anchor="slide4"> 
+	    	<img src="http://i1.ytimg.com/vi/QBfugbEIlk4/maxresdefault.jpg" width="100%" alt="Car">
+	    	</div>
+	</div>
+	<div class="section video"  data-anchor="thirdPage">
+<video preload="auto" id="testVideo" poster="image/_Archimandrite_Gabriel-poster.jpg?2">
+			Your browser does not support this video.
+			<source src="video/_Archimandrite_Gabriel.mp4" type="video/mp4">
+		</video>
+	</div>
+	<div class="section"  data-anchor="fourthPage"> 
+	<p style="padding:50px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+	<img src="http://matthewjamestaylor.com/blog/img/illustrations/large/beautiful-css-centered-menus-no-hacks-full-cross-browser-support.jpg" width="100%" alt="Beautiful Horizontally Centered Menus/Tabs/List. No CSS hacks. Full cross-browser.">
+	</div>
+</div>
+
+  </body>
+
+</html>
