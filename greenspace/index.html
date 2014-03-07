@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>green space</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  
+    <style>
+      #map { height: 700px; }
+      
+    </style>
+  </head>
+  <body>
+  
+     <div id="map"></div>
+
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>  
+    
+    <script>
+      $('#map').css('height', $(window).height());
+      window.onresize = function()
+      {
+        $('#map').css('height', $(window).height());
+      }
+
+    
+			var url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+	    var base   = L.tileLayer(url);
+      var rz1 = L.geoJson();
+      var rz2 = L.geoJson();
+      var rz3 = L.geoJson();
+      var lsz = L.geoJson();
+      var satyeo = L.geoJson();
+
+		  var map = L.map('map', {
+			  center: [41.71, 44.78],
+			  zoom: 11,
+			  layers: [base, rz1, rz2, rz3, lsz, satyeo]
+		  });
+
+		  var baseLayers = {
+			  "Base": base
+		  };
+
+		  var overlays = {
+        "Recreation Zone 1": rz1,
+        "Recreation Zone 2": rz2,
+        "Recreation Zone 3": rz3,
+        "Landscape Recreation Zone": lsz,
+        "Forest Zone": satyeo
+		  };
+
+		  L.control.layers(baseLayers, overlays).addTo(map);
+
+      $.getJSON("json/rz1.json", function(json) {
+          rz1.addData(json).setStyle({"color": "#000", "fillColor": "#6DA0B3", "weight": 3, "fillOpacity": 0.75});
+      });
+      $.getJSON("json/rz2.json", function(json) {
+          rz2.addData(json).setStyle({"color": "#000", "fillColor": "#CC4353", "weight": 3, "fillOpacity": 0.75});
+      });
+      $.getJSON("json/rz3.json", function(json) {
+          rz3.addData(json).setStyle({"color": "#000", "fillColor": "#F7DC7F", "weight": 3, "fillOpacity": 0.75});
+      });
+      $.getJSON("json/lsz.json", function(json) {
+          lsz.addData(json).setStyle({"color": "#000", "fillColor": "#21344D", "weight": 3, "fillOpacity": 0.75});
+      });
+      $.getJSON("json/satyeo.json", function(json) {
+          satyeo.addData(json).setStyle({"color": "#000", "fillColor": "#80272D", "weight": 3, "fillOpacity": 0.75});
+      });
+
+    </script>
+    
+  </body>
+</html>
