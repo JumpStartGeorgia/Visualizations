@@ -1,0 +1,272 @@
+@font-face {
+    font-family: "bebasneue-b";    
+    src: url( '../fonts/bebasneue_b.otf') format("opentype");           
+    font-style: normal;    
+}
+body {
+  font: 10px bebasneue-b;
+  background-color:#ffd83f;
+  margin:0px auto;
+  padding:0px auto;
+}
+header .title
+{
+   font-family:bebasneue-b;
+   font-size:110px;
+   letter-spacing:10px;
+   color:#84652c;
+   text-transform:uppercase;   
+   text-align:center;
+   margin: 30px auto 0px;
+   padding-left:87px;
+}
+header .title:lang(ka)
+{
+  font-size:52px; 
+  line-height: 76px; 
+  letter-spacing:0px;
+}
+header .push-right
+{
+  position:absolute;
+  right:35px;
+  top:5px;
+}
+header .push-right div 
+{
+  display:inline-block;
+
+}
+header .lang_switch
+{
+  margin-left:20px;
+}
+/*header .lang_switch
+{
+  position:absolute;
+  right:35px;
+  top:25px;
+}
+header .source
+{
+  position:absolute;
+  right:115px;
+  top:25px;
+}
+header .social
+{
+  position:absolute;
+  right:285px;
+  top:25px;
+}*/
+
+header .lang_switch a
+{
+  font-family:Arial;
+  font-size:14px;  
+  color:#84652c;
+  text-transform:uppercase;  
+  margin:0px auto;
+  text-align:center;
+  text-decoration:none;
+}
+footer
+{
+  width:100%;
+  text-align:right;
+  margin-bottom:8px;
+}
+footer .source
+{
+  display:inline-block;
+  position: relative;
+  top: -8px; 
+  margin-right: 30px;
+}
+footer .source a
+{
+  font-family:Arial;
+  font-size:13px;  
+  color:#84652c;
+  text-transform:uppercase;  
+  margin:0px auto;
+  text-align:center;
+  text-decoration:none;
+  display:inline-block;
+}
+footer .logo
+{
+  background:transparent url('../svg/logo.svg') no-repeat;
+  width:141px;   
+  height:26px;   
+  display:inline-block;
+  padding-right: 25px;
+}
+svg
+{
+  display:block;
+  margin:0px auto;
+}
+.legend
+{
+ /*  cursor:pointer;*/
+ font-family:Arial;
+ font-size:14px;
+}
+.legend:lang(ka)
+{
+ /*  cursor:pointer;*/
+ font-family:Arial;
+ font-size:12px;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis .tick line,.axis .domain
+{
+  font-family:Arial;
+   display:none;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
+.y.axis > text
+{
+  font-family:Arial;
+  font-size:14px;
+  fill:#84652c;
+}
+.y.axis .tick text
+{
+   font-family:bebasneue-b;
+   font-size:20px;
+   fill:#6A5124;
+   text-transform:uppercase;
+   width:5px;
+   text-anchor:middle;
+}
+.y.axis .tick text:lang(ka)
+{
+  font-size:15px;
+}
+.x.axis .tick text
+{
+   font-family:bebasneue-b;
+   font-size:15px;
+   fill:#84652c;
+   text-transform:uppercase;
+}
+.grid .tick {
+    stroke: #ffd83f;
+    opacity: 0.7;
+}
+.grid path {
+    stroke-width: 0;
+}
+.d3-tip {
+  font-family:Arial;
+  font-size:13px;
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+.filter
+{
+  width:1020px;
+  margin:0px auto 20px;
+  text-align:right;
+}
+.filter label
+{
+  font-family:Arial;
+  font-size:19px;
+  padding-right:5px;
+  color:#84652c;
+}
+.filter select
+{
+  background: #f2c73d;
+  color:#4B3B1D;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 1;
+  border-radius: 0;
+  height: 34px;
+}
+
+.social
+{
+  position: relative;
+  top: 5px;
+}
+.social a.fb,.social a.tw,.social a.sh
+{
+  padding-left:5px;
+  padding-right:0;
+  display:inline-block;
+  opacity:0.5;
+  filter:alpha(opacity=50);
+  -webkit-transition:opacity 0.3s;
+  -moz-transition:opacity 0.3s;
+  -o-transition:opacity 0.3s;
+  transition:opacity 0.3s
+}
+.addthis_button_compact
+{  opacity:0.5;
+  filter:alpha(opacity=50);
+  -webkit-transition:opacity 0.3s;
+  -moz-transition:opacity 0.3s;
+  -o-transition:opacity 0.3s;
+  transition:opacity 0.3s
+}
+.addthis_button_compact:hover
+{   opacity:1;
+  filter:alpha(opacity=100);
+}
+.social a.fb :hover,.social a.tw:hover,.social a.sh:hover
+{
+  cursor:pointer;
+  display:inline-block;
+  opacity:1;
+  filter:alpha(opacity=100);
+ }
+
+.social .sh { 
+  top: -14px;
+  position: relative;
+  left: 4px;
+}

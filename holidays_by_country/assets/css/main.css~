@@ -1,0 +1,134 @@
+@font-face {
+    font-family: "bebasneue-b";    
+    src: url( '/fonts/bebasneue_b.otf') format("opentype");           
+    font-style: normal;    
+}
+body {
+  font: 10px bebasneue-b;
+  background-color:#ffd54d;
+}
+header
+{
+   font-family:bebasneue-b;
+   font-size:110px;
+   letter-spacing:10px;
+   color:#84652c;
+   text-transform:uppercase;
+   width:100%;
+   margin:0px auto;
+   text-align:center;
+}
+
+svg
+{
+  display:block;
+  margin:0px auto;
+}
+.legend
+{
+ /*  cursor:pointer;*/
+ font-family:Arial;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis .tick line,.axis .domain
+{
+  font-family:Arial;
+   display:none;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
+.y.axis > text
+{
+  font-family:Arial;
+  font-size:14px;
+  fill:#84652c;
+}
+.y.axis .tick text
+{
+   font-family:bebasneue-b;
+   font-size:20px;
+   fill:#6A5124;
+   text-transform:uppercase;
+}
+.x.axis .tick text
+{
+   font-family:bebasneue-b;
+   font-size:15px;
+   fill:#84652c;
+   text-transform:uppercase;
+}
+.grid .tick {
+    stroke: #ffd54d;
+    opacity: 0.7;
+}
+.grid path {
+    stroke-width: 0;
+}
+
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+.filter
+{
+  width:960px;
+  margin:0px auto;
+  text-align:right;
+}
+.filter label
+{
+  font-family:Arial;
+  font-size:19px;
+  padding-right:5px;
+  color:#84652c;
+}
+.filter select
+{
+  background: #f2c73d;
+  color:#4B3B1D;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 1;
+  border-radius: 0;
+  height: 34px;
+  
+}

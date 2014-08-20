@@ -1,0 +1,47 @@
+{
+  "page" :
+  {    
+    "en":{ "days": "Days"},
+    "ka":{ "days": "დღეები"}
+  },
+  "legend":
+  {
+    "en":[{ "name": "Annual leave (min)"}, {"name":"Annual leave (max)"}, {"name":"National Holidays"}],
+    "ka":[{ "name": "შვებულება (მინიმუმი)"}, {"name":"შვებულება (მაქსიმუმი)"}, {"name":"უქმე დღეები"}]
+  },
+  "tip":
+  {
+    "en":{ "country":"Country:", "category":"Category [ Annual(Min)/Annual(Max)/National ]:", "total":"Total:","comment":"Comment:"},
+    "ka":{ "country":"ქვეყანა:", "category":"დასვენების დღეები [ შვებულება (მინ.)/შვებულება (მაქს.)/უქმე დღეები ]:", "total":"სულ:","comment":"კომენტარი:"}
+  },
+  "data" : [
+    { "country":{ "en":"India","ka":"ინდოეთი"},"total":56,"national":16,"annual_min":30,"annual_max":40, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Switzerland","ka":"შვეიცარია"},"total":47,"national":12,"annual_min":28,"annual_max":35, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Brazil","ka":"ბრაზილია"},"total":45,"national":15,"annual_min":30,"annual_max":30, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Azerbaijan","ka":"აზერბაიჯანი"},"total":45,"national":15,"annual_min":21,"annual_max":30, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Spain","ka":"ესპანეთი"},"total":44,"national":14,"annual_min":30,"annual_max":30, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"France","ka":"საფრანგეთი"},"total":43,"national":13,"annual_min":30,"annual_max":30, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Czech Republic","ka":"ჩეხეთი"},"total":40,"national":12,"annual_min":28,"annual_max":28, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Italy","ka":"იტალია"},"total":40,"national":12,"annual_min":28,"annual_max":28, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"South Korea","ka":"სამხრეთ კორეა"},"total":40,"national":15,"annual_min":15,"annual_max":25, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Russia","ka":"რუსეთი"},"total":39,"national":11,"annual_min":28,"annual_max":28, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Georgia","ka":"საქართველო"},"total":39,"national":15,"annual_min":24,"annual_max":24, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"UK","ka":"დიდი ბრიტანეთი"},"total":38,"national":10,"annual_min":28,"annual_max":28, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Sweden","ka":"შვედეთი"},"total":37,"national":12,"annual_min":25,"annual_max":25, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Bulgaria","ka":"ბულგარეთი"},"total":35,"national":15,"annual_min":20,"annual_max":20, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Greece","ka":"საბერძნეთი"},"total":34,"national":14,"annual_min":20,"annual_max":20, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Germany","ka":"გერმანია"},"total":37,"national":13,"annual_min":20,"annual_max":24, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Poland","ka":"პოლონეთი"},"total":33,"national":13,"annual_min":20,"annual_max":20, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Belgium","ka":"ბელგია"},"total":38,"national":10,"annual_min":20,"annual_max":28, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Romania","ka":"რუმინეთი"},"total":30,"national":10,"annual_min":20,"annual_max":20, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Netherlands","ka":"ჰოლანდია"},"total":30,"national":10,"annual_min":20,"annual_max":20, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Belarus","ka":"ბელარუსეთი"},"total":27,"national":9,"annual_min":18,"annual_max":18, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Japan","ka":"იაპონია"},"total":35,"national":15,"annual_min":10,"annual_max":20, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Hong Kong","ka":"ჰონგ კონგი"},"total":31,"national":17,"annual_min":7,"annual_max":14, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Canada","ka":"კანადა"},"total":31,"national":10,"annual_min":14,"annual_max":21, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Turkey","ka":"თურქეთი"},"total":22,"national":8,"annual_min":0,"annual_max":14, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"China","ka":"ჩინეთი"},"total":22,"national":12,"annual_min":5,"annual_max":10, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"USA","ka":"აშშ"},"total":15,"national":0,"annual_min":0,"annual_max":15, "comments":{"en":"","ka":""}},
+    { "country":{ "en":"Armenia","ka":"სომხეთი"},"total":36,"national":12,"annual_min":24,"annual_max":24, "comments":{"en":"","ka":""}}
+  ]
+}
