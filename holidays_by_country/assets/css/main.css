@@ -3,11 +3,34 @@
     src: url( '../fonts/bebasneue_b.otf') format("opentype");           
     font-style: normal;    
 }
+@font-face {
+    font-family: "dejavusans";    
+    src: url( '../fonts/dejavusans.ttf') format("truetype");           
+    font-style: normal;
+    font-weight: 200;
+}
+@font-face {
+    font-family: "dejavusans-rm";    
+    src: url( '../fonts/dejavusans_r_m.ttf') format("truetype");           
+    font-style: normal;
+    font-weight: 200;
+}
+@font-face {
+    font-family: "dejavusans-bm";    
+    src: url( '../fonts/dejavusans_b_m.ttf') format("truetype");           
+    font-style: normal;
+    font-weight: 200;
+}
+
 body {
   font: 10px bebasneue-b;
   background-color:#ffd83f;
   margin:0px auto;
   padding:0px auto;
+}
+body:lang(ka)
+{
+  font-family:dejavusans;
 }
 header .title
 {
@@ -22,6 +45,7 @@ header .title
 }
 header .title:lang(ka)
 {
+  font-family:dejavusans-bm;
   font-size:52px; 
   line-height: 76px; 
   letter-spacing:0px;
@@ -41,34 +65,19 @@ header .lang_switch
 {
   margin-left:20px;
 }
-/*header .lang_switch
-{
-  position:absolute;
-  right:35px;
-  top:25px;
-}
-header .source
-{
-  position:absolute;
-  right:115px;
-  top:25px;
-}
-header .social
-{
-  position:absolute;
-  right:285px;
-  top:25px;
-}*/
-
 header .lang_switch a
 {
-  font-family:Arial;
+  font-family:dejavusans;
   font-size:14px;  
   color:#84652c;
   text-transform:uppercase;  
   margin:0px auto;
   text-align:center;
   text-decoration:none;
+}
+header .lang_switch a:lang(ka)
+{
+    font-family:Arial;
 }
 footer
 {
@@ -94,6 +103,10 @@ footer .source a
   text-decoration:none;
   display:inline-block;
 }
+footer .source a:lang(ka)
+{
+  font-family:dejavusans;
+}
 footer .logo
 {
   background:transparent url('../svg/logo.svg') no-repeat;
@@ -108,16 +121,14 @@ svg
   margin:0px auto;
 }
 .legend
-{
- /*  cursor:pointer;*/
+{ 
  font-family:Arial;
  font-size:14px;
 }
 .legend:lang(ka)
-{
- /*  cursor:pointer;*/
- font-family:Arial;
- font-size:12px;
+{ 
+  font-family:dejavusans;
+  font-size:12px;
 }
 .axis path,
 .axis line {
@@ -129,7 +140,7 @@ svg
 .axis .tick line,.axis .domain
 {
   font-family:Arial;
-   display:none;
+  display:none;
 }
 
 .bar {
@@ -145,6 +156,10 @@ svg
   font-size:14px;
   fill:#84652c;
 }
+.y.axis > text:lang(ka)
+{
+  font-family:dejavusans;
+}
 .y.axis .tick text
 {
    font-family:bebasneue-b;
@@ -156,6 +171,7 @@ svg
 }
 .y.axis .tick text:lang(ka)
 {
+  font-family:dejavusans-rm;
   font-size:15px;
 }
 .x.axis .tick text
@@ -182,7 +198,10 @@ svg
   color: #fff;
   border-radius: 2px;
 }
-
+.d3-tip:lang(ka)
+{
+  font-family:dejavusans;
+}
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
   box-sizing: border-box;
@@ -215,6 +234,10 @@ svg
   padding-right:5px;
   color:#84652c;
 }
+.filter label
+{
+  font-family:dejavusans;
+}
 .filter select
 {
   background: #f2c73d;
@@ -227,7 +250,6 @@ svg
   border-radius: 0;
   height: 34px;
 }
-
 .social
 {
   position: relative;
