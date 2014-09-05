@@ -1,0 +1,21 @@
+d3.csv("../assets/data.csv", function(error, data) { 
+  var ds = [];
+  var str = "";
+  data.forEach(function(d) {  
+    var obj = {};
+    obj.country = { en : d.en, ge: d.ge }
+    d.y1=+d.y1;d.y5=+d.y5;d.y10=+d.y10;d.h=+d.h;
+    obj.y1 = d.y1;
+    obj.y5 = d.y5-d.y1
+    obj.y10 = d.y10-d.y5;
+    obj.national = d.h;
+    obj.total = obj.y1 + obj.y5 + obj.y10 + obj.national; 
+    ds.push(obj);
+    str += '{ country:{en:"'+d.en+'",ge:"'+d.ge+'"}, national:'+d.h+', y1:'+d.y1+', y5:'+obj.y5+', y10:'+obj.y10+', total:'+obj.total+'},\n';
+  });  
+  console.log(ds);
+  console.log(str);
+  
+
+ //{ "country":{ "en":"India","ka":"ინდოეთი"},"total":56,"national":16,"annual_min":30,"annual_max":40, "comments":{"en":"","ka":""}},
+});

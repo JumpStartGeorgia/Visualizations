@@ -6,7 +6,7 @@
   },
   "legend":
   {
-    "en":[{ "name": "Annual leave (min)"}, {"name":"Annual leave (max)"}, {"name":"National Holidays"}],
+    "en":[{ "name": "1 year of tenure"}, {"name":"5 years of tenure"}, {"name":"10 years of tenure"}, {"name":"National Holidays"}],
     "ka":[{ "name": "შვებულება (მინიმუმი)"}, {"name":"შვებულება (მაქსიმუმი)"}, {"name":"უქმე დღეები"}]
   },
   "tip":

@@ -1,30 +1,22 @@
 @font-face {
-    font-family: "bebasneue-b";    
-    src: url( '../fonts/bebasneue_b.otf') format("opentype");           
-    font-style: normal;    
+    font-family: "dejavusans-el-m0";    
+    src: url( '../fonts/dejavu/dejavusans-el-m0.ttf') format("truetype");           
 }
 @font-face {
-    font-family: "dejavusans";    
-    src: url( '../fonts/dejavusans.ttf') format("truetype");           
-    font-style: normal;
-    font-weight: 200;
+    font-family: "myriadpro-sb";    
+    src: url( '../fonts/myriadpro/myriadpro-sb.otf') format("opentype");           
 }
 @font-face {
-    font-family: "dejavusans-rm";    
-    src: url( '../fonts/dejavusans_r_m.ttf') format("truetype");           
-    font-style: normal;
-    font-weight: 200;
+    font-family: "myriad-rom";    
+    src: url( '../fonts/myriad/myriad-rom.ttf') format("truetype");           
 }
 @font-face {
-    font-family: "dejavusans-bm";    
-    src: url( '../fonts/dejavusans_b_m.ttf') format("truetype");           
-    font-style: normal;
-    font-weight: 200;
+    font-family: "myriad-b";    
+    src: url( '../fonts/myriad/myriad-b.ttf') format("truetype");           
 }
-
 body {
   font: 10px bebasneue-b;
-  background-color:#ffd83f;
+  background-color:#dff1f7;
   margin:0px auto;
   padding:0px auto;
 }
@@ -32,24 +24,53 @@ body:lang(ka)
 {
   font-family:dejavusans;
 }
+svg {overflow:visible;}
+.box
+{
+  width:1020px;
+  margin:0px auto;
+}
 header .title
 {
-   font-family:bebasneue-b;
-   font-size:110px;
-   letter-spacing:10px;
-   color:#84652c;
-   text-transform:uppercase;   
-   text-align:center;
+   font-family:"dejavusans-el-m0";
+   font-size:43px;
+   color:#06adc9;
+   text-align: left;
    margin: 30px auto 0px;
    padding-left:87px;
+  -webkit-text-stroke: 1pt #06adc9;    
 }
 header .title:lang(ka)
 {
-  font-family:dejavusans-bm;
-  font-size:52px; 
+  font-family:"dejavusans-bm";
+  font-size:43px; 
   line-height: 76px; 
   letter-spacing:0px;
 }
+header .subtitle
+{
+   font-family:"myriadpro-sb";
+   font-size:15px;   
+   color:#0ab5dd;
+   text-align: left;
+   margin: 13px auto 10px;
+   padding-left:87px;
+}
+header .subtitle:lang(ka)
+{
+  font-family:dejavusans-bm;
+  font-size:12px; 
+}
+header .illus
+{
+  background:transparent url('../svg/illus.svg') no-repeat;
+  width:100%;     
+  max-width: 1903px;
+  height: 136px;  
+  display: inline-block;
+}
+
+
 header .push-right
 {
   position:absolute;
@@ -88,42 +109,64 @@ footer
 footer .source
 {
   display:inline-block;
-  position: relative;
-  top: -8px; 
-  margin-right: 30px;
+  position: relative;  
+  margin-left: 130px;
+
 }
-footer .source a
+footer .box
 {
-  font-family:Arial;
-  font-size:13px;  
-  color:#84652c;
-  text-transform:uppercase;  
-  margin:0px auto;
-  text-align:center;
-  text-decoration:none;
+   text-align:left;
+}
+footer .source .title
+{
+  font-family:"myriad-b";
+  font-size:13px;
+  color:#8F9B9B;
   display:inline-block;
+   
 }
-footer .source a:lang(ka)
+footer .source .list
 {
-  font-family:dejavusans;
+display: inline-block;
+position: relative;
+top: 16px;
+left: 10px;
 }
+footer .source .subtitle,footer .source .link
+{
+  font-family:"myriad-rom";
+  font-size:13px;
+  color:#8F9B9B;
+  text-decoration:none;
+}
+
 footer .logo
 {
   background:transparent url('../svg/logo.svg') no-repeat;
   width:141px;   
   height:26px;   
+  float:right;
   display:inline-block;
-  padding-right: 25px;
+  
+  position: relative;
+  top: -10px;
+  right:25px;
 }
 svg
 {
   display:block;
   margin:0px auto;
 }
+line 
+{
+  shape-rendering:crispEdges;
+}
 .legend
-{ 
- font-family:Arial;
- font-size:14px;
+{   
+ font-family:"myriad-rom";
+ font-size:13px;
+ color:#8f9b9b;
+ fill:#8f9b9b;
 }
 .legend:lang(ka)
 { 
@@ -162,11 +205,10 @@ svg
 }
 .y.axis .tick text
 {
-   font-family:bebasneue-b;
-   font-size:20px;
-   fill:#6A5124;
-   text-transform:uppercase;
-   width:5px;
+   font-family:"dejavusans-el-m0";
+   font-size:14px;
+   fill:#8f9b9b;
+   text-transform:uppercase;   
    text-anchor:middle;
 }
 .y.axis .tick text:lang(ka)
@@ -176,14 +218,16 @@ svg
 }
 .x.axis .tick text
 {
-   font-family:bebasneue-b;
-   font-size:15px;
-   fill:#84652c;
+   font-family:'myriad-rom';
+   font-size:11px;
+   fill:#8f9b9b;
    text-transform:uppercase;
+   letter-spacing:-0.25pt;
 }
 .grid .tick {
-    stroke: #ffd83f;
+    stroke: #dff1f7;
     opacity: 0.7;
+    stroke-width:2px;
 }
 .grid path {
     stroke-width: 0;
@@ -222,33 +266,50 @@ svg
   left: 0;
 }
 .filter
-{
-  width:1020px;
-  margin:0px auto 20px;
+{   
+  margin:40px auto 0px;
   text-align:right;
 }
 .filter label
 {
-  font-family:Arial;
-  font-size:19px;
-  padding-right:5px;
-  color:#84652c;
+  font-family:"meriadpro-sm";
+  font-size:16px;
+  color: #dff1f7;
+  background-color: #0ab5dd;
+  height: 34px;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0px 18px;
+  margin:1px -3px 0px 0px;
 }
-.filter label
+.filter label:lang(ka)
 {
   font-family:dejavusans;
 }
 .filter select
 {
-  background: #f2c73d;
-  color:#4B3B1D;
-  width: 268px;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 1;
-  border: 1;
+  font-family:"meriadpro-sm";
+  color:#9aa3a8;
+  background-color: #dff1f7;  
+  width: 140px;
+  padding-left: 11px;
+  font-size: 16px;  
+  border:1px solid #0ab5dd;
   border-radius: 0;
   height: 34px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  background: transparent url("../svg/selector.svg") no-repeat 120px center;
+  outline:none;
+}
+.download a
+{
+  font-family:"myriad-b";
+  font-size:13px;
+  color:#8F9B9B;
+  display:inline-block;
+  text-decoration:none;
 }
 .social
 {

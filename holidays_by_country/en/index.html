@@ -17,9 +17,14 @@
   </head>
   <body>
     <wrapper>
-       <header>
-         <div class="title">Holidays by Countries</div>
+      <header>
+        <div class='box'>
+          <div class="title">HOLIDAYS BY COUNTRIES</div>
+          <div class="subtitle">The number of legally required paid vacation days and public holidays vary widely from country to country.<br> See how many days of rest and relaxation your country's laws guarantee you.</div>
+        </div>
+         <div class="illus"></div>
          <div class="push-right">
+              <div class="download"><a href="https://docs.google.com/a/jumpstart.ge/spreadsheets/d/1cALo4RxkIX5bxNxmOIjAwWOKgkhfYzj-FmQ7Oi_j1io">Download Data</a></div>
             <div class="social">
              <a href="http://www.facebook.com/share.php?u=http://visuals.jumpstart.ge/holidays_by_country/en" class="fb" target="_blank" title="facebook"><img alt="Share_fb" src="../assets/png/fb.png"></a>
             <a href="https://twitter.com/share?url=http://visuals.jumpstart.ge/holidays_by_country/en" class="tw" target="_blank" title="twitter"><img alt="Share_tw" src="../assets/png/tw.png"></a>
@@ -32,21 +37,33 @@
        
 
         </div>
-       </header>
-       <div class="filter">
-         <label>Sort By:</label>
-         <select>         
+      </header>
+      <div class='box'>
+        <div class="filter">
+          <label>Sort By:</label>
+          <select>         
            <option value="0">Alphabetically</option>
            <option value="1">Total</option>
            <option value="2">National</option>
            <option value="3">Annual Min</option>
            <option value="4">Annual Max</option>           
-         </select>
+          </select>
+        </div>
        </div>
        <content></content>
        <footer>
-        <div class="source"><a href="https://docs.google.com/a/jumpstart.ge/spreadsheets/d/1cALo4RxkIX5bxNxmOIjAwWOKgkhfYzj-FmQ7Oi_j1io">Download Data</a></div>
-        <div class="logo"></div>
+         <div class='box'>
+           <div class="source">
+              <div class='title'>Source:</div>
+              <div class='list'>
+                <span class='title'>Annual Leave:</span><a href="/source" class='link'>: Doing Business Report, 2013</a>
+                <br>
+                <span class='title'>Public Holidays:</span><a href="/source" class='link'>: Based on different sources, which might cause minor inaccuracies</a>
+              </div>
+            </div>
+          </div>
+   
+          <div class="logo"></div>
        </footer>
     </wrapper>
     
@@ -56,9 +73,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/d3.v3.min.js"></script>
     <script src="../assets/js/d3.tip.v0.6.3.js"></script>
+    <script src="../assets/js/data.js"></script>
     <script src="../assets/js/application.js"></script>
-    <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51d1537d4a09d85f"></script>
+    <!--<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51d1537d4a09d85f"></script> -->
     <script>
 
     </script>
