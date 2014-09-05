@@ -1,7 +1,12 @@
 @font-face {
-    font-family: "dejavusans-el-m0";    
-    src: url( '../fonts/dejavu/dejavusans-el-m0.ttf') format("truetype");           
+    font-family: "dejavusans-el-m";    
+    src: url( '../fonts/dejavu/dejavusans-el-m.ttf') format("truetype");           
 }
+@font-face {
+    font-family: "dejavusans-el";    
+    src: url( '../fonts/dejavu/dejavusans-el.ttf') format("truetype");           
+}
+
 @font-face {
     font-family: "myriadpro-sb";    
     src: url( '../fonts/myriadpro/myriadpro-sb.otf') format("opentype");           
@@ -9,6 +14,8 @@
 @font-face {
     font-family: "myriad-rom";    
     src: url( '../fonts/myriad/myriad-rom.ttf') format("truetype");           
+    font-style: normal;
+    font-weight: 200;
 }
 @font-face {
     font-family: "myriad-b";    
@@ -32,7 +39,7 @@ svg {overflow:visible;}
 }
 header .title
 {
-   font-family:"dejavusans-el-m0";
+   font-family:"myriad-rom";
    font-size:43px;
    color:#06adc9;
    text-align: left;
@@ -272,7 +279,7 @@ line
 }
 .filter label
 {
-  font-family:"meriadpro-sm";
+  font-family:"myriadpro-sb";
   font-size:16px;
   color: #dff1f7;
   background-color: #0ab5dd;
@@ -288,7 +295,7 @@ line
 }
 .filter select
 {
-  font-family:"meriadpro-sm";
+  font-family:"myriadpro-sb";
   color:#9aa3a8;
   background-color: #dff1f7;  
   width: 140px;
