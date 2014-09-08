@@ -18,8 +18,14 @@
   <body>
     <wrapper>
        <header>
-         <div class="title">დასვენების დღეები ქვეყნების მიხედვით</div>
+        <div class='box'>
+          <div class="title">დასვენების დღეები ქვეყნების მიხედვით</div>
+          <div class="subtitle">სავალდებულო ანაზღაურებადი შვებულებისა და უქმე დღეების რაოდენობა ქვეყნების მიხედვით განსხვავდება. ნახეთ, რამდენ დღეს გაძლევთ დასვენებისთვის თქვენი ქვეყნის კანონმდებლობა.</div>
+        </div>
+        <div class="illus"></div>
+         <div class="title"></div>
          <div class="push-right">
+         <div class="download"><a href="https://docs.google.com/a/jumpstart.ge/spreadsheets/d/1Zb9pf47el_aVk9o082kyMf_40MH01LI_PXSNc3tf9QE">ჩამოტვირთეთ მონაცემები</a></div>
             <div class="social">
              <a href="http://www.facebook.com/share.php?u=http://visuals.jumpstart.ge/holidays_by_country/ka" class="fb" target="_blank" title="facebook"><img alt="Share_fb" src="../assets/png/fb.png"></a>
             <a href="https://twitter.com/share?url=http://visuals.jumpstart.ge/holidays_by_country/ka" class="tw" target="_blank" title="twitter"><img alt="Share_tw" src="../assets/png/tw.png"></a>
@@ -33,19 +39,33 @@
 
         </div>
        </header>
-       <div class="filter">
-         <label>დალაგება:</label>
-         <select>
-           <option value="0">ანბანის მიხედვით</option>
-           <option value="1">სულ</option>
-           <option value="2">უქმე დღეები</option>
-           <option value="3">შვებულება (მინ.)</option>
-           <option value="4">შვებულება (მაქს.)</option>          
-         </select>
-       </div>
+          <div class='box'>
+            <div class="filter">
+              <label>დალაგება:</label>
+              <select>         
+               <option value="0">ანბანის მიხედვით</option>
+               <option value="1">სულ</option>
+               <option value="2">უქმე დღეები</option>
+               <option value="3">1-წლიანი მუშაობის შემდეგ</option>
+               <option value="4">5-წლიანი მუშაობის შემდეგ</option>           
+               <option value="5">10-წლიანი მუშაობის შემდეგ</option> 
+              </select>        
+            </div>
+         </div>
+
        <content></content>
        <footer>
-        <div class="source"><a href="https://docs.google.com/a/jumpstart.ge/spreadsheets/d/1cALo4RxkIX5bxNxmOIjAwWOKgkhfYzj-FmQ7Oi_j1io">ჩამოტვირთეთ მონაცემები</a></div>
+          <div class='box'>
+           <div class="source">
+              <div class='title'>წყარო:</div>
+              <div class='list'>
+                <span class='title'>შვებულება:</span><a href="http://www.doingbusiness.org/data/exploretopics/employing-workers#rigidityHours" class='link'>: ბიზნესის კეთების ანგარიში, 2013</a>
+                <br>
+                <span class='title'>უქმე დღეები:</span><span class='link'>"დაფუძნებულია სხვადასხვა წყაროზე, რაც მცირე უზუსტობების მიზეზი შეიძლება იყოს.
+ "</span>
+              </div>
+            </div>
+          </div>
         <div class="logo"></div>
        </footer>
     </wrapper>
@@ -56,6 +76,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/d3.v3.min.js"></script>
     <script src="../assets/js/d3.tip.v0.6.3.js"></script>
+    <script src="../assets/js/data.js"></script>
     <script src="../assets/js/application.js"></script>
     <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51d1537d4a09d85f"></script>

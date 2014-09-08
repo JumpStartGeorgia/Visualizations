@@ -1,28 +1,38 @@
-@font-face {
+/*@font-face {
     font-family: "dejavusans-el-m";    
     src: url( '../fonts/dejavu/dejavusans-el-m.ttf') format("truetype");           
-}
+}*/
 @font-face {
     font-family: "dejavusans-el";    
     src: url( '../fonts/dejavu/dejavusans-el.ttf') format("truetype");           
 }
+@font-face {
+    font-family: "dejavusans-elm";    
+    src: url( '../fonts/dejavu/dejavusans-elm.ttf') format("truetype");           
+}
+@font-face {
+    font-family: "euphemia";    
+    src: url( '../fonts/euphemia/euphemia.ttf') format("truetype");           
+}
 
 @font-face {
-    font-family: "myriadpro-sb";    
-    src: url( '../fonts/myriadpro/myriadpro-sb.otf') format("opentype");           
+    font-family: "calibri";    
+    src: url( '../fonts/calibri/calibri.ttf') format("truetype");           
 }
 @font-face {
-    font-family: "myriad-rom";    
-    src: url( '../fonts/myriad/myriad-rom.ttf') format("truetype");           
-    font-style: normal;
-    font-weight: 200;
+    font-family: "calibri-b";    
+    src: url( '../fonts/calibri/calibri-b.ttf') format("truetype");           
 }
 @font-face {
-    font-family: "myriad-b";    
-    src: url( '../fonts/myriad/myriad-b.ttf') format("truetype");           
+    font-family: "ebrima";    
+    src: url( '../fonts/ebrima/ebrima.ttf') format("truetype");           
+}
+@font-face {
+    font-family: "consolas";    
+    src: url( '../fonts/consolas/consolas.ttf') format("truetype");           
 }
 body {
-  font: 10px bebasneue-b;
+  font: 10px 'calibri';
   background-color:#dff1f7;
   margin:0px auto;
   padding:0px auto;
@@ -39,24 +49,23 @@ svg {overflow:visible;}
 }
 header .title
 {
-   font-family:"myriad-rom";
+   font-family:"euphemia";
    font-size:43px;
    color:#06adc9;
    text-align: left;
    margin: 30px auto 0px;
-   padding-left:87px;
-  -webkit-text-stroke: 1pt #06adc9;    
+   padding-left:87px;  
 }
 header .title:lang(ka)
 {
-  font-family:"dejavusans-bm";
+  font-family:"dejavusans-el";
   font-size:43px; 
   line-height: 76px; 
   letter-spacing:0px;
 }
 header .subtitle
 {
-   font-family:"myriadpro-sb";
+   font-family:"calibri";
    font-size:15px;   
    color:#0ab5dd;
    text-align: left;
@@ -124,10 +133,10 @@ footer .box
 {
    text-align:left;
 }
-footer .source .title
+footer .source > .title
 {
-  font-family:"myriad-b";
-  font-size:13px;
+  font-family:"calibri-b";
+  font-size:14px;
   color:#8F9B9B;
   display:inline-block;
    
@@ -136,13 +145,13 @@ footer .source .list
 {
 display: inline-block;
 position: relative;
-top: 16px;
+top: 18px;
 left: 10px;
 }
-footer .source .subtitle,footer .source .link
+footer .source .list .title,footer .source .link
 {
-  font-family:"myriad-rom";
-  font-size:13px;
+  font-family:"calibri";
+  font-size:14px;
   color:#8F9B9B;
   text-decoration:none;
 }
@@ -170,8 +179,8 @@ line
 }
 .legend
 {   
- font-family:"myriad-rom";
- font-size:13px;
+ font-family:"calibri";
+ font-size:14px;
  color:#8f9b9b;
  fill:#8f9b9b;
 }
@@ -200,19 +209,19 @@ line
 .x.axis path {
   display: none;
 }
-.y.axis > text
+/*.y.axis > text
 {
   font-family:Arial;
   font-size:14px;
   fill:#84652c;
-}
+}*/
 .y.axis > text:lang(ka)
 {
   font-family:dejavusans;
 }
 .y.axis .tick text
 {
-   font-family:"dejavusans-el-m0";
+   font-family:'ebrima';
    font-size:14px;
    fill:#8f9b9b;
    text-transform:uppercase;   
@@ -225,7 +234,7 @@ line
 }
 .x.axis .tick text
 {
-   font-family:'myriad-rom';
+   font-family:'consolas';
    font-size:11px;
    fill:#8f9b9b;
    text-transform:uppercase;
@@ -241,13 +250,17 @@ line
 }
 .d3-tip {
   font-family:Arial;
-  font-size:13px;
+  font-size:14px;
   line-height: 1;
   font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(32,70,89,0.8);
   color: #fff;
+  -webkit-border-radius: 2px;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius: 2px;
+  -moz-border-radius-bottomleft: 0;
   border-radius: 2px;
+  border-bottom-left-radius: 0;
 }
 .d3-tip:lang(ka)
 {
@@ -257,10 +270,10 @@ line
 .d3-tip:after {
   box-sizing: border-box;
   display: inline;
-  font-size: 10px;
+  font-size: 18px;
   width: 100%;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(32,70,89,0.8);
   content: "\25BC";
   position: absolute;
   text-align: center;
@@ -268,7 +281,7 @@ line
 
 /* Style northward tooltips differently */
 .d3-tip.n:after {
-  margin: -1px 0 0 0;
+  margin:-4px 0 0 0px;
   top: 100%;
   left: 0;
 }
@@ -279,13 +292,13 @@ line
 }
 .filter label
 {
-  font-family:"myriadpro-sb";
+  font-family:"calibri-b";
   font-size:16px;
   color: #dff1f7;
   background-color: #0ab5dd;
-  height: 34px;
+  height: 35px;
   display: inline-block;
-  line-height: 34px;
+  line-height: 35px;
   padding: 0px 18px;
   margin:1px -3px 0px 0px;
 }
@@ -295,19 +308,19 @@ line
 }
 .filter select
 {
-  font-family:"myriadpro-sb";
+  font-family:"calibri-b";
   color:#9aa3a8;
   background-color: #dff1f7;  
-  width: 140px;
+  width: 170px;
   padding-left: 11px;
   font-size: 16px;  
   border:1px solid #0ab5dd;
   border-radius: 0;
-  height: 34px;
+  height: 35px;
   -webkit-appearance:none;
   -moz-appearance:none;
   appearance:none;
-  background: transparent url("../svg/selector.svg") no-repeat 120px center;
+  background: transparent url("../svg/selector.svg") no-repeat 150px center;
   outline:none;
 }
 .download a
@@ -359,4 +372,147 @@ line
   top: -14px;
   position: relative;
   left: 4px;
+}
+
+.tip
+{
+  margin:0px 0px 10px 0px;
+  color:#d4d5d6;
+}
+.tip .country
+{
+  font-family:'euphemia';
+  font-size:27px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin:11px 0px 10px 11px;
+  width:100%;
+}
+.hl
+{
+  border-bottom:1px solid #d4d5d6;
+}
+.tip .title
+{
+  font-family:'calibri';
+  font-size:20px;
+  letter-spacing:1px;
+  margin:11px 0px 10px 11px;
+}
+.tip .col
+{
+  margin:11px 11px 10px 11px;
+}
+.tip .col1
+{
+ font-family:'calibri-b';
+ font-size:15px;
+}
+.tip .col1,
+.tip .col2
+
+{
+  display:inline-block;
+  vertical-align:top;
+  padding:11px 11px;
+  height:113px;
+}
+.tip .col2
+{  
+  border-left:1px solid #d4d5d6;
+  border-right:1px solid #d4d5d6;
+
+}
+
+.tip .col1 .t2
+{
+  margin-top:85px;
+}
+.tip .col2 .t1
+{
+  font-family:'calibri';
+  font-size:14px;
+}
+.tip .col2 .t2
+{
+  margin:12px 0px 12px 0px;
+}
+.tip .col2 .t4
+{
+  margin:12px 0px 12px 0px;
+}
+
+.col2 .t2 .t21,
+.col2 .t2 .t22,
+.col2 .t2 .t23
+{
+  font-family:'calibri-b';
+  font-size:15px;
+  display:inline-block;
+  width:60px;
+  height:23px;  
+  margin:0px 3px;
+  vertical-align:middle;
+  font-size:12px;
+  color:#d4d5d6;
+}
+.col2 .t3
+{  
+  margin-bottom:5px;
+}
+.col2 .t3 > div
+{
+  display:inline-block;
+  /*margin-left:10px;*/
+}
+.col2 .y1-value,
+.col2 .y5-value,
+.col2 .y10-value
+{
+  display:inline-block;
+}
+.col2 .y1-value,
+.col2 .y5-value,
+.col2 .y10-value,
+.col2 .h-value
+{
+  font-family:"calibri-b";
+  font-size:22px;
+  color:#12435b;
+  width:60px;
+  height:23px;
+  background-color:red;
+  margin:0px 3px;
+  vertical-align:middle;
+  line-height:25px;
+  padding-left:10px;
+}
+.tip .col2 .y1-value
+{
+  background-color:#5eddcc;  
+}
+.tip .col2 .y5-value
+{
+  background-color:#0ab5dd;  
+}
+.tip .col2 .y10-value
+{
+  background-color:#3286a0;  
+}
+.tip .col2 .h-value
+{
+  background-color:#ff926f;  
+}
+.tip .col3
+{
+  font-family:'calibri-b';
+  font-size:13px;
+  display:inline-block;
+  vertical-align:middle;
+  padding:50px 0px 11px 0px;
+  margin-left:10px; 
+}
+.tip .col3 .t2
+{
+  font-size:33px;
 }

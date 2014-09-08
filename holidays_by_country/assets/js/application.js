@@ -21,10 +21,10 @@ var y = d3.scale.ordinal().rangeRoundBands([height, 0],0);
 // national, annual min, annual max 
 var color = d3.scale.ordinal().range(["#5eddcc","#0ab5dd","#3286a0","#ff926f",'#ccdee4']).domain([0,1,2,3,4]);  
 
-var tip = d3.tip()
+var tip = d3.tip().direction('n')
   .attr('class', 'd3-tip')
   .offset([-10, 0])
-  .html(function(d) { return d.comment });
+  .html(function(d) { return d; });
 
 var svg = d3.select("content").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -33,16 +33,8 @@ var svg = d3.select("content").append("svg")
     .attr("transform", "translate(" + (margin.left) + "," + 40 + ")");
 
 
-// d3.json("../assets/data.json", function(error, d) { 
-//   ds = d;
-//   var filter = d3.select('.filter select').on('change',function(d){ sort(+this.options[this.selectedIndex].value); });
-//   data = d.data;
-//   data.forEach(function(d) {  
-//     if(max_days < d.total) max_days = d.total;
-//   });  
 
-// });
-
+d3.select('.filter select').on('change',function(d){ sort(+this.options[this.selectedIndex].value); });
 
 function init()
 {     
@@ -66,35 +58,32 @@ function init()
   init_legend();
   sort();
 }
-function sort(sort_item)
+function sort(v)
 {
-  // country = 0(default), total = 1, national = 2, annual min = 3, annual max = 4
-  if(sort_item == 2) refresh_items(false); 
-  else refresh_items(true);
-
-  switch(sort_item) 
+  // country = 0(default), total = 1, national = 2, y1 = 3, y2 = 4, y3 = 5\  
+  if(!exist(v)) v = 0;
+  switch(v) 
   {
     case 1:
-      data.sort(function(a, b) { return a.total - b.total; });
-    break;
+      data.sort(function(a, b) { return a.total - b.total; }); break;
     case 2:
-      data.sort(function(a, b) { return a.national - b.national; });        
-    break;
+      data.sort(function(a, b) { return a.national - b.national; }); break;
     case 3:
-      data.sort(function(a, b) { return a.annual_min - b.annual_min; });
-    break;
+      data.sort(function(a, b) { return a.y1 - b.y1; }); break;  
     case 4:
-      data.sort(function(a, b) { return a.annual_max - b.annual_max; });
-
-    break;
+      data.sort(function(a, b) { return a.y5 - b.y5; }); break;
+    case 5:
+      data.sort(function(a, b) { return a.y10 - b.y10; }); break;   
     default:
-      data.sort(function(a, b) { return b.country[lang].localeCompare(a.country[lang]); });
-     break;
+    data.sort(function(a, b) { return b.country[lang].localeCompare(a.country[lang]); }); break;
   }
+  console.log('sort');  
+  refresh_items(v);
   redraw();
 }
 function redraw()
-{    
+{  
+
   svg.selectAll(".g.item").remove();
   chart_meta.select(".x.axis").remove();
   chart_meta.select(".y.axis").remove();
@@ -121,7 +110,9 @@ function redraw()
       .data(data)
     .enter().append("g")
       .attr("class", "g item")
-      .attr("transform", function(d) { return "translate(0," + y(d.country[lang]) + ")"; });
+      .attr("transform", function(d) { return "translate(0," + y(d.country[lang]) + ")"; })
+      .on('mouseover', function(d,i){ tip.show(comment.replace('&country',d.country[lang]).replace('&y1',d.y1).replace('&y5',d.y1+d.y5).replace('&y10',d.y1+d.y5+d.y10).replace('&h',d.national).replace('&t',d.total)); })
+      .on('mouseout', function(d,i){  tip.hide(); });
 
    state.selectAll("rect")
       .data(function(d) { return d.items; })
@@ -130,8 +121,7 @@ function redraw()
       .attr("x", function(d) { return x(d.y0);})
       .attr("width", function(d) { return x(d.y1) - x(d.y0); })
       .style("fill", function(d,i) { return color(i); });
-     // .on('mouseover', function(d,i){ if (i!=3){ return tip.show(d);} })
-      //.on('mouseout', function(d,i){ if (i!=3){ return tip.hide(d);} })
+     
         //function(d){ if (d.comment !== undefined && d.comment[lang] !== undefined && d.comment[lang] !== null && d.comment[lang] !== "") return tip.hide(d); });
 
   svg.call(tip);
@@ -171,49 +161,55 @@ function init_legend()
   legend.append("rect").attr({y:220,width:8,height:8,fill:'#ff926f',rx:1,ry:1});
   legend.append('text').attr({x:15,y:240}).text("Easter Sunday is not included in the Public Holidays.");;
 }
-function refresh_items(not_national)
+function refresh_items(v)
 {
-  if(not_national === undefined) not_national = true;
-
-  var coul = tips.country[lang];
-  var catl = tips.category[lang];
-  var totl = tips.total[lang];
-  var coml = tips.comment[lang];
-
   data.forEach(function(d) {   
-
-    var com1 = coul + " " + d.country[lang] + "<br><br>" + catl + " ";
-    var com2 = "<br><br>" + totl + " " + d.total;
-    var y0 = 0;           
-    d.items = [];   
-    //var diff = d.annual_max-d.annual_min;
-    //var diff_to_min = diff == 0 ? d.annual_min : diff;
-    var comment = "<div class='tip'><div class='country'>Country</div><hr/><div class</div>";
-    if(not_national)
+    d.items = [];  
+    var y0 = 0;    
+    if(v==0 || v == 1 || v == 3)
     {
-      //var cm1 = com1 + "<b style=\"color:#ffd83f;\">&1</b>/&2/&3".replace('&1',d.annual_min).replace('&2',diff_to_min).replace('&3',d.national) + com2;
-      //var cm2 = com1 + "&1/<b style=\"color:#ffd83f;\">&2</b>/&3".replace('&1',d.annual_min).replace('&2',diff_to_min).replace('&3',d.national) + com2;
-      //var cm3 = com1 + "&1/&2/<b style=\"color:#ffd83f;\">&3</b>".replace('&1',d.annual_min).replace('&2',diff_to_min).replace('&3',d.national) + com2;
-      d.items.push({y0: y0, y1: y0 += d.y1 });
-      d.items.push({y0: y0, y1: y0 += d.y5 });    
-      d.items.push({y0: y0, y1: y0 += d.y10 });    
-      d.items.push({y0: y0, y1: y0 += d.national });  
+      d.items.push({y0: y0, y1: y0 += d.y1});
+      d.items.push({y0: y0, y1: y0 += d.y5});    
+      d.items.push({y0: y0, y1: y0 += d.y10});    
+      d.items.push({y0: y0, y1: y0 += d.national});  
       d.items.push({y0: d.items[3].y1, y1: max_days }); 
-      console.log(d.items);
+      color = d3.scale.ordinal().range(['#5eddcc','#0ab5dd','#3286a0','#ff926f','#ccdee4']);     
+    
     }
-    // else
-    // {
-    //   var cm1 = com1 + "<b style=\"color:#ffd83f;\">&1</b>/&2/&3".replace('&3',d.national).replace('&1',d.annual_min).replace('&2',diff_to_min) + com2;
-    //   var cm2 = com1 + "&1/<b style=\"color:#ffd83f;\">&2</b>/&3".replace('&3',d.national).replace('&1',d.annual_min).replace('&2',diff_to_min) + com2;
-    //   var cm3 = com1 + "&1/&2/<b style=\"color:#ffd83f;\">&3</b>".replace('&3',d.national).replace('&1',d.annual_min).replace('&2',diff_to_min) + com2;
-    //   d.items.push({y0: y0, y1: y0 += d.national , comment: cm1});  
-    //   d.items.push({y0: y0, y1: y0 += d.annual_min , comment: cm2});
-    //   d.items.push({y0: y0, y1: y0 += diff, comment: cm3});    
-    //   d.items.push({y0: d.items[2].y1, y1: d.items[2].y1 + (max_days - d.total)}); 
-    // }
+    else
+    {
+      switch(v) 
+      {     
+        case 2:
+          d.items.push({y0: y0, y1: y0 += d.national});  
+          d.items.push({y0: y0, y1: y0 += d.y1});
+          d.items.push({y0: y0, y1: y0 += d.y5});    
+          d.items.push({y0: y0, y1: y0 += d.y10});    
+          d.items.push({y0: d.items[3].y1, y1: max_days }); 
+          color = d3.scale.ordinal().range(['#ff926f','#5eddcc','#0ab5dd','#3286a0','#ccdee4']);      
+        break;       
+        case 4:
+          d.items.push({y0: y0, y1: y0 += d.y5});    
+          d.items.push({y0: y0, y1: y0 += d.y1});
+          d.items.push({y0: y0, y1: y0 += d.y10}); 
+          d.items.push({y0: y0, y1: y0 += d.national});     
+          d.items.push({y0: d.items[3].y1, y1: max_days }); 
+          color = d3.scale.ordinal().range(['#0ab5dd','#5eddcc','#3286a0','#ff926f','#ccdee4']);      
+        break;
+        case 5:
+          d.items.push({y0: y0, y1: y0 += d.y10});        
+          d.items.push({y0: y0, y1: y0 += d.y1});
+          d.items.push({y0: y0, y1: y0 += d.y5});    
+          d.items.push({y0: y0, y1: y0 += d.national});     
+          d.items.push({y0: d.items[3].y1, y1: max_days }); 
+          color = d3.scale.ordinal().range(['#3286a0','#5eddcc','#0ab5dd','#ff926f','#ccdee4']);      
+        break;
+      }
+    }
+    
+
   });
-  color = d3.scale.ordinal().range(not_national ? ['#5eddcc','#0ab5dd','#3286a0','#ff926f','#ccdee4'] : ["#f27f49","#52bf6e","#52aa69","#f2c73d"]);      
- 
+  
 }
 function exist(v)
 {
