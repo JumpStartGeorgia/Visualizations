@@ -11,9 +11,10 @@ if(!(lang == "ka" || lang == "en"))
   lang = "en";
   d3.select('html').attr("lang",lang);
 }
-var margin = {top: 60, right: 20, bottom: 60, left: 150},   
-   width = 1060 - margin.left - margin.right,
-   height = 960 - margin.top - margin.bottom;
+var margin = {top: 60, right: 20, bottom: 30, left: 150},   
+   width = 1020 - margin.left - margin.right,
+   height = 960 - margin.top - margin.bottom,
+   width_svg = 1220;
 
 var x = d3.scale.linear().rangeRound([0, width]);
 var y = d3.scale.ordinal().rangeRoundBands([height, 0],0);
@@ -27,11 +28,12 @@ var tip = d3.tip().direction('n')
   .html(function(d) { return d; });
 
 var svg = d3.select("content").append("svg")
-    .attr("width", width + margin.left + margin.right)
+    .attr("width", width_svg)
     .attr("height", height + margin.top + margin.bottom)
   .append("g").attr('class','chart')
     .attr("transform", "translate(" + (margin.left) + "," + 40 + ")");
 
+comment = comment[lang];
 
 
 d3.select('.filter select').on('change',function(d){ sort(+this.options[this.selectedIndex].value); });
@@ -121,9 +123,7 @@ function redraw()
       .attr("x", function(d) { return x(d.y0);})
       .attr("width", function(d) { return x(d.y1) - x(d.y0); })
       .style("fill", function(d,i) { return color(i); });
-     
-        //function(d){ if (d.comment !== undefined && d.comment[lang] !== undefined && d.comment[lang] !== null && d.comment[lang] !== "") return tip.hide(d); });
-
+    
   svg.call(tip);
 }
 function axis_x() { return d3.svg.axis().scale(x).orient("bottom").tickValues(d3.range(1,max_days+1,1)).ticks(max_days).tickFormat(d3.format("d")); }
@@ -137,8 +137,8 @@ function init_legend()
   .attr("transform", function(d, i) { return "translate(" + (width+15) + ", 0 )"; });
     
   var text = legend.append('text').attr({x:0,y:18});
-    text.append('tspan').text("Paid annual leave")
-    text.append('tspan').attr({x:0,dy:18}).text("(in working days) for a worker with");                  
+    text.append('tspan').text(labels.legend_title[lang].split('&n')[0])
+    text.append('tspan').attr({x:0,dy:18}).text(labels.legend_title[lang].split('&n')[1]);                  
     
   var items = legend
     .selectAll(".item")
@@ -151,15 +151,22 @@ function init_legend()
   items.append("rect").attr({y:16,width:16,height:16,rx:1,ry:1}).style("fill", color);
   items.append("text").attr("y",23).attr("x",25).attr("dy", ".35em").text(function(d) { return d; });
 
-  legend.append('line').attr({ x1:"0", y1:"160", x2:"300", y2:"160",'fill':'none','stroke':'#8F9B9B','stroke-width':1,'stroke-miterlimit':10}).style({ opacity:0.6});
+  legend.append('line').attr({ x1:"0", y1:"160", x2:"200", y2:"160",'fill':'none','stroke':'#8F9B9B','stroke-width':1,'stroke-miterlimit':10}).style({ opacity:0.6});
 
   legend.append("rect").attr({y:170,width:8,height:8,fill:'#3286a0',rx:1,ry:1});
   var text = legend.append('text').attr({x:15,y:190});
-  text.append('tspan').text("Only a few Labour Codes differentiate the length of");
-  text.append('tspan').attr({x:15,dy:18}).text("annual leave based on the length of employment.");
 
-  legend.append("rect").attr({y:220,width:8,height:8,fill:'#ff926f',rx:1,ry:1});
-  legend.append('text').attr({x:15,y:240}).text("Easter Sunday is not included in the Public Holidays.");;
+  text.append('tspan').text(labels.legend_comment1[lang].split('&n')[0]);
+  text.append('tspan').attr({x:15,dy:18}).text(labels.legend_comment1[lang].split('&n')[1]);
+  text.append('tspan').attr({x:15,dy:18}).text(labels.legend_comment1[lang].split('&n')[2]);
+  text.append('tspan').attr({x:15,dy:18}).text(labels.legend_comment1[lang].split('&n')[3]);
+
+  legend.append("rect").attr({y:260,width:8,height:8,fill:'#ff926f',rx:1,ry:1});
+  var text = legend.append('text').attr({x:15,y:280});
+
+  text.append('tspan').attr({x:15}).text(labels.legend_comment2[lang].split('&n')[0]);
+  text.append('tspan').attr({x:15,dy:18}).text(labels.legend_comment2[lang].split('&n')[1]);
+
 }
 function refresh_items(v)
 {

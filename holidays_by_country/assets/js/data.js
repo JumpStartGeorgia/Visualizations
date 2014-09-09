@@ -41,27 +41,61 @@ var tips = {
    total:{en:"Total",ka:"სულ"},
    comment:{en:"Comment",ka:"კომენტარი"},
 };
+   
+var comment = {
+   en:
+       "<div class='tip'>" + 
+         "<div class='country'>&country</div>" + 
+         "<div class='hl'></div>" + 
+         "<div class='title'>PAID VACATION</div>" +
+         "<div class='col'>"+ 
+           "<div class='col1'>"+
+             "<div class='t1'>Annual Leave</div>"+
+             "<div class='t2'>National<br>Holidays</div>"+
+           "</div>" +      
+           "<div class='col2'>"+
+             "<div class='t1'>For a worker with a tenure of</div>"+
+             "<div class='t2'>"+
+               "<div class='t21'><div>1</div><div>year</div></div>"+
+               "<div class='t22'><div>5</div><div>years</div></div>" + 
+               "<div class='t23'><div>10</div><div>years</div></div>" + 
+             "</div>"+
+             "<div class='t3'><div class='y1-value'>&y1</div><div class='y5-value'>&y5</div><div class='y10-value'>&y10</div></div>"+
+             "<div class='t4'><div class='h-value'>&h</div></div>"+
+           "</div>" +       
+           "<div class='col3'><div class='t1'>TOTAL</div><div class='t2'>&t</div></div>"+
+         "</div>" +  
+       "</div>",
+    ka:
+        "<div class='tip'>" + 
+         "<div class='country'>&country</div>" + 
+         "<div class='hl'></div>" + 
+         "<div class='title'>ანაზღაურებადი დასვენების დღეები</div>" +
+         "<div class='col'>"+ 
+           "<div class='col1'>"+
+             "<div class='t1'>შვებულება</div>"+
+             "<div class='t2'>უქმე დღეები</div>"+
+           "</div>" +      
+           "<div class='col2'>"+
+             "<div class='t1'>მუშაობის დაწყებიდან</div>"+
+             "<div class='t2'>"+
+               "<div class='t21'><div>1 წლის</div><div>შემდეგ</div></div>"+
+               "<div class='t22'><div>5 წლის</div><div>შემდეგ</div></div>" + 
+               "<div class='t23'><div>10 წლის</div><div>შემდეგ</div></div>" + 
+             "</div>"+
+             "<div class='t3'><div class='y1-value'>&y1</div><div class='y5-value'>&y5</div><div class='y10-value'>&y10</div></div>"+
+             "<div class='t4'><div class='h-value'>&h</div></div>"+
+           "</div>" +       
+           "<div class='col3'><div class='t1'>სულ</div><div class='t2'>&t</div></div>"+
+         "</div>" +  
+       "</div>"
+};
 
-var comment = 
- "<div class='tip'>" + 
-   "<div class='country'>&country</div>" + 
-   "<div class='hl'></div>" + 
-   "<div class='title'>PAID VACATION</div>" +
-   "<div class='col'>"+ 
-     "<div class='col1'>"+
-       "<div class='t1'>Annual Leave</div>"+
-       "<div class='t2'>National Holidays</div>"+
-     "</div>" +      
-     "<div class='col2'>"+
-       "<div class='t1'>For a worker with a tenure of</div>"+
-       "<div class='t2'>"+
-         "<div class='t21'><div>1</div><div>year</div></div>"+
-         "<div class='t22'><div>5</div><div>years</div></div>" + 
-         "<div class='t23'><div>10</div><div>years</div></div>" + 
-       "</div>"+
-       "<div class='t3'><div class='y1-value'>&y1</div><div class='y5-value'>&y5</div><div class='y10-value'>&y10</div></div>"+
-       "<div class='t4'><div class='h-value'>&h</div></div>"+
-     "</div>" +       
-     "<div class='col3'><div class='t1'>TOTAL</div><div class='t2'>&t</div></div>"+
-   "</div>" +  
- "</div>";
+ var labels = {
+   legend_title:{"en":"Paid annual leave&n(in working days) for a worker with",
+   "ka":"ანაზღაურებადი შვებულება&n(სამუშაო დღეები)"},
+   legend_comment1:{"en":" Only a few Labour Codes&ndifferentiate the length of&nannual leave based on&nthe length of employment",
+                    "ka":"ზოგიერთი ქვეყნის კანონმდებლობა&nშვებულების დღეების&nრაოდენობას მუშაობის ხანგრძლივობის&nმიხედვით განსაზღვრავს."},
+   legend_comment2:{"en":"Easter Sunday is not included&nin the Public Holidays.",
+                     "ka":"აღდგომის კვირა დღე არ არის გათვალისწინებული უქმე დღეებში."}
+ };
