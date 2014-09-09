@@ -50,7 +50,7 @@ body {
   margin:0px auto;
   padding:0px auto;    
   width:100%;
-  min-width:1220px;
+  min-width:1250px;
 }
 svg {overflow:visible;}
 .box
@@ -66,7 +66,7 @@ header .title
    line-height:43px;
    color:#06adc9;
    text-align: left;
-   margin: 30px 0px 0px 150px;
+   margin: 30px 0px 0px 140px;
 }
 header .title:lang(ka)
 {
@@ -82,7 +82,7 @@ header .subtitle
    font-size:15px;   
    color:#0ab5dd;
    text-align: left;   
-   margin: 30px 0px 10px 150px;
+   margin: 30px 0px 10px 140px;
    
 }
 header .subtitle:lang(ka)
@@ -142,7 +142,7 @@ footer .source
 {
   display:inline-block;
   position: relative;    
-  margin: 0px 0px 0px 150px;
+  margin: 0px 0px 0px 140px;
 
 }
 footer .box
@@ -174,6 +174,11 @@ footer .source .list .title,footer .source .link
   font-size:14px;
   color:#8F9B9B;
   text-decoration:none;
+
+}
+footer .source a.link
+{ 
+  color:#0ab5dd;
 }
 footer .source .list .title:lang(ka),footer .source .link:lang(ka)
 {
@@ -270,6 +275,46 @@ line
 .grid path {
     stroke-width: 0;
 }
+
+
+.item-year1
+{
+  fill:#5eddcc;
+}
+.selected .item-year1
+{
+  fill:#4dbeaf;
+}
+.item-year5
+{
+  fill:#0ab5dd;
+}
+.selected .item-year5
+{
+  fill:rgb(9, 163, 199);
+}
+.item-year10
+{
+  fill:#3286a0;
+}
+.selected .item-year10
+{
+  fill:#2a6f85;
+}
+.item-national
+{
+  fill:#ff926f;
+}
+.selected .item-national
+{
+  fill:rgb(235, 123, 88);
+}
+.item-empty
+{
+  fill:#ccdee4;
+}
+
+
 .d3-tip {
   font-family:Arial;
   font-size:14px;
@@ -309,7 +354,7 @@ line
 }
 .filter
 {   
-  margin:40px 221px 0px 0px;
+  margin:40px 235px 0px 0px;
   text-align:right;
 }
 .filter label
@@ -353,8 +398,8 @@ line
   font-family:dejavusans-b;
   font-size:14px;
   line-height: 30px;
-  width: 220px;
-  background-position:200px;
+  width: 250px;
+  background-position:230px;
 }
 .download a
 {

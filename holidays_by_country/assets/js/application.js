@@ -14,14 +14,15 @@ if(!(lang == "ka" || lang == "en"))
 var margin = {top: 60, right: 20, bottom: 30, left: 150},   
    width = 1020 - margin.left - margin.right,
    height = 960 - margin.top - margin.bottom,
-   width_svg = 1220;
+   width_svg = 1250;
 
 var x = d3.scale.linear().rangeRound([0, width]);
 var y = d3.scale.ordinal().rangeRoundBands([height, 0],0);
 
 // national, annual min, annual max 
-var color = d3.scale.ordinal().range(["#5eddcc","#0ab5dd","#3286a0","#ff926f",'#ccdee4']).domain([0,1,2,3,4]);  
-
+var color = null; 
+var klass = null;
+var color_default = d3.scale.ordinal().range(['#5eddcc','#0ab5dd','#3286a0','#ff926f','#ccdee4']).domain([0,1,2,3,4]); 
 var tip = d3.tip().direction('n')
   .attr('class', 'd3-tip')
   .offset([-10, 0])
@@ -69,17 +70,28 @@ function sort(v)
     case 1:
       data.sort(function(a, b) { return a.total - b.total; }); break;
     case 2:
-      data.sort(function(a, b) { return a.national - b.national; }); break;
+      data.sort(function(a, b) { 
+        if(a.national === b.national) { return a.total-b.total; }
+        return a.national - b.national;
+      }); break;
     case 3:
-      data.sort(function(a, b) { return a.y1 - b.y1; }); break;  
+      data.sort(function(a, b) { 
+        if(a.y1 === b.y1) { return a.total-b.total; }
+        return a.y1 - b.y1;
+      }); break;    
     case 4:
-      data.sort(function(a, b) { return a.y5 - b.y5; }); break;
+      data.sort(function(a, b) { 
+        if(a.y5 === b.y5) { return a.total-b.total; }
+        return a.y5 - b.y5;
+      }); break;
     case 5:
-      data.sort(function(a, b) { return a.y10 - b.y10; }); break;   
+      data.sort(function(a, b) { 
+        if(a.y10 === b.y10) { return a.total-b.total; }
+        return a.y10 - b.y10;
+      }); break;      
     default:
     data.sort(function(a, b) { return b.country[lang].localeCompare(a.country[lang]); }); break;
   }
-  console.log('sort');  
   refresh_items(v);
   redraw();
 }
@@ -113,16 +125,16 @@ function redraw()
     .enter().append("g")
       .attr("class", "g item")
       .attr("transform", function(d) { return "translate(0," + y(d.country[lang]) + ")"; })
-      .on('mouseover', function(d,i){ tip.show(comment.replace('&country',d.country[lang]).replace('&y1',d.y1).replace('&y5',d.y1+d.y5).replace('&y10',d.y1+d.y5+d.y10).replace('&h',d.national).replace('&t',d.total)); })
-      .on('mouseout', function(d,i){  tip.hide(); });
+      .on('mouseover', function(d,i){ d3.select(this).classed('selected',true); tip.show(comment.replace('&country',d.country[lang]).replace('&y1',d.y1).replace('&y5',d.y1+d.y5).replace('&y10',d.y1+d.y5+d.y10).replace('&h',d.national).replace('&t',d.total)); })
+      .on('mouseout', function(d,i){ d3.select(this).classed('selected',false); tip.hide(); });
 
    state.selectAll("rect")
       .data(function(d) { return d.items; })
     .enter().append("rect")
       .attr("height", y.rangeBand())
-      .attr("x", function(d) { return x(d.y0);})
-      .attr("width", function(d) { return x(d.y1) - x(d.y0); })
-      .style("fill", function(d,i) { return color(i); });
+      .attr("x", function(d) { console.log(d);return x(d.y0);})
+      .attr("width", function(d) { return x(d.y1) - x(d.y0); })      
+      .attr('class', function(d,i) { return klass(i); });
     
   svg.call(tip);
 }
@@ -148,13 +160,13 @@ function init_legend()
     .attr("class", "item")
   .attr("transform", function(d, i) { return "translate(" + 0 + "," + (i*25 + 36)  + ")"; });
 
-  items.append("rect").attr({y:16,width:16,height:16,rx:1,ry:1}).style("fill", color);
+  items.append("rect").attr({y:16,width:16,height:16,rx:1,ry:1}).style("fill", color_default);
   items.append("text").attr("y",23).attr("x",25).attr("dy", ".35em").text(function(d) { return d; });
 
   legend.append('line').attr({ x1:"0", y1:"160", x2:"200", y2:"160",'fill':'none','stroke':'#8F9B9B','stroke-width':1,'stroke-miterlimit':10}).style({ opacity:0.6});
 
   legend.append("rect").attr({y:170,width:8,height:8,fill:'#3286a0',rx:1,ry:1});
-  var text = legend.append('text').attr({x:15,y:190});
+  var text = legend.append('text').attr({x:15,y:179});
 
   text.append('tspan').text(labels.legend_comment1[lang].split('&n')[0]);
   text.append('tspan').attr({x:15,dy:18}).text(labels.legend_comment1[lang].split('&n')[1]);
@@ -162,65 +174,40 @@ function init_legend()
   text.append('tspan').attr({x:15,dy:18}).text(labels.legend_comment1[lang].split('&n')[3]);
 
   legend.append("rect").attr({y:260,width:8,height:8,fill:'#ff926f',rx:1,ry:1});
-  var text = legend.append('text').attr({x:15,y:280});
+  var text = legend.append('text').attr({x:15,y:269});
 
   text.append('tspan').attr({x:15}).text(labels.legend_comment2[lang].split('&n')[0]);
   text.append('tspan').attr({x:15,dy:18}).text(labels.legend_comment2[lang].split('&n')[1]);
 
 }
+
 function refresh_items(v)
 {
   data.forEach(function(d) {   
     d.items = [];  
-    var y0 = 0;    
-    if(v==0 || v == 1 || v == 3)
-    {
-      d.items.push({y0: y0, y1: y0 += d.y1});
-      d.items.push({y0: y0, y1: y0 += d.y5});    
-      d.items.push({y0: y0, y1: y0 += d.y10});    
-      d.items.push({y0: y0, y1: y0 += d.national});  
-      d.items.push({y0: d.items[3].y1, y1: max_days }); 
-      color = d3.scale.ordinal().range(['#5eddcc','#0ab5dd','#3286a0','#ff926f','#ccdee4']);     
-    
-    }
-    else
-    {
-      switch(v) 
-      {     
-        case 2:
-          d.items.push({y0: y0, y1: y0 += d.national});  
-          d.items.push({y0: y0, y1: y0 += d.y1});
-          d.items.push({y0: y0, y1: y0 += d.y5});    
-          d.items.push({y0: y0, y1: y0 += d.y10});    
-          d.items.push({y0: d.items[3].y1, y1: max_days }); 
-          color = d3.scale.ordinal().range(['#ff926f','#5eddcc','#0ab5dd','#3286a0','#ccdee4']);      
-        break;       
-        case 4:
-          d.items.push({y0: y0, y1: y0 += d.y5});    
-          d.items.push({y0: y0, y1: y0 += d.y1});
-          d.items.push({y0: y0, y1: y0 += d.y10}); 
-          d.items.push({y0: y0, y1: y0 += d.national});     
-          d.items.push({y0: d.items[3].y1, y1: max_days }); 
-          color = d3.scale.ordinal().range(['#0ab5dd','#5eddcc','#3286a0','#ff926f','#ccdee4']);      
-        break;
-        case 5:
-          d.items.push({y0: y0, y1: y0 += d.y10});        
-          d.items.push({y0: y0, y1: y0 += d.y1});
-          d.items.push({y0: y0, y1: y0 += d.y5});    
-          d.items.push({y0: y0, y1: y0 += d.national});     
-          d.items.push({y0: d.items[3].y1, y1: max_days }); 
-          color = d3.scale.ordinal().range(['#3286a0','#5eddcc','#0ab5dd','#ff926f','#ccdee4']);      
-        break;
-      }
-    }
-    
 
+    var colors = ['#5eddcc','#0ab5dd','#3286a0','#ff926f','#ccdee4'];
+    var klasses = ['item-year1','item-year5','item-year10','item-national','item-empty'];
+    var orders =  [0,1,2,3,4];
+    var values = [d.y1,d.y5,d.y10,d.national,max_days-d.total]
+
+    var ctmp = [];
+    var ktmp = [];
+    if(v == 2)      orders = [3,0,1,2,4];         
+    else if(v == 4) orders = [1,2,0,3,4]; 
+    else if(v == 5) orders = [2,1,0,3,4]; 
+
+    var y0 = 0;    
+    for(var i=0;i<5;++i)
+    {
+        d.items.push({y0: y0, y1: y0 += values[orders[i]]});
+        ktmp.push(klasses[orders[i]]);
+        ctmp.push(colors[orders[i]]);
+    }
+    color = d3.scale.ordinal().range(ctmp).domain([0,1,2,3,4]); 
+    klass = d3.scale.ordinal().range(ktmp).domain([0,1,2,3,4]); 
   });
   
 }
-function exist(v)
-{
-  return typeof v !== 'undefined' && v !== null && v !== '';
-}
-
+function exist(v) { return typeof v !== 'undefined' && v !== null && v !== ''; }
 init();

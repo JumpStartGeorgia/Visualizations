@@ -95,7 +95,7 @@ var comment = {
    legend_title:{"en":"Paid annual leave&n(in working days) for a worker with",
    "ka":"ანაზღაურებადი შვებულება&n(სამუშაო დღეები)"},
    legend_comment1:{"en":" Only a few Labour Codes&ndifferentiate the length of&nannual leave based on&nthe length of employment",
-                    "ka":"ზოგიერთი ქვეყნის კანონმდებლობა&nშვებულების დღეების&nრაოდენობას მუშაობის ხანგრძლივობის&nმიხედვით განსაზღვრავს."},
+                    "ka":"ზოგიერთი ქვეყნის კანონმდებლობა&nშვებულების დღეების რაოდენობას&nმუშაობის ხანგრძლივობის&nმიხედვით განსაზღვრავს."},
    legend_comment2:{"en":"Easter Sunday is not included&nin the Public Holidays.",
-                     "ka":"აღდგომის კვირა დღე არ არის გათვალისწინებული უქმე დღეებში."}
+                     "ka":"აღდგომის კვირა დღე არ არის&nგათვალისწინებული უქმე დღეებში."}
  };
