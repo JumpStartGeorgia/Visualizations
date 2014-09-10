@@ -50,7 +50,7 @@ body {
   margin:0px auto;
   padding:0px auto;    
   width:100%;
-  min-width:1250px;
+  min-width:1250px;  
 }
 svg {overflow:visible;}
 .box
@@ -271,11 +271,15 @@ line
     stroke: #dff1f7;
     opacity: 0.7;
     stroke-width:2px;
+    pointer-events:none;
 }
 .grid path {
     stroke-width: 0;
 }
-
+g.chart g.data rect.item-map
+{
+  fill:none;
+}
 
 .item-year1
 {
@@ -367,7 +371,7 @@ line
   display: inline-block;
   line-height: 38px;
   padding: 0px 18px;
-  margin:1px -4px 0px 0px;  
+  margin:1px -5px 0px 0px;  
 }
 .filter label:lang(ka)
 {
@@ -647,7 +651,7 @@ line
   display:inline-block;
   vertical-align:middle;
   padding:35px 0px 11px 0px;
-  margin-left:10px; 
+  margin-left:19px; 
 }
 .tip .col3:lang(ka)
 {
@@ -655,6 +659,7 @@ line
   font-size:16px;  
   letter-spacing:2px;
   -webkit-text-stroke: 1px #d4d5d6;
+  margin-left:15px; 
  
 }
 .tip .col3 .t1
