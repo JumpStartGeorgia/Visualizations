@@ -1,5 +1,4 @@
 var data = holidays;
-//var ds = null;
 var chart_meta = null;
 var chart_data = null;
 var max_days = 0;  
@@ -19,14 +18,10 @@ var margin = {top: 60, right: 20, bottom: 30, left: 150},
 var x = d3.scale.linear().rangeRound([0, width]);
 var y = d3.scale.ordinal().rangeRoundBands([height, 0],0);
 
-// national, annual min, annual max 
 var color = null; 
 var klass = null;
 var color_default = d3.scale.ordinal().range(['#5eddcc','#0ab5dd','#3286a0','#ff926f','#ccdee4']).domain([0,1,2,3,4]); 
-var tip = d3.tip().direction('n')
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) { return d; });
+var tip = d3.tip().direction('n').attr('class', 'd3-tip').offset([-10, 0]).html(function(d) { return d; });
 
 var svg = d3.select("content").append("svg")
     .attr("width", width_svg)
@@ -35,7 +30,6 @@ var svg = d3.select("content").append("svg")
     .attr("transform", "translate(" + (margin.left) + "," + 40 + ")");
 
 comment = comment[lang];
-
 
 d3.select('.filter select').on('change',function(d){ sort(+this.options[this.selectedIndex].value); });
 

@@ -28,20 +28,12 @@ var holidays = [
    { country:{en:"UK",ka:"დიდი ბრიტანეთი"}, national:0, y1:28, y5:0, y10:0, total:28},
    { country:{en:"USA",ka:"აშშ"}, national:0, y1:0, y5:0, y10:0, total:0}
 ];
-
 var legends = [
     { name:{en:"1 year of tenure",ka:"1-წლიანი მუშაობის შემდეგ"} },
     { name:{en:"5 years of tenure",ka:"5-წლიანი მუშაობის შემდეგ"} },
     { name:{en:"10 years of tenure",ka:"10-წლიანი მუშაობის შემდეგ"} },
     { name:{en:"National Holidays",ka:"ანაზღაურებადი უქმე დღეები"} }    
 ];
-var tips = {
-   country:{en:"Country",ka:"ქვეყანა"},
-   category:{en:"Category [ Annual(Min)/Annual(Max)/National ]:",ka:"დასვენების დღეები [ შვებულება (მინ.)/შვებულება (მაქს.)/უქმე დღეები ]:"},
-   total:{en:"Total",ka:"სულ"},
-   comment:{en:"Comment",ka:"კომენტარი"},
-};
-   
 var comment = {
    en:
        "<div class='tip'>" + 
@@ -90,7 +82,6 @@ var comment = {
          "</div>" +  
        "</div>"
 };
-
  var labels = {
    legend_title:{"en":"Paid annual leave&n(in working days) for a worker with",
    "ka":"ანაზღაურებადი შვებულება&n(სამუშაო დღეები)"},
