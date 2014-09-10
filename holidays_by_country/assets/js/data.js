@@ -1,7 +1,7 @@
 var holidays = [
    { country:{en:"Armenia",ka:"სომხეთი"}, national:12, y1:20, y5:0, y10:0, total:32},
    { country:{en:"Azerbaijan",ka:"აზერბაიჯანი"}, national:20, y1:15, y5:2, y10:2, total:39},
-   { country:{en:"Belarus",ka:"ბელარუსი"}, national:9, y1:18, y5:0, y10:0, total:27},
+   { country:{en:"Belarus",ka:"ბელორუსი"}, national:9, y1:18, y5:0, y10:0, total:27},
    { country:{en:"Belgium",ka:"ბელგია"}, national:10, y1:20, y5:0, y10:0, total:30},
    { country:{en:"Brazil",ka:"ბრაზილია"}, national:10, y1:26, y5:0, y10:0, total:36},
    { country:{en:"Bulgaria ",ka:"ბულგარეთი"}, national:14, y1:20, y5:0, y10:0, total:34},
@@ -11,7 +11,7 @@ var holidays = [
    { country:{en:"France",ka:"საფრანგეთი"}, national:1, y1:30, y5:0, y10:0, total:31},
    { country:{en:"Georgia",ka:"საქართველო"}, national:15, y1:24, y5:0, y10:0, total:39},
    { country:{en:"Germany",ka:"გერმანია"}, national:10, y1:24, y5:0, y10:0, total:34},
-   { country:{en:"Greece",ka:"საბერძნეთ"}, national:14, y1:20, y5:2, y10:3, total:39},
+   { country:{en:"Greece",ka:"საბერძნეთი"}, national:14, y1:20, y5:2, y10:3, total:39},
    { country:{en:"Hong Kong",ka:"ჰონგ კონგი"}, national:17, y1:7, y5:3, y10:4, total:31},
    { country:{en:"India",ka:"ინდოეთი"}, national:17, y1:15, y5:0, y10:0, total:32},
    { country:{en:"Italy",ka:"იტალია"}, national:13, y1:20, y5:0, y10:1, total:34},
@@ -85,7 +85,7 @@ var comment = {
  var labels = {
    legend_title:{"en":"Paid annual leave&n(in working days) for a worker with",
    "ka":"ანაზღაურებადი შვებულება&n(სამუშაო დღეები)"},
-   legend_comment1:{"en":" Only a few Labour Codes&ndifferentiate the length of&nannual leave based on&nthe length of employment",
+   legend_comment1:{"en":" Only a few Labour Codes&ndifferentiate the length of&nannual leave based on&nthe length of employment.",
                     "ka":"ზოგიერთი ქვეყნის კანონმდებლობა&nშვებულების დღეების რაოდენობას&nმუშაობის ხანგრძლივობის&nმიხედვით განსაზღვრავს."},
    legend_comment2:{"en":"Easter Sunday is not included&nin the Public Holidays.",
                      "ka":"აღდგომის კვირა დღე არ არის&nგათვალისწინებული უქმე დღეებში."}

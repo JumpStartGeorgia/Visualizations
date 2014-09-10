@@ -34,6 +34,7 @@ d3.tip = function() {
         nodel   = d3.select(node), i = 0,
         coords
 
+
     nodel.html(content)
       .style({ opacity: 1, 'pointer-events': 'all' })
 
@@ -43,7 +44,7 @@ d3.tip = function() {
       top: (coords.top +  poffset[0]) + 'px',
       left: (coords.left + poffset[1]) + 'px'
     })
-
+    
     return tip
   }
 
@@ -145,6 +146,7 @@ d3.tip = function() {
   directions = direction_callbacks.keys()
 
   function direction_n() {
+
     var bbox = getScreenBBox()
     return {
       top:  bbox.n.y - node.offsetHeight,
@@ -241,9 +243,13 @@ d3.tip = function() {
   //    +-+-+
   //
   // Returns an Object {n, s, e, w, nw, sw, ne, se}
+
   function getScreenBBox() {
-    var targetel   = target || d3.event.target,
-        bbox       = {},
+    var targetel   = target || d3.event.target;
+
+    targetel = targetel.parentNode;
+    
+    var    bbox       = {},
         matrix     = targetel.getScreenCTM(),
         tbbox      = targetel.getBBox(),
         width      = tbbox.width,
@@ -252,7 +258,6 @@ d3.tip = function() {
         y          = tbbox.y,
         scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
         scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
-
 
     point.x = x + scrollLeft
     point.y = y + scrollTop
@@ -278,3 +283,4 @@ d3.tip = function() {
 
   return tip
 };
+  var global_target = null;

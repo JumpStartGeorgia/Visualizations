@@ -65,22 +65,43 @@ function sort(v)
       data.sort(function(a, b) { return a.total - b.total; }); break;
     case 2:
       data.sort(function(a, b) { 
-        if(a.national === b.national) { return a.total-b.total; }
+        if(a.national === b.national) 
+        {
+          if(a.total === b.total)
+            return b.country[lang].localeCompare(a.country[lang])
+          else
+            return a.total-b.total; 
+        }
         return a.national - b.national;
       }); break;
     case 3:
       data.sort(function(a, b) { 
-        if(a.y1 === b.y1) { return a.total-b.total; }
+        if(a.y1 === b.y1) { 
+           if(a.total === b.total)
+            return b.country[lang].localeCompare(a.country[lang])
+          else
+            return a.total-b.total; 
+        }
         return a.y1 - b.y1;
       }); break;    
     case 4:
       data.sort(function(a, b) { 
-        if(a.y5 === b.y5) { return a.total-b.total; }
+        if(a.y5 === b.y5) { 
+          if(a.total === b.total)
+            return b.country[lang].localeCompare(a.country[lang])
+          else
+            return a.total-b.total; 
+        }
         return a.y5 - b.y5;
       }); break;
     case 5:
       data.sort(function(a, b) { 
-        if(a.y10 === b.y10) { return a.total-b.total; }
+        if(a.y10 === b.y10) { 
+          if(a.total === b.total)
+            return b.country[lang].localeCompare(a.country[lang])
+          else
+            return a.total-b.total; 
+        }
         return a.y10 - b.y10;
       }); break;      
     default:
@@ -112,7 +133,7 @@ function redraw()
   chart_meta.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate(-10,0)")
-      .call(axis_y());   
+      .call(axis_y()).on('mouseover',function(){console.log('asdfasdf');});   
 
   var state = chart_data.selectAll(".state")
       .data(data)
@@ -122,6 +143,7 @@ function redraw()
       .on('mouseover', function(d,i){ d3.select(this).classed('selected',true); tip.show(comment.replace('&country',d.country[lang]).replace('&y1',d.y1).replace('&y5',d.y1+d.y5).replace('&y10',d.y1+d.y5+d.y10).replace('&h',d.national).replace('&t',d.total)); })
       .on('mouseout', function(d,i){ d3.select(this).classed('selected',false); tip.hide(); });
 
+
    state.selectAll("rect")
       .data(function(d) { return d.items; })
     .enter().append("rect")
@@ -129,8 +151,8 @@ function redraw()
       .attr("x", function(d) { console.log(d);return x(d.y0);})
       .attr("width", function(d) { return x(d.y1) - x(d.y0); })      
       .attr('class', function(d,i) { return klass(i); });
-    
-  svg.call(tip);
+
+   state.call(tip);
 }
 function axis_x() { return d3.svg.axis().scale(x).orient("bottom").tickValues(d3.range(1,max_days+1,1)).ticks(max_days).tickFormat(d3.format("d")); }
 function axis_y() { return d3.svg.axis().scale(y).orient("left"); }
