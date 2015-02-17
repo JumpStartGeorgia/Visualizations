@@ -29,15 +29,15 @@
       </p>    
 
       <p>
-        If Bzdina Ivanashvili had is savings in Lari, his net worth would have decreased by 735,609,756 USD...
+        If Bidzina Ivanishvili had is savings in Lari, his net worth would have decreased by 735,609,756 USD...
       </p>
 
-      <p>
-        See how the Lari depreciation has affected your net worth...
-      </p>
     </div>
 
     <div id="eq">
+      <h2>
+        See how the Lari depreciation has affected your net worth...
+      </h2>
       <p>
         <label for="worth">Enter your net worth (savings, salary, etc)</label>
         <input type="text" id="worth" /> Lari
@@ -56,6 +56,15 @@
       </p>
     </div>
 
+    <div id="methodology">
+      <h2>How Does This Work?</h2>
+      <p>
+        It is pretty simple, actually.
+        The calucalator divides your net worth by each of the exchange rates (1.76 and 2.05) to convert your Lari into USD.
+        Then the difference is taken between the two numbers to see how much your net worth had decreased.
+        That's it!
+      </p>
+    </div>
 
 
     <script type="text/javascript">
@@ -94,8 +103,8 @@
           worth_difference.innerHTML = '';
         }else{
 
-          var old_worth = worth * (1/old_rate);
-          var new_worth = worth * (1/new_rate);
+          var old_worth = worth / old_rate;
+          var new_worth = worth / new_rate;
 
           worth_then.innerHTML = old_worth.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
           worth_now.innerHTML = new_worth.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
