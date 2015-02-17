@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>  
+    <title>Winter 2014-2015 Lari Depreciation Calculator | JumpStart Georgia</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="">
+    <meta property="og:title" content="Winter 2014-2015 Lari Depreciation Calculator | JumpStart Georgia">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="non_profit">
+    <meta property="og:url" content="http://visuals.jumpstart.ge/lari/en/">
+    <!--meta property="og:image" content="http://visuals.jumpstart.ge/lari/assets/fb.png"-->
+    <meta property="og:site_name" content="Winter 2014-2015 Lari Depreciation Calculator | JumpStart Georgia">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+  </head>
+  <body>
+
+    <h1>Winter 2014-2015 Lari Depreciation Calculator</h1>
+
+    <div id="intro">
+      <p>
+        The Georgian Lari has dramatically depreciated in value against the U.S. Dollar (USD) between November 2014 and February 2015. 
+        On 17 November 2014, 1 USD was worth 1.76 Lari, while on 17 February 2015, 1 USD was worth 2.05 Lari. 
+        That is a change of 16.48% in just 3 months.
+      </p>    
+
+      <p>
+        If Bzdina Ivanashvili had is savings in Lari, his net worth would have decreased by 735,609,756 USD...
+      </p>
+
+      <p>
+        See how the Lari depreciation has affected your net worth...
+      </p>
+    </div>
+
+    <div id="eq">
+      <p>
+        <label for="worth">Enter your net worth (savings, salary, etc)</label>
+        <input type="text" id="worth" /> Lari
+      </p>
+    </div>
+
+    <div id="results" style="display:none;">
+      <p>
+        On 17 November 2014, your net worth was: <span id="worth_then"></span> USD.
+      </p>
+      <p>
+        On 17 February 2015, your net worth was: <span id="worth_now"></span> USD.
+      </p>
+      <p>
+        Your net worth has dropped <span id="worth_difference"></span> USD in 3 months!
+      </p>
+    </div>
+
+
+
+    <script type="text/javascript">
+      function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+          var context = this, args = arguments;
+          var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      };
+
+      var old_rate = 1.76;
+      var new_rate = 2.05;
+      var worth_input = document.getElementById("worth");
+      var worth_then = document.getElementById("worth_then");
+      var worth_now = document.getElementById("worth_now");
+      var worth_difference = document.getElementById("worth_difference");
+
+      document.getElementById("worth").onkeyup = function() {debounce(updateWorth(), 500)};
+
+      var updateWorth = function() {
+        var worth = parseFloat(worth_input.value.replace(/,/g, ''));
+  
+        if (isNaN(worth)){
+          document.getElementById('results').style.display = 'none';
+
+          worth_then.innerHTML = '';
+          worth_now.innerHTML = '';
+          worth_difference.innerHTML = '';
+        }else{
+
+          var old_worth = worth * (1/old_rate);
+          var new_worth = worth * (1/new_rate);
+
+          worth_then.innerHTML = old_worth.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+          worth_now.innerHTML = new_worth.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+          worth_difference.innerHTML = (old_worth - new_worth).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+
+          document.getElementById('results').style.display = 'block';
+        }
+      };
+    </script>
+  </body>
+</html>
