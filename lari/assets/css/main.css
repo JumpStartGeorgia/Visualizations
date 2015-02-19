@@ -70,7 +70,7 @@ body,html
 .header
 {
   font-family:main;
-  font-size:64px;
+  font-size:52px;
   color:#4c6d8b;
   padding:0px 10px 20px;
   margin:20px 0px 40px;
@@ -79,17 +79,23 @@ body,html
 .header:lang(ka)
 {
 font-family: 'dejavusans-m';
-font-size: 37px;
+font-size: 32px;
 font-weight: bold;
-line-height: 55px;
+line-height: 47px;
 letter-spacing: 2px;
 }
 .header .number
 {
   font-family:main;
-  font-size:44px;
+  font-size:39px;
   font-weight:normal;
 }
+.header .pad
+{
+  padding-top:8px;
+  display:inline-block;
+}
+
 .lang_switch
 {
   margin:2px 0px 0px 10px;
@@ -114,7 +120,8 @@ letter-spacing: 2px;
 .intro 
 {
   font-family:Arial;
-  font-size:21px;
+  font-size:19px;
+  line-height:25px;
   display:table;
   width:100%;  
   padding-bottom:30px;
@@ -124,7 +131,7 @@ letter-spacing: 2px;
 .intro:lang(ka)
 {
   font-family:'dejavusans-c';
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
 }
 .intro  .text
@@ -136,12 +143,12 @@ letter-spacing: 2px;
 .intro .text i:lang(ka)
 {
   font-family:'dejavusans-cbo';
-  font-size:20px;
+  font-size:19px;
 }
 .intro .text b:lang(ka)
 {
   font-family:'dejavusans-cb';
-  font-size:24px;
+  font-size:19px;
 }
 .intro .course
 {
@@ -187,7 +194,7 @@ letter-spacing: 2px;
 .quote
 {
   font-family: Arial;
-  font-size:20px;
+  font-size: 18px;
   font-weight:bold;
   color:#fff;
   text-align:left;
@@ -258,7 +265,7 @@ letter-spacing: 2px;
 #eq .title:lang(ka)
 {
   font-family:'dejavusans-cb';
-  font-size:30px;
+  font-size:26px;
 }
 #eq .content
 {
@@ -279,7 +286,7 @@ letter-spacing: 2px;
 #eq .content .form-input label
 {
   font-family: Arial;
-  font-size:19px;
+  font-size:17px;
   text-align:left;
   display:inline-block;
   padding:0px 10px;
@@ -288,7 +295,7 @@ letter-spacing: 2px;
 {
   font-family:'dejavusans-c';
   text-align:right;  
-  font-size:17px;
+  font-size:15px;
   padding:0px 14px 0px 5px;
 }
 #eq .content .form-input label > span
@@ -312,25 +319,25 @@ letter-spacing: 2px;
 #eq .form-input .unit
 {
   font-family:main;
-  font-size:36px;
+  font-size:31px;
 }
 #eq .form-input .unit:lang(ka)
 {
   font-family:'dejavusans-b';   
-  font-size:31px;
+  font-size:21px;
 }
 
 
 #eq #results label
 {
   font-family:main;
-  font-size:29px;
+  font-size:23px;
 }
 #eq #results label:lang(ka)
 {
   font-family:'dejavusans-cb';
-  font-size:21px;
-  padding-left:65px;
+  font-size:19px;
+  padding-left:56px;
 }
 #eq #results .result
 {
@@ -347,14 +354,14 @@ letter-spacing: 2px;
 #eq #results .result .date
 {  
   font-family:Arial;
-  font-size:20px;
+  font-size:17px;
   padding:12px 0px 12px 10px;
   text-align:right;
 }
 #eq #results .result .date:lang(ka)
 {
   font-family:'dejavusans-c';
-  font-size:17px;
+  font-size:15px;
 }
 #eq #results .result #worth_then,
 #eq #results .result #worth_now
@@ -383,7 +390,8 @@ letter-spacing: 2px;
 #eq #results .result .unit:lang(ka)
 {
   font-family:'dejavusans-cb';
-  font-size:19px;
+  font-size: 17px;
+  vertical-align: -webkit-baseline-middle;
 }
 
 
@@ -402,7 +410,7 @@ letter-spacing: 2px;
 #eq #results .diff label:lang(ka)
 {
   font-family:'dejavusans-cb';
-  font-size:21px;
+  font-size:19px;
 }
   #eq #results .diff > div
  {          
@@ -440,18 +448,20 @@ letter-spacing: 2px;
  #eq #results .diff > div .unit
  {
     font-family:main;
-    font-size:34px;
+    font-size:31px;
  }
-  #eq #results .diff > div .unit
+  #eq #results .diff > div .unit:lang(ka)
   {
     font-family:'dejavusans-cb';
     font-size:21px;
+    vertical-align: -webkit-baseline-middle;
   }
 
 .methodology
 {
   font-family: Arial;
-  font-size:18px;
+  font-size:17px;
+  line-height:23px;
   width:100%;
   display:table;
   padding:20px 0px;
@@ -460,12 +470,12 @@ letter-spacing: 2px;
 .methodology:lang(ka)
 {
   font-family:'dejavusans-c';
+  font-size:16px;
 }
 .methodology > div
 {
   display:table-cell;
   vertical-align:top;
-  line-height:30px;
 }
 .methodology .f
 {
@@ -477,10 +487,9 @@ letter-spacing: 2px;
 .methodology .f:lang(ka)
 {
   font-family:'dejavusans-cb';
-  font-size: 30px;
-  line-height:40px;
+  font-size: 27px;
+  line-height: 34px;
   width: 250px;
-  /*padding-right: 140px;*/
 }
 .methodology .l:lang(ka)
 {
