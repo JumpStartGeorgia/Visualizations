@@ -39,13 +39,14 @@ body,html
   margin:0px;
   height:100%;
   background-color:#eff4f4;
-  color:#4c6d8b;
+  color:#4c6d8b;  
 }
 .wrapper
 {
   margin:0px auto;
   height:100%;
   width:1024px;
+  padding:0px 10px;
 }
 .border
 {
