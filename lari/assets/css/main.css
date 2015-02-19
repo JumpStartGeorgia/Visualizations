@@ -1,0 +1,333 @@
+@font-face {
+    font-family: "main";    
+    src: url( '../fonts/Humnst777_BlkCn_BT_Black.ttf') format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
+body,html
+{
+  margin:0px;
+  height:100%;
+  background-color:#eff4f4;
+  color:#4c6d8b;
+}
+.wrapper
+{
+  margin:0px auto;
+  height:100%;
+  width:1024px;
+}
+.border
+{
+  border-bottom:1px solid #bfcfd8;
+} 
+.unit 
+{
+  padding-left:10px;
+  display:inline-block;
+}
+.share.top
+{
+  text-align:right;
+  margin-top: 10px;
+  height:24px;
+}
+.header
+{
+  font-family:main;
+  font-size:64px;
+  color:#4c6d8b;
+  padding:0px 10px 20px;
+  margin:20px 0px 40px;
+  text-align:center;
+}
+.intro .text,.intro .course
+{
+  display:inline-block;
+}
+.intro 
+{
+  font-family:Arial;
+  font-size:21px;
+  display:table;
+  width:100%;
+  
+  padding-bottom:30px;
+  margin:20px 0px 30px;
+  color:#4c6d8b;
+}
+
+.intro  .text
+{
+  display:table-cell;    
+  padding-right:35px;   
+  vertical-align: baseline; 
+}
+.intro .text b
+{
+  font-size:26px;
+}
+.intro .course
+{
+  text-align:right;
+  display:table-cell;
+  vertical-align:top;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  font-family:Arial;
+  font-size:21px;
+  font-weight:bold;
+  color:#4c6d8b;
+  background-color:#cadbe0;
+  width:415px;
+  line-height: 31px;
+}
+.intro .course > div
+{
+  padding: 10px 25px 10px 10px;
+}
+ .intro .course span
+{
+  font-family:Arial;
+  font-style: italic;
+  font-weight:bold;
+  color:#fff;
+}       
+.quote
+{
+  font-family: Arial;
+  font-size:20px;
+  font-weight:bold;
+  color:#fff;
+  text-align:left;
+  line-height:28px;
+  padding: 0px 0px 0px 140px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background:#cadbe0 url(../images/poster.png) left top no-repeat;
+  background-size:192px 117px;
+  min-width:192px;
+  min-height:117px;
+  margin-bottom:35px;
+}
+.quote .text
+{
+  padding:16px 20px 0px 0px;        
+}
+.quote .text span
+{
+  color:#7a97a0;
+}
+.quote .text a
+{
+  color:#7a97a0;
+  font-style:italic;
+  text-decoration:none;
+}
+#eq
+{
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background-color:#d1e2e6;        
+}
+#eq .title
+{
+  font-family: main;
+  font-size:32px;
+  color:#fff;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color:#f1625f;
+  color:#fff;
+  padding:25px;
+}
+#eq .content
+{
+  background:transparent url(../images/fight.png) right bottom no-repeat;
+  background-size:361px 277px;
+  min-width:361px;
+  min-height:277px;
+  padding: 40px 60px 15px;
+}
+#eq .content .form-input
+{
+  padding:0px 0px 30px 10px;
+}
+#eq .content .form-input label
+{
+  font-family: Arial;
+  font-size:19px;
+  text-align:left;
+  display:inline-block;
+  padding:0px 10px;
+}
+#eq .content .form-input label > span
+{
+  display:block;
+}
+#eq .form-input  input#worth
+{
+  font-family:main;
+  font-size:42px;
+  color:#f1625f;
+  background-color:#fff;
+  text-align:right;
+  width: 110px;
+  padding:0px 14px;
+  border: 0px;
+ -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+} 
+#eq .form-input .unit
+{
+  font-family:main;
+  font-size:36px;
+}
+
+
+
+#eq #results label
+{
+  font-family:main;
+  font-size:29px;
+}
+#eq #results .result
+{
+  font-family:Arial;
+  font-size:18px;
+  text-align:left;
+  margin:5px 0px 15px 9px;
+  border-collapse: collapse;
+}
+
+#eq #results .result .date
+{  
+  font-family:Arial;
+  font-size:20px;
+  padding:12px 0px 12px 10px;
+  text-align:right;
+}
+#eq #results .result .unit
+{
+  text-align:left;
+}
+#eq #results .result #worth_then,
+#eq #results .result #worth_now
+{
+  font-family:main;
+  font-size:28px;
+  color:#f1625f;
+  background-color:#fff;
+  padding:0px 12px;
+  margin:0px 0px 0px 15px;
+  text-align:right;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  min-width: 70px;
+  display: block;
+  width: auto;
+  height: 36px;
+}  
+#eq #results .result .unit
+{
+  font-family:main;
+  font-size:26px;
+  
+} 
+
+
+
+#eq #results .diff
+{
+  font-family:main;
+  font-size:23px;
+  margin:30px 0px 20px;
+  
+}
+#eq #results .diff label
+{
+  font-family:main;
+  font-size:23px;
+}
+  #eq #results .diff > div
+ {          
+    margin-top: 13px;
+    display:block;
+    padding-left:208px;
+ }
+#eq #results .diff > div > div
+ {          
+    display:inline-block;
+    height: 100%;
+    vertical-align: middle;
+ }
+ #eq #results .diff > div #worth_difference
+ {
+    padding-left:150px;
+    font-family:main;
+    font-size:42px;
+    color:#fff;
+    background-color:#f1625f;
+    padding:0px 12px;
+    text-align:right;
+    -webkit-border-radius: 5px;
+    -moz-border-radius:5px;
+    border-radius: 5px;
+    min-width: 110px;
+    display: inline-block;
+    width: auto;
+    height: 51px;
+ }
+ #eq #results .diff > div .unit
+ {
+    font-family:main;
+    font-size:34px;
+ }
+ 
+.methodology
+{
+  font-family: Arial;
+  font-size:18px;
+  width:100%;
+  display:table;
+  padding:20px 0px;
+  margin:20px 0px 12px;
+}
+.methodology > div
+{
+  display:table-cell;
+  vertical-align:top;
+  line-height:30px;
+}
+.methodology .f
+{
+  font-family: main;
+  font-size: 38px;
+  width: 400px;
+  padding-left:25px;
+
+}
+.footer
+{
+  width:100%;
+  margin-bottom:20px;
+  height:42px;
+}
+.footer > div 
+{
+  display:inline-block;
+}
+.footer .share
+{
+  float:right;
+  margin-top:10px;
+}
