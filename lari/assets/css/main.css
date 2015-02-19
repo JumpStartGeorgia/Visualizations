@@ -371,7 +371,7 @@ letter-spacing: 2px;
   color:#f1625f;
   background-color:#fff;
   padding:0px 12px;
-  margin:0px 0px 0px 15px;
+  margin:0px 0px 0px 11px;
   text-align:right;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -420,7 +420,7 @@ letter-spacing: 2px;
  }
  #eq #results .diff > div:lang(ka)
  {   
-  padding-left:230px;
+  padding-left:207px;
  }
 #eq #results .diff > div > div
  {          
