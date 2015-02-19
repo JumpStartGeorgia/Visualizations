@@ -498,6 +498,13 @@ letter-spacing: 2px;
 }
 .footer .share
 {
+  font-family: Arial;
+  font-size:16px;
   float:right;
   margin-top:10px;
+}
+.footer .share span
+{
+  padding-right:10px;
+  vertical-align: middle;
 }
