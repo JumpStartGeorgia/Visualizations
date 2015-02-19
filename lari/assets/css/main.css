@@ -5,12 +5,35 @@
     font-weight: 200;
 }
 @font-face {
+    font-family: "dejavusans-b";    
+    src: url( '../fonts/DejaVuSans-Bold.ttf') format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
+@font-face {
     font-family: "dejavusans-m";    
     src: url( '../fonts/DejaVu_Sans_Regular_Condensed_M_1.ttf') format("truetype");
     font-style: normal;
     font-weight: 200;
 }
-
+@font-face {
+    font-family: "dejavusans-c";    
+    src: url( '../fonts/DejaVuSansCondensed.ttf') format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
+@font-face {
+    font-family: "dejavusans-cb";    
+    src: url( '../fonts/DejaVuSansCondensed-Bold.ttf') format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
+@font-face {
+    font-family: "dejavusans-cbo";    
+    src: url( '../fonts/DejaVuSansCondensed-BoldOblique.ttf') format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
 body,html
 {
   margin:0px;
@@ -71,28 +94,38 @@ letter-spacing: 2px;
   font-family:Arial;
   font-size:21px;
   display:table;
-  width:100%;
-  
+  width:100%;  
   padding-bottom:30px;
   margin:20px 0px 30px;
   color:#4c6d8b;
 }
-
+.intro:lang(ka)
+{
+  font-family:'dejavusans-c';
+  font-size: 18px;
+  line-height: 28px;
+}
 .intro  .text
 {
   display:table-cell;    
   padding-right:35px;   
   vertical-align: baseline; 
 }
-.intro .text b
+.intro .text i:lang(ka)
 {
-  font-size:26px;
+  font-family:'dejavusans-cbo';
+  font-size:20px;
+}
+.intro .text b:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size:24px;
 }
 .intro .course
 {
   text-align:right;
   display:table-cell;
-  vertical-align:top;
+  vertical-align:middle;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -104,6 +137,13 @@ letter-spacing: 2px;
   width:415px;
   line-height: 31px;
 }
+.intro .course:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size:17px;
+  font-weight:normal;
+  width:500px;
+}
 .intro .course > div
 {
   padding: 10px 25px 10px 10px;
@@ -114,7 +154,14 @@ letter-spacing: 2px;
   font-style: italic;
   font-weight:bold;
   color:#fff;
-}       
+}   
+.intro .course span:lang(ka)
+{
+  font-family:'dejavusans-cbo';
+  font-size:17px;
+  font-style:normal;
+  font-weight:normal;
+}    
 .quote
 {
   font-family: Arial;
@@ -133,9 +180,20 @@ letter-spacing: 2px;
   min-height:117px;
   margin-bottom:35px;
 }
+.quote:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size:16px;
+  font-weight:normal;  
+  padding: 0px 0px 0px 130px;
+}
 .quote .text
 {
   padding:16px 20px 0px 0px;        
+}
+.quote .text:lang(ka)
+{
+  padding:14px 30px 0px 0px;  
 }
 .quote .text span
 {
@@ -146,6 +204,12 @@ letter-spacing: 2px;
   color:#7a97a0;
   font-style:italic;
   text-decoration:none;
+}
+.quote .text a:lang(ka)
+{
+  font-family:'dejavusans-cbo';
+  font-size:17px;
+  font-style:normal;  
 }
 #eq
 {
@@ -169,6 +233,11 @@ letter-spacing: 2px;
   color:#fff;
   padding:25px;
 }
+#eq .title:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size:30px;
+}
 #eq .content
 {
   background:transparent url(../images/fight.png) right bottom no-repeat;
@@ -176,6 +245,10 @@ letter-spacing: 2px;
   min-width:361px;
   min-height:277px;
   padding: 40px 60px 15px;
+}
+#eq .content:lang(ka)
+{
+  padding: 40px 0px 15px 35px;
 }
 #eq .content .form-input
 {
@@ -188,6 +261,13 @@ letter-spacing: 2px;
   text-align:left;
   display:inline-block;
   padding:0px 10px;
+}
+#eq .content .form-input label:lang(ka)
+{
+  font-family:'dejavusans-c';
+  text-align:right;  
+  font-size:17px;
+  padding:0px 14px 0px 5px;
 }
 #eq .content .form-input label > span
 {
@@ -212,13 +292,23 @@ letter-spacing: 2px;
   font-family:main;
   font-size:36px;
 }
-
+#eq .form-input .unit:lang(ka)
+{
+  font-family:'dejavusans-b';   
+  font-size:31px;
+}
 
 
 #eq #results label
 {
   font-family:main;
   font-size:29px;
+}
+#eq #results label:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size:21px;
+  padding-left:65px;
 }
 #eq #results .result
 {
@@ -228,7 +318,10 @@ letter-spacing: 2px;
   margin:5px 0px 15px 9px;
   border-collapse: collapse;
 }
-
+#eq #results .result:lang(ka)
+{
+  margin:5px 0px 15px 3px;
+}
 #eq #results .result .date
 {  
   font-family:Arial;
@@ -236,9 +329,10 @@ letter-spacing: 2px;
   padding:12px 0px 12px 10px;
   text-align:right;
 }
-#eq #results .result .unit
+#eq #results .result .date:lang(ka)
 {
-  text-align:left;
+  font-family:'dejavusans-c';
+  font-size:17px;
 }
 #eq #results .result #worth_then,
 #eq #results .result #worth_now
@@ -261,10 +355,14 @@ letter-spacing: 2px;
 #eq #results .result .unit
 {
   font-family:main;
-  font-size:26px;
-  
+  font-size:26px;  
+  padding-left:3px;
 } 
-
+#eq #results .result .unit:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size:19px;
+}
 
 
 #eq #results .diff
@@ -279,11 +377,20 @@ letter-spacing: 2px;
   font-family:main;
   font-size:23px;
 }
+#eq #results .diff label:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size:21px;
+}
   #eq #results .diff > div
  {          
     margin-top: 13px;
     display:block;
     padding-left:208px;
+ }
+   #eq #results .diff > div:lang(ka)
+ {   
+  padding-left:230px;
  }
 #eq #results .diff > div > div
  {          
@@ -313,7 +420,12 @@ letter-spacing: 2px;
     font-family:main;
     font-size:34px;
  }
- 
+  #eq #results .diff > div .unit
+  {
+    font-family:'dejavusans-cb';
+    font-size:21px;
+  }
+
 .methodology
 {
   font-family: Arial;
@@ -322,6 +434,10 @@ letter-spacing: 2px;
   display:table;
   padding:20px 0px;
   margin:20px 0px 12px;
+}
+.methodology:lang(ka)
+{
+  font-family:'dejavusans-c';
 }
 .methodology > div
 {
@@ -335,7 +451,18 @@ letter-spacing: 2px;
   font-size: 38px;
   width: 400px;
   padding-left:25px;
-
+}
+.methodology .f:lang(ka)
+{
+  font-family:'dejavusans-cb';
+  font-size: 30px;
+  line-height:40px;
+  width: 250px;
+  /*padding-right: 140px;*/
+}
+.methodology .l:lang(ka)
+{
+  padding-right: 150px;
 }
 .footer
 {
