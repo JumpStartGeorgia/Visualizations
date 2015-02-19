@@ -4,6 +4,13 @@
     font-style: normal;
     font-weight: 200;
 }
+@font-face {
+    font-family: "dejavusans-m";    
+    src: url( '../fonts/DejaVu_Sans_Regular_Condensed_M_1.ttf') format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
+
 body,html
 {
   margin:0px;
@@ -40,6 +47,20 @@ body,html
   padding:0px 10px 20px;
   margin:20px 0px 40px;
   text-align:center;
+}
+.header:lang(ka)
+{
+font-family: 'dejavusans-m';
+font-size: 37px;
+font-weight: bold;
+line-height: 55px;
+letter-spacing: 2px;
+}
+.header .number
+{
+  font-family:main;
+  font-size:44px;
+  font-weight:normal;
 }
 .intro .text,.intro .course
 {
@@ -179,7 +200,7 @@ body,html
   color:#f1625f;
   background-color:#fff;
   text-align:right;
-  width: 110px;
+  width: 264px;
   padding:0px 14px;
   border: 0px;
  -webkit-border-radius: 5px;
@@ -282,7 +303,7 @@ body,html
     -webkit-border-radius: 5px;
     -moz-border-radius:5px;
     border-radius: 5px;
-    min-width: 110px;
+    min-width: 264px;
     display: inline-block;
     width: auto;
     height: 51px;
