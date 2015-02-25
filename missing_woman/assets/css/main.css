@@ -92,14 +92,90 @@ html, body
 {
   clear:left;
 }
+/* --------------------------------- timeline ------------------------ */
 .content .timeline
 {
   height:100px;
+  width:100%;
+  margin:0px auto;
+  display:inline-block;
+
+}
+.content .timeline .marks
+{
+  max-width:511px;
+  margin:0px auto;
+  display:table;
+  width:100%;
+  height:36px;
+    position:relative;
+}
+.content .timeline .marks .mark
+{
+  display:table-cell;
+  text-align:center;
+  background:transparent url('../images/dot.svg') no-repeat;  
+  background-size:9px 9px;
+  width:170px;
+}
+.content .timeline .marks .mark.m1
+{
+  background-position:left center;
+  text-align:left;
+
+}
+.content .timeline .marks .mark.m2
+{
+  background-position:center center;
+}
+.content .timeline .marks .mark.m3
+{
+  background-position:right center;
+  text-align:right;
+}
+.content .timeline .marks .mark .label
+{
+  font-family:'officina-book';
+  font-size:30px;
+  font-weight:bold;
+  color:#fff;
+  position:relative;
+  top:33px;
+}
+.content .timeline .line
+{
+  width:100%;
+  height:2px;
+  background-color:#fff;
+  position:absolute;
+  left: 0px;
+  top: 17px;
+}
+.content .timeline .dragpoint
+{
+  background:transparent url('../images/dragpoint.svg') no-repeat;  
+  background-size:36px 36px;
+  width:36px;
+  height:36px;
+  position:absolute;
+  left: 0px;
+  top: 0px;
+  cursor:pointer;
 }
 .content .question
 {
-
   height:100px;
   background-color:#de435f;
   display:inline-block;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.content .question .arrow
+{
+
+}
+.content .charts
+{
+  display:none;
 }
