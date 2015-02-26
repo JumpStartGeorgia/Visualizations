@@ -18,7 +18,7 @@ var mw = (function () {
    var womanCount = 95;
    var humansCount = manCount + womanCount;
    var womanHighlited = 7;
-   var dragpointWidth = 36;
+   var dragpointWidth = 37;
    var dragpointHalfWidth = dragpointWidth/2;
    var marksWidth = 0;
    var dots = null;          
@@ -53,7 +53,7 @@ var mw = (function () {
    {
       d3.select('.loader').style("display","none");
       content = d3.select('.content').style("display","inline-block");
-      grid = content.select('.grid');
+      grid = content.select('.grid .people');
       var womenToSelect = {};
       var womenToSelectCount = 0;
       var tmp = 0;
@@ -70,107 +70,133 @@ var mw = (function () {
       var tmpWomanCount = womanCount;
       var womanCounter = 0;
       grid.selectAll('div').data(d3.range(1,humansCount+1,1))
-              .enter().append("div")
-              .attr("class", function(d)
-               { 
-                  // tmp if true then man else woman
-                  if(rand(0,1) == 1)
-                  {
-                     if(tmpManCount!=0) { tmp = true; }
-                     else if(tmpWomanCount !=0) { tmp = false; }
-                  }
-                  else
-                  { 
-                     if(tmpWomanCount != 0) { tmp = false; }
-                     else if(tmpManCount!=0) { tmp = true; }
-                  }
-                  if(tmp)
-                  { 
-                     --tmpManCount 
-                  } 
-                  else 
-                  { 
-                     --tmpWomanCount; 
-                     ++womanCounter;
-                  }
-                  return "human" + (tmp ? " man" : " woman")+ (!tmp ? (womenToSelect.hasOwnProperty(womanCounter) ? " muted" : "") : ""); 
-               })
-              .style({"width":(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px',
-                     "margin": ('0px '+ gridItemMargin+'px')});  
+        .enter().append("div")
+        .attr("class", function(d)
+         { 
+            // tmp if true then man else woman
+            if(rand(0,1) == 1)
+            {
+               if(tmpManCount!=0) { tmp = true; }
+               else if(tmpWomanCount !=0) { tmp = false; }
+            }
+            else
+            { 
+               if(tmpWomanCount != 0) { tmp = false; }
+               else if(tmpManCount!=0) { tmp = true; }
+            }
+            if(tmp)
+            { 
+               --tmpManCount 
+            } 
+            else 
+            { 
+               --tmpWomanCount; 
+               ++womanCounter;
+            }
+            return "human" + (tmp ? " man" : " woman")+ (!tmp ? (womenToSelect.hasOwnProperty(womanCounter) ? " muted" : "") : ""); 
+         })
+        .style({"width":(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px',
+               "margin": ('0px '+ gridItemMargin+'px')});  
 
 
 
-         // binding events 
-         // dragpoint 
-          marksWidth = d3.select('.timeline .marks')[0][0].clientWidth;
-          dots = [-dragpointHalfWidth,marksWidth/2,marksWidth-dragpointHalfWidth];
-         var drag = d3.behavior.drag()          
-            .on("drag", function(){
-              var x = d3.event.x;
-              if(x >= -dragpointHalfWidth && x <= marksWidth-dragpointHalfWidth);
-              else if(x < 0) x = -dragpointHalfWidth;
-              else x = marksWidth-dragpointHalfWidth; 
+      // binding events 
+      marksWidth = d3.select('.timeline .marks')[0][0].clientWidth;
+      dots = [0,marksWidth/2,marksWidth];
 
-              if(x >= 0 && x <= dots[1])
-              {
-                d3.selectAll('.grid .muted').style("opacity", 1-(100*x/dots[1])*0.9/100 + 0.1 );
-              }
-              d3.select(this).style("left", x + "px").datum({x:x});
-            })
-            .on("dragend", function(){
-              var d = d3.select(this);
-              var i,opacity = 0.1,x = d.data()[0].x;
-              for(i = 0; i < dots.length-1; ++i)
-              {
-                if(x >= dots[i] && x <= dots[i+1])
-                {
-                  if(x-dots[i]>dots[i+1]-x)
-                  {
-                    x = dots[i+1];
-                    if(i == 0) opacity = 0.1;
-                  }
-                  else
-                  {
-                    x = dots[i];
-                   if(i == 0) opacity = 1;
-                  }
-                  break;
-                }
-              }
-              d.transition().duration(900).style("left", x + "px");
-              d3.selectAll('.grid .muted').transition().duration(900).style("opacity", opacity );
-            });
+      var drag = d3.behavior.drag()       
+        .on("drag", ondrag)
+        .on("dragend", ondragend);
+      d3.select('.dragpoint').call(drag);
 
-          d3.select('.dragpoint').call(drag);
-   };
-    var resize = function() {
-      w = window.innerWidth;
-      h = window.innerHeight;
-      redraw();
-    };
-   var redraw = function()
-   {
-      grid.selectAll('div').style("width",(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px');           
-   };
-   function randomEven(min,max)
-   {
-      // rand() % 5 yields 0, 1, 2, 3, or 4.
-// adding 1 yields 1, 2, 3, 4, or 5.
-// multiplying by 2 yields 2, 4, 6, 8, 10
-// int even_random_number() {
-//     return 2 * ( rand() % 5 + 1 );
-// }
-         
-       return 2*(rand(min,max)%(Math.floor(max/2)) + 1);
-   }
-   function rand(min,max)
-   {
-    return Math.floor(Math.random()*(max-min+1)+min);
-   }
+      d3.selectAll('.marks .mark .label').on('click',function(){
+        var tmp = +d3.select(this).attr('data-id');
+        trigger_drag(dots[tmp],tmp);
+      });
+      d3.selectAll('.question .button').on('click',function(){
+          d3.select("body").transition().duration(2000)
+          .tween("uniquetweenname", scrollTopTween(d3.select('.charts')[0][0].offsetTop));         
+      });
+  };
+  var resize = function() {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    redraw();
+  };
+  var redraw = function()
+  {
+    grid.selectAll('div').style("width",(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px');           
+  };
+  var ondrag = function()
+  {
+    var x = d3.event.x;
+    if(x >= 0 && x <= marksWidth);
+    else if(x < 0) x = 0;
+    else x = marksWidth; 
 
-  // obj.someMethod = function () {
-  //   // take it away Mr. Public Method
-  // };
+    if(x >= 0 && x <= dots[1])
+    {
+      d3.selectAll('.grid .people .muted').classed('woman-d',false).classed('woman',true);
+      d3.selectAll('.grid .people .muted').style("opacity", 1-(100*x/dots[1])*0.9/100 + 0.1 );
+    }
+    else
+    {
+      d3.selectAll('.grid .people .muted').classed('woman-d',true).classed('woman',false);
+    }
+    d3.select(this).style("left", x-dragpointHalfWidth + "px").datum({x:x});
+  };
+  var ondragend = function()
+  {
+    var d = d3.select(this);
+    var i = 0,opacity = 0.1,x = d.data()[0].x;
+
+    if(x <= dots[1])
+    {
+      var b = x-dots[0]>dots[1]-x;
+      x = dots[(b ? 1 : 0)];
+      opacity = b ? 0.1 : 1;
+      i = b ? 0 : 1;
+    }
+    else
+    {
+      x = dots[((x-dots[1]>dots[2]-x) ? 2 : 1)];
+      i = b ? 1 : 2;
+    }
+    d.transition().duration(900).style("left", x-dragpointHalfWidth + "px");    
+    d3.selectAll('.grid .people .muted')
+      .transition()
+      .duration(900)
+      .style("opacity", opacity)
+      .each("end", function()
+      {
+        d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
+      });
+      content.select('.data').transition().duration(900).style("opacity", i == 2 ? 1 : 0);
+  };
+  var trigger_drag = function(x,i)
+  {
+    var opacity = (i == 0 ? 1 : 0.1);
+    var all = d3.selectAll('.grid .people .muted');
+    if(i == 0) all.classed('woman', true).classed('woman-d', false);
+
+    d3.select('.timeline .marks .dragpoint').datum({x:x}).transition().duration(900).style("left", x-dragpointHalfWidth + "px");
+    all.transition()
+      .duration(900)
+      .style("opacity", opacity)
+      .each("end", function()
+      {
+        d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
+      });
+    content.select('.data').transition().duration(900).style("opacity", i == 2 ? 1 : 0);      
+  };
+  function randomEven(min,max) { return 2*(rand(min,max)%(Math.floor(max/2)) + 1); }
+  function rand(min,max) { return Math.floor(Math.random()*(max-min+1)+min); }
+  function scrollTopTween(scrollTop) {
+    return function() {
+    var i = d3.interpolateNumber(this.scrollTop, scrollTop);
+    return function(t) { this.scrollTop = i(t); };
+     };
+  }
   init();
   return obj;
 

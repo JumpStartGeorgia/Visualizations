@@ -13,7 +13,7 @@ html, body
   height:100%;
   margin:0px;
   padding:0px;
-    background-color:#31b9dd;
+  background-color:#31b9dd;
 }
 .wrapper
 {
@@ -59,6 +59,12 @@ html, body
   background:transparent url('../images/woman.svg') center center no-repeat;  
   background-size:100%;
 }
+.woman-d
+{
+  background:transparent url('../images/woman_d.svg') center center no-repeat;  
+  background-size:100%;
+  opacity:1 !important;
+}
 .muted
 {
   opacity:1;
@@ -72,23 +78,41 @@ html, body
 .content .page
 {
   width:100%;
-  height:100%;
+  min-height:100%;
 }
 .content .grid
 {
   text-align: center;
   margin:10px 10px 10px 10px;
+  display:inline-block;
+  position:relative;  
+}
+.content .people
+{
+  display:inline-block;
+  z-index:2;
 }
 .content .data
 {
+  font-family:'officina-bold';
+  font-size:33px;
+  color:#fff;
   display:inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index:1;
+  opacity:0;
+  background-color:#31b9dd;
 }
-.content .grid > div
+.content .grid .people > div
 {
   display:inline-block;
   float:left;
 }
-.content .grid > div:nth-child(39n+1)
+.content .grid .people > div:nth-child(39n+1)
 {
   clear:left;
 }
@@ -97,7 +121,7 @@ html, body
 {
   height:100px;
   width:100%;
-  margin:0px auto;
+  margin:40px auto;
   display:inline-block;
 
 }
@@ -107,22 +131,37 @@ html, body
   margin:0px auto;
   display:table;
   width:100%;
-  height:36px;
+  height:37px;
   position:relative;
 }
 .content .timeline .marks .mark
 {
   display:table-cell;
   text-align:center;
-  background:transparent url('../images/dot.svg') no-repeat;  
-  background-size:9px 9px;
   width:170px;
+  min-width:170px;
+  max-width:170px;
+  vertical-align: top;
+  position:relative;
+}
+.content .timeline .marks .mark .dot
+{
+  background:transparent url('../images/dot.svg') no-repeat;  
+  background-position:center center;
+  background-size:9px;
+  width:9px;
+  height:9px;
+  top: 15px;
+  position: absolute;
+  width:100%;
 }
 .content .timeline .marks .mark.m1
 {
-  background-position:left center;
   text-align:left;
-
+}
+.content .timeline .marks .mark.m1 .dot
+{
+  background-position:center left;
 }
 .content .timeline .marks .mark.m2
 {
@@ -133,26 +172,34 @@ html, body
   background-position:right center;
   text-align:right;
 }
+.content .timeline .marks .mark.m3 .dot
+{
+  background-position:center right;
+}
 .content .timeline .marks .mark .label
 {
-  font-family:'officina-book';
+  font-family:'officina-bold';
   font-size:30px;
-  font-weight:bold;
   color:#fff;
   position:relative;
   top:50px;
+  vertical-align: top;
+}
+.content .timeline .marks .mark .label:hover
+{
+  cursor:pointer;
 }
 .content .timeline .marks .mark.m1 .label
 {
-  left:-30px;
+  left:-33px;
 }
 .content .timeline .marks .mark.m3 .label
 {
-  right:-30px;
+  right:-33px;
 }
 .content .timeline .line
 {
-  width:504px;
+  width:509px;
   height:1px;
   background-color:#fff;
   position:absolute;
@@ -162,11 +209,11 @@ html, body
 .content .timeline .dragpoint
 {
   background:transparent url('../images/dragpoint.svg') no-repeat;  
-  background-size:36px 36px;
-  width:36px;
-  height:36px;
+  background-size:37px 37px;
+  width:37px;
+  height:37px;
   position:absolute;
-  left: -18px; /* should half of width*/
+  left: -18.5px; /* should half of width*/
   top: 0px;
   cursor:pointer;
 }
@@ -176,9 +223,8 @@ html, body
 }
 .content .question .button
 {
-  font-family:'officina-book';
+  font-family:'officina-bold';
   font-size:30px;
-  font-weight:bold;
   color:#fff;
   background-color:#de435f;  
   display:table;
@@ -213,5 +259,25 @@ html, body
 }
 .content .charts
 {
-  display:none;
+  min-height:100%;
+  width:100%;  
+  background-color:#3d414f;
+}
+.content .charts .header
+{
+  background-color:#2f3241;
+  width:100%;
+  font-family:'officina-bold';
+  font-size:35px;
+  color:#fff;
+  padding: 30px 0px 30px 5%;  
+}
+.content .charts .sub-header
+{
+  background-color:#fff;
+  width:100%;
+  font-family:'officina-book';
+  font-size:30px;
+  color:#2f3241;
+  padding: 10px 0px 10px 5%;  
 }

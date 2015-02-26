@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
   <head>  
     <title data-i18n-title></title>
     <meta charset="utf-8">
@@ -19,18 +19,24 @@
   <div class="wrapper">
   <div class="content">
     <div class="page">
-      <div class="grid"></div>
-      <div class="data"></div>
+      <div class="grid">
+        <div class="people"></div>
+        <div class="data" data-i18n-about-text></div>
+      </div>
+      
       <div class="timeline">
         <div class="marks">
-          <div class="mark m1">            
-            <div class="label" data-i18n-timeline-past></div>
+          <div class="mark m1">  
+            <div class="dot"></div>          
+            <div class="label" data-id="0" data-i18n-timeline-past></div>
           </div>
           <div class="mark m2">
-              <div class="label" data-i18n-timeline-today></div>
+            <div class="dot"></div>
+            <div class="label" data-id="1" data-i18n-timeline-today></div>
           </div>
-          <div class="mark m3">            
-            <div class="label" data-i18n-timeline-future></div>
+          <div class="mark m3">
+            <div class="dot"></div>            
+            <div class="label" data-id="2" data-i18n-timeline-future></div>
           </div>
           <div class="line"></div>
           <div class="dragpoint"></div>
@@ -49,7 +55,7 @@
     </div>
     <div class="page">
       <div class="charts">
-        <div class="header" data-i18n-charts-header></div>
+        <div class="header"><div class="box" data-i18n-charts-header></div></div>
         <div class="sub-header" data-i18n-charts-sub_header></div>
         <div class="bar-chart" data-i18n-charts-bar_chart></div>
         <div class="line-chart" data-i18n-charts-line_chart></div>
