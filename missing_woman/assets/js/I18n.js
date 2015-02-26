@@ -6,15 +6,8 @@ var I18n = (function () {
    var languages = ["az","en","hy","ka","ru"];
    var locales = {};
    var data = null;
+   var delve_threshold = 3;
       
-
-   obj.t = function(path)
-   {
-      var tmp = path.split('.');
-      tmp.forEach(function(d,i){
-          console.log(d,i);
-      });
-   };
    obj.locale = function()
    {
       return locale;
@@ -27,9 +20,6 @@ var I18n = (function () {
       {
          allocate();
       }
-      
-       
-      //obj.t('en.blah.one.tri');
    };
    var init_locale = function()
    {
@@ -63,7 +53,7 @@ var I18n = (function () {
       }
       else 
       {
-         log("I18n: None of the translation exists! So I18n stopped.");
+         log("I18n: None of the translation exists! So I18n stopped!");
          return false;
       }
       return true;
@@ -71,61 +61,100 @@ var I18n = (function () {
    var allocate = function()
    {
       if(typeof data == "object")
-      {
-         Object.keys(data).forEach(function(key) {
-            var type = typeof data[key];
-            if(type == "string")
-            {
-               var v = data[key];
-               var k = "i18n-"+key;
-               var kCamel = "i18n" + key.charAt(0).toUpperCase() + key.slice(1);
-               var i,all = document.querySelectorAll("[data-"+k+"]");
-               var d = null;
-               for (i = 0; i < all.length; ++i) {
-                  d = all[i];
-                  if(["text","t",""].indexOf(d.dataset[kCamel]) != -1)
-                  {
-                     d.innerHTML = v;
-                  }
-               }
-            }
-            else if(type == "object")
-            {
-               console.log(key,"object");
-            }
-         });
+      {         
+         delve(data);
       }
       else 
       {
          log("I18n: Data for " + locale + " is missing!");   
       }   
    };
-   var delve = function(obj)
+   var delve = function(obj,parent,level)
    {
-
+      parent = parent || "";
+      level = level || 1;
+      if(level > delve_threshold) // if nesting level is greater than threshold stop
+      { 
+         log("I18n: Nesting is limited to " + delve_threshold + " objects!");
+         return; 
+      }
+       //console.log(parent,level);
+      Object.keys(obj).forEach(function(key) {
+         var type = typeof obj[key];
+         if(type == "string")
+         {
+            assign_locale((parent != "" ? (parent + "-" + key) : key),obj[key]);
+         }
+         else if(type == "object")
+         {
+            delve(obj[key], (parent == "" ? key : parent + "-" + key),level+1);
+         }
+      });
    };
-   var allocate_field = function()
-   {
-
+   var assign_locale = function(k,v)
+   {       
+      var kCamel = "i18n";
+      k.split("-").forEach(function(a){
+         kCamel += a.charAt(0).toUpperCase() + a.slice(1);
+      });
+      k = "i18n-"+k;      
+      var i, d = null, all = document.querySelectorAll("[data-"+k+"]");      
+      for (i = 0; i < all.length; ++i) {
+         d = all[i];
+         if(["text","t",""].indexOf(d.dataset[kCamel]) != -1)
+         {
+            d.innerHTML = v;
+         }
+         else if(["content"].indexOf(d.dataset[kCamel]) != -1)
+         {
+            d.content = v;
+         }
+         d.removeAttribute('data-' + k);
+      }
    };
    var init_locales = function()
    {
       locales.en = 
       {
-         title: "En Title",
-         description: "En Description"
+         title: "Missing Woman",
+         description: "Missing Woman Description",
+         url: "www.google.com",
+         site_name: "Missing Woman",
+         timeline: 
+         {
+            past: "1995",
+            today: "Today",
+            future: "2035"
+         },
+         question: "What's wrong?",
+         charts:
+         {
+            header: "CHOOSING MALE IN THE SOUTH CAUCASUS",
+            sub_header: "Male to Female Ratio at Birth",
+            bar_chart: "Bar Chart",
+            line_chart: "Line Chart"
+         }
       };
       locales.ka = 
       {
-         title: "Ka Title",
+         title: "Ka Missing Woman",
          description: "Ka Description",
+         url: "www.google.ge",
+         site_name: "KA Missing Woman",
          timeline: 
          {
-            start:"2015",
-            today:"Today",
-            end: "End"
+            past:"1995",
+            today:"აქანე",
+            future: "2035"
+         },
+         question: "Ka What's wrong?",
+         charts:
+         {
+            header: "მამრობითი სქესის არჩევა სამხრეთ კავკასიაში",
+            sub_header: "Ka Male to Female Ratio at Birth",
+            bar_chart: "Ka Bar Chart",
+            line_chart: "Ka Line Chart"
          }
-
       };
    };
    var log = function(v)

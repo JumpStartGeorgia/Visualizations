@@ -18,6 +18,11 @@ var mw = (function () {
    var womanCount = 95;
    var humansCount = manCount + womanCount;
    var womanHighlited = 7;
+   var dragpointWidth = 36;
+   var dragpointHalfWidth = dragpointWidth/2;
+   var marksWidth = 0;
+   var dots = null;          
+    
   // declared with `var`, must be "private"
    var init = function()
    {
@@ -91,14 +96,58 @@ var mw = (function () {
                   return "human" + (tmp ? " man" : " woman")+ (!tmp ? (womenToSelect.hasOwnProperty(womanCounter) ? " muted" : "") : ""); 
                })
               .style({"width":(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px',
-                     "margin": ('0px '+ gridItemMargin+'px')});            
+                     "margin": ('0px '+ gridItemMargin+'px')});  
+
+
+
+         // binding events 
+         // dragpoint 
+          marksWidth = d3.select('.timeline .marks')[0][0].clientWidth;
+          dots = [-dragpointHalfWidth,marksWidth/2,marksWidth-dragpointHalfWidth];
+         var drag = d3.behavior.drag()          
+            .on("drag", function(){
+              var x = d3.event.x;
+              if(x >= -dragpointHalfWidth && x <= marksWidth-dragpointHalfWidth);
+              else if(x < 0) x = -dragpointHalfWidth;
+              else x = marksWidth-dragpointHalfWidth; 
+
+              if(x >= 0 && x <= dots[1])
+              {
+                d3.selectAll('.grid .muted').style("opacity", 1-(100*x/dots[1])*0.9/100 + 0.1 );
+              }
+              d3.select(this).style("left", x + "px").datum({x:x});
+            })
+            .on("dragend", function(){
+              var d = d3.select(this);
+              var i,opacity = 0.1,x = d.data()[0].x;
+              for(i = 0; i < dots.length-1; ++i)
+              {
+                if(x >= dots[i] && x <= dots[i+1])
+                {
+                  if(x-dots[i]>dots[i+1]-x)
+                  {
+                    x = dots[i+1];
+                    if(i == 0) opacity = 0.1;
+                  }
+                  else
+                  {
+                    x = dots[i];
+                   if(i == 0) opacity = 1;
+                  }
+                  break;
+                }
+              }
+              d.transition().duration(900).style("left", x + "px");
+              d3.selectAll('.grid .muted').transition().duration(900).style("opacity", opacity );
+            });
+
+          d3.select('.dragpoint').call(drag);
    };
-   var resize = function() {
+    var resize = function() {
       w = window.innerWidth;
       h = window.innerHeight;
       redraw();
-   };
-   
+    };
    var redraw = function()
    {
       grid.selectAll('div').style("width",(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px');           
