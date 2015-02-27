@@ -21,6 +21,34 @@ var I18n = (function () {
          allocate();
       }
    };
+   obj.t = function(path)
+   {
+      if(typeof path == "string")
+      {
+         var p = path;
+         if(p.indexOf('data-I18n-') != -1)
+            p = p.substr(10);
+
+         if(p.length > 0)
+         {
+            props = p.split('-');
+            var pointer = data;
+            props.forEach(function(d)
+            {
+               if(pointer.hasOwnProperty(d))
+                  pointer = pointer[d];
+               else return false;
+            });
+            if(typeof pointer != "string")
+            {
+               return "[Translation missing]";
+            }
+           return pointer;
+         }
+      }
+      log("I18n: translation missing for '"+path+"'!");
+      return "";
+   }
    var init_locale = function()
    {
       var tmp = window.location.search.substr(1).split('&');
@@ -121,6 +149,8 @@ var I18n = (function () {
          description: "Missing Woman Description",
          url: "www.google.com",
          site_name: "Missing Woman",
+
+         year: "Year",
          timeline: 
          {
             past: "1995",
@@ -148,12 +178,20 @@ var I18n = (function () {
                montenegro: "Montenegro",
                singapore: "Singapore",
                south_korea: "South Korea",
+               esa: "East and Southeast Asia",
+               sc: "South Caucasus",
+               sa: "South Asia",
+               se: "Southeast Europe",
                base_mark: "105*",
                asterisk: "* Population 0-19 years",
-               source1_label: "Source:",
+               source1_label: "Source:&nbsp;",
                source1: "Sex imbalances at birth in Armenia: Demographic evidence and analysis",
-               source2_label: "Gender Gap Source:",
-               source2: "Sex Imbalances at Birth: Current trends, consequences and policy implications"
+               source2_label: "Gender Gap Source:&nbsp;",
+               source2: "Sex Imbalances at Birth: Current trends, consequences and policy implications",
+               missing_woman: "Missing Women*",
+               population: "Population",
+               rate: "Sex Rate at Birth:",
+               gender_gap: "Gender Gap:"
             },
             line_chart:
             {

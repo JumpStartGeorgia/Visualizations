@@ -25,17 +25,17 @@ var mw = (function () {
    var bar_chart = 
    {
       data: [
-        {k:"china",v:118},
-        {k:"azerbaijan",v:117,class:"highlight"},        
-        {k:"armenia",v:115,class:"highlight"},
-        {k:"georgia",v:114,class:"highlight"},
-        {k:"albania",v:112},
-        {k:"vietnam",v:111},
-        {k:"india",v:111},
-        {k:"pakistan",v:110},
-        {k:"montenegro",v:110},
-        {k:"singapore",v:108},
-        {k:"south_korea",v:107}
+        {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: "23,687", population:1357380000 },
+        {k:"azerbaijan",v:117,class:"highlight", rate: 116.5, region: "sc", period:"2011", population_p: 7.8, population_t: 104, population:10162532},        
+        {k:"armenia",v:115,class:"highlight", rate: 114.5, region: "sc", period:"2011", population_p: 7.4, population_t: 31, population:2976566},
+        {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19, population:4476900},
+        {k:"albania",v:112, rate: 117.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15, population:"2,773,620"},
+        {k:"vietnam",v:111, rate: 111.2, region: "esa", period:"2010", population_p: 1.7, population_t: 245, population:"89,708,900"},
+        {k:"india",v:111, rate: 110.5, region: "sa", period:"2008-2010", population_p: 5.6, population_t: "13,197", population:"1,252,139,596"},
+        {k:"pakistan",v:110, rate: 109.9, region: "sa", period:"2007", population_p: 0.7, population_t: 281, population:"182,142,594"},
+        {k:"montenegro",v:110, rate: 109.8, region: "se", period:"2009-2011", population_p: 2.7, population_t: 2, population:"621,383"},
+        {k:"singapore",v:108, rate: 107.5, region: "esa", period:"2009", population_p: 1.9, population_t: 11, population:"5,399,200"},
+        {k:"south_korea",v:107, rate: 106.7, region: "esa", period:"2010", population_p: 4.8, population_t: 260, population:"50,219,669"}
       ],
       s: null, // selector
       base: 105,
@@ -270,20 +270,43 @@ var mw = (function () {
         }
       });
 
-       indexes.selectAll('[data-tip]').on('mouseover', function(){  
+       indexes.selectAll('[data-tip]').on('mousemove', function(d){  
+         //console.log('a',d);
           var t = d3.select(this);       
           var tip_id = t.attr('data-tip');
           var par = d3.select('[data-tip-id='+tip_id+']');
           var tip = d3.select('#tip');
-          var content = tip.select('.data').html(t.attr('data-tip'));
+          var html =  '<div>' +
+                         '<div class="country">' + I18n.t('charts-bar_chart-' + d.k) + '</div>' + 
+                         '<div class="region">' + I18n.t('charts-bar_chart-' + d.region) + '</div>' + 
+                         '<div class="gap">' + d.population_t + '</div>' + 
+                         '<div class="missing">' + I18n.t('charts-bar_chart-missing_woman') + '</div>' + 
+                         '<div class="population">' + d.population + '</div>' + 
+                         '<div class="population_label">' + I18n.t('charts-bar_chart-population') + '</div>' + 
+                         '<div class="rate"><div class="label">' + I18n.t('charts-bar_chart-rate') + "&nbsp;</div>" + d.rate + '</div>' + 
+                         '<div class="gender-gap"><div class="label">' + I18n.t('charts-bar_chart-gender_gap') + "&nbsp;</div>" + d.population_p + '</div>' + 
+                         '<div class="period"><div class="label">' + I18n.t('year') + ":&nbsp;</div>" + d.period + '</div>' +                         
+                      '</div>';
+          var content = tip.select('.data').html(html);
           var tiph = tip[0][0].clientHeight;
           var tipw = tip[0][0].clientWidth;
-           console.log(tiph,tipw,d3.event);
-         //  //tip.css({'top':t.offset().top - h + 20,'left':t.offset().left-w/2+t.width()/2 }).show();
-        tip.style({top: d3.event.pageY - tiph + "px", left: d3.event.pageX -tipw/2 + "px"}).transition().duration(200).style('opacity',1);
+           var top = 0;           
+           if(d3.event.pageY - tiph < window.scrollY) // under
+           {
+             top =  d3.event.pageY + 20;
+             tip.select('.pointer-top').style('display','block');
+             tip.select('.pointer-bottom').style('display','none');
+           }
+           else // above
+           {
+              top =  d3.event.pageY - tiph - 5;
+             tip.select('.pointer-top').style('display','none');
+             tip.select('.pointer-bottom').style('display','block');
+           }
+          tip.style({top: top + "px", left: d3.event.pageX -tipw/2 + "px"}).transition().duration(100).style('opacity',1);
        });
       indexes.selectAll('[data-tip]').on('mouseout', function(){  
-        d3.select('#tip').style('opacity',0);          
+        d3.select('#tip').style({'opacity':0, 'left': '-999999px' });          
       });
   };
 /*------------------------------------------ Line Chart ------------------------------------------*/  
