@@ -21,7 +21,27 @@ var mw = (function () {
    var dragpointWidth = 37;
    var dragpointHalfWidth = dragpointWidth/2;
    var marksWidth = 0;
-   var dots = null;          
+   var dots = null;  
+   var bar_chart = 
+   {
+      data: [
+        {k:"china",v:118},
+        {k:"azerbaijan",v:117,class:"highlight"},        
+        {k:"armenia",v:115,class:"highlight"},
+        {k:"georgia",v:114,class:"highlight"},
+        {k:"albania",v:112},
+        {k:"vietnam",v:111},
+        {k:"india",v:111},
+        {k:"pakistan",v:110},
+        {k:"montenegro",v:110},
+        {k:"singapore",v:108},
+        {k:"south_korea",v:107}
+      ],
+      s: null, // selector
+      base: 105,
+      base_max: 118,
+      height_multiplier: 2
+   };        
     
   // declared with `var`, must be "private"
    var init = function()
@@ -117,6 +137,10 @@ var mw = (function () {
           d3.select("body").transition().duration(2000)
           .tween("uniquetweenname", scrollTopTween(d3.select('.charts')[0][0].offsetTop));         
       });
+      bar_chart_draw();
+      line_chart_draw();
+
+      I18n.init();
   };
   var resize = function() {
     w = window.innerWidth;
@@ -188,6 +212,115 @@ var mw = (function () {
         d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
       });
     content.select('.data').transition().duration(900).style("opacity", i == 2 ? 1 : 0);      
+  };
+/*------------------------------------------ Bar Chart ------------------------------------------*/
+  var bar_chart_draw = function()
+  {
+    var t = bar_chart; 
+    t.s = d3.select('.bar-chart');
+    var indexes = t.s.select('.indexes')
+                    .selectAll('div')
+                    .data(t.data)
+                    .enter()
+                    .append('div')
+                    .classed('index',true)
+                    .attr('data-tip-id',function(d){ return d.k; });                     
+   
+      indexes.append('div').classed('country', true).each(function(d){
+        d3.select(this).attr('data-i18n-charts-bar_chart-' + d.k, "text").attr('data-tip',d.k);
+        if(d.hasOwnProperty('class'))
+        {
+          d3.select(this).classed(d.class,true);
+        }
+      });
+      indexes.append('div').classed('quantum', true).attr('data-tip',function(d){ return d.k; }).text(function(d){ return d.v; });
+      var quantum_box = indexes
+                          .append('div')
+                          .classed('quantum-box', true)
+                          .attr('data-tip',function(d){ return d.k; });
+      quantum_box
+        .append('div')
+        .classed('space',true)
+        .style('height',function(d){ return (t.height_multiplier*(t.base_max - d.v)) + 'px'; });
+      quantum_box
+        .append('div')
+        .classed('rest',true)        
+        .style('height',function(d){ return (t.height_multiplier*(d.v - t.base)) + 'px'; });
+
+      quantum_box.append('div').classed('base',true).each(function(d){
+          if(d.hasOwnProperty('class'))
+          {
+            d3.select(this).classed(d.class,true);
+          }
+        });
+      quantum_box.append('div').classed('bottom',true);
+
+      var country_shape = indexes.append('div').classed('country-shape', true);
+      country_shape.append('div').classed('vertical-line',true).attr('data-tip',function(d){ return d.k; });
+      country_shape.append('div').each(function(d){
+        d3.select(this).classed('shape ' + d.k, true).attr('data-tip',d.k);
+      });
+      country_shape.append('div').classed('dot',true).attr('data-tip',function(d){ return d.k; });
+
+      indexes.append('div').classed('country bottom', true).each(function(d){
+        d3.select(this).attr('data-i18n-charts-bar_chart-' + d.k, "text").attr('data-tip',d.k);
+        if(d.hasOwnProperty('class'))
+        {
+          d3.select(this).classed(d.class,true);
+        }
+      });
+
+       indexes.selectAll('[data-tip]').on('mouseover', function(){  
+          var t = d3.select(this);       
+          var tip_id = t.attr('data-tip');
+          var par = d3.select('[data-tip-id='+tip_id+']');
+          var tip = d3.select('#tip');
+          var content = tip.select('.data').html(t.attr('data-tip'));
+          var tiph = tip[0][0].clientHeight;
+          var tipw = tip[0][0].clientWidth;
+           console.log(tiph,tipw,d3.event);
+         //  //tip.css({'top':t.offset().top - h + 20,'left':t.offset().left-w/2+t.width()/2 }).show();
+        tip.style({top: d3.event.pageY - tiph + "px", left: d3.event.pageX -tipw/2 + "px"}).transition().duration(200).style('opacity',1);
+       });
+      indexes.selectAll('[data-tip]').on('mouseout', function(){  
+        d3.select('#tip').style('opacity',0);          
+      });
+  };
+/*------------------------------------------ Line Chart ------------------------------------------*/  
+  var line_chart_draw = function()
+  {
+    var chart = c3.generate({
+        bindto: '#line_chart',
+        data: {
+          columns: [
+            ['azerbaijan', 30, 200, 100, 400, 150, 250],
+            ['armenia', 50, 20, 10, 40, 15, 25],
+            ['georgia', 70, 10, 10, 40, 200, 25]
+          ],
+          type: 'spline',
+          colors: {
+            data1: '#de435f',
+            data2: '#de435f',
+            data3: '#de435f'
+          },
+          color: function(color,id){ return '#de435f';}
+        },
+        grid: {
+          x: {
+            //lines: [{class: 'solidline'}]
+            show: true,
+            //class: 'solidline'
+          },
+          y:
+          {
+            show: true
+          }
+        },
+        legend: {
+          show: true,
+          position: 'right'
+        }
+    });
   };
   function randomEven(min,max) { return 2*(rand(min,max)%(Math.floor(max/2)) + 1); }
   function rand(min,max) { return Math.floor(Math.random()*(max-min+1)+min); }

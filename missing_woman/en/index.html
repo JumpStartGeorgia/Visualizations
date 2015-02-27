@@ -14,6 +14,7 @@
     <meta property="og:site_name" content="" data-i18n-site_name="content">
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css"> <!-- change to minified version on production using online minifier -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/c3.min.css">
   </head>
   <body>
   <div class="wrapper">
@@ -56,9 +57,32 @@
     <div class="page">
       <div class="charts">
         <div class="header"><div class="box" data-i18n-charts-header></div></div>
-        <div class="sub-header" data-i18n-charts-sub_header></div>
-        <div class="bar-chart" data-i18n-charts-bar_chart></div>
-        <div class="line-chart" data-i18n-charts-line_chart></div>
+        <div class="sub-header"><div class="box" data-i18n-charts-sub_header></div></div>
+        <div class="bar-chart" >
+          <div class="box">
+            <div class="chart">
+              <div class="base-mark">
+                <div class="text" data-i18n-charts-bar_chart-base_mark></div>
+                <div class="dot"></div>
+                <div class="line-box"><div class="horizontal-line"></div></div>
+              </div>
+              <div class="indexes">
+              </div>
+              <div class="legend">
+                <div class="asterisk" data-i18n-charts-bar_chart-asterisk></div>
+                <div class="source"><div class="label" data-i18n-charts-bar_chart-source1_label></div><div class="text" data-i18n-charts-bar_chart-source1></div></div>
+                <div class="source"><div class="label" data-i18n-charts-bar_chart-source2_label></div><div class="text" data-i18n-charts-bar_chart-source2></div></div>
+              </div>
+            </div>  
+          </div>
+        </div>
+        <div class="line-chart">
+          <div class="box">
+            <div class="header" data-i18n-charts-line_chart-header></div>
+            <div id="line_chart" class="chart"></div>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
@@ -68,7 +92,7 @@
       <div class="human woman"></div>
     </div>
   </div>
-
+  <div id="tip" class="tip"><div class="data"></div><div class="pointer"></div></div>
 
 
 
@@ -89,6 +113,8 @@
     </div> -->    
   </div>
     <script src="../assets/js/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/c3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/d3.tip.v0.6.6.js" type="text/javascript" charset="utf-8"></script>
     <script src="../assets/js/m.js" type="text/javascript" charset="utf-8"></script>
     <script src="../assets/js/I18n.js" type="text/javascript" charset="utf-8"></script>
     <!--<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>

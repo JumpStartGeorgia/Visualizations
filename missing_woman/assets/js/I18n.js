@@ -12,7 +12,7 @@ var I18n = (function () {
    {
       return locale;
    }
-   var init = function()
+   obj.init = function()
    {
       init_locale();
       init_locales();
@@ -136,8 +136,29 @@ var I18n = (function () {
          {
             header: "CHOOSING MALE IN THE SOUTH CAUCASUS",
             sub_header: "Male to Female Ratio at Birth",
-            bar_chart: "Bar Chart",
-            line_chart: "Line Chart"
+            bar_chart: {
+               china: "China",
+               azerbaijan: "Azerbaijan",
+               armenia: "Armenia",
+               georgia: "Georgia",
+               albania: "Albania",
+               vietnam: "Vietnam",
+               india: "India",
+               pakistan: "Pakistan",
+               montenegro: "Montenegro",
+               singapore: "Singapore",
+               south_korea: "South Korea",
+               base_mark: "105*",
+               asterisk: "* Population 0-19 years",
+               source1_label: "Source:",
+               source1: "Sex imbalances at birth in Armenia: Demographic evidence and analysis",
+               source2_label: "Gender Gap Source:",
+               source2: "Sex Imbalances at Birth: Current trends, consequences and policy implications"
+            },
+            line_chart:
+            {
+               header: "Decline of Female to Male Ratio in the South Caucasus"
+            }
          }
       };
       locales.ka = 
@@ -171,8 +192,6 @@ var I18n = (function () {
        console.log(v);
    };
 
-
-   init();
    return obj;
 
 })();
