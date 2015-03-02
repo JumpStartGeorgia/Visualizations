@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>  
+    <title data-i18n-title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="111" data-i18n-description="content">
+    <meta property="og:title" content="" data-i18n-title="content">
+    <meta property="og:description" content="" data-i18n-description="content">
+    <meta property="og:type" content="non_profit">
+    <meta property="og:url" content="" data-i18n-url="content">
+    <meta property="og:image" content="http://visuals.jumpstart.ge/lari/assets/images/fb.png">
+    <meta property="og:site_name" content="" data-i18n-site_name="content">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css"> <!-- change to minified version on production using online minifier -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/c3.min.css">
+  </head>
+  <body>
+  <div class="wrapper">
+  <div class="content">
+    <div class="page">
+      <div class="grid">
+        <div class="people"></div>
+        <div class="data" data-i18n-about-text></div>
+      </div>
+      
+      <div class="timeline">
+        <div class="marks">
+          <div class="mark m1">  
+            <div class="dot"></div>          
+            <div class="label" data-id="0" data-i18n-timeline-past></div>
+          </div>
+          <div class="mark m2">
+            <div class="dot"></div>
+            <div class="label" data-id="1" data-i18n-timeline-today></div>
+          </div>
+          <div class="mark m3">
+            <div class="dot"></div>            
+            <div class="label" data-id="2" data-i18n-timeline-future></div>
+          </div>
+          <div class="line"></div>
+          <div class="dragpoint"></div>
+        </div>
+         
+      </div>
+      <div class="question">
+        <div class="button">
+          <div class="box">
+            <div class="arrow"></div>
+            <div class="text" data-i18n-question></div>
+            <div class="arrow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <div class="charts">
+        <div class="header"><div class="box" data-i18n-charts-header></div></div>
+        <div class="sub-header"><div class="box" data-i18n-charts-sub_header></div></div>
+        <div class="bar-chart" >
+          <div class="box">
+            <div class="chart">
+              <div class="base-mark">
+                <div class="text" data-i18n-charts-bar_chart-base_mark></div>
+                <div class="dot"></div>
+                <div class="line-box"><div class="horizontal-line"></div></div>
+              </div>
+              <div class="indexes">
+              </div>
+              <div class="legend">
+                <div class="asterisk" data-i18n-charts-bar_chart-asterisk></div>
+                <div class="source"><div class="label" data-i18n-charts-bar_chart-source1_label></div><div class="text" data-i18n-charts-bar_chart-source1></div></div>
+                <div class="source"><div class="label" data-i18n-charts-bar_chart-source2_label></div><div class="text" data-i18n-charts-bar_chart-source2></div></div>
+              </div>
+            </div>  
+          </div>
+        </div>
+        <div class="line-chart">
+          <div class="box">
+            <div class="header" data-i18n-charts-line_chart-header></div>
+            <div id="line_chart" class="chart"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="loader">
+    <div class="magnet center middle">
+      <div class="human man"></div>
+      <div class="human woman"></div>
+    </div>
+  </div>
+  <div id="tip" class="tip"><div class="pointer-top"></div><div class="data"></div><div class="pointer-bottom"></div></div>
+
+
+
+<!--     <div class="share top">       
+      <div class="addthis_sharing_toolbox"></div>
+      <div class="lang_switch"><a href="../ka">ქართული</a></div>
+    </div> -->
+
+  
+    <!-- <div class="footer"> 
+      <div class='powered-by'>
+        <a href="http://www.jumpstart.ge" target="_blank" title="JumpStart Georgia - We communicate data better!"><img alt="Jumpstart-logo" src="../assets/images/js.svg"></a>  
+      </div>
+      <div class="share"><span>Share this</span><div class="addthis_sharing_toolbox"></div></div>
+      <div>
+
+      </div>
+    </div> -->    
+  </div>
+    <script src="../assets/js/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/c3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/d3.tip.v0.6.6.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/m.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/I18n.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e5a4b92d4a1b4e"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-12801815-40', 'auto');
+      ga('send', 'pageview');
+    </script>-->
+  </body>
+</html>

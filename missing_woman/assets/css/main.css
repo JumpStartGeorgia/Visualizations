@@ -1,0 +1,667 @@
+@font-face {
+  font-family: 'officina-book';
+  src: url('../fonts/OfficinaSansStd-Book.otf') format('opentype');
+}
+@font-face {
+  font-family: 'officina-bold';
+  src: url('../fonts/OfficinaSansStd-Bold.otf') format('opentype');
+}
+
+html, body
+{
+  width:100%;
+  height:100%;
+  margin:0px;
+  padding:0px;
+  background-color:#31b9dd;
+}
+.wrapper
+{
+  width:100%;
+  height:100%;
+}
+.loader
+{
+
+  width:100%;
+  height:100%;  
+}
+.magnet > div 
+{
+  display:inline-block;
+}
+.magnet.center
+{
+  margin:0px auto;
+  text-align:center;
+}
+.magnet.middle
+{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.human
+{
+
+  width:52px;
+  height:113px;
+}
+.man
+{
+  background:transparent url('../images/man.svg') center center no-repeat;  
+  background-size:100%;
+}
+.woman
+{
+  background:transparent url('../images/woman.svg') center center no-repeat;  
+  background-size:100%;
+}
+.woman-d
+{
+  background:transparent url('../images/woman_d.svg') center center no-repeat;  
+  background-size:100%;
+  opacity:1 !important;
+}
+.muted
+{
+  opacity:1;
+}
+.content
+{
+  display:none;
+  width:100%;
+  height:100%;
+}
+.content .page
+{
+  width:100%;
+  /*height:100%;*/
+  min-height:100%;
+}
+.content .grid
+{
+  text-align: center;
+  margin:10px 10px 10px 10px;
+  display:inline-block;
+  position:relative;  
+}
+.content .people
+{
+  display:inline-block;
+  z-index:2;
+}
+.content .data
+{
+  font-family:'officina-bold';
+  font-size:33px;
+  color:#fff;
+  display:inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index:1;
+  opacity:0;
+  background-color:#31b9dd;
+}
+.content .grid .people > div
+{
+  display:inline-block;
+  float:left;
+}
+.content .grid .people > div:nth-child(39n+1)
+{
+  clear:left;
+}
+/* --------------------------------- timeline ------------------------ */
+.content .timeline
+{
+  height:100px;
+  width:100%;
+  margin:40px auto;
+  display:inline-block;
+
+}
+.content .timeline .marks
+{
+  max-width:510px;
+  margin:0px auto;
+  display:table;
+  width:100%;
+  height:37px;
+  position:relative;
+}
+.content .timeline .marks .mark
+{
+  display:table-cell;
+  text-align:center;
+  width:170px;
+  min-width:170px;
+  max-width:170px;
+  vertical-align: top;
+  position:relative;
+}
+.content .timeline .marks .mark .dot
+{
+  background:transparent url('../images/dot.svg') no-repeat;  
+  background-position:center center;
+  background-size:9px;
+  width:9px;
+  height:9px;
+  top: 15px;
+  position: absolute;
+  width:100%;
+}
+.content .timeline .marks .mark.m1
+{
+  text-align:left;
+}
+.content .timeline .marks .mark.m1 .dot
+{
+  background-position:center left;
+}
+.content .timeline .marks .mark.m2
+{
+  background-position:center center;
+}
+.content .timeline .marks .mark.m3
+{
+  background-position:right center;
+  text-align:right;
+}
+.content .timeline .marks .mark.m3 .dot
+{
+  background-position:center right;
+}
+.content .timeline .marks .mark .label
+{
+  font-family:'officina-bold';
+  font-size:30px;
+  color:#fff;
+  position:relative;
+  top:50px;
+  vertical-align: top;
+}
+.content .timeline .marks .mark .label:hover
+{
+  cursor:pointer;
+}
+.content .timeline .marks .mark.m1 .label
+{
+  left:-33px;
+}
+.content .timeline .marks .mark.m3 .label
+{
+  right:-33px;
+}
+.content .timeline .line
+{
+  width:509px;
+  height:1px;
+  background-color:#fff;
+  position:absolute;
+  left: 0px;
+  top: 19px;
+}
+.content .timeline .dragpoint
+{
+  background:transparent url('../images/dragpoint.svg') no-repeat;  
+  background-size:37px 37px;
+  width:37px;
+  height:37px;
+  position:absolute;
+  left: -18.5px; /* should half of width*/
+  top: 0px;
+  cursor:pointer;
+}
+.content .question
+{
+  width:100%;
+}
+.content .question .button
+{
+  font-family:'officina-bold';
+  font-size:30px;
+  color:#fff;
+  background-color:#de435f;  
+  display:table;
+  margin:0px auto 80px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.content .question .button .box
+{
+  display:inline-block;
+  padding: 25px 40px;
+}
+.content .question .button:hover
+{
+  cursor:pointer;
+}
+.content .question .button .box > div
+{
+  display:inline-block;
+}
+.content .question .button .box .text
+{
+  padding:0px 25px;
+}
+.content .question .button .box .arrow
+{
+  background:transparent url('../images/arrows_down.svg') no-repeat;  
+  background-size:13px 16px;
+  width:13px;
+  height:16px;
+}
+.content .charts
+{
+  min-height:100%;
+  width:100%;  
+  background-color:#3d414f;
+  color:#fff;
+}
+.content .charts > div
+{
+  width:100%;
+}
+.content .charts .box
+{
+  padding-left:5%;  
+}
+.content .charts > .header
+{
+  background-color:#2f3241;
+  font-family:'officina-bold';
+  font-size:35px;
+  color:#fff;
+  padding: 30px 0px;  
+}
+.content .charts .sub-header
+{
+  background-color:#fff;
+  font-family:'officina-book';
+  font-size:30px;
+  color:#2f3241;
+  padding: 10px 0px;  
+}
+
+
+.bar-chart
+{
+  margin:60px 0px 0px;
+}
+.bar-chart .chart
+{
+  position:relative;
+  display: inline-block;
+}
+
+.bar-chart .chart .base-mark
+{
+  position:absolute; 
+  width:100%;
+  display:table;
+  top:86px;
+  z-index:2;
+}
+.bar-chart .chart .base-mark > div
+{
+  display:table-cell;
+  vertical-align:middle;
+}
+.bar-chart .chart .base-mark .text
+{
+  font-family:'officina-bold';
+  font-size:20px;
+  color:#bac6d3;
+}
+.bar-chart .chart .base-mark .dot
+{
+  background:transparent url('../images/dot_b.svg') no-repeat;  
+  background-size:7px 7px;
+  height:7px;
+  width:7px;
+  min-width:7px;
+  background-position: center center;
+}
+.bar-chart .chart .base-mark .line-box
+{
+  width:100%;
+}
+.bar-chart .chart .base-mark .horizontal-line
+{  
+  height:1px;
+  width:100%;
+  background-color:#2f3241;
+}
+.bar-chart .chart .indexes
+{
+  z-index:3;
+  position:relative;
+}
+.bar-chart .chart .indexes .index
+{
+  display:inline-block;
+  /*border:1px solid #2f3241;*/
+  min-width:115px;
+}
+.bar-chart .chart .indexes .index:not(:last-child)
+{
+  margin-right:20px;
+}
+.bar-chart .chart .indexes .index .country
+{
+  font-family:'officina-bold';
+  font-size:21px;
+  color:#31b9dd;
+  margin: 0px 0px 10px 0px;  
+  text-align:center;
+  text-transform: uppercase;
+}
+.bar-chart .chart .indexes .index .country.bottom
+{
+  margin: 20px 0px 0px 0px;  
+}
+.bar-chart .chart .indexes .index .country.highlight
+{
+  color:#de435f;
+}
+.bar-chart .chart .indexes .index .quantum
+{
+  font-family:'officina-bold';
+  font-size:20px;
+  color:#70788e;
+  padding: 0px 0px 10px 0px; 
+  text-align:center;
+}
+.bar-chart .chart .indexes .index .quantum-box
+{
+  height:240px;
+  width:43px;
+  margin:0px auto;
+  vertical-align:bottom;
+}
+.bar-chart .chart .indexes .index .quantum-box .rest
+{  
+  background-color:#fff;
+}
+.bar-chart .chart .indexes .index .quantum-box .base
+{
+  height:210px;
+  background-color:#31b9dd;
+}
+.bar-chart .chart .indexes .index .quantum-box .base.highlight
+{
+  background-color:#de435f;
+}
+.bar-chart .chart .indexes .index .quantum-box .bottom
+{
+  height:4px;
+  background-color:#242833;
+}
+.bar-chart .chart .indexes .index .country-shape
+{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 155px;  
+}
+.bar-chart .chart .indexes .index .country-shape .vertical-line
+{
+  position:absolute;
+  height:100%;
+  top:0px;
+  bottom:0px;
+  width:1px;
+  background-color:#2f3241;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index:5;
+}
+.bar-chart .chart .indexes .index .country-shape .shape
+{
+  background-position: center center;
+  background-size: 44px 52px;
+  position:relative;
+  z-index:6;
+  height: 155px;
+  width:100%;
+}
+/*------------------------------------------ Country Shapes ------------------------------------------*/
+.shape.albania
+{
+  background:transparent url('../images/countries/albania.svg') no-repeat;  
+}
+.shape.armenia
+{
+  background:transparent url('../images/countries/armenia.svg') no-repeat;  
+}
+.shape.azerbaijan
+{
+  background:transparent url('../images/countries/azerbaijan.svg') no-repeat;  
+}
+.shape.georgia
+{
+  background:transparent url('../images/countries/georgia.svg') no-repeat;  
+}
+.shape.india
+{
+  background:transparent url('../images/countries/india.svg') no-repeat;  
+  background-size: 93px 109px;
+  width: 93px;
+  height: 109px;
+}
+.shape.montenegro
+{
+  background:transparent url('../images/countries/montenegro.svg') no-repeat;  
+}
+.shape.pakistan
+{
+  background:transparent url('../images/countries/pakistan.svg') no-repeat;  
+}
+.shape.south_korea
+{
+  background:transparent url('../images/countries/south_korea.svg') no-repeat;  
+}
+.shape.singapore
+{
+  background:transparent url('../images/countries/singapore.svg') no-repeat;  
+}
+.shape.vietnam
+{
+  background:transparent url('../images/countries/vietnam.svg') no-repeat;  
+}
+.shape.china
+{
+  background:transparent url('../images/countries/china.svg') no-repeat;  
+  background-size: 189px 155px !important;
+  width: 189px !important;
+  height: 155px !important;
+}
+.bar-chart .chart .indexes .index .country-shape .dot
+{
+  background:transparent url('../images/dot_b.svg') no-repeat;  
+  background-size:7px 7px;
+  height:7px;
+  background-position: center bottom;
+  width: 100%;
+}
+
+
+.bar-chart .chart .legend
+{
+  font-family:'officina-book';
+  font-size:17px;
+  color:#c0cdd8;
+  margin:60px 0px 80px;
+}
+.bar-chart .chart .legend .source
+{
+  padding-left:14px;
+}
+.bar-chart .chart .legend .source > div
+{
+  display:inline-block;
+}
+.bar-chart .chart .legend > div .label
+{
+  color:#70788e;
+}
+
+
+
+.line-chart
+{
+
+}
+.line-chart .chart
+{
+  max-width:1000px;
+}
+.line-chart .header
+{
+  font-family:'officina-book';
+  font-size:30px;
+  color:#fff;
+  margin:0px 0px 40px;
+}
+
+.line-chart line.c3-xgrid,
+.line-chart line.c3-ygrid
+{
+  stroke: #313642;
+  stroke-dasharray:none;
+}
+.line-chart .c3-axis .tick line
+{
+  stroke: none;
+}
+.line-chart .c3-axis .tick text
+{
+  font-family:'officina-bold';
+  font-size:15px;
+  color:#fff;
+  fill:#fff;
+}
+.line-chart .c3-line {
+  stroke-width: 5px;
+}
+.line-chart .c3-circles .c3-circle{
+  fill:#bc2848 !important;
+}
+
+
+
+
+
+
+
+
+
+/*------------------------------------------ Tip ------------------------------------------*/
+.tip
+{
+  position:absolute;
+  opacity:0;
+  z-index:999;
+}
+.tip .data
+  {
+    font-family: 'officina-book';
+    font-size:16px; 
+    color:#70788e; 
+    background-color:rgba(36,40,51,200);
+    padding: 6px 10px;    
+    max-width: 400px;
+    line-height: 18px;
+
+  }
+      .tip .data:lang(en)
+    {
+      font-family: 'opensans';
+    }
+.tip  .pointer-top
+  {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(36,40,51,200);
+    margin: 0px auto 1px;
+  }
+  .tip  .pointer-bottom
+  {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(36,40,51,200);
+    margin: 1px auto 0px;
+    display:none;
+  }
+  div[data-tip]:hover
+  {
+    cursor:pointer;
+  }
+.tip .data > div
+{
+  padding:12px 10px;
+}  
+.tip .data > div > div
+{
+  text-align:center;
+}  
+.tip .country
+{
+  font-family: 'officina-bold';
+  font-size:23px; 
+  color:#bac6d3; 
+  text-transform: uppercase;
+  margin:10px 0px 5px;
+}
+.tip .region
+{
+  font-family: 'officina-book';
+  font-size:16px; 
+  color:#70788e; 
+  margin:0px 0px 10px;
+}
+
+.tip .gap,.tip .population
+{
+  font-family: 'officina-bold';
+  font-size:21px; 
+  color:#fff; 
+  margin:15px 0px 5px;
+}
+.tip .gap
+{
+  font-size:23px;
+}
+.tip .missing, .population_label
+{
+  font-family: 'officina-book';
+  font-size:18px; 
+  color:#bac6d3; 
+  margin:0px 0px 15px;
+}
+.tip .rate, .tip .gender-gap, .tip .period
+{
+  font-family: 'officina-book';
+  font-size:19px; 
+  color:#fff; 
+  margin:0px 0px 5px;
+}
+.tip .rate .label, .tip .gender-gap .label, .tip .period .label
+{
+  color:#bac6d3; 
+  display:inline;
+}
