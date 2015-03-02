@@ -93,11 +93,8 @@ html, body
   display:inline-block;
   z-index:2;
 }
-.content .data
+.content .explanation
 {
-  font-family:'officina-bold';
-  font-size:33px;
-  color:#fff;
   display:inline-block;
   position: absolute;
   top: 0px;
@@ -557,14 +554,12 @@ html, body
 .line-chart .c3-circles .c3-circle{
   fill:#bc2848 !important;
 }
-
-
-
-
-
-
-
-
+.line-chart .c3-axis-y-label , .line-chart .c3-axis-x-label 
+{
+  font-family:'officina-book';
+  font-size:20px;
+  fill:#70788e;
+}
 
 /*------------------------------------------ Tip ------------------------------------------*/
 .tip
@@ -665,3 +660,49 @@ html, body
   color:#bac6d3; 
   display:inline;
 }
+/*------------------------------------------  ------------------------------------------*/
+
+.explanation .row > div
+{
+  display:inline-block;
+  position:relative;
+}
+.explanation .cell .text
+{
+  font-family: 'officina-book';
+  font-size:16px; 
+  color:#fff; 
+  /*display:none;*/
+  position:absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left:0px;
+  z-index:3;
+  width:100%;
+  margin:0px auto;
+}
+.explanation .cell .label
+{
+  font-family: 'officina-bold';
+  font-size:19px; 
+  color:#fff; 
+}
+.explanation .cell .image
+{
+  background-size:80% !important;
+  width:420px;
+  height:270px;
+  z-index:4;
+  position:relative;
+}
+.explanation .cell .image:hover
+{
+  cursor:pointer;
+}
+.explanation .cell.c1 .image { background:#31B9DD url('../images/c1.svg') center center no-repeat; }
+.explanation .cell.c2 .image { background:#31B9DD url('../images/c2.svg') center center no-repeat; }
+.explanation .cell.c3 .image { background:#31B9DD url('../images/c3.svg') center center no-repeat; }
+.explanation .cell.c4 .image { background:#31B9DD url('../images/c4.svg') center center no-repeat; }
+

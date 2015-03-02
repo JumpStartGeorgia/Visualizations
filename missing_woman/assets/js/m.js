@@ -3,6 +3,7 @@ var mw = (function () {
   // locally scoped Object
    var obj = { };
    var blinkDuration = 900;
+   var animDuration = 900;
    var blinkEase = "linear";
    var gridMargin = 10;
    var gridItemMargin = 5;
@@ -25,17 +26,17 @@ var mw = (function () {
    var bar_chart = 
    {
       data: [
-        {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: "23,687", population:1357380000 },
+        {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: 23687, population:1357380000 },
         {k:"azerbaijan",v:117,class:"highlight", rate: 116.5, region: "sc", period:"2011", population_p: 7.8, population_t: 104, population:10162532},        
         {k:"armenia",v:115,class:"highlight", rate: 114.5, region: "sc", period:"2011", population_p: 7.4, population_t: 31, population:2976566},
         {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19, population:4476900},
-        {k:"albania",v:112, rate: 117.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15, population:"2,773,620"},
-        {k:"vietnam",v:111, rate: 111.2, region: "esa", period:"2010", population_p: 1.7, population_t: 245, population:"89,708,900"},
-        {k:"india",v:111, rate: 110.5, region: "sa", period:"2008-2010", population_p: 5.6, population_t: "13,197", population:"1,252,139,596"},
-        {k:"pakistan",v:110, rate: 109.9, region: "sa", period:"2007", population_p: 0.7, population_t: 281, population:"182,142,594"},
-        {k:"montenegro",v:110, rate: 109.8, region: "se", period:"2009-2011", population_p: 2.7, population_t: 2, population:"621,383"},
-        {k:"singapore",v:108, rate: 107.5, region: "esa", period:"2009", population_p: 1.9, population_t: 11, population:"5,399,200"},
-        {k:"south_korea",v:107, rate: 106.7, region: "esa", period:"2010", population_p: 4.8, population_t: 260, population:"50,219,669"}
+        {k:"albania",v:112, rate: 111.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15, population:2773620},
+        {k:"vietnam",v:111, rate: 111.2, region: "esa", period:"2010", population_p: 1.7, population_t: 245, population:89708900},
+        {k:"india",v:111, rate: 110.5, region: "sa", period:"2008-2010", population_p: 5.6, population_t: 13197, population:1252139596},
+        {k:"pakistan",v:110, rate: 109.9, region: "sa", period:"2007", population_p: 0.7, population_t: 281, population:182142594},
+        {k:"montenegro",v:110, rate: 109.8, region: "se", period:"2009-2011", population_p: 2.7, population_t: 2, population:621383},
+        {k:"singapore",v:108, rate: 107.5, region: "esa", period:"2009", population_p: 1.9, population_t: 11, population:5399200},
+        {k:"south_korea",v:107, rate: 106.7, region: "esa", period:"2010", population_p: 4.8, population_t: 260, population:50219669}
       ],
       s: null, // selector
       base: 105,
@@ -131,12 +132,20 @@ var mw = (function () {
 
       d3.selectAll('.marks .mark .label').on('click',function(){
         var tmp = +d3.select(this).attr('data-id');
-        trigger_drag(dots[tmp],tmp);
+        trigger_drag(tmp);
       });
       d3.selectAll('.question .button').on('click',function(){
           d3.select("body").transition().duration(2000)
           .tween("uniquetweenname", scrollTopTween(d3.select('.charts')[0][0].offsetTop));         
       });
+
+     d3.selectAll('.explanation .cell .image').on('mouseenter',function(){
+         d3.select(this).transition().duration(400).style("opacity",0);
+      });
+      d3.selectAll('.explanation .cell .image').on('mouseleave',function(){
+         d3.select(this).transition().duration(400).style("opacity",1);
+      });
+
       bar_chart_draw();
       line_chart_draw();
 
@@ -171,47 +180,26 @@ var mw = (function () {
   };
   var ondragend = function()
   {
-    var d = d3.select(this);
-    var i = 0,opacity = 0.1,x = d.data()[0].x;
-
-    if(x <= dots[1])
-    {
-      var b = x-dots[0]>dots[1]-x;
-      x = dots[(b ? 1 : 0)];
-      opacity = b ? 0.1 : 1;
-      i = b ? 0 : 1;
-    }
-    else
-    {
-      x = dots[((x-dots[1]>dots[2]-x) ? 2 : 1)];
-      i = b ? 1 : 2;
-    }
-    d.transition().duration(900).style("left", x-dragpointHalfWidth + "px");    
-    d3.selectAll('.grid .people .muted')
-      .transition()
-      .duration(900)
-      .style("opacity", opacity)
-      .each("end", function()
-      {
-        d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
-      });
-      content.select('.data').transition().duration(900).style("opacity", i == 2 ? 1 : 0);
+    var i = 0, x = d3.select(this).data()[0].x;
+    if(x <= dots[1]) i = x-dots[0]>dots[1]-x ? 1 : 0;
+    else i = x-dots[1]>dots[2]-x ? 2 : 1;
+    trigger_drag(i);
   };
-  var trigger_drag = function(x,i)
+  var trigger_drag = function(i)
   {
+    var x = dots[i];
     var opacity = (i == 0 ? 1 : 0.1);
     var all = d3.selectAll('.grid .people .muted');
     if(i == 0) all.classed('woman', true).classed('woman-d', false);
-
-    d3.select('.timeline .marks .dragpoint').datum({x:x}).transition().duration(900).style("left", x-dragpointHalfWidth + "px");
+    d3.select('.timeline .marks .dragpoint').datum({x:x}).transition().duration(animDuration).style("left", x-dragpointHalfWidth + "px");
     all.transition()
-      .duration(900)
+      .duration(animDuration)
       .style("opacity", opacity)
       .each("end", function()
       {
         d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
       });
-    content.select('.data').transition().duration(900).style("opacity", i == 2 ? 1 : 0);      
+    content.select('.explanation').transition().duration(animDuration).style("opacity", i == 2 ? 1 : 0);      
   };
 /*------------------------------------------ Bar Chart ------------------------------------------*/
   var bar_chart_draw = function()
@@ -279,12 +267,12 @@ var mw = (function () {
           var html =  '<div>' +
                          '<div class="country">' + I18n.t('charts-bar_chart-' + d.k) + '</div>' + 
                          '<div class="region">' + I18n.t('charts-bar_chart-' + d.region) + '</div>' + 
-                         '<div class="gap">' + d.population_t + '</div>' + 
+                         '<div class="gap">' + d.population_t.toLocaleString() + '</div>' + 
                          '<div class="missing">' + I18n.t('charts-bar_chart-missing_woman') + '</div>' + 
-                         '<div class="population">' + d.population + '</div>' + 
+                         '<div class="population">' + d.population.toLocaleString() + '</div>' + 
                          '<div class="population_label">' + I18n.t('charts-bar_chart-population') + '</div>' + 
                          '<div class="rate"><div class="label">' + I18n.t('charts-bar_chart-rate') + "&nbsp;</div>" + d.rate + '</div>' + 
-                         '<div class="gender-gap"><div class="label">' + I18n.t('charts-bar_chart-gender_gap') + "&nbsp;</div>" + d.population_p + '</div>' + 
+                         '<div class="gender-gap"><div class="label">' + I18n.t('charts-bar_chart-gender_gap') + "&nbsp;</div>" + d.population_p.toLocaleString() + '</div>' + 
                          '<div class="period"><div class="label">' + I18n.t('year') + ":&nbsp;</div>" + d.period + '</div>' +                         
                       '</div>';
           var content = tip.select('.data').html(html);
@@ -315,33 +303,46 @@ var mw = (function () {
     var chart = c3.generate({
         bindto: '#line_chart',
         data: {
+          x : 'x',
           columns: [
-            ['azerbaijan', 30, 200, 100, 400, 150, 250],
-            ['armenia', 50, 20, 10, 40, 15, 25],
-            ['georgia', 70, 10, 10, 40, 200, 25]
+            [ 'x', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
+            [ 'azerbaijan', 104.1, 103.9, 103.7, 103.4, 103.2, 102.9, 102.7, 104.1, 101.9, 101.7, 101.5 ],
+            [ 'armenia', 108.3, 108, 107.7, 107.4, 107.1, 106.9, 106.7, 106.5, 106.2, 106, 105.9 ],
+            [ 'georgia', 112, 111.1, 111.6, 111.5, 111.2, 111.3, 110.8, 110.8, 110.4, 110.1, 109.8 ]
           ],
           type: 'spline',
           colors: {
-            data1: '#de435f',
-            data2: '#de435f',
-            data3: '#de435f'
-          },
-          color: function(color,id){ return '#de435f';}
+            azerbaijan: '#de7d8e',
+            armenia: '#e05f76',
+            georgia: '#de435f'
+          }          
         },
-        grid: {
-          x: {
-            //lines: [{class: 'solidline'}]
-            show: true,
-            //class: 'solidline'
-          },
-          y:
+        axis: {
+          x:
           {
-            show: true
+            label: { 
+              text:"Year",
+              position: 'outer-left'
+            },
+          },
+          y: {
+            label: {
+              text:"Women per 100 Men",
+              position: 'outer-top',
+            },
+            tick: {
+              values: [100, 103, 106, 109, 112, 115]
+            }
           }
         },
         legend: {
           show: true,
           position: 'right'
+        },
+        onrendered: function (d) {  console.log(d,this); 
+          d3.select('.line-chart .c3-axis-y-label').attr("dy", -45);
+          d3.select('.line-chart .c3-axis-x-label').attr({"dy":30,"dx":65});
+
         }
     });
   };
