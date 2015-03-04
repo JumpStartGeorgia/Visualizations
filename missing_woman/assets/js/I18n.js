@@ -1,26 +1,26 @@
 var I18n = (function () {
      // locally scoped Object
+   var dev = true;
    var obj = { };
    var default_locale = "en";
    var locale = default_locale;
    var languages = ["az","en","hy","ka","ru"];
-   var locales = {};
    var data = null;
    var delve_threshold = 3;
-      
+   var protecting = false;
+   var protectedKey;
+   var protectedValue;      
    obj.locale = function()
    {
       return locale;
    }
+   obj.locales = {};
    obj.init = function()
    {
       init_locale();
-      init_locales();
-      if(init_data())
-      {
-         allocate();
-      }
+      load_locale();
    };
+
    obj.t = function(path)
    {
       if(typeof path == "string")
@@ -48,7 +48,11 @@ var I18n = (function () {
       }
       log("I18n: translation missing for '"+path+"'!");
       return "";
-   }
+   };
+   var init_continue = function()
+   {
+      allocate();
+   };
    var init_locale = function()
    {
       var tmp = window.location.search.substr(1).split('&');
@@ -66,31 +70,14 @@ var I18n = (function () {
       else 
       {
          locale = default_locale;
-         log("I18n: Default language was loaded!");
+         log("I18n: Default language was selected!");
       }
       document.documentElement.lang=locale;
-   };
-   var init_data = function()
-   {
-      if(locales.hasOwnProperty(locale))
-      {
-         data = locales[locale];
-      }
-      else if(locales.hasOwnProperty(default_locale))
-      {
-         data = locales[default_locale];
-      }
-      else 
-      {
-         log("I18n: None of the translation exists! So I18n stopped!");
-         return false;
-      }
-      return true;
    };
    var allocate = function()
    {
       if(typeof data == "object")
-      {         
+      {       
          delve(data);
       }
       else 
@@ -121,7 +108,7 @@ var I18n = (function () {
       });
    };
    var assign_locale = function(k,v)
-   {       
+   {      
       var kCamel = "i18n";
       k.split("-").forEach(function(a){
          kCamel += a.charAt(0).toUpperCase() + a.slice(1);
@@ -132,104 +119,112 @@ var I18n = (function () {
          d = all[i];
          if(["text","t",""].indexOf(d.dataset[kCamel]) != -1)
          {
-            d.innerHTML = v;
+            d.innerHTML = v;             
          }
          else if(["content"].indexOf(d.dataset[kCamel]) != -1)
          {
             d.content = v;
          }
+         else console.log(d.dataset,v);
          d.removeAttribute('data-' + k);
       }
    };
-   var init_locales = function()
+   var protect = function(v)
    {
-      locales.en = 
+      protectedKey = v;
+      if(window.hasOwnProperty(protectedKey))
       {
-         title: "Missing Woman",
-         description: "Missing Woman Description",
-         url: "www.google.com",
-         site_name: "Missing Woman",
-
-         year: "Year",
-         timeline: 
-         {
-            past: "1995",
-            today: "Today",
-            future: "2035"
-         },
-         about:
-         {
-            text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-         },
-         question: "What's wrong?",
-         charts:
-         {
-            header: "CHOOSING MALE IN THE SOUTH CAUCASUS",
-            sub_header: "Male to Female Ratio at Birth",
-            bar_chart: {
-               china: "China",
-               azerbaijan: "Azerbaijan",
-               armenia: "Armenia",
-               georgia: "Georgia",
-               albania: "Albania",
-               vietnam: "Vietnam",
-               india: "India",
-               pakistan: "Pakistan",
-               montenegro: "Montenegro",
-               singapore: "Singapore",
-               south_korea: "South Korea",
-               esa: "East and Southeast Asia",
-               sc: "South Caucasus",
-               sa: "South Asia",
-               se: "Southeast Europe",
-               base_mark: "105*",
-               asterisk: "* Population 0-19 years",
-               source1_label: "Source:&nbsp;",
-               source1: "Sex imbalances at birth in Armenia: Demographic evidence and analysis",
-               source2_label: "Gender Gap Source:&nbsp;",
-               source2: "Sex Imbalances at Birth: Current trends, consequences and policy implications",
-               missing_woman: "Missing Women*",
-               population: "Population",
-               rate: "Sex Rate at Birth:",
-               gender_gap: "Gender Gap:"
-            },
-            line_chart:
-            {
-               header: "Decline of Female to Male Ratio in the South Caucasus"
-            }
-         }
-      };
-      locales.ka = 
-      {
-         title: "Ka Missing Woman",
-         description: "Ka Description",
-         url: "www.google.ge",
-         site_name: "KA Missing Woman",
-         timeline: 
-         {
-            past:"1995",
-            today:"აქანე",
-            future: "2035"
-         },
-         about:
-         {
-            text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-         },         
-         question: "Ka What's wrong?",
-         charts:
-         {
-            header: "მამრობითი სქესის არჩევა სამხრეთ კავკასიაში",
-            sub_header: "Ka Male to Female Ratio at Birth",
-            bar_chart: "Ka Bar Chart",
-            line_chart: "Ka Line Chart"
-         }
-      };
+         protectedValue = window[protectedKey];
+         protecting = true;
+      }  
    };
+   var unprotect = function()
+   {
+      if(protecting)
+      {
+         window[protectedKey] = protectedValue;
+         protecting = false;
+      }
+   };
+   var load_locale = function()
+   {     
+       
+      var dataReady = false;
+      protect(locale);
+      load_file('assets/locale/' + locale + ".js", 
+         function() { //on success
+            if(has(locale) && typeof window[locale] == "object" && window[locale] != null)
+            {
+               data = window[locale];            
+               init_continue();                             
+            } 
+            else 
+            {
+               if(locale != default_locale)
+                  load_default_locale();
+               else nodata();
+            }
+            unprotect();
+         }, function() { 
+               if(locale != default_locale)
+                  load_default_locale(); 
+               else nodata();
+               }); // end of load_file           
+   };
+
+   var load_default_locale = function()
+   {
+      unprotect();
+      protect(default_locale);
+      load_file('assets/locale/' + default_locale + ".js", function() { //on success
+         if(has(default_locale) && typeof window[default_locale] == "object")
+         {
+            data = window[default_locale];                
+            log("I18n: Default translation was loaded!");         
+            init_continue();               
+         } 
+         else 
+         {
+            nodata();  
+         }
+         unprotect();
+      }, function() { unprotect(); nodata(); }); // end of load_file      
+   };
+   var nodata = function()
+   {
+      log("I18n: None of translation exists! So I18n stopped!");
+   };
+   var load_file = function(src, callback, error_callback) {
+       var s = document.createElement('script');
+       //s.type = 'text/javascript';
+       s.src = src;
+       s.async = false;
+       s.onreadystatechange = s.onload=  function() {
+           var state = s.readyState;
+           if (!callback.done && (!state || /loaded|complete/.test(state))) {
+               callback.done = true;
+               callback();
+           }
+       };   
+       s.onerror = function(e){ 
+         if(!error_callback.done)
+         {
+            error_callback.done = true;
+            error_callback();
+         }          
+       }; 
+       document.getElementsByTagName('body')[0].appendChild(s);
+   }
    var log = function(v)
    {
-       console.log(v);
+      if(dev) console.log(v);
    };
-
+   var has = function(prop)
+   {
+      return window.hasOwnProperty(prop);
+   };
    return obj;
 
 })();
+
+window.onerror = function(a,b,c) { console.log("asdf", a,b,c);}
