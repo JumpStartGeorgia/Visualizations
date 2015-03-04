@@ -9,16 +9,18 @@ var I18n = (function () {
    var delve_threshold = 3;
    var protecting = false;
    var protectedKey;
-   var protectedValue;      
+   var protectedValue;   
+   var outerCallback = null;  
    obj.locale = function()
    {
       return locale;
    }
    obj.locales = {};
-   obj.init = function()
+   obj.init = function(callback)
    {
       init_locale();
       load_locale();
+      outerCallback = callback;
    };
 
    obj.t = function(path)
@@ -79,6 +81,7 @@ var I18n = (function () {
       if(typeof data == "object")
       {       
          delve(data);
+         if(typeof outerCallback == "function") outerCallback();
       }
       else 
       {
@@ -125,7 +128,6 @@ var I18n = (function () {
          {
             d.content = v;
          }
-         else console.log(d.dataset,v);
          d.removeAttribute('data-' + k);
       }
    };
@@ -226,5 +228,3 @@ var I18n = (function () {
    return obj;
 
 })();
-
-window.onerror = function(a,b,c) { console.log("asdf", a,b,c);}

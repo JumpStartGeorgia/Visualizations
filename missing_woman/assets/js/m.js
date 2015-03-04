@@ -6,12 +6,13 @@ var mw = (function () {
    var animDuration = 900;
    var blinkEase = "linear";
    var gridMargin = 10;
-   var gridItemMargin = 5;
+   var gridItemMarginH = 5;
+   var gridItemMarginV = 3;
    var w = window.innerWidth;
    var h = window.innerHeight;
    var hw = 52;
    var hh = 113;
-   var hp = 52/113;
+   var hp = hh/hw;
    var grid = null;
    var content = null;
    var perRowCount = 39;
@@ -75,6 +76,9 @@ var mw = (function () {
       d3.select('.loader').style("display","none");
       content = d3.select('.content').style("display","inline-block");
       grid = content.select('.grid .people');
+      var tmpHeight = h - (2*gridMargin+40) - 266 ;
+      content.select('.grid').style('height', tmpHeight + "px")
+
       var womenToSelect = {};
       var womenToSelectCount = 0;
       var tmp = 0;
@@ -90,6 +94,20 @@ var mw = (function () {
       var tmpManCount = manCount;
       var tmpWomanCount = womanCount;
       var womanCounter = 0;
+      var tmpW = Math.floor((w-2*gridMargin-2*perRowCount*gridItemMarginH)/perRowCount);
+      var tmpH = Math.floor((tmpHeight-2*5*gridItemMarginV)/5);
+      if(tmpW < hw)
+      {
+        hHeight = Math.ceil(hp * tmpW);
+      }
+      if(tmpH < hh)
+      {
+        
+      }
+       console.log(tmpW, tmpH );
+
+      var hWidth = Math.floor((w-(16+2*gridMargin)-2*perRowCount*gridItemMarginH)/perRowCount);
+      var hHeight = Math.ceil(hp * hWidth);
       grid.selectAll('div').data(d3.range(1,humansCount+1,1))
         .enter().append("div")
         .attr("class", function(d)
@@ -116,8 +134,8 @@ var mw = (function () {
             }
             return "human" + (tmp ? " man" : " woman")+ (!tmp ? (womenToSelect.hasOwnProperty(womanCounter) ? " muted" : "") : ""); 
          })
-        .style({"width":(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px',
-               "margin": ('0px '+ gridItemMargin+'px')});  
+        .style({"width": hWidth + 'px', "height": hHeight + 'px',
+               "margin": ('6px '+ gridItemMarginH+'px')});  
 
 
 
@@ -146,10 +164,12 @@ var mw = (function () {
          d3.select(this).transition().duration(400).style("opacity",1);
       });
 
-      bar_chart_draw();
-      line_chart_draw();
-
-      I18n.init();
+      I18n.init(function(){ prepareContinue(); });
+  };
+  var prepareContinue = function()
+  {
+    bar_chart_draw();
+    line_chart_draw();
   };
   var resize = function() {
     w = window.innerWidth;
@@ -158,7 +178,7 @@ var mw = (function () {
   };
   var redraw = function()
   {
-    grid.selectAll('div').style("width",(w-(16+2*gridMargin)-2*perRowCount*gridItemMargin)/perRowCount+'px');           
+    grid.selectAll('div').style("width",(w-(16+2*gridMargin)-2*perRowCount*gridItemMarginH)/perRowCount+'px');           
   };
   var ondrag = function()
   {
@@ -305,29 +325,37 @@ var mw = (function () {
         data: {
           x : 'x',
           columns: [
-            [ 'x', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
-            [ 'azerbaijan', 104.1, 103.9, 103.7, 103.4, 103.2, 102.9, 102.7, 104.1, 101.9, 101.7, 101.5 ],
+            [ 'x', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013' ],
+            [ 'georgia', 112, 111.1, 111.6, 111.5, 111.2, 111.3, 110.8, 110.8, 110.4, 110.1, 109.8 ],
             [ 'armenia', 108.3, 108, 107.7, 107.4, 107.1, 106.9, 106.7, 106.5, 106.2, 106, 105.9 ],
-            [ 'georgia', 112, 111.1, 111.6, 111.5, 111.2, 111.3, 110.8, 110.8, 110.4, 110.1, 109.8 ]
+            [ 'eu', 105.4, 105.4, 105.3, 105.3, 105.2, 105.1, 105.1, 105, 105, 105, 104.9, 104.8 ],
+            [ 'azerbaijan', 104.1, 103.9, 103.7, 103.4, 103.2, 102.9, 102.7, 104.1, 101.9, 101.7, 101.5, 101.3 ]
           ],
           type: 'spline',
+            names: {
+              armenia: I18n.t('charts-line_chart-legend-armenia'),
+              azerbaijan: I18n.t('charts-line_chart-legend-azerbaijan'),
+              georgia: I18n.t('charts-line_chart-legend-georgia'),
+              eu: I18n.t('charts-line_chart-legend-eu')
+          },
           colors: {
-            azerbaijan: '#de7d8e',
-            armenia: '#e05f76',
-            georgia: '#de435f'
+            azerbaijan: '#42a555',
+            armenia: '#dd8345',
+            georgia: '#f75c5c',
+            eu: '#468cc1'        
           }          
         },
         axis: {
           x:
           {
             label: { 
-              text:"Year",
+              text: I18n.t('year'),
               position: 'outer-left'
             },
           },
           y: {
             label: {
-              text:"Women per 100 Men",
+              text: I18n.t('charts-line_chart-y_label'),
               position: 'outer-top',
             },
             tick: {
@@ -339,10 +367,21 @@ var mw = (function () {
           show: true,
           position: 'right'
         },
-        onrendered: function (d) {  console.log(d,this); 
+        tooltip: {
+          show: true
+        },
+        onrendered: function () {
           d3.select('.line-chart .c3-axis-y-label').attr("dy", -45);
           d3.select('.line-chart .c3-axis-x-label').attr({"dy":30,"dx":65});
-
+          d3.selectAll('.line-chart .c3-legend-item').each(function(d,i){
+            if(i > 0)
+            {
+              var t = d3.select(this);             
+              t.select('text').attr('y', +t.select('text').attr('y') + i*5);
+              t.select('.c3-legend-item-event').attr('y', +t.select('.c3-legend-item-event').attr('y') + i*5);
+              t.select('.c3-legend-item-tile').attr('y', +t.select('.c3-legend-item-tile').attr('y') + i*5);
+            }
+          });
         }
     });
   };

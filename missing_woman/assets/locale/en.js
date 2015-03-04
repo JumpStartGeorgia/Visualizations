@@ -69,7 +69,15 @@
       },
       line_chart:
       {
-         header: "Decline of Female to Male Ratio in the South Caucasus"
+         header: "Decline of Female to Male Ratio in the South Caucasus",
+         y_label: "Women per 100 Men",
+         legend:
+         {
+            azerbaijan: "Azerbaijan()",
+            armenia: "Armenia()",
+            georgia: "Georgia()",
+            eu: "EU (28 countries)"
+         }
       }
    }
 };   
