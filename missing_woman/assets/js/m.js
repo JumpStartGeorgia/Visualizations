@@ -23,22 +23,27 @@ var mw = (function () {
    var dragpointWidth = 37;
    var dragpointHalfWidth = dragpointWidth/2;
    var marksWidth = 0;
-   var dots = null;  
+   var dots = null; 
+   var loaderStartTime = 0; 
+   var loaderAtLeast = 3000; // milliseconds
+
    var bar_chart = 
    {
       data: [
-        {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: 23687, population:1357380000 },
+        {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: 23687000, population:1357380000 },
         {k:"azerbaijan",v:117,class:"highlight", rate: 116.5, region: "sc", period:"2011", population_p: 7.8, population_t: 104, population:10162532},        
-        {k:"armenia",v:115,class:"highlight", rate: 114.5, region: "sc", period:"2011", population_p: 7.4, population_t: 31, population:2976566},
-        {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19, population:4476900},
-        {k:"albania",v:112, rate: 111.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15, population:2773620},
-        {k:"vietnam",v:111, rate: 111.2, region: "esa", period:"2010", population_p: 1.7, population_t: 245, population:89708900},
-        {k:"india",v:111, rate: 110.5, region: "sa", period:"2008-2010", population_p: 5.6, population_t: 13197, population:1252139596},
-        {k:"pakistan",v:110, rate: 109.9, region: "sa", period:"2007", population_p: 0.7, population_t: 281, population:182142594},
-        {k:"montenegro",v:110, rate: 109.8, region: "se", period:"2009-2011", population_p: 2.7, population_t: 2, population:621383},
-        {k:"singapore",v:108, rate: 107.5, region: "esa", period:"2009", population_p: 1.9, population_t: 11, population:5399200},
-        {k:"south_korea",v:107, rate: 106.7, region: "esa", period:"2010", population_p: 4.8, population_t: 260, population:50219669}
+        {k:"armenia",v:115,class:"highlight", rate: 114.5, region: "sc", period:"2011", population_p: 7.4, population_t: 31000, population:2976566},
+        {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19000, population:4476900},
+        {k:"albania",v:112, rate: 111.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15000, population:2773620},
+        {k:"vietnam",v:111, rate: 111.2, region: "esa", period:"2010", population_p: 1.7, population_t: 245000, population:89708900},
+        {k:"india",v:111, rate: 110.5, region: "sa", period:"2008-2010", population_p: 5.6, population_t: 13197000, population:1252139596},
+        {k:"pakistan",v:110, rate: 109.9, region: "sa", period:"2007", population_p: 0.7, population_t: 281000, population:182142594},
+        {k:"montenegro",v:110, rate: 109.8, region: "se", period:"2009-2011", population_p: 2.7, population_t: 2000, population:621383},
+        {k:"singapore",v:108, rate: 107.5, region: "esa", period:"2009", population_p: 1.9, population_t: 11000, population:5399200},
+        {k:"south_korea",v:107, rate: 106.7, region: "esa", period:"2010", population_p: 4.8, population_t: 260000, population:50219669}
       ],
+
+
       s: null, // selector
       base: 105,
       base_max: 118,
@@ -49,11 +54,9 @@ var mw = (function () {
    var init = function()
    {
       blink();
+      loaderStartTime = (new Date()).getTime();
       d3.select(window).on('resize', resize);
-      setTimeout(function()
-     {
-        prepare();     
-      },0);
+      prepare();     
    };
    var blink = function () {
       d3.select('.loader .woman')
@@ -72,9 +75,8 @@ var mw = (function () {
          });
    };
    var prepare = function()
-   {
-      d3.select('.loader').style("display","none");
-      content = d3.select('.content').style("display","inline-block");
+   {    
+      content = d3.select('.content');
       grid = content.select('.grid .people');
       var tmpHeight = h - (2*gridMargin+40) - 266 ;
       content.select('.grid').style('height', tmpHeight + "px")
@@ -94,20 +96,33 @@ var mw = (function () {
       var tmpManCount = manCount;
       var tmpWomanCount = womanCount;
       var womanCounter = 0;
+
       var tmpW = Math.floor((w-2*gridMargin-2*perRowCount*gridItemMarginH)/perRowCount);
       var tmpH = Math.floor((tmpHeight-2*5*gridItemMarginV)/5);
+
+      var hWidth = hHeight = hh1 = hw1 = hh2 = hw2 = 0;
+
       if(tmpW < hw)
       {
-        hHeight = Math.ceil(hp * tmpW);
+        hw1 = tmpW;
+        hh1 = Math.ceil(hp * hw1);
       }
       if(tmpH < hh)
       {
-        
+        hh2 = tmpH;
+        hw2 = Math.ceil(hw/hh*hh2);
       }
-       console.log(tmpW, tmpH );
+      hWidth = hw1;
+      hHeight = hh1;
+      if(hh1 < hh2)
+      {
+        hWidth = hw2;
+        hHeight = hh2;
+      }
+       //console.log(tmpW, tmpH );
 
-      var hWidth = Math.floor((w-(16+2*gridMargin)-2*perRowCount*gridItemMarginH)/perRowCount);
-      var hHeight = Math.ceil(hp * hWidth);
+      //var hWidth = Math.floor((w-(16+2*gridMargin)-2*perRowCount*gridItemMarginH)/perRowCount);
+      //var hHeight = Math.ceil(hp * hWidth);
       grid.selectAll('div').data(d3.range(1,humansCount+1,1))
         .enter().append("div")
         .attr("class", function(d)
@@ -148,7 +163,7 @@ var mw = (function () {
         .on("dragend", ondragend);
       d3.select('.dragpoint').call(drag);
 
-      d3.selectAll('.marks .mark .label').on('click',function(){
+      d3.selectAll('.marks .mark .label, .marks .mark .dot').on('click',function(){
         var tmp = +d3.select(this).attr('data-id');
         trigger_drag(tmp);
       });
@@ -158,18 +173,31 @@ var mw = (function () {
       });
 
      d3.selectAll('.explanation .cell .image').on('mouseenter',function(){
-         d3.select(this).transition().duration(400).style("opacity",0);
+         d3.select(this).transition().duration(700).style("opacity",0);
       });
       d3.selectAll('.explanation .cell .image').on('mouseleave',function(){
-         d3.select(this).transition().duration(400).style("opacity",1);
+         d3.select(this).transition().duration(700).style("opacity",1);
       });
-
       I18n.init(function(){ prepareContinue(); });
   };
   var prepareContinue = function()
   {
     bar_chart_draw();
     line_chart_draw();
+    if(loaderStartTime - (new Date()).getTime() > loaderAtLeast)
+    {
+      show();    
+    }
+    else 
+    {
+      setTimeout(function(){ show(); }, loaderAtLeast);
+    }
+  };
+  var show = function()
+  {
+    d3.select('.wrapper').style({"visibility":"visible", "position":"absolute"});  
+    d3.select('.loader').style("display","none"); 
+    trigger_drag(1,2000);
   };
   var resize = function() {
     w = window.innerWidth;
@@ -182,6 +210,7 @@ var mw = (function () {
   };
   var ondrag = function()
   {
+  
     var x = d3.event.x;
     if(x >= 0 && x <= marksWidth);
     else if(x < 0) x = 0;
@@ -196,7 +225,8 @@ var mw = (function () {
     {
       d3.selectAll('.grid .people .muted').classed('woman-d',true).classed('woman',false);
     }
-    d3.select(this).style("left", x-dragpointHalfWidth + "px").datum({x:x});
+    //console.log(d3.select(this),x-dragpointHalfWidth,x,dragpointHalfWidth);
+    d3.select(this).datum({x:x}).style("left", x-dragpointHalfWidth + "px");
   };
   var ondragend = function()
   {
@@ -205,21 +235,22 @@ var mw = (function () {
     else i = x-dots[1]>dots[2]-x ? 2 : 1;
     trigger_drag(i);
   };
-  var trigger_drag = function(i)
+  var trigger_drag = function(i,dur)
   {
+    dur = dur || animDuration;
     var x = dots[i];
     var opacity = (i == 0 ? 1 : 0.1);
     var all = d3.selectAll('.grid .people .muted');
     if(i == 0) all.classed('woman', true).classed('woman-d', false);
-    d3.select('.timeline .marks .dragpoint').datum({x:x}).transition().duration(animDuration).style("left", x-dragpointHalfWidth + "px");
+    d3.select('.timeline .marks .dragpoint').datum({x:x}).transition().duration(dur).style("left", x-dragpointHalfWidth + "px");
     all.transition()
-      .duration(animDuration)
+      .duration(dur)
       .style("opacity", opacity)
       .each("end", function()
       {
         d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
       });
-    content.select('.explanation').transition().duration(animDuration).style("opacity", i == 2 ? 1 : 0);      
+    content.select('.explanation').transition().duration(dur).style("opacity", i == 2 ? 1 : 0);      
   };
 /*------------------------------------------ Bar Chart ------------------------------------------*/
   var bar_chart_draw = function()
@@ -287,13 +318,11 @@ var mw = (function () {
           var html =  '<div>' +
                          '<div class="country">' + I18n.t('charts-bar_chart-' + d.k) + '</div>' + 
                          '<div class="region">' + I18n.t('charts-bar_chart-' + d.region) + '</div>' + 
-                         '<div class="gap">' + d.population_t.toLocaleString() + '</div>' + 
-                         '<div class="missing">' + I18n.t('charts-bar_chart-missing_woman') + '</div>' + 
-                         '<div class="population">' + d.population.toLocaleString() + '</div>' + 
-                         '<div class="population_label">' + I18n.t('charts-bar_chart-population') + '</div>' + 
-                         '<div class="rate"><div class="label">' + I18n.t('charts-bar_chart-rate') + "&nbsp;</div>" + d.rate + '</div>' + 
+                         '<div class="rate"><div class="label">' + I18n.t('charts-bar_chart-rate') + "&nbsp;</div>" + d.rate + '%</div>' + 
                          '<div class="gender-gap"><div class="label">' + I18n.t('charts-bar_chart-gender_gap') + "&nbsp;</div>" + d.population_p.toLocaleString() + '</div>' + 
-                         '<div class="period"><div class="label">' + I18n.t('year') + ":&nbsp;</div>" + d.period + '</div>' +                         
+                         '<div class="missing">' + I18n.t('charts-bar_chart-missing_woman') + '</div>' + 
+                         '<div class="gap">' + d.population_t.toLocaleString() + '</div>' + 
+                         '<div class="period">(' + d.period + ')</div>' +                         
                       '</div>';
           var content = tip.select('.data').html(html);
           var tiph = tip[0][0].clientHeight;
@@ -322,6 +351,10 @@ var mw = (function () {
   {
     var chart = c3.generate({
         bindto: '#line_chart',
+        size: {
+          width: 1024,
+          height: 320
+        },
         data: {
           x : 'x',
           columns: [

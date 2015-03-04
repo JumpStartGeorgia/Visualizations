@@ -17,7 +17,7 @@ var I18n = (function () {
    }
    obj.locales = {};
    obj.init = function(callback)
-   {
+   {       
       init_locale();
       load_locale();
       outerCallback = callback;
