@@ -19,31 +19,34 @@
   <body>
   <div class="wrapper">
   <div class="content">
-    <div class="page">
+    <div class="page page1">
       <div class="grid">       
         <div class="explanation">
-          <div class="row">
-            <div class="cell c1">
-              <div class="text" data-i18n-explanation-c1-text></div>
-              <div class="image"></div>
-              <div class="label" data-i18n-explanation-c1-label></div>
+          <div class="box">
+            <div class="header" data-i18n-explanation-header></div>
+            <div class="row">
+              <div class="cell c1">
+                <div class="text" data-i18n-explanation-c1-text></div>
+                <div class="image"></div>
+                <div class="label" data-i18n-explanation-c1-label></div>
+              </div>
+              <div class="cell c2">              
+                <div class="text" data-i18n-explanation-c2-text></div>
+                <div class="image"></div>
+                <div class="label" data-i18n-explanation-c2-label></div>
+              </div>
             </div>
-            <div class="cell c2">              
-              <div class="text" data-i18n-explanation-c2-text></div>
-              <div class="image"></div>
-              <div class="label" data-i18n-explanation-c2-label></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="cell c3">
-              <div class="text" data-i18n-explanation-c3-text></div>
-              <div class="image"></div>
-              <div class="label" data-i18n-explanation-c3-label></div>
-            </div>
-            <div class="cell c4">
-              <div class="text" data-i18n-explanation-c4-text></div>
-              <div class="image"></div>
-              <div class="label" data-i18n-explanation-c4-label></div>
+            <div class="row">
+              <div class="cell c3">
+                <div class="text" data-i18n-explanation-c3-text></div>
+                <div class="image"></div>
+                <div class="label" data-i18n-explanation-c3-label></div>
+              </div>
+              <div class="cell c4">
+                <div class="text" data-i18n-explanation-c4-text></div>
+                <div class="image"></div>
+                <div class="label" data-i18n-explanation-c4-label></div>
+              </div>
             </div>
           </div>
         </div>
@@ -51,23 +54,24 @@
       </div>
       
       <div class="timeline">
-        <div class="marks">
-          <div class="mark m1">  
-            <div class="dot"></div>          
-            <div class="label" data-id="0" data-i18n-timeline-past></div>
+        <div class="box">
+          <div class="marks">
+            <div class="mark m1">  
+              <div class="dot" data-id="0"></div>          
+              <div class="label" data-id="0" data-i18n-timeline-past></div>
+            </div>
+            <div class="mark m2">
+              <div class="dot" data-id="1"></div>
+              <div class="label" data-id="1" data-i18n-timeline-today></div>
+            </div>
+            <div class="mark m3">
+              <div class="dot" data-id="2"></div>            
+              <div class="label" data-id="2" data-i18n-timeline-future></div>
+            </div>
+            <div class="line"></div>
+            <div class="dragpoint"></div>
           </div>
-          <div class="mark m2">
-            <div class="dot"></div>
-            <div class="label" data-id="1" data-i18n-timeline-today></div>
-          </div>
-          <div class="mark m3">
-            <div class="dot"></div>            
-            <div class="label" data-id="2" data-i18n-timeline-future></div>
-          </div>
-          <div class="line"></div>
-          <div class="dragpoint"></div>
-        </div>
-         
+         </div>
       </div>
       <div class="question">
         <div class="button">
@@ -79,35 +83,49 @@
         </div>
       </div>
     </div>
-    <div class="page">
+    <div class="page page2">
       <div class="charts">
         <div class="header"><div class="box" data-i18n-charts-header></div></div>
         <div class="sub-header"><div class="box" data-i18n-charts-sub_header></div></div>
         <div class="bar-chart" >
-          <div class="box">
+          <div class="chart-box">
+          <div class="header"><div class="box" data-i18n-charts-bar_chart-header></div></div>
+          <div class="sub-header"><div class="box" data-i18n-charts-bar_chart-sub_header></div></div>
             <div class="chart">
               <div class="base-mark">
                 <div class="text" data-i18n-charts-bar_chart-base_mark></div>
                 <div class="dot"></div>
                 <div class="line-box"><div class="horizontal-line"></div></div>
               </div>
-              <div class="indexes">
+              <div class="captions">               
+                <div class="population"  data-i18n-charts-bar_chart-population></div>
               </div>
+              <div class="indexes"></div>
               <div class="legend">
                 <div class="asterisk" data-i18n-charts-bar_chart-asterisk></div>
-                <div class="source"><div class="label" data-i18n-charts-bar_chart-source1_label></div><div class="text" data-i18n-charts-bar_chart-source1></div></div>
-                <div class="source"><div class="label" data-i18n-charts-bar_chart-source2_label></div><div class="text" data-i18n-charts-bar_chart-source2></div></div>
               </div>
             </div>  
           </div>
         </div>
         <div class="line-chart">
-          <div class="box">
-            <div class="header" data-i18n-charts-line_chart-header></div>
+          <div class="chart-box">
+            <div class="header"><div class="box" data-i18n-charts-line_chart-header></div></div>
+            <div class="sub-header"><div class="box" data-i18n-charts-line_chart-sub_header></div></div>
             <div id="line_chart" class="chart"></div>
+            <div class="sub-legend" data-i18n-charts-line_chart-sub_legend></div>            
           </div>
         </div>
+        <div class="question2">
+          <div class="button">
+            <div class="box">
+              <div class="arrow"></div>
+              <div class="text" data-i18n-question2></div>
+              <div class="arrow"></div>
+            </div>
+          </div>
         </div>
+      </div>
+
       </div>
     </div>
   </div>
@@ -139,8 +157,9 @@
   </div>
     <script src="assets/js/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/js/c3.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="assets/js/m.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/util.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/js/I18n.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/m.js" type="text/javascript" charset="utf-8"></script>
     <!--<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e5a4b92d4a1b4e"></script>
 
