@@ -6,7 +6,7 @@ var I18n = (function () {
    var locale = default_locale;
    var languages = ["az","en","hy","ka","ru"];
    var data = null;
-   var delve_threshold = 3;
+   var delve_threshold = 4;
    var protecting = false;
    var protectedKey;
    var protectedValue;   
@@ -22,7 +22,10 @@ var I18n = (function () {
       load_locale();
       outerCallback = callback;
    };
-
+   obj.remap = function()
+   {
+      allocate();      
+   };
    obj.t = function(path)
    {
       if(typeof path == "string")
@@ -51,9 +54,10 @@ var I18n = (function () {
       log("I18n: translation missing for '"+path+"'!");
       return "";
    };
+
    var init_continue = function()
    {
-      allocate();
+      if(typeof outerCallback == "function") outerCallback();      
    };
    var init_locale = function()
    {
@@ -80,8 +84,7 @@ var I18n = (function () {
    {
       if(typeof data == "object")
       {       
-         delve(data);
-         if(typeof outerCallback == "function") outerCallback();
+         delve(data);         
       }
       else 
       {
@@ -97,7 +100,6 @@ var I18n = (function () {
          log("I18n: Nesting is limited to " + delve_threshold + " objects!");
          return; 
       }
-       //console.log(parent,level);
       Object.keys(obj).forEach(function(key) {
          var type = typeof obj[key];
          if(type == "string")
