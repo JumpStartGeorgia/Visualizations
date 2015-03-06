@@ -8,8 +8,8 @@ var mw = (function () {
    var gridMargin = 10;
    var gridItemMarginH = 5;
    var gridItemMarginV = 3;
-   var w = window.innerWidth;
-   var h = window.innerHeight;
+   var w = 0;
+   var h = 0;
    var hw = 52;
    var hh = 113;
    var hp = hh/hw;
@@ -25,13 +25,13 @@ var mw = (function () {
    var marksWidth = 0;
    var dots = null; 
    var loaderStartTime = 0; 
-   var loaderAtLeast = 0; // milliseconds 3000
-
+   var loaderAtLeast = 3000; // milliseconds 3000
+   var firstLoop = true;
    var bar_chart = 
    {
       data: [
         {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: 23687000, population:1357 },
-        {k:"azerbaijan",v:117,class:"highlight", rate: 116.5, region: "sc", period:"2011", population_p: 7.8, population_t: 104, population:10},        
+        {k:"azerbaijan",v:117,class:"highlight", rate: 116.5, region: "sc", period:"2011", population_p: 7.8, population_t: 104000, population:10},        
         {k:"armenia",v:115,class:"highlight", rate: 114.5, region: "sc", period:"2011", population_p: 7.4, population_t: 31000, population:3},
         {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19000, population:45},
         {k:"albania",v:112, rate: 111.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15000, population:2.8},
@@ -55,7 +55,8 @@ var mw = (function () {
    {
       loaderStartTime = (new Date()).getTime();
       blink();
-      d3.select(window).on('resize', resize);
+      d3.select(window).on('resize', resize);  
+      resize();    
       I18n.init(function(){ init_continue(); });      
    };
    var init_continue = function()
@@ -150,15 +151,24 @@ var mw = (function () {
             trigger_drag(2,3000);
           });     
       });
+      var enterEvent = "mouseenter";
+      var leaveEvent = "mouseleave";
 
-     d3.selectAll('.explanation .cell').on('mouseenter',function(){
+      if(document.hasOwnProperty('ontouchstart')){
+        enterEvent = "touchstart";
+        leaveEvent = "touchend";
+      }
+
+     d3.selectAll('.explanation .cell').on(enterEvent, function(){
         var t = d3.select(this).select('.image');
         t.transition().duration(700).style("opacity",0).each("end", function(){
           t.style('z-index','2');
         });
+        d3.event.preventDefault();
       });
-      d3.selectAll('.explanation .cell').on('mouseleave',function(){
+      d3.selectAll('.explanation .cell').on(leaveEvent, function(){
          d3.select(this).select('.image').style('z-index','4').transition().duration(700).style("opacity",1);
+         d3.event.preventDefault();
       });
       
       bar_chart_draw();
@@ -193,19 +203,30 @@ var mw = (function () {
     });
   };
   var resize = function() {
-    w = window.innerWidth;
-    h = window.innerHeight;
-    redraw();
+    w = u.width();
+    h = u.height();       
+
+    if(!firstLoop)
+    {
+      redraw();
+      firstLoop = false;
+    }
   };
   var redraw = function()
   {
-      //alert(w + " "+ document.documentElement.clientWidth);
-      //alert(h+" "+w);
+//alert(w+ " " + h);
+    var t = bar_chart;
+    t.height_multiplier = u.width() < 1440 ? 1 : 2;
+    gridItemMarginH = u.width() < 1440 ? 0 : 5;
+    d3.selectAll('.quantum-box .space').style('height',function(d){ return (t.height_multiplier*(t.base_max - d.v)) + 'px'; });
+    d3.selectAll('.quantum-box .rest').style('height',function(d){ return (t.height_multiplier*(d.v - t.base)) + 'px'; });
+
       var timelineProps = window.getComputedStyle(document.getElementsByClassName('timeline')[0]);
       var questionProps = window.getComputedStyle(document.getElementsByClassName('question')[0]);
       var bottomElementsHeight = u.px(timelineProps.marginTop,timelineProps.marginBottom,timelineProps.height,questionProps.height);
-
-      content.select('.page1').style("height", h + "px");
+      d3.select('.bar-chart .base-mark').style('top', d3.select('.bar-chart .indexes .index:first-of-type .base')[0][0].offsetTop-4 + "px");
+ 
+      content.select('.page1').style("height", h+ "px");
       var tmpHeight = h - (2*gridMargin+40) - bottomElementsHeight;
       var tmpW = Math.floor((w-2*gridMargin-2*perRowCount*gridItemMarginH)/perRowCount);
       var tmpH = Math.floor((tmpHeight-2*5*gridItemMarginV)/5);
@@ -232,10 +253,9 @@ var mw = (function () {
         hWidth = hw2;
         hHeight = hh2;
       }
+      //alert(hWidth + " " + hHeight,w);
       // console.log(hWidth,hHeight);
-      grid.selectAll('div').style({"width": hWidth + 'px', "height": hHeight + 'px',
-               "margin": ('6px '+ gridItemMarginH+'px')});  
-
+      grid.selectAll('div').style({"width": hWidth + 'px', "height": hHeight + 'px', "margin": ('6px '+ gridItemMarginH+'px')});  
       content.select('.grid').style('height', tmpHeight + "px")
   };
   var ondrag = function()
@@ -307,14 +327,8 @@ var mw = (function () {
                           .append('div')
                           .classed('quantum-box', true)
                           .attr('data-tip',function(d){ return d.k; });
-      quantum_box
-        .append('div')
-        .classed('space',true)
-        .style('height',function(d){ return (t.height_multiplier*(t.base_max - d.v)) + 'px'; });
-      quantum_box
-        .append('div')
-        .classed('rest',true)        
-        .style('height',function(d){ return (t.height_multiplier*(d.v - t.base)) + 'px'; });
+      quantum_box.append('div').classed('space',true);
+      quantum_box.append('div').classed('rest',true);
 
       quantum_box.append('div').classed('base',true).each(function(d){
           if(d.hasOwnProperty('class'))
@@ -326,8 +340,11 @@ var mw = (function () {
 
       var country_shape = indexes.append('div').classed('country-shape', true);
       country_shape.append('div').classed('vertical-line',true).attr('data-tip',function(d){ return d.k; });
-      country_shape.append('div').each(function(d){
-        d3.select(this).classed('shape ' + d.k, true).attr('data-tip',d.k);
+      var country_shape_box = country_shape.append('div').each(function(d){
+        d3.select(this).classed('shape ' + d.k, true).attr('data-tip', d.k);
+      });
+      country_shape_box.append('img').each(function(d){
+        d3.select(this).attr('src', 'assets/images/countries/' + d.k + '.svg');
       });
       country_shape.append('div').classed('dot',true).attr('data-tip',function(d){ return d.k; });
 
@@ -341,7 +358,9 @@ var mw = (function () {
       var million = I18n.t('million');
       indexes.append('div').classed('population', true).text(function(d){ return d.population + "\n" + million; });
 
-       indexes.selectAll('[data-tip]').on('mousemove', function(d){  
+      var moveEvent = "mousemove";
+      var outEvent = "mouseout";
+       indexes.selectAll('[data-tip]').on(moveEvent, function(d){  
          //console.log('a',d);
           var t = d3.select(this);       
           var tip_id = t.attr('data-tip');
@@ -378,9 +397,11 @@ var mw = (function () {
              tip.select('.pointer-bottom').style('display','block');
            }
           tip.style({top: top + "px", left: d3.event.pageX -tipw/2 + "px"}).transition().duration(100).style('opacity',1);
+          d3.event.preventDefault();
        });
-      indexes.selectAll('[data-tip]').on('mouseout', function(){  
-        d3.select('#tip').style({'opacity':0, 'left': '-999999px' });          
+      indexes.selectAll('[data-tip]').on(outEvent, function(){  
+        d3.select('#tip').style({'opacity':0, 'left': '-999999px' }); 
+        d3.event.preventDefault();         
       });
   };
 /*------------------------------------------ Line Chart ------------------------------------------*/  

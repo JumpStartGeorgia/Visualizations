@@ -132,7 +132,7 @@ html, body
 {
   display: inline-block;
   min-height: 100%;  
-  min-height: 100vh;  
+  /*min-height: 100vh;  */
 }
 .content .page2
 {
@@ -156,8 +156,7 @@ html, body
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%);    
-  height: 100%;
+  transform: translateY(-50%);      
   z-index:9;
 }
 .content .explanation
@@ -411,6 +410,9 @@ html, body
   font-family:'officina-book';
   font-size: 1.25em;
 }
+
+
+
 .bar-chart
 {
   margin:1.5em 0px 0px;
@@ -452,7 +454,7 @@ html, body
   position:absolute; 
   width:100%;
   display:table;
-  top:91px;
+  top:0px;
   z-index:2;
 }
 .bar-chart .chart .base-mark > div
@@ -507,8 +509,7 @@ html, body
 .bar-chart .chart .indexes .index
 {
   display:table-cell;
-  /*border:1px solid #2f3241;*/
-  min-width:115px;
+  min-width:70px;
 }
 .bar-chart .chart .indexes .index:not(:last-child)
 {
@@ -517,16 +518,17 @@ html, body
 .bar-chart .chart .indexes .index .country
 {
   font-family:'dejavusans-b';
-  font-size:1.063em;
+  font-size:0.813em;
   color:#31b9dd;
-  margin: 0px;  
+  margin: 0px 0px 4px;
   text-align:center;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .bar-chart .chart .indexes .index .country:lang(en)
 {
   font-family:'officina-bold';
-  font-size:1.313em;
+  font-size:0.938em;
 }
 .bar-chart .chart .indexes .index .country.bottom
 {
@@ -539,7 +541,7 @@ html, body
 .bar-chart .chart .indexes .index .quantum
 {
   font-family:'dejavusans-b';
-  font-size:1.125em;
+  font-size:1.063em;
   color:#70788e;
   padding: 0px 0px 10px 0px; 
   text-align:center;
@@ -547,12 +549,12 @@ html, body
 .bar-chart .chart .indexes .index .quantum:lang(en)
 {
   font-family:'officina-bold';
-  font-size:1.250em;
+  font-size:1.125em;
 }
 .bar-chart .chart .indexes .index .quantum-box
-{
-  height:240px;
-  width:43px;
+{  
+  height:120px;
+  width:23px;
   margin:0px auto;
   vertical-align:bottom;
 }
@@ -562,7 +564,7 @@ html, body
 }
 .bar-chart .chart .indexes .index .quantum-box .base
 {
-  height:210px;
+  height:105px;
   background-color:#31b9dd;
 }
 .bar-chart .chart .indexes .index .quantum-box .base.highlight
@@ -571,7 +573,7 @@ html, body
 }
 .bar-chart .chart .indexes .index .quantum-box .bottom
 {
-  height:4px;
+  height:2px;
   background-color:#242833;
 }
 .bar-chart .chart .indexes .index .country-shape
@@ -598,61 +600,73 @@ html, body
 }
 .bar-chart .chart .indexes .index .country-shape .shape
 {
-  background-position: center center;
-  background-size: 44px 52px;
+  /*background-position: center center;
+  background-size: 44px 52px;*/
   position:relative;
   z-index:6;
   height: 155px;
+  line-height:155px;
   width:100%;
 }
-/*------------------------------------------ Country Shapes ------------------------------------------*/
-.shape.albania
+.bar-chart .chart .indexes .index .country-shape .shape img
 {
-  background:transparent url('../images/countries/albania.svg') no-repeat;  
+  vertical-align:middle;
+  width:29px;
+  height:52px;
 }
-.shape.armenia
+.bar-chart .chart .indexes .index .country-shape .shape.china img
 {
-  background:transparent url('../images/countries/armenia.svg') no-repeat;  
+  width: 126px;
+  height: 155px;
 }
-.shape.azerbaijan
+.bar-chart .chart .indexes .index .country-shape .shape.india img
 {
-  background:transparent url('../images/countries/azerbaijan.svg') no-repeat;  
+  width: 62px;
+  height: 109px;
 }
-.shape.georgia
-{
-  background:transparent url('../images/countries/georgia.svg') no-repeat;  
-}
-.shape.india
-{
-  background:transparent url('../images/countries/india.svg') no-repeat;  
-  background-size: 93px 109px !important;
-}
-.shape.montenegro
-{
-  background:transparent url('../images/countries/montenegro.svg') no-repeat;  
-}
-.shape.pakistan
-{
-  background:transparent url('../images/countries/pakistan.svg') no-repeat;  
-}
-.shape.south_korea
-{
-  background:transparent url('../images/countries/south_korea.svg') no-repeat;  
-}
-.shape.singapore
-{
-  background:transparent url('../images/countries/singapore.svg') no-repeat;  
-}
-.shape.vietnam
-{
-  background:transparent url('../images/countries/vietnam.svg') no-repeat;  
-}
-.shape.china
-{
-  background:transparent url('../images/countries/china.svg') no-repeat;  
-  background-size: 189px 155px !important;
-  width: 189px !important;
-  height: 155px !important;
+@media only screen and (min-width : 1440px) {
+  .bar-chart .chart .indexes .index
+  {
+    min-width:100px;
+  }
+  .bar-chart .chart .indexes .index .country
+  {
+    font-size:0.938em;
+  }
+  .bar-chart .chart .indexes .index .country:lang(en)
+  {
+    font-size:1.125em;
+  }
+  .bar-chart .chart .indexes .index .quantum-box
+  {
+    height:240px;
+    width:43px;
+  }
+  .bar-chart .chart .indexes .index .quantum-box .base
+  {
+    height:210px;
+  }
+  .bar-chart .chart .indexes .index .quantum-box .bottom
+  {
+    height:4px;
+  }
+  .bar-chart .chart .indexes .index .country-shape .shape img
+  {
+    vertical-align:middle;
+    width:44px;
+    height:52px;
+  }
+  .bar-chart .chart .indexes .index .country-shape .shape.china img
+  {
+    width: 189px;
+    height: 155px;
+  }
+  .bar-chart .chart .indexes .index .country-shape .shape.india img
+  {
+    width: 93px;
+    height: 109px;
+  }
+
 }
 .bar-chart .chart .indexes .index .country-shape .dot
 {
@@ -668,17 +682,17 @@ html, body
 {
   position: relative;
   top: 0px;
-  font-family:'dejavusans-b';
-  font-size:1.125em;
+  font-family:'dejavusans';
+  font-size:1em;
   
   color:#70788e;
-  padding: 0px 0px 10px 0px; 
+  padding: 7px 0px 10px 0px; 
   text-align:center;
   white-space:pre;
 }
 .bar-chart .chart .captions .population:lang(en)
 {
-  font-size:1.250em;
+  font-size:1.125em;
   top: -10px;
 }
 .bar-chart .chart .captions .population
@@ -693,7 +707,7 @@ html, body
 .bar-chart .chart .indexes .index .population:lang(en),
 .bar-chart .chart .captions .population:lang(en)
 {
-  font-family:'officina-bold';
+  font-family:'officina-book';
   font-size:1.250em;
 }
 
@@ -1044,15 +1058,10 @@ html, body
 }
 .explanation .box
 {
-  display:table;
-  max-width: 1023px;
+  max-width:840px;
   width:100%;
-  height:100%;
   margin:0px auto;
-}
-.explanation .box > div
-{
-  display:table-row;
+  height:80%;
 }
 .explanation .header
 {
@@ -1061,14 +1070,13 @@ html, body
   line-height:1.97em;
   color:#fff; 
   margin-top: 10px;
-  height:10%;
 }
 .explanation .header:lang(en)
 {
   font-family: 'officina-bold';
   font-size:2.125em; 
 }
-.explanation .row
+/*.explanation .row
 {
   height:45%;
   
@@ -1078,12 +1086,18 @@ html, body
 {
   display:inline-block;
   position:relative;
-}
+}*/
 .explanation .cell
 {
+  position:relative;
+  height: 50%;
   width:49%;
-  height: 100%;
+  display:inline-block; 
 
+}
+.explanation .cell:hover
+{
+  cursor:pointer;
 }
 .explanation .cell .text
 {
@@ -1119,28 +1133,21 @@ html, body
   font-family: 'officina-bold';
   font-size:1.188em; 
 }
+
 .explanation .cell .image
 {
-  background-size: contain !important;
-/*  width:100%;
-  max-width:420px;
-  max-height:270px;*/
+  background-color:#31B9DD;
   z-index:4;
   position:relative;
-  height: 90%;
+  height: 100%;
   width: 100%;  
+  
 }
-.explanation .cell .image:hover
+.explanation .cell .image img
 {
-  cursor:pointer;
-}
-.explanation .cell.c1 .image { background:#31B9DD url('../images/c1.svg') center center no-repeat; }
-.explanation .cell.c2 .image { background:#31B9DD url('../images/c2.svg') center center no-repeat; }
-.explanation .cell.c3 .image { background:#31B9DD url('../images/c3.svg') center center no-repeat; }
-.explanation .cell.c4 .image { background:#31B9DD url('../images/c4.svg') center center no-repeat; }
-
-.image1 img
-{
-  max-width:100%;
-  max-height:100%;
+   max-width:420px;
+   max-height:270px;
+   width:100%;
+   height:100%;
+   pointer-events: none;
 }

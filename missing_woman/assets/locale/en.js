@@ -1,7 +1,7 @@
 en =
 {
    title: "Choosing Male in the South Caucasus",
-   description: "",
+   description: "In the South Caucasus, families choose to have boys over girls. Because of this son preference, Armenia, Georgia and Azerbaijan are losing thousands of girls each year. It is estimated that, due to the gender-baiased abortions, 154 thousand girls have not been born in the last 20 years in the South Caucasus. They are often called Missing Women. If nothing changes, what could be next? ",
    url: "",
    site_name: "Choosing Male in the South Caucasus",
    million: "Million",
@@ -41,7 +41,7 @@ en =
    charts:
    {
       header: "CHOOSING MALE IN THE SOUTH CAUCASUS",
-      sub_header: "In the South Caucasus, families choose to have boys over girls. Because of this son preference, Armenia, Georgia and Azerbaijan are losing thousands of girls each year.<br> It is estimated that, due to the gender-baiased abortions, 154,000 girls have not been born in the last 20 years in the South Caucasus. They are often called Missing Women.",
+      sub_header: "In the South Caucasus, families choose to have boys over girls. Because of this preference for son, Armenia, Georgia and Azerbaijan are losing thousands of girls each year.<br> It is estimated that, due to the gender-biased abortions, 154,000 girls have not been born in the last 20 years in the South Caucasus. They are often called Missing Women.",
       bar_chart: {
          header: "Sex Rate at Birth (SRB)",
          sub_header: "Number of boys born per 100 girls",
