@@ -33,7 +33,7 @@ var mw = (function () {
         {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: 23687000, population:1357 },
         {k:"azerbaijan",v:117,class:"highlight", rate: 116.5, region: "sc", period:"2011", population_p: 7.8, population_t: 104000, population:10},        
         {k:"armenia",v:115,class:"highlight", rate: 114.5, region: "sc", period:"2011", population_p: 7.4, population_t: 31000, population:3},
-        {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19000, population:45},
+        {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19000, population:4.5},
         {k:"albania",v:112, rate: 111.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15000, population:2.8},
         {k:"vietnam",v:111, rate: 111.2, region: "esa", period:"2010", population_p: 1.7, population_t: 245000, population:9},
         {k:"india",v:111, rate: 110.5, region: "sa", period:"2008-2010", population_p: 5.6, population_t: 13197000, population:1252},
