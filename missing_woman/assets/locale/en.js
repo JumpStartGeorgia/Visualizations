@@ -1,10 +1,10 @@
- en =
+en =
 {
-   title: "Missing Woman",
-   description: "Missing Woman Description",
-   url: "www.google.com",
-   site_name: "Missing Woman",
-
+   title: "Choosing Male in the South Caucasus",
+   description: "",
+   url: "",
+   site_name: "Choosing Male in the South Caucasus",
+   million: "Million",
    year: "Year",
    timeline: 
    {
@@ -41,7 +41,7 @@
    charts:
    {
       header: "CHOOSING MALE IN THE SOUTH CAUCASUS",
-      sub_header: "In the South Caucasus, families choose to have boys over girls. Because of this son preference, Armenia, Georgia and Azerbaijan are losing thousands of girls each year.<br> It is estimated that, due to the gender-baiased abortions, 154 thousand girls have not been born in the last 20 years in the South Caucasus. They are often called Missing Women.",
+      sub_header: "In the South Caucasus, families choose to have boys over girls. Because of this son preference, Armenia, Georgia and Azerbaijan are losing thousands of girls each year.<br> It is estimated that, due to the gender-baiased abortions, 154,000 girls have not been born in the last 20 years in the South Caucasus. They are often called Missing Women.",
       bar_chart: {
          header: "Sex Rate at Birth (SRB)",
          sub_header: "Number of boys born per 100 girls",
@@ -68,15 +68,14 @@
          source2_label: "Gender Gap Source:&nbsp;",
          source2: "Sex Imbalances at Birth: Current trends, consequences and policy implications",
          missing_woman: "Missing Women*",
-         population: "Population",
          rate: "Sex Rate at Birth:",
          gender_gap: "Gender Gap*:",
-         population: "Population"
+         population: "Population\n(2013)"
       },
       line_chart:
       {
          header: "Decline of Female to Male Ratio in the South Caucasus",
-         sub_header: "The number of women per 100 men has been declining in the South Caucasus countries over the last decade.<br>From 2002 to 2012, the number of women has decreased by 2.5% in Azerbaijan, 2.2% in Armenia, and 2% in Georgia.<br> For comparison, the number of women in the 28 EU countries has decreased by only 0.5%.",
+         sub_header: "The number of women per 100 men has been declining in the South Caucasus countries over the last decade.<br>From 2002 to 2012, the number of women has decreased by 2.5% in Azerbaijan, 2.2% in Armenia, and 2% in Georgia.<br>For comparison, the number of women in the 28 EU countries has decreased by only 0.5%.",
          y_label: "Number of Women per 100 Men",
          legend:
          {

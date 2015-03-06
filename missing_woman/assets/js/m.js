@@ -82,8 +82,6 @@ var mw = (function () {
    {    
       content = d3.select('.content');
       grid = content.select('.grid .people');
-      // var tmpHeight = h - (2*gridMargin+40) - 256 ;
-      // content.select('.grid').style('height', tmpHeight + "px")
 
       var womenToSelect = {};
       var womenToSelectCount = 0;
@@ -132,8 +130,6 @@ var mw = (function () {
       
 
       // binding events 
-      marksWidth = d3.select('.timeline .marks')[0][0].clientWidth;
-      dots = [0,marksWidth/2,marksWidth];
 
       var drag = d3.behavior.drag()       
         .on("drag", ondrag)
@@ -150,20 +146,40 @@ var mw = (function () {
       });
       d3.selectAll('.question2 .button').on('click',function(){
           d3.select("body").transition().duration(2000)
-          .tween("scrollTop", scrollTopTween(0));         
+          .tween("scrollTop", scrollTopTween(0)).each("end", function(){
+            trigger_drag(2,3000);
+          });     
       });
 
-     d3.selectAll('.explanation .cell .image').on('mouseenter',function(){
-         d3.select(this).transition().duration(700).style("opacity",0);
+     d3.selectAll('.explanation .cell').on('mouseenter',function(){
+      console.log('mouseenter');
+      var t = d3.select(this).select('.image');
+         t.transition().duration(700).style("opacity",0).each("end", function(){
+            t.style('z-index','2');
+          });
       });
       d3.selectAll('.explanation .cell .image').on('mouseleave',function(){
-         d3.select(this).transition().duration(700).style("opacity",1);
+        // console.log('mouseleave');
+         //d3.select(this).style('z-index','4').transition().duration(700).style("opacity",1);
       });
-
+       d3.selectAll('.explanation .cell .image').on('mousemove',function(){
+         //console.log('mousemove');
+       });
+   d3.selectAll('.explanation .cell').on('mouseout',function(e){
+    console.log('mouseout',d3.event);
+        if(d3.event.toElement == d3.event.fromElement)
+        {
+         
+          d3.select(this).select('.image').style('z-index','4').transition().duration(700).style("opacity",1);
+        }
+       });
       bar_chart_draw();
       line_chart_draw();  
 
       I18n.remap();
+
+      marksWidth = d3.select('.timeline .marks')[0][0].clientWidth;
+      dots = [0,marksWidth/2,marksWidth];
 
       redraw();
 
@@ -182,22 +198,27 @@ var mw = (function () {
   };
   var show = function()
   {
-    d3.select('.wrapper').style({"visibility":"visible", "position":"absolute"});  
-    d3.select('.loader').style("display","none"); 
-    trigger_drag(1,3000);
+    d3.select('.wrapper').style({"visibility":"visible", "position":"absolute", "opacity": 0});  
+    d3.select('.loader').style("display","none");
+    d3.select('.wrapper').transition().duration(1000).style('opacity',1).each("end", function(){
+      trigger_drag(1,3000);
+    });
   };
   var resize = function() {
     w = window.innerWidth;
     h = window.innerHeight;
-
     redraw();
   };
   var redraw = function()
   {
       //alert(w + " "+ document.documentElement.clientWidth);
       //alert(h+" "+w);
+      var timelineProps = window.getComputedStyle(document.getElementsByClassName('timeline')[0]);
+      var questionProps = window.getComputedStyle(document.getElementsByClassName('question')[0]);
+      var bottomElementsHeight = u.px(timelineProps.marginTop,timelineProps.marginBottom,timelineProps.height,questionProps.height);
+
       content.select('.page1').style("height", h + "px");
-      var tmpHeight = h - (2*gridMargin+40) - 256 ;
+      var tmpHeight = h - (2*gridMargin+40) - bottomElementsHeight;
       var tmpW = Math.floor((w-2*gridMargin-2*perRowCount*gridItemMarginH)/perRowCount);
       var tmpH = Math.floor((tmpHeight-2*5*gridItemMarginV)/5);
       var hWidth, hHeight, hh1, hw1, hh2,hw2;
@@ -231,7 +252,6 @@ var mw = (function () {
   };
   var ondrag = function()
   {
-  
     var x = d3.event.x;
     if(x >= 0 && x <= marksWidth);
     else if(x < 0) x = 0;
@@ -271,7 +291,7 @@ var mw = (function () {
       {
         d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
       });
-    content.select('.explanation').transition().duration(dur).style("opacity", i == 2 ? 1 : 0);
+    content.select('.explanation').transition().duration(dur).style({"opacity": i == 2 ? 1 : 0, "z-index": i == 2 ? 10 : 9});
     content.select('.people').transition().duration(dur).style("opacity", i == 2 ? 0 : 1);          
   };
 /*------------------------------------------ Bar Chart ------------------------------------------*/
@@ -330,7 +350,8 @@ var mw = (function () {
           d3.select(this).classed(d.class,true);
         }
       });
-      indexes.append('div').classed('population', true).text(function(d){ return d.population; });
+      var million = I18n.t('million');
+      indexes.append('div').classed('population', true).text(function(d){ return d.population + "\n" + million; });
 
        indexes.selectAll('[data-tip]').on('mousemove', function(d){  
          //console.log('a',d);
@@ -430,7 +451,7 @@ var mw = (function () {
         tooltip: {
           show: true,
           format: {
-            name: function (name, ratio, id, index) {  console.log(id); return I18n.t("charts-bar_chart-" + id); }
+            name: function (name, ratio, id, index) { return I18n.t("charts-bar_chart-" + id); }
           }
         },
         onrendered: function () {

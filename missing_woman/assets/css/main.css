@@ -158,6 +158,7 @@ html, body
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);    
   height: 100%;
+  z-index:9;
 }
 .content .explanation
 {
@@ -169,7 +170,7 @@ html, body
   right:0px;
   width: 100%;
   /*height: 100%;*/
-  z-index:2;
+  z-index:8;
   opacity:0;
   background-color:#31b9dd;
 }
@@ -185,9 +186,9 @@ html, body
 /* --------------------------------- timeline ------------------------ */
 .content .timeline
 {
-  height:100px;
+  height:83px;
   width:100%;
-  margin:40px auto;
+  margin:2.500em auto;
   display:inline-block;
   position:relative;
   z-index:4;
@@ -314,7 +315,7 @@ html, body
 .content .question .button,.content .question2 .button
 {
   font-family:'dejavusans-b';
-  font-size:1.875em;
+  font-size:1.500em;
   color:#fff;
   background-color:#de435f;  
   display:table;
@@ -326,7 +327,7 @@ html, body
 .content .question .button,.content .question2 .button:lang(en)
 {
   font-family:'officina-bold';
-  font-size:1.875em;    
+  font-size:1.500em;    
 }
 .content .question .button .box
 {
@@ -352,6 +353,7 @@ html, body
 .content .question2 .button .box .text
 {
   padding:0px 25px;
+  text-align: center;
 }
 .content .question .button .box .arrow,
 .content .question2 .button .box .arrow
@@ -463,7 +465,7 @@ html, body
   font-family:'dejavusans-b';
   font-size:0.875em;
   color:#bac6d3;
-  width:60px;
+  width:80px;
 }
 .bar-chart .chart .base-mark .text:lang(en)
 {
@@ -481,7 +483,6 @@ html, body
 }
 .bar-chart .chart .base-mark .line-box
 {
-  width:100%;
   vertical-align:top;
 }
 .bar-chart .chart .base-mark .horizontal-line
@@ -518,7 +519,7 @@ html, body
   font-family:'dejavusans-b';
   font-size:1.313em;
   color:#31b9dd;
-  margin: 0px 0px 10px 0px;  
+  margin: 0px;  
   text-align:center;
   text-transform: uppercase;
 }
@@ -661,14 +662,33 @@ html, body
   background-position: center bottom;
   width: 100%;
 }
+
 .bar-chart .chart .indexes .index .population,
 .bar-chart .chart .captions .population
 {
+  position: relative;
+  top: 0px;
   font-family:'dejavusans-b';
   font-size:1.250em;
+  
   color:#70788e;
   padding: 0px 0px 10px 0px; 
   text-align:center;
+  white-space:pre;
+}
+.bar-chart .chart .captions .population:lang(en)
+{
+  font-size:1.250em;
+  top: -10px;
+}
+.bar-chart .chart .captions .population
+{
+  font-size:0.875em;
+}
+
+.bar-chart .chart .indexes .index .population
+{
+  text-transform: capitalize;
 }
 .bar-chart .chart .indexes .index .population:lang(en),
 .bar-chart .chart .captions .population:lang(en)
@@ -733,7 +753,7 @@ html, body
   font-family:'dejavusans';
   font-size:1.25em;
   color:#BAC6D3;
-  margin:0px 0px 1.875em;
+  margin:8px 0px 1.875em;
 }
 .line-chart .sub-header:lang(en)
 {
@@ -762,6 +782,10 @@ html, body
   font-family:'officina-bold';
   font-size:1.0625em;
 }
+.line-chart .c3-axis path.domain
+{
+  stroke:#2F3241;
+}
 .line-chart .c3-line {
   stroke-width: 5px;
 }
@@ -777,6 +801,11 @@ html, body
 .line-chart .c3-circles.c3-circles-eu .c3-circle{
   fill:#235f84 !important;
 }
+.line-chart .c3-circle._expanded_
+{
+  stroke-width:0px;
+  stroke:none;
+}
 .line-chart .c3-axis-y .tick:first-of-type text tspan
 {
   font-size:1.125em;
@@ -784,7 +813,7 @@ html, body
 .line-chart .c3-axis-y-label , .line-chart .c3-axis-x-label 
 {
   font-family:'dejabusans';
-  font-size:1.5em;
+  font-size:1.2em;
   fill:#70788e;
 }
 .line-chart .c3-axis-y-label:lang(en) , .line-chart .c3-axis-x-label:lang(en)
@@ -795,30 +824,34 @@ html, body
 .line-chart .c3-legend-item text
 {
   font-family:'dejavusans';
-  font-size:1.125em;
+  font-size:1.3em;
   fill:#70788e;
 }
 .line-chart .c3-legend-item text:lang(en)
 {
   font-family:'officina-book';
-  font-size:1.125em;
+  font-size:1.3em;
 }
 .line-chart .c3-grid line
 {
   stroke:#242833;
+  stroke-dasharray:5,5;
 }
 .line-chart .c3-tooltip 
 {
-  background-color:rgba(36,40,51,200);
+  background-color:rgba(36,40,51,230);
   border:0px;
   border-collapse: separate;
   border-spacing: 2px;
+    -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 
 }
 .line-chart .c3-tooltip tr,.line-chart .c3-tooltip td
 {
   border:0px;
-  background-color:rgba(36,40,51,200);
+  background-color:rgba(36,40,51,230);
   text-align:left;
 }
 .line-chart .c3-tooltip th
@@ -840,9 +873,9 @@ html, body
   font-family:'dejavusans';
   font-size:1em;
   border:0px;
-  background-color:rgba(36,40,51,200);
+  background-color:rgba(36,40,51,230);
   color:#fff;
-  padding:3px 10px;
+  padding:1px 10px;
 }
 .line-chart .c3-tooltip td:lang(en)
 {
@@ -866,7 +899,7 @@ html, body
 .line-chart .sub-legend
 {
   font-family:'dejavusans';
-  font-size:1.0625em;
+  font-size:0.875em;
   color:#70788e;
   text-align:right;
   max-width:1000px;
@@ -876,7 +909,7 @@ html, body
 .line-chart .sub-legend:lang(en)
 {
   font-family:'officina-book';
-  font-size:1.0625em;
+  font-size:0.875em;
 }
 /*------------------------------------------ Tip ------------------------------------------*/
 .tip
@@ -1095,7 +1128,7 @@ html, body
   z-index:4;
   position:relative;
   height: 90%;
-  width: 100%;
+  width: 100%;  
 }
 .explanation .cell .image:hover
 {

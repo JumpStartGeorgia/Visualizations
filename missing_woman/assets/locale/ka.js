@@ -1,56 +1,90 @@
- ka =
+ka =
 {
-   title: "Missing Kali",
-   description: "Missing Woman Description",
-   url: "www.google.com",
-   site_name: "Missing Woman",
-
-   year: "Year",
+   title: "სამხრეთ კავკასიაში ირჩევენ ბიჭს",
+   description: "",
+   url: "",
+   site_name: "სამხრეთ კავკასიაში ირჩევენ ბიჭს",
+   million: "მილიონი",
+   year: "წელი",
    timeline: 
    {
       past: "1995",
-      today: "Today",
+      today: "დღეს",
       future: "2035"
    },
-   about:
-   {
-      text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+   explanation:
+   {  
+      header: "სელექციური აბორტების შედეგები",
+      c1:
+      {
+         label: "ქორწინების შემჭიდროვება",
+         text: "დიდი შანსია, რომ ქართველი, სომეხი და აზერბაიჯანელი კაცები გამოცდიან ე.წ. \"ქორწინების შემჭიდროვების\" ფენომენს, რაც გულისხმობს იმას, რომ მეტი კაცი იქნება დასაოჯახებელი, ვიდრე ქალი."
+      },
+      c2:
+      {
+         label: "ქორწინების გართულებული სისტემები",
+         text: "გენდერულ დისბალანსს, სავარაუდოდ, ექნება გავლენა 'ქორწინების ბაზარზეც', რაც უფრო გართულებს კაცებისთვის დაოჯახებას და გამოიწვევს დასაქორწინებლად ქალის მოძებნისთვის რთული სისტემებისა და ქსელების შექმნას."
+      },
+      c3:
+      {
+         label: "გაზრდილი ტრეფიკინგი",
+         text: "სავარაუდოა, რომ მოიმატებს არალეგალური ორგანიზაციების რაოდენობა, რომლებიც შეეცდებიან, უპასუხონ გაზრდილ მოთხოვნას მდედრობითი სქესის პარტნიორებს და სექს მუშაკებზე, რაც გამოიწვევს ტრეფიკინგის ზრდას."
+      },
+      c4:
+      {
+         label: "გაზრდილი ძალადობა",
+         text: "სქესთა შორის დისბალანსი, სხვა ფაქტორებთან ერთად, სავარაუდოდ გამოიწვევს გენდერული ძალადობის ზრდასაც."
+      }      
    },
-   question: "What's wrong?",
+   question: "სად გაქრნენ ქალები?",
+   question2: "რა მოხდება,<br> თუ არაფერი შეიცვლება?",
    charts:
    {
-      header: "CHOOSING MALE IN THE SOUTH CAUCASUS",
-      sub_header: "Male to Female Ratio at Birth",
+      header: "სამხრეთ კავკასიაში ირჩევენ ბიჭს",
+      sub_header: "სამხრეთ კავკასიის ქვეყნებში ოჯახები ირჩევენ, რომ მათი ახალშობილი იყოს ბიჭი და არა გოგო.<br>ვაჟის პრეფერენციის გამო, სომხეთი, საქართველო და აზერბაიჯანი ყოველწლიურად ათასობით გოგოს კარგავენ.<br>სელექციური აბორტების გამო, სხვადასხვა შეფასების მიხედვით, სამხრეთ კავკასიაში ბოლო 20 წლის განმავლობაში 154000 გოგო არ დაიბადა.<br>ხშირად მათ \"გამქრალ ქალებს\" ეძახიან.",
       bar_chart: {
-         china: "China",
-         azerbaijan: "Azerbaijan",
-         armenia: "Armenia",
-         georgia: "Georgia",
-         albania: "Albania",
-         vietnam: "Vietnam",
-         india: "India",
-         pakistan: "Pakistan",
-         montenegro: "Montenegro",
-         singapore: "Singapore",
-         south_korea: "South Korea",
-         esa: "East and Southeast Asia",
-         sc: "South Caucasus",
-         sa: "South Asia",
-         se: "Southeast Europe",
-         base_mark: "105*",
-         asterisk: "* Population 0-19 years",
-         source1_label: "Source:&nbsp;",
-         source1: "Sex imbalances at birth in Armenia: Demographic evidence and analysis",
-         source2_label: "Gender Gap Source:&nbsp;",
-         source2: "Sex Imbalances at Birth: Current trends, consequences and policy implications",
-         missing_woman: "Missing Women*",
-         population: "Population",
-         rate: "Sex Rate at Birth:",
-         gender_gap: "Gender Gap:"
+         header: "ახალშობილთა სქესთა თანაფარდობა",
+         sub_header: "ბიჭების რაოდენობა 100 ახალშობილ გოგოზე",
+         china: "ჩინეთი",
+         azerbaijan: "აზერბაიჯანი",
+         armenia: "სომხეთი",
+         georgia: "საქართველო",
+         albania: "ალბანეთი",
+         vietnam: "ვიეტნამი",
+         india: "ინდოეთი",
+         pakistan: "პაკისტანი",
+         montenegro: "მონტენეგრო",
+         singapore: "სინგაპური",
+         south_korea: "სამხრეთ კორეა",
+         eu: "ევროკავშირი (28 ქვეყანა)",
+         esa: "აღმოსავლეთ და სამხრეთ-აღმოსავლეთ აზია",
+         sc: "სამხრეთ კავკასია",
+         sa: "სამხრეთ აზია",
+         se: "სამხრეთ-აღმოსავლეთ ევროპა",
+         base_mark: "105 <br>ყოველ 100 გოგოზე დაბადებული ბიჭების რაოდენობა ბუნებრივი შობადობის პირობებში",
+         asterisk: "* 0-19 წლის ასაკის მოსახლეობაში",
+         source1_label: "წყარო:&nbsp;",
+         source1: "გენდერული დისბალანსი დაბადებისას სომხეთში: დემოგრაფიული მტკიცებულებები და ანალიზი; 2013",
+         source2_label: "",
+         source2: "გენდერული დისბალანსი დაბადებისას სომხეთში: დემოგრაფიული მტკიცებულებები და ანალიზი; 2013",
+         missing_woman: "გამქრალი ქალები*",
+         rate: "ბიჭების რაოდენობა 100 გოგონაზე:",
+         gender_gap: "გენდერული დისბალანსი*:",
+         population: "მოსახლეობა<br>(2013)"
       },
       line_chart:
       {
-         header: "Decline of Female to Male Ratio in the South Caucasus"
+         header: "ქალების რაოდენობის შემცირება სამხრეთ კავკასიაში ",
+         sub_header: "ბოლო 10 წლის განმავლობაში, სამხრეთ კავკასიის ქვეყნებში ქალების რაოდენობის თანაფარდობა კაცების რაოდენობასთან იკლებს.<br>2002-2012 წლებში, აზერბაიჯანში ყოველ 100 კაცზე ქალების რაოდენობა შემცირდა 2.5%-ით, სომხეთში - 2.2%-ით, ხოლო საქართველოში - 2%-ით.<br>შედარებისთვის, ევროკავშირის 28 ქვეყანაში ქალების რაოდენობა 100 კაცზე მხოლოდ 0.5%-ით შემცირდა.",
+         y_label: "ქალების რაოდენობა ყოველ 100 კაცზე",
+         legend:
+         {
+            azerbaijan: "აზერბაიჯანი (↓ 2.6)",
+            armenia: "სომხეთი (↓ 2.4)",
+            georgia: "საქართველო (↓ 2.2)",
+            eu: "ევროკავშირი (28 ქვეყანა) (↓ 0.5)"
+         },
+         sub_legend: "↓ ცვლილება 2002-2012 წლებში"
       }
    }
 };   

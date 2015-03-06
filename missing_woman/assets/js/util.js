@@ -45,27 +45,21 @@
       return decimalAdjust('ceil', value, exp);
     };
   }
-
-
-//   var util = {};
-// function f_clientWidth() {
-//   return f_filterResults (
-//     window.innerWidth ? window.innerWidth : 0,
-//     document.documentElement ? document.documentElement.clientWidth : 0,
-//     document.body ? document.body.clientWidth : 0
-//   );
-// }
-
-
-
-
-
 })();
 
-
-var util = (function () {
+var u = (function () {
   var obj = { };
   obj.height = function() { return  window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; };
   obj.width = function() { return  window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth; };
+  obj.px = function(s) { 
+    var i = 0;
+    var result = 0;
+    var a = arguments;a
+    for(i = 0; i < a.length; ++i)
+    {
+      result += +a[i].substring(0,a[i].length-2);
+    }
+    return result; 
+  };
   return obj;
 })();
