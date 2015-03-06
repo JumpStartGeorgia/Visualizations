@@ -517,7 +517,7 @@ html, body
 .bar-chart .chart .indexes .index .country
 {
   font-family:'dejavusans-b';
-  font-size:1.313em;
+  font-size:1.063em;
   color:#31b9dd;
   margin: 0px;  
   text-align:center;
@@ -539,7 +539,7 @@ html, body
 .bar-chart .chart .indexes .index .quantum
 {
   font-family:'dejavusans-b';
-  font-size:1.250em;
+  font-size:1.125em;
   color:#70788e;
   padding: 0px 0px 10px 0px; 
   text-align:center;
@@ -669,7 +669,7 @@ html, body
   position: relative;
   top: 0px;
   font-family:'dejavusans-b';
-  font-size:1.250em;
+  font-size:1.125em;
   
   color:#70788e;
   padding: 0px 0px 10px 0px; 
@@ -1088,7 +1088,7 @@ html, body
 .explanation .cell .text
 {
   font-family: 'dejavusans';
-  font-size:1.25em; 
+  font-size:1em; 
   color:#fff; 
   /*display:none;*/
   position:absolute;

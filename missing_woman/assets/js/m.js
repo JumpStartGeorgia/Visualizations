@@ -152,27 +152,15 @@ var mw = (function () {
       });
 
      d3.selectAll('.explanation .cell').on('mouseenter',function(){
-      console.log('mouseenter');
-      var t = d3.select(this).select('.image');
-         t.transition().duration(700).style("opacity",0).each("end", function(){
-            t.style('z-index','2');
-          });
+        var t = d3.select(this).select('.image');
+        t.transition().duration(700).style("opacity",0).each("end", function(){
+          t.style('z-index','2');
+        });
       });
-      d3.selectAll('.explanation .cell .image').on('mouseleave',function(){
-        // console.log('mouseleave');
-         //d3.select(this).style('z-index','4').transition().duration(700).style("opacity",1);
+      d3.selectAll('.explanation .cell').on('mouseleave',function(){
+         d3.select(this).select('.image').style('z-index','4').transition().duration(700).style("opacity",1);
       });
-       d3.selectAll('.explanation .cell .image').on('mousemove',function(){
-         //console.log('mousemove');
-       });
-   d3.selectAll('.explanation .cell').on('mouseout',function(e){
-    console.log('mouseout',d3.event);
-        if(d3.event.toElement == d3.event.fromElement)
-        {
-         
-          d3.select(this).select('.image').style('z-index','4').transition().duration(700).style("opacity",1);
-        }
-       });
+      
       bar_chart_draw();
       line_chart_draw();  
 
