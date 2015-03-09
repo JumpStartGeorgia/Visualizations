@@ -24,7 +24,7 @@ var mw = (function () {
    var marksWidth = 0;
    var dots = null; 
    var loaderStartTime = 0; 
-   var loaderAtLeast = 3000; // milliseconds 3000
+   var loaderAtLeast = 0; // milliseconds 3000
    var bar_chart = 
    {
       data: [
@@ -150,17 +150,19 @@ var mw = (function () {
         enterEvent = "touchstart";
         leaveEvent = "touchend";
       }
-
      d3.selectAll('.explanation .cell').on(enterEvent, function(){
-        var t = d3.select(this).select('.image');
-        t.transition().duration(700).style("opacity",0).each("end", function(){
-          t.style('z-index','2');
-        });
+          var t = d3.select(this);
+          t.select('.image .img').transition().duration(500).style("opacity",0).each("end", function(){
+            t.select('.image .text').style('z-index','5');
+          });
         d3.event.preventDefault();
       });
+
       d3.selectAll('.explanation .cell').on(leaveEvent, function(){
-         d3.select(this).select('.image').style('z-index','4').transition().duration(700).style("opacity",1);
-         d3.event.preventDefault();
+        var t = d3.select(this);
+        t.select('.image .text').style('z-index','3');
+        t.select('.image .img').transition().duration(400).style("opacity",1);
+        d3.event.preventDefault();
       });
       
       bar_chart_draw();

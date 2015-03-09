@@ -1057,7 +1057,7 @@ html, body
   width:100%;
   height:100%;
 }
-.explanation .box
+.explanation > .box
 {
   max-width:840px;
   width:100%;
@@ -1105,7 +1105,6 @@ html, body
   font-family: 'dejavusans';
   font-size:1em; 
   color:#fff; 
-  /*display:none;*/
   position:absolute;
   top: 50%;
   left: 50%;
@@ -1127,30 +1126,56 @@ html, body
   font-family: 'dejavusans-b';
   font-size:1.188em; 
   color:#fff; 
-  height:10%;
+  display:table-row;
 }
 .explanation .cell .label:lang(en)
 {
   font-family: 'officina-bold';
   font-size:1.188em; 
 }
-
-.explanation .cell .image
+.explanation .cell > .box
 {
-  background-color:#31B9DD;
-  z-index:4;
   position:relative;
   height: 100%;
   width: 100%;  
-  
+  z-index:4;
+  display:table;
 }
-.explanation .cell .image img
+.explanation .cell .image
+{
+
+  display:table-row;
+  height:100%;
+}
+.explanation .cell .image .img
 {
    max-width:420px;
    max-height:270px;
    width:100%;
    height:100%;
    pointer-events: none;
+   position:relative;
+   z-index:4;
+}
+.explanation .cell.c1 .image .img
+{
+  background:#31B9DD url(../images/c1.svg) center center no-repeat;
+  background-size:contain;
+}
+.explanation .cell.c2 .image .img
+{
+  background:#31B9DD url(../images/c2.svg) center center no-repeat;
+  background-size:contain;
+}
+.explanation .cell.c3 .image .img
+{
+  background:#31B9DD url(../images/c3.svg) center center no-repeat;
+  background-size:contain;
+}
+.explanation .cell.c4 .image .img
+{
+  background:#31B9DD url(../images/c4.svg) center center no-repeat;
+  background-size:contain;
 }
 .footer 
 {
