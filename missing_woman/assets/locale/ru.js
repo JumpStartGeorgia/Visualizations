@@ -6,7 +6,7 @@ ru =
    site_name: "Выбирая мальчиков на Южном Кавказе",
    million: "Миллион",
    year: "Год",
-   js: "JumpStart Georgia - We communicate data better!",
+   js: "Джампстарт Джорджия - мы сообщаем данные лучше!",
    timeline: 
    {
       past: "1995",
