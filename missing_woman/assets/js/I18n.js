@@ -130,6 +130,10 @@ var I18n = (function () {
          {
             d.content = v;
          }
+         else if(["title"].indexOf(d.dataset[kCamel]) != -1)
+         {
+            d.title = v;
+         }
          d.removeAttribute('data-' + k);
       }
    };

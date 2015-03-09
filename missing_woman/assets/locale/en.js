@@ -6,6 +6,7 @@ en =
    site_name: "Choosing Male in the South Caucasus",
    million: "Million",
    year: "Year",
+   js: "JumpStart Georgia - We communicate data better!",
    timeline: 
    {
       past: "1995",

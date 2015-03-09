@@ -1,6 +1,5 @@
 var mw = (function () {
 
-  // locally scoped Object
    var obj = { };
    var blinkDuration = 900;
    var animDuration = 900;
@@ -8,8 +7,8 @@ var mw = (function () {
    var gridMargin = 10;
    var gridItemMarginH = 5;
    var gridItemMarginV = 3;
-   var w = 0;
-   var h = 0;
+   var w = u.width();
+   var h = u.height();
    var hw = 52;
    var hh = 113;
    var hp = hh/hw;
@@ -26,7 +25,6 @@ var mw = (function () {
    var dots = null; 
    var loaderStartTime = 0; 
    var loaderAtLeast = 3000; // milliseconds 3000
-   var firstLoop = true;
    var bar_chart = 
    {
       data: [
@@ -49,14 +47,11 @@ var mw = (function () {
       base_max: 118,
       height_multiplier: 2
    };        
-    
-  // declared with `var`, must be "private"
    var init = function()
    {
       loaderStartTime = (new Date()).getTime();
       blink();
       d3.select(window).on('resize', resize);  
-      resize();    
       I18n.init(function(){ init_continue(); });      
    };
    var init_continue = function()
@@ -127,9 +122,6 @@ var mw = (function () {
             }
             return "human" + (tmp ? " man" : " woman")+ (!tmp ? (womenToSelect.hasOwnProperty(womanCounter) ? " muted" : "") : ""); 
          });  
-
-      
-
       // binding events 
 
       var drag = d3.behavior.drag()       
@@ -204,59 +196,47 @@ var mw = (function () {
   };
   var resize = function() {
     w = u.width();
-    h = u.height();       
-
-    if(!firstLoop)
-    {
-      redraw();
-      firstLoop = false;
-    }
+    h = u.height(); 
+    redraw();            
   };
   var redraw = function()
   {
-//alert(w+ " " + h);
     var t = bar_chart;
     t.height_multiplier = u.width() < 1440 ? 1 : 2;
     gridItemMarginH = u.width() < 1440 ? 0 : 5;
     d3.selectAll('.quantum-box .space').style('height',function(d){ return (t.height_multiplier*(t.base_max - d.v)) + 'px'; });
     d3.selectAll('.quantum-box .rest').style('height',function(d){ return (t.height_multiplier*(d.v - t.base)) + 'px'; });
 
-      var timelineProps = window.getComputedStyle(document.getElementsByClassName('timeline')[0]);
-      var questionProps = window.getComputedStyle(document.getElementsByClassName('question')[0]);
-      var bottomElementsHeight = u.px(timelineProps.marginTop,timelineProps.marginBottom,timelineProps.height,questionProps.height);
-      d3.select('.bar-chart .base-mark').style('top', d3.select('.bar-chart .indexes .index:first-of-type .base')[0][0].offsetTop-4 + "px");
- 
-      content.select('.page1').style("height", h+ "px");
-      var tmpHeight = h - (2*gridMargin+40) - bottomElementsHeight;
-      var tmpW = Math.floor((w-2*gridMargin-2*perRowCount*gridItemMarginH)/perRowCount);
-      var tmpH = Math.floor((tmpHeight-2*5*gridItemMarginV)/5);
-      var hWidth, hHeight, hh1, hw1, hh2,hw2;
-      hWidth = hHeight = hh1 = hw1 = hh2 = hw2 = 0;
-      // console.log(tmpW,tmpH,hw,hh);
-      if(tmpW < hw)
-      {
-        hw1 = tmpW;
-        hh1 = Math.ceil(hp * hw1);
+    var timelineProps = window.getComputedStyle(document.getElementsByClassName('timeline')[0]);
+    var questionProps = window.getComputedStyle(document.getElementsByClassName('question')[0]);
+    var bottomElementsHeight = u.px(timelineProps.marginTop,timelineProps.marginBottom,timelineProps.height,questionProps.height);
+    d3.select('.bar-chart .base-mark').style('top', d3.select('.bar-chart .indexes .index:first-of-type .base')[0][0].offsetTop-4 + "px");
 
-      }
-      if(tmpH < hh)
-      {
-        hh2 = tmpH;
-        hw2 = Math.ceil(hw/hh*hh2);
-      }
-     // console.log(hw1,hh1);
-      hWidth = hw1;
-      hHeight = hh1;
-      //alert(hh1 + " " + hh2);
-      if(hh1 > hh2 && hh2 != 0)
-      {
-        hWidth = hw2;
-        hHeight = hh2;
-      }
-      //alert(hWidth + " " + hHeight,w);
-      // console.log(hWidth,hHeight);
-      grid.selectAll('div').style({"width": hWidth + 'px', "height": hHeight + 'px', "margin": ('6px '+ gridItemMarginH+'px')});  
-      content.select('.grid').style('height', tmpHeight + "px")
+    content.select('.page1').style("height", h+ "px");
+    var tmpHeight = h - (2*gridMargin+40) - bottomElementsHeight;
+    var tmpW = Math.floor((w-2*gridMargin-2*perRowCount*gridItemMarginH)/perRowCount);
+    var tmpH = Math.floor((tmpHeight-2*5*gridItemMarginV)/5);
+    var hWidth, hHeight, hh1, hw1, hh2,hw2;
+    hWidth = hHeight = hh1 = hw1 = hh2 = hw2 = 0;
+    if(tmpW < hw)
+    {
+      hw1 = tmpW;
+      hh1 = Math.ceil(hp * hw1);
+    }
+    if(tmpH < hh)
+    {
+      hh2 = tmpH;
+      hw2 = Math.ceil(hw/hh*hh2);
+    }
+    hWidth = hw1;
+    hHeight = hh1;
+    if(hh1 > hh2 && hh2 != 0)
+    {
+      hWidth = hw2;
+      hHeight = hh2;
+    }
+    grid.selectAll('div').style({"width": hWidth + 'px', "height": hHeight + 'px', "margin": ('6px '+ gridItemMarginH+'px')});  
+    content.select('.grid').style('height', tmpHeight + "px");
   };
   var ondrag = function()
   {
