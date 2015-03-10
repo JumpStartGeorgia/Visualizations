@@ -324,7 +324,7 @@ html, body
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.content .question .button,.content .question2 .button:lang(en)
+.content .question .button:lang(en),.content .question2 .button:lang(en)
 {
   font-family:'officina-bold';
   font-size:1.500em;    
