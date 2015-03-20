@@ -1103,7 +1103,7 @@ html, body
 .explanation .cell .text
 {
   font-family: 'dejavusans';
-  font-size:1em; 
+  font-size:0.875em; 
   color:#fff; 
   position:absolute;
   top: 50%;
@@ -1119,7 +1119,19 @@ html, body
 .explanation .cell .text:lang(en)
 {
   font-family: 'officina-book';
-  font-size:1.25em; 
+  font-size:1em; 
+}
+@media only screen and (min-height : 768px) {
+
+  .explanation .cell .text
+  {
+    font-size:1em; 
+  }
+  .explanation .cell .text:lang(en)
+  {
+    font-family: 'officina-book';
+    font-size:1.25em; 
+  }
 }
 .explanation .cell .label
 {
