@@ -1132,13 +1132,6 @@ html, body
     font-size:1.25em; 
   }
 }
-@media only screen and (min-width : 1200px) {
-
-  .explanation .cell .text
-  {
-    max-width:300px;
-  }
-}
 .explanation .cell .label
 {
   font-family: 'dejavusans-b';
