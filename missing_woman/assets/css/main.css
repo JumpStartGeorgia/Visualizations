@@ -1068,7 +1068,7 @@ html, body
 {
   font-family: 'dejavusans-b';
   font-size:2.125em; 
-  line-height:1.97em;
+  line-height:1.2em;
   color:#fff; 
   margin-top: 10px;
 }
@@ -1114,7 +1114,6 @@ html, body
   z-index:3;
   width:100%;
   margin:0px auto;
-  max-width:300px;
 }
 .explanation .cell .text:lang(en)
 {
@@ -1131,6 +1130,13 @@ html, body
   {
     font-family: 'officina-book';
     font-size:1.25em; 
+  }
+}
+@media only screen and (min-width : 1200px) {
+
+  .explanation .cell .text
+  {
+    max-width:300px;
   }
 }
 .explanation .cell .label
