@@ -463,18 +463,32 @@ html, body
   display:table-cell;
   vertical-align:middle;
 }
-.bar-chart .chart .base-mark .text
+.bar-chart .chart .base-mark .text .l105
+{
+  font-family:'dejavusans-b';
+  font-size:1.063em;
+  color:#70788e;
+  position: relative;
+  top: -6px;
+}
+.bar-chart .chart .base-mark .text .l105:lang(en)
+{
+  font-family:'officina-bold';
+  font-size:1.125em;
+}
+.bar-chart .chart .base-mark .text .descr
 {
   font-family:'dejavusans-b';
   font-size:0.875em;
   color:#bac6d3;
   width:80px;
 }
-.bar-chart .chart .base-mark .text:lang(en)
+.bar-chart .chart .base-mark .text .descr:lang(en)
 {
   font-family:'officina-bold';
   font-size:0.875em;
 }
+
 .bar-chart .chart .base-mark .dot
 {
   background:transparent url('../images/dot_b.svg') no-repeat;  
@@ -487,6 +501,7 @@ html, body
 .bar-chart .chart .base-mark .line-box
 {
   vertical-align:top;
+  width:100%;
 }
 .bar-chart .chart .base-mark .horizontal-line
 {  

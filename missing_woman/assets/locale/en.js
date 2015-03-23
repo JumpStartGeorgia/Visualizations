@@ -62,7 +62,7 @@ en =
          sc: "South Caucasus",
          sa: "South Asia",
          se: "Southeast Europe",
-         base_mark: "105 <br>This is how many boys are normally born per 100 girls",
+         base_mark: "This is how many boys are normally born per 100 girls",
          asterisk: "* In 0-19 years old population",
          missing_woman: "Missing Women*",
          rate: "Sex Rate at Birth:",
