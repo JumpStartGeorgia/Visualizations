@@ -541,6 +541,10 @@ html, body
   text-transform: uppercase;
   white-space: nowrap;
 }
+.bar-chart .chart .indexes .index .country:lang(hy)
+{
+  font-size:0.625em;
+}
 .bar-chart .chart .indexes .index .country:lang(en)
 {
   font-family:'officina-bold';
@@ -645,7 +649,8 @@ html, body
   {
     min-width:100px;
   }
-  .bar-chart .chart .indexes .index .country
+  .bar-chart .chart .indexes .index .country,
+  .bar-chart .chart .indexes .index .country:lang(hy)
   {
     font-size:0.813em;
   }
