@@ -119,7 +119,7 @@ var I18n = (function () {
          kCamel += a.charAt(0).toUpperCase() + a.slice(1);
       });
       k = "i18n-"+k;
-      var append_regex = /^append\[(.*?)\]$/g;
+
       var i, d = null, all = document.querySelectorAll("[data-"+k+"]");
       for (i = 0; i < all.length; ++i) {
          d = all[i];
@@ -141,10 +141,11 @@ var I18n = (function () {
          }
          else
          {
+           var append_regex = /^append\[(.*?)\]$/g;
            var vv = append_regex.exec(d.dataset[kCamel]);
            if(vv.length == 2)
            {
-             d.innerHTML = v + vv[1] ;
+             d.innerHTML = v + vv[1];
            }
          }
          d.removeAttribute('data-' + k);

@@ -217,7 +217,7 @@ var mw = (function () {
   };
   var show = function()
   {
-    d3.select('.wrapper').style({"visibility":"visible", "position":"absolute", "opacity": 0});
+    d3.select('.wrapper').style({"visibility":"visible", "opacity": 0});
     d3.select('.loader').style("display","none");
     d3.select('.wrapper').transition().duration(1000).style('opacity',1).each("end", function(){
       // trigger_drag(1,3000);

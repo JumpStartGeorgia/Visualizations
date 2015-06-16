@@ -96,7 +96,6 @@ a, a:hover, a:focus {
 }*/
 .wrapper
 {
-  position:fixed;
   display:inline-block;
   visibility:hidden;
   width:100%;
@@ -158,14 +157,14 @@ a, a:hover, a:focus {
 
 
 
-.filter .field {
+.filters .field {
   display:inline-block;
 }
-.filter .field label {
+.filters .field label {
   font:15px 'dejavusans', 'sans-serif';
   color:#314451;
 }
-.filter .field select
+.filters .field select
 {
   font:18px 'dejavusans-m-b', 'sans-serif';
   color:#314451;
@@ -176,17 +175,76 @@ a, a:hover, a:focus {
   margin:0px 18px 0px 6px;
   outline:none;
   text-align:center;
-
+}
+.filters .map-type {
+  display:none;
 }
 .output {
   background-color:#d9f9f7;
+  padding:18px 20px;
+  border-radius:3px;
 }
 .output .city {
   font:30px 'dejavusans-m-b', 'sans-serif';
   color:#FE7440; /* this will be generated dynamically */
+  padding-bottom:10px;
   border-bottom:1px dashed #314451;
+  margin-bottom:12px;
 }
-
+.output .box {
+}
+.output .box .via-saving {
+  margin-right:40px;
+}
+.output .box .via-saving,
+.output .box .via-loan {
+  min-width:160px;
+  max-width:160px;
+  display:inline-block;
+}
+.output .box .caption{
+  font:18px 'dejavusans-m-b', 'sans-serif';
+  color:#314451; /* this will be generated dynamically */
+  padding-bottom:4px;
+  border-bottom:1px dashed #314451;
+  margin-bottom:16px;
+}
+.output .box .amount-box {
+  font:15px 'dejavusans-m', 'sans-serif';
+  color:#314451;
+  margin-bottom:36px;
+}
+.output .box .amount-box .amount {
+  font:38px 'dejavusans-b', 'sans-serif';
+  color:#314451;
+}
+.output .box .years-box {
+  font:20px 'dejavusans-el', 'sans-serif';
+  color:#314451;
+  background-color:#62dadd;
+  padding:12px 14px;
+  border-radius:3px;
+  margin-bottom:30px;
+}
+.output .box .years-box label {
+  display:inline-block;
+  margin-bottom:10px;
+}
+.output .box .years-box .notice {
+  display:none;
+}
+.output .box .years-box .years {
+  font:70px 'dejavusans-b', 'sans-serif';
+  color:#FE7440; /* this will be generated dynamically */
+}
+.output .box .chart {
+  margin-bottom:38px;
+}
+.output .share-this {
+  font:16px 'dejavusans-el', 'sans-serif';
+  color:#314451;
+  text-align:right;
+}
 .comments {
   font:18px 'dejavusans-m-b', 'sans-serif';
   color:#314451;
@@ -249,16 +307,15 @@ a, a:hover, a:focus {
 .footer a
 {
   display:inline-block;
-  padding:10px 10px 10px 0px;
+  padding:18px 0px 0px 0px;
 }
 .footer .right {
   float:right;
 }
 .footer .powered-by img
 {
-
-  width:72px;
-  height:15px;
+  width:135px;
+  height:36px;
 }
 /*------------------------------------------ Tip ------------------------------------------*/
 .tip
