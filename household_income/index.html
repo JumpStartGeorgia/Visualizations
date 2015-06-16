@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <title data-i18n-title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="description" content="111" data-i18n-description="content">
+    <meta property="og:title" content="" data-i18n-title="content">
+    <meta property="og:description" content="" data-i18n-description="content">
+    <meta property="og:type" content="non_profit">
+    <meta property="og:url" content="" data-i18n-url="content">
+    <meta property="og:image" content="http://visuals.chai-khana.org/missing_woman/assets/images/fb.jpg">
+    <meta property="og:site_name" content="" data-i18n-site_name="content">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/c3.min.css">
+  </head>
+  <body>
+  <div class="wrapper">
+    <div class="content">
+      <div class="poster"></div>
+      <div class="page">
+        <div class="header">
+          <div class="intro cell" data-i18n-description></div>
+          <div class="lang cell"><a href="/" data-i18n-lang_href="href" data-i18n-lang=""></a></div>
+        </div>
+        <div class="choropleth box">
+          <div class="cell left">
+            <div class="filter">
+              <div class="field">
+                <label data-i18n-m2="append[:]"></label>
+                <select class="m2">
+                  <option value="20">20</option>
+                  <option value="35">35</option>
+                  <option value="45">45</option>
+                  <option value="55">55</option>
+                  <option value="65">65</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+              <div class="field">
+                <label data-i18n-income="append[:]"></label>
+                <select class="income">
+                  <option value="250">250</option>
+                  <option value="500">500</option>
+                  <option value="1000">1000</option>
+                  <option value="1500">1500</option>
+                  <option value="2000">2000</option>
+                  <option value="2500">2500</option>
+                  <option value="3000">3000</option>
+                  <option value="4000">4000</option>
+                  <option value="5000">5000</option>
+                </select>
+              </div>
+              <div class="field">
+                <label data-i18n-saving="append[:]"></label>
+                <select class="saving">
+                  <option value="5">5%</option>
+                  <option value="35">10%</option>
+                  <option value="45">15%</option>
+                  <option value="20">20%</option>
+                  <option value="25">25%</option>
+                  <option value="30">30%</option>
+                  <option value="40">40%</option>
+                  <option value="50">50%</option>
+                </select>
+              </div>
+            </div>
+            <div class="map">
+              <div class="georgia">Georgia Map</div>
+              <div class="tbilisi">Tbilisi Map</div>
+            </div>
+          </div>
+          <div class="cell right">
+            <div class="output">
+              <div class="caption city">თბილისი</div>
+              <div class="box">
+                <div class="cell via-saving">
+                  <div class="caption" data-i18n-saving></div>
+                  <div class="amount">58320</div>
+                  <div class="years-box">
+                    <label data-i18n-year></label>
+                    <div class="years">17</div>
+                  </div>
+                  <div class="bar-chart-saving chart">Bar Chart</div>
+                </div>
+                <div class="cell via-loan">
+                  <div class="caption" data-i18n-loan></div>
+                  <div class="amount">60320</div>
+                  <div class="years-box">
+                    <label data-i18n-year></label>
+                    <div class="years">19</div>
+                  </div>
+                  <div class="bar-chart-saving chart">Bar Chart</div>
+                </div>
+              </div>
+              <div class="share-this"></div>
+            </div>
+          </div>
+        </div>
+        <div class="share-box">Share Box</div>
+        <div class="comments" data-i18n-comments></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer">
+    <div class="box">
+      <div class="box left">
+        <div class="methodology" data-i18n-methodology></div>
+        <div class="pipe">|</div>
+        <div class="download" data-i18n-download></div>
+      </div>
+      <div class='right powered-by'>
+        <a href="http://www.jumpstart.ge" target="_blank" data-i18n-js="title"><img alt="Jumpstart-logo" src="assets/images/js.svg"></a>
+      </div>
+    </div>
+  </div>
+  <div class="loader">
+    <div class="magnet center middle">
+      <div class="human man"></div>
+      <div class="human woman"></div>
+    </div>
+  </div>
+  <div id="tip" class="tip"><div class="pointer-top"></div><div class="data"></div><div class="pointer-bottom"></div></div>
+  <script src="assets/js/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/c3.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/util.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/I18n.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/m.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-12801815-39', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
