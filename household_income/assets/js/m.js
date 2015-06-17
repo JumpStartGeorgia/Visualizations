@@ -4,43 +4,37 @@ var mw = (function () {
    var blinkDuration = 900;
    var animDuration = 900;
    var blinkEase = "linear";
-   var gridMargin = 10;
-   var gridItemMarginH = 5;
-   var gridItemMarginV = 3;
+
    var w = u.width();
    var h = u.height();
-   var hw = 52;
-   var hh = 113;
-   var hp = hh/hw;
-   var grid = null;
-   var content = null;
-   var perRowCount = 39;
-   var manCount = 100;
-   var womanCount = 95;
-   var humansCount = manCount + womanCount;
-   var womanHighlited = 7;
-   var dragpointWidth = 37;
-   var dragpointHalfWidth = dragpointWidth/2;
-   var marksWidth = 0;
-   var dots = null;
+   var color_by_year = 'null1';
+   var colors = null;
+   var color_step = 9;
+   var color_range = ['#f9c235', '#ff6043'];
    var loaderStartTime = 0;
    var loaderAtLeast = 0; // milliseconds 3000
-   var data = {
+   var user = {
+     m2: 45,
+     income: 1000,
+     savings: 25
+   };
+   var _data = {
      m2: [20, 35, 45, 55, 65, 100],
      income: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000, 5000],
      saving: [5, 10, 15, 20, 25, 30, 40, 50],
      cities:  {
-       tbilisi: [956, 1042],
-       batumi: [1074,	1171],
-       zugdidi: [591, 644],
-       mcheta: [493, 537],
-       gori: [471, 513],
-       kutaisi: [456,	497],
-       axalwihe: [456, 497],
-       rustavi: [450,	491],
-       telavi: [399,	435],
-       ozurgeti: [213,	232],
-       ambrolauri: [0, 0]
+
+       '_65': [956, 1042], // tbilisi 65 tbilisi
+       '_23': [1074,	1171], // Adjara 23 batumi
+       '_9':  [591, 644], // Samegrelo-Zemo Svaneti 9 zugdidi
+       '_69': [493, 537], // Mtskheta-Mtianeti 69 mtskheta
+       '_75': [471, 513], // Shida Kartli 75 gori
+       '_29': [456,	497], // Imereti 29 kutaisi
+       '_55': [456, 497], // Samtskhe-Javakheti 55 akhaltsikhe
+       '_52': [450,	491], // Kvemo Kartli 52 rustavi
+       '_31': [399,	435], // Kakheti 31 telavi
+       '_35': [213,	232], // Guria 35 ozurgeti
+       '_14': [142, 155] // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
      },
      tbilisi:
      {
@@ -52,37 +46,13 @@ var mw = (function () {
        zveli_tbilisi: [1153,	1257]
      },
    };
-   var bar_chart =
-   {
-      data: [
-        {k:"china",v:118, rate: 117.8, region: "esa", period:"2011", population_p: 14.2, population_t: 23687000, population:1357 },
-        {k:"azerbaijan",v:117,class:"highlight", rate: 116.5, region: "sc", period:"2011", population_p: 7.8, population_t: 104000, population:10},
-        {k:"armenia",v:115,class:"highlight", rate: 114.5, region: "sc", period:"2011", population_p: 7.4, population_t: 31000, population:3},
-        {k:"georgia",v:114,class:"highlight", rate: 113.6, region: "sc", period:"2009-2011", population_p: 3.8, population_t: 19000, population:4.5},
-        {k:"albania",v:112, rate: 111.7, region: "se", period:"2008-2010", population_p: 3.1, population_t: 15000, population:2.8},
-        {k:"vietnam",v:111, rate: 111.2, region: "esa", period:"2010", population_p: 1.7, population_t: 245000, population:9},
-        {k:"india",v:111, rate: 110.5, region: "sa", period:"2008-2010", population_p: 5.6, population_t: 13197000, population:1252},
-        {k:"pakistan",v:110, rate: 109.9, region: "sa", period:"2007", population_p: 0.7, population_t: 281000, population:182},
-        {k:"montenegro",v:110, rate: 109.8, region: "se", period:"2009-2011", population_p: 2.7, population_t: 2000, population:0.6},
-        {k:"singapore",v:108, rate: 107.5, region: "esa", period:"2009", population_p: 1.9, population_t: 11000, population:5.4},
-        {k:"south_korea",v:107, rate: 106.7, region: "esa", period:"2010", population_p: 4.8, population_t: 260000, population:50}
-      ],
-
-
-      s: null, // selector
-      base: 105,
-      base_max: 118,
-      height_multiplier: 2
-   };
-   var init = function()
-   {
+   var init = function() {
        loaderStartTime = (new Date()).getTime();
       // blink();
       // d3.select(window).on('resize', resize);
        I18n.init(function(){ init_continue(); });
    };
-   var init_continue = function()
-   {
+   var init_continue = function() {
       prepare();
    };
    var blink = function () {
@@ -101,108 +71,20 @@ var mw = (function () {
             .each("end", blink);
          });
    };
-   var prepare = function()
-   {
-    //   content = d3.select('.content');
-    //   grid = content.select('.grid .people');
-     //
-    //   var womenToSelect = {};
-    //   var womenToSelectCount = 0;
-    //   var tmp = 0;
-    //   while(womenToSelectCount < womanHighlited)
-    //   {
-    //      tmp = rand(1,womanCount);
-    //      if(!womenToSelect.hasOwnProperty(tmp))
-    //      {
-    //         womenToSelect[tmp] = true;
-    //         ++womenToSelectCount;
-    //      }
-    //   }
-    //   var tmpManCount = manCount;
-    //   var tmpWomanCount = womanCount;
-    //   var womanCounter = 0;
-     //
-     //
-    //   grid.selectAll('div').data(d3.range(1,humansCount+1,1))
-    //     .enter().append("div")
-    //     .attr("class", function(d)
-    //      {
-    //         // tmp if true then man else woman
-    //         if(rand(0,1) == 1)
-    //         {
-    //            if(tmpManCount!=0) { tmp = true; }
-    //            else if(tmpWomanCount !=0) { tmp = false; }
-    //         }
-    //         else
-    //         {
-    //            if(tmpWomanCount != 0) { tmp = false; }
-    //            else if(tmpManCount!=0) { tmp = true; }
-    //         }
-    //         if(tmp)
-    //         {
-    //            --tmpManCount
-    //         }
-    //         else
-    //         {
-    //            --tmpWomanCount;
-    //            ++womanCounter;
-    //         }
-    //         return "human" + (tmp ? " man" : " woman")+ (!tmp ? (womenToSelect.hasOwnProperty(womanCounter) ? " muted" : "") : "");
-    //      });
-    //   // binding events
-     //
-    //   var drag = d3.behavior.drag()
-    //     .on("drag", ondrag)
-    //     .on("dragend", ondragend);
-    //   d3.select('.dragpoint').call(drag);
-     //
-    //   d3.selectAll('.marks .mark .label, .marks .mark .dot').on('click',function(){
-    //     var tmp = +d3.select(this).attr('data-id');
-    //     trigger_drag(tmp);
-    //   });
-    //   d3.selectAll('.question .button').on('click',function(){
-    //       d3.select("body").transition().duration(2000)
-    //       .tween("scrollDown", scrollTopTween(d3.select('.charts')[0][0].offsetTop));
-    //   });
-    //   d3.selectAll('.question2 .button').on('click',function(){
-    //       d3.select("body").transition().duration(2000)
-    //       .tween("scrollTop", scrollTopTween(0)).each("end", function(){
-    //         trigger_drag(2,3000);
-    //       });
-    //   });
-    //   var enterEvent = "mouseenter";
-    //   var leaveEvent = "mouseleave";
-     //
-    //   if(document.hasOwnProperty('ontouchstart')){
-    //     enterEvent = "touchstart";
-    //     leaveEvent = "touchend";
-    //   }
-    //  d3.selectAll('.explanation .cell').on(enterEvent, function(){
-    //       var t = d3.select(this);
-    //       t.select('.image .img').transition().duration(500).style("opacity",0).each("end", function(){
-    //         t.select('.image .text').style('z-index','5');
-    //       });
-    //     d3.event.preventDefault();
-    //   });
-     //
-    //   d3.selectAll('.explanation .cell').on(leaveEvent, function(){
-    //     var t = d3.select(this);
-    //     t.select('.image .text').style('z-index','3');
-    //     t.select('.image .img').transition().duration(400).style("opacity",1);
-    //     d3.event.preventDefault();
-    //   });
-     //
-    //   bar_chart_draw();
-    //   line_chart_draw();
-
+   var prepare = function() {
+     d3.selectAll('.filters select.filter').on('change',function(d){ get_filters(); });
+      georgia_map_draw();
       I18n.remap();
-
-      // marksWidth = d3.select('.timeline .marks')[0][0].clientWidth;
-      // dots = [0,marksWidth/2,marksWidth];
 
       // redraw();
 
       loader_stop();
+  };
+  var get_filters = function() {
+    user.m2 = d3.select('.filters .filter.m2').property('value');
+    user.income = d3.select('.filters .filter.income').property('value');
+    user.savings = d3.select('.filters .filter.savings').property('value');
+    console.log('user ------------------------- ', user);
   };
   var loader_stop = function()
   {
@@ -230,263 +112,222 @@ var mw = (function () {
   };
   var redraw = function()
   {
-    var t = bar_chart;
-    t.height_multiplier = u.width() < 1440 ? 1 : 2;
-    gridItemMarginH = u.width() < 1440 ? 0 : 5;
-    d3.selectAll('.quantum-box .space').style('height',function(d){ return (t.height_multiplier*(t.base_max - d.v)) + 'px'; });
-    d3.selectAll('.quantum-box .rest').style('height',function(d){ return (t.height_multiplier*(d.v - t.base)) + 'px'; });
 
-    var timelineProps = window.getComputedStyle(document.getElementsByClassName('timeline')[0]);
-    var questionProps = window.getComputedStyle(document.getElementsByClassName('question')[0]);
-    var bottomElementsHeight = u.px(timelineProps.marginTop,timelineProps.marginBottom,timelineProps.height,questionProps.height);
-    d3.select('.bar-chart .base-mark').style('top', d3.select('.bar-chart .indexes .index:first-of-type .base')[0][0].offsetTop-4 + "px");
-
-    content.select('.page1').style("height", h+ "px");
-    var tmpHeight = h - (2*gridMargin+40) - bottomElementsHeight;
-    var tmpW = Math.floor((w-2*gridMargin-2*perRowCount*gridItemMarginH)/perRowCount);
-    var tmpH = Math.floor((tmpHeight-2*5*gridItemMarginV)/5);
-    var hWidth, hHeight, hh1, hw1, hh2,hw2;
-    hWidth = hHeight = hh1 = hw1 = hh2 = hw2 = 0;
-    if(tmpW < hw)
-    {
-      hw1 = tmpW;
-      hh1 = Math.ceil(hp * hw1);
-    }
-    if(tmpH < hh)
-    {
-      hh2 = tmpH;
-      hw2 = Math.ceil(hw/hh*hh2);
-    }
-    hWidth = hw1;
-    hHeight = hh1;
-    if(hh1 > hh2 && hh2 != 0)
-    {
-      hWidth = hw2;
-      hHeight = hh2;
-    }
-    grid.selectAll('div').style({"width": hWidth + 'px', "height": hHeight + 'px', "margin": ('6px '+ gridItemMarginH+'px')});
-    content.select('.grid').style('height', tmpHeight + "px");
   };
-  var ondrag = function()
-  {
-    var x = d3.event.x;
-    if(x >= 0 && x <= marksWidth);
-    else if(x < 0) x = 0;
-    else x = marksWidth;
 
-    if(x >= 0 && x <= dots[1])
-    {
-      d3.selectAll('.grid .people .muted').classed('woman-d',false).classed('woman',true);
-      d3.selectAll('.grid .people .muted').style("opacity", 1-(100*x/dots[1])*0.9/100 + 0.1 );
-    }
-    else
-    {
-      d3.selectAll('.grid .people .muted').classed('woman-d',true).classed('woman',false);
-    }
-    //console.log(d3.select(this),x-dragpointHalfWidth,x,dragpointHalfWidth);
-    d3.select(this).datum({x:x}).style("left", x-dragpointHalfWidth + "px");
-  };
-  var ondragend = function()
-  {
-    var i = 0, x = d3.select(this).data()[0].x;
-    if(x <= dots[1]) i = x-dots[0]>dots[1]-x ? 1 : 0;
-    else i = x-dots[1]>dots[2]-x ? 2 : 1;
-    trigger_drag(i);
-  };
-  var trigger_drag = function(i,dur)
-  {
-    dur = dur || animDuration;
-    var x = dots[i];
-    var opacity = (i == 0 ? 1 : 0.1);
-    var all = d3.selectAll('.grid .people .muted');
-    if(i == 0) all.classed('woman', true).classed('woman-d', false);
-    d3.select('.timeline .marks .dragpoint').datum({x:x}).transition().duration(dur).style("left", x-dragpointHalfWidth + "px");
-    all.transition()
-      .duration(dur)
-      .style("opacity", opacity)
-      .each("end", function()
-      {
-        d3.select(this).classed('woman', opacity == 1).classed('woman-d', opacity != 1);
-      });
-    content.select('.explanation').transition().duration(dur).style({"opacity": i == 2 ? 1 : 0, "z-index": i == 2 ? 10 : 9});
-    content.select('.people').transition().duration(dur).style("opacity", i == 2 ? 0 : 1);
-  };
-/*------------------------------------------ Bar Chart ------------------------------------------*/
-  var bar_chart_draw = function()
-  {
-    var t = bar_chart;
-    t.s = d3.select('.bar-chart');
-    var indexes = t.s.select('.indexes')
-                    .selectAll('div')
-                    .data(t.data)
-                    .enter()
-                    .append('div')
-                    .classed('index',true)
-                    .attr('data-tip-id',function(d){ return d.k; });
 
-      indexes.append('div').classed('country', true).each(function(d){
-        d3.select(this).attr('data-i18n-charts-bar_chart-' + d.k, "text").attr('data-tip',d.k);
-        if(d.hasOwnProperty('class'))
-        {
-          d3.select(this).classed(d.class,true);
-        }
-      });
-      indexes.append('div').classed('quantum', true).attr('data-tip',function(d){ return d.k; }).text(function(d){ return d.v; });
-      var quantum_box = indexes
-                          .append('div')
-                          .classed('quantum-box', true)
-                          .attr('data-tip',function(d){ return d.k; });
-      quantum_box.append('div').classed('space',true);
-      quantum_box.append('div').classed('rest',true);
+/*------------------------------------------ Georgia Map ------------------------------------------*/
+  var georgia_map_draw = function() {
+    var map_w = 690,
+        map_h = 400,
+        disabled_region = [1, 15],
+        default_region = 65,
+        svg = d3.select(".map .georgia")
+                    .append("svg")
+                    .attr("width", map_w)
+                    .attr("height", map_h);
 
-      quantum_box.append('div').classed('base',true).each(function(d){
-          if(d.hasOwnProperty('class'))
-          {
-            d3.select(this).classed(d.class,true);
-          }
-        });
-      quantum_box.append('div').classed('bottom',true);
+    colors = d3.scale.linear()
+      .domain([1, color_step])
+      .range(color_range);
+    color_by_year = function(year) {
+      var tmp = 1;
 
-      var country_shape = indexes.append('div').classed('country-shape', true);
-      country_shape.append('div').classed('vertical-line',true).attr('data-tip',function(d){ return d.k; });
-      var country_shape_box = country_shape.append('div').each(function(d){
-        d3.select(this).classed('shape ' + d.k, true).attr('data-tip', d.k);
-      });
-      country_shape_box.append('img').each(function(d){
-        d3.select(this).attr('src', 'assets/images/countries/' + d.k + '.svg');
-      });
-      country_shape.append('div').classed('dot',true).attr('data-tip',function(d){ return d.k; });
+      if(year < 1) {
+        tmp = 1;
+      }
+      else if(year >= 1 && year <= 2) {
+        tmp = 2;
+      }
+      else if(year > 2 && year <= 4) {
+        tmp = 3;
+      }
+      else if(year > 4 && year <= 6) {
+        tmp = 4;
+      }
+      else if(year > 6 && year <= 8) {
+        tmp = 5;
+      }
+      else if(year > 8 && year <= 10) {
+        tmp = 6;
+      }
+      else if(year > 10 && year <= 13) {
+        tmp = 7;
+      }
+      else if(year > 13 && year <= 15) {
+        tmp = 8;
+      }
+      else if(year > 15) {
+        tmp = 9;
+      }
+      return colors(tmp);
+    };
 
-      indexes.append('div').classed('country bottom', true).each(function(d){
-        d3.select(this).attr('data-i18n-charts-bar_chart-' + d.k, "text").attr('data-tip',d.k);
-        if(d.hasOwnProperty('class'))
-        {
-          d3.select(this).classed(d.class,true);
-        }
-      });
-      var million = I18n.t('million');
-      indexes.append('div').classed('population', true).text(function(d){ return d.population + "\n" + million; });
 
-      var moveEvent = "mousemove";
-      var outEvent = "mouseout";
-       indexes.selectAll('[data-tip]').on(moveEvent, function(d){
-         //console.log('a',d);
-          var t = d3.select(this);
-          var tip_id = t.attr('data-tip');
-          var par = d3.select('[data-tip-id='+tip_id+']');
-          var tip = d3.select('#tip');
-          var klass="";
-          if(d.hasOwnProperty('class'))
-          {
-            klass = " " + d.class;
-          }
-          var html =  '<div>' +
-                         '<div class="country'+klass+'">' + I18n.t('charts-bar_chart-' + d.k) + '</div>' +
-                         '<div class="region">' + I18n.t('charts-bar_chart-' + d.region) + '</div>' +
-                         '<div class="rate"><div class="label">' + I18n.t('charts-bar_chart-rate') + "&nbsp;</div>" + d.rate + '</div>' +
-                         '<div class="gender-gap"><div class="label">' + I18n.t('charts-bar_chart-gender_gap') + "&nbsp;</div>" + d.population_p.toLocaleString() + '%</div>' +
-                         '<div class="missing'+klass+'">' + I18n.t('charts-bar_chart-missing_woman') + '</div>' +
-                         '<div class="gap'+klass+'">' + d.population_t.toLocaleString() + '</div>' +
-                         '<div class="period">(' + d.period + ')</div>' +
-                      '</div>';
-          var content = tip.select('.data').html(html);
-          var tiph = tip[0][0].clientHeight;
-          var tipw = tip[0][0].clientWidth;
-           var top = 0;
-           if(d3.event.pageY - tiph < window.scrollY) // under
-           {
-             top =  d3.event.pageY + 20;
-             tip.select('.pointer-top').style('display','block');
-             tip.select('.pointer-bottom').style('display','none');
-           }
-           else // above
-           {
-              top =  d3.event.pageY - tiph - 5;
-             tip.select('.pointer-top').style('display','none');
-             tip.select('.pointer-bottom').style('display','block');
-           }
-          tip.style({top: top + "px", left: d3.event.pageX -tipw/2 + "px"}).transition().duration(100).style('opacity',1);
-          d3.event.preventDefault();
-       });
-      indexes.selectAll('[data-tip]').on(outEvent, function(){
-        d3.select('#tip').style({'opacity':0, 'left': '-999999px' });
-        d3.event.preventDefault();
+    d3.json("assets/data/georgia.json", function(error, shapes) {
+      if (error) throw error;
+
+      var projection = d3.geo.mercator()
+          .scale(5000)
+          .translate([map_w/2,map_h/2])
+          .center([43.52606083142459,42.18408590602157]);
+
+      var path = d3.geo.path()
+          .projection(projection);
+
+
+      svg.append("g")
+          .attr("class", "regions")
+          .selectAll("path")
+            .data(topojson.feature(shapes, shapes.objects.regions_so_latlong).features)
+            .enter().append("path")
+            .attr("id", function(d) { return 'region' + d.properties.OBJECTID; })// return quantize(rateById.get(d.id)); })
+              .attr("class", function(d) {
+                return (disabled_region.indexOf(d.properties.OBJECTID) >= 0 ?  '' : 'region') })// return quantize(rateById.get(d.id)); })
+              .attr("d", path);
+
+              // <g class="legend" transform="translate(-36,-44)">
+              //   <rect width="18" height="18" style="fill: rgb(57, 59, 121); stroke: rgb(57, 59, 121);"></rect>
+              //   <text x="22" y="14">Abulia</text>
+              // </g>
+
+
+      svg.append("g")
+         .attr("class", "legend")
+          .selectAll("rect")
+            .data(d3.range(1,color_step+1,1))
+            .enter().append("rect")
+            .attr({'width':'10', 'height':'10'})
+            .attr("x", function(d, i){ return i * 14 + 30;})
+            .attr("y", map_h - 20 )
+            .attr('data-tip', 'blah blah')
+            .style('fill', function(d){ return colors(d); });
+            // .attr("id", function(d) { return 'region' + d.properties.OBJECTID; })// return quantize(rateById.get(d.id)); })
+            //   .attr("class", function(d) {
+            //     return (disabled_region.indexOf(d.properties.OBJECTID) >= 0 ?  '' : 'region') })// return quantize(rateById.get(d.id)); })
+            //   .attr("d", path);
+//       svg.append("path")
+// .datum(topojson.feature(shapes, shapes.objects.cities))
+// .attr("d", path)
+// .attr("class", "place");
+//
+// svg.selectAll(".place-label")
+// .data(topojson.feature(shapes, shapes.objects.cities).features)
+// .enter().append("text")
+// .attr("class", "place-label")
+// .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
+// .attr("x", function(d) { return d.geometry.coordinates[0] > -1 ? 6 : -6; })
+// .attr("dy", ".35em")
+// .style("text-anchor", function(d) { return d.geometry.coordinates[0] > -1 ? "start" : "end"; })
+// .text(function(d) { return 'blah'; });
+
+
+      d3.select(self.frameElement).style("height", map_h + "px");
+
+      // binding map
+      d3.selectAll('.map .georgia .region').on('click', function(d){
+        d3.selectAll('.map .georgia .region.active').classed('active',false);
+        var t = d3.select(this).classed('active', true);
+        sort_regions(t.data()[0].properties);
       });
-  };
-/*------------------------------------------ Line Chart ------------------------------------------*/
-  var line_chart_draw = function()
-  {
-    var chart = c3.generate({
-        bindto: '#line_chart',
-        size: {
-          height: 320
-        },
-        data: {
-          x : 'x',
-          columns: [
-            [ 'x', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013' ],
-            [ 'georgia', 112, 111.1, 111.6, 111.5, 111.2, 111.3, 110.8, 110.8, 110.4, 110.1, 109.8 ],
-            [ 'armenia', 108.3, 108, 107.7, 107.4, 107.1, 106.9, 106.7, 106.5, 106.2, 106, 105.9 ],
-            [ 'eu', 105.4, 105.4, 105.3, 105.3, 105.2, 105.1, 105.1, 105, 105, 105, 104.9, 104.8 ],
-            [ 'azerbaijan', 104.1, 103.9, 103.7, 103.4, 103.2, 102.9, 102.7, 104.1, 101.9, 101.7, 101.5, 101.3 ]
-          ],
-          type: 'spline',
-          names: {
-            armenia: I18n.t('charts-line_chart-legend-armenia'),
-            azerbaijan: I18n.t('charts-line_chart-legend-azerbaijan'),
-            georgia: I18n.t('charts-line_chart-legend-georgia'),
-            eu: I18n.t('charts-line_chart-legend-eu')
-          },
-          colors: {
-            azerbaijan: '#42a555',
-            armenia: '#dd8345',
-            georgia: '#f75c5c',
-            eu: '#468cc1'
-          }
-        },
-        axis: {
-          x:
-          {
-            label: {
-              text: I18n.t('year'),
-              position: 'outer-left'
-            },
-          },
-          y: {
-            label: {
-              text: I18n.t('charts-line_chart-y_label'),
-              position: 'outer-top',
-            },
-            tick: {
-              values: [100, 103, 106, 109, 112, 115]
-            }
-          }
-        },
-        legend: {
-          show: true,
-          position: 'right'
-        },
-        tooltip: {
-          show: true,
-          format: {
-            name: function (name, ratio, id, index) { return I18n.t("charts-bar_chart-" + id); }
-          }
-        },
-        onrendered: function () {
-          d3.select('.line-chart .c3-axis-y-label').attr("dy", -45);
-          d3.select('.line-chart .c3-axis-x-label').attr({"dy":30,"dx":65});
-          d3.selectAll('.line-chart .c3-legend-item').each(function(d,i){
-            if(i > 0)
-            {
-              var t = d3.select(this);
-              t.select('text').attr('y', +t.select('text').attr('y') + i*5);
-              t.select('.c3-legend-item-event').attr('y', +t.select('.c3-legend-item-event').attr('y') + i*5);
-              t.select('.c3-legend-item-tile').attr('y', +t.select('.c3-legend-item-tile').attr('y') + i*5);
-            }
-          });
-        }
+
+      d3.selectAll('.map .georgia .region').on('mouseover', function(d) { sort_regions(d.properties); });
+      d3.selectAll('.map .georgia .region').on('mouseout', function() {
+        sort_regions(d3.select('.map .georgia path.active').data()[0].properties);
+      });
+
+      d3.selectAll(".map .georgia path#region" + default_region).each(function(d, i) {
+          d3.select(this).on("click").apply(this, [d, i]);
+      });
+      
+      tooltip();
     });
+    function output(current)
+    {
+      var city_id = current.OBJECTID;
+
+      var d = _data.cities['_' + city_id];
+      var month_amount = d[0];
+      var month_amount_with_loan = d[1];
+
+      var out = d3.select('.output');
+      var years = Math.round(((user.m2 * month_amount)/( user.income*user.savings/100))/12);
+      var saving_per_month = user.income*user.savings/100;
+
+      out.select('.city').text(I18n.t('data-I18n-cities-_'+ city_id));
+
+      out.select('.via-saving .amount').text(user.m2 * month_amount);
+      out.select('.via-saving .years').text(years);
+      out.select('.via-loan .amount').text(user.m2 * month_amount_with_loan);
+      out.select('.via-loan .years').text(Math.round(((user.m2 * month_amount_with_loan)/( saving_per_month))/12));
+
+      d3.selectAll('.map .georgia .region').each(function(d){
+        var tmp_id = d.properties.OBJECTID;
+        var col = color_by_year(Math.round(((user.m2 * _data.cities['_' + tmp_id][0])/(saving_per_month))/12));
+        d3.select(this).style('fill', col);
+      });
+    }
+    function sort_regions(current) {
+      var top_id = current.OBJECTID;
+      var active_id = d3.select('.map .georgia path.active').data()[0].properties.OBJECTID;
+      svg.selectAll(".map .georgia .region").sort(function (a, b) {
+        if (a.properties.OBJECTID == top_id) return 1;
+        else if (a.properties.OBJECTID == active_id) return 2;
+        else return -1;
+      });
+      output(current);
+    }
   };
+  var tooltip = function() {
+    var moveEvent = "mouseover";
+     var outEvent = "mouseout";
+     console.log('tooltip');
+      d3.selectAll('[data-tip]').on(moveEvent, function(d){
+        console.log('tooltip hover');
+        console.log('hey', d3.select(this).attr('data-tip'));
+        //console.log('a',d);
+    //      var t = d3.select(this);
+    //      var tip_id = t.attr('data-tip');
+    //      var par = d3.select('[data-tip-id='+tip_id+']');
+    //      var tip = d3.select('#tip');
+    //      var klass="";
+    //      if(d.hasOwnProperty('class'))
+    //      {
+    //        klass = " " + d.class;
+    //      }
+    //      var html =  '<div>' +
+    //                     '<div class="country'+klass+'">' + I18n.t('charts-bar_chart-' + d.k) + '</div>' +
+    //                     '<div class="region">' + I18n.t('charts-bar_chart-' + d.region) + '</div>' +
+    //                     '<div class="rate"><div class="label">' + I18n.t('charts-bar_chart-rate') + "&nbsp;</div>" + d.rate + '</div>' +
+    //                     '<div class="gender-gap"><div class="label">' + I18n.t('charts-bar_chart-gender_gap') + "&nbsp;</div>" + d.population_p.toLocaleString() + '%</div>' +
+    //                     '<div class="missing'+klass+'">' + I18n.t('charts-bar_chart-missing_woman') + '</div>' +
+    //                     '<div class="gap'+klass+'">' + d.population_t.toLocaleString() + '</div>' +
+    //                     '<div class="period">(' + d.period + ')</div>' +
+    //                  '</div>';
+    //      var content = tip.select('.data').html(html);
+    //      var tiph = tip[0][0].clientHeight;
+    //      var tipw = tip[0][0].clientWidth;
+    //       var top = 0;
+    //       if(d3.event.pageY - tiph < window.scrollY) // under
+    //       {
+    //         top =  d3.event.pageY + 20;
+    //         tip.select('.pointer-top').style('display','block');
+    //         tip.select('.pointer-bottom').style('display','none');
+    //       }
+    //       else // above
+    //       {
+    //          top =  d3.event.pageY - tiph - 5;
+    //         tip.select('.pointer-top').style('display','none');
+    //         tip.select('.pointer-bottom').style('display','block');
+    //       }
+    //      tip.style({top: top + "px", left: d3.event.pageX -tipw/2 + "px"}).transition().duration(100).style('opacity',1);
+    //      d3.event.preventDefault();
+    //   });
+    //  indexes.selectAll('[data-tip]').on(outEvent, function(){
+    //    d3.select('#tip').style({'opacity':0, 'left': '-999999px' });
+    //    d3.event.preventDefault();
+     });
+  }
   function randomEven(min,max) { return 2*(rand(min,max)%(Math.floor(max/2)) + 1); }
   function rand(min,max) { return Math.floor(Math.random()*(max-min+1)+min); }
   function scrollTopTween(scrollTop) {

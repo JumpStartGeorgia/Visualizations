@@ -179,6 +179,28 @@ a, a:hover, a:focus {
 .filters .map-type {
   display:none;
 }
+/************************************** Georgia map *****************************************/
+.map .georgia path {
+  fill:#fffae3;
+  stroke:#efdd92;
+  stroke-width:1px;
+}
+.map .georgia path.region {
+  fill:#f9c235;
+  stroke:#fffae3;
+  stroke-width:1px;
+}
+.map .georgia path.region:hover, .map .georgia path.region.active {
+  stroke:#314451;
+  cursor:pointer;
+  /*outline:10px solid black;*/
+}
+.map .georgia path.place {
+  fill:red;
+  stroke:#fffae3;
+  stroke-width:1px;
+}
+/************************************** Output *****************************************/
 .output {
   background-color:#d9f9f7;
   padding:18px 20px;
