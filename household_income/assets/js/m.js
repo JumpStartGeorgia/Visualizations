@@ -1,24 +1,58 @@
 var mw = (function () {
 
-   var obj = { };
-   var blinkDuration = 900;
-   var animDuration = 900;
-   var blinkEase = "linear";
+   var obj = { },
+   blinkDuration = 900,
+   animDuration = 900,
+   blinkEase = "linear",
 
-   var w = u.width();
-   var h = u.height();
-   var color_by_year = 'null1';
-   var colors = null;
-   var color_step = 9;
-   var color_range = ['#f9c235', '#ff6043'];
-   var loaderStartTime = 0;
-   var loaderAtLeast = 0; // milliseconds 3000
-   var user = {
+   w = u.width(),
+   h = u.height(),
+   geo_map = null,
+   disabled_region = [1, 15],
+   default_region = 65,
+   color_step = 9,
+   color_range = ['#f9c235', '#ff6043'],
+   colors = d3.scale.linear().domain([1, color_step]).range(color_range);
+   color_by_year = function(year) {
+     var tmp = 1;
+
+     if(year < 1) {
+       tmp = 1;
+     }
+     else if(year >= 1 && year <= 2) {
+       tmp = 2;
+     }
+     else if(year > 2 && year <= 4) {
+       tmp = 3;
+     }
+     else if(year > 4 && year <= 6) {
+       tmp = 4;
+     }
+     else if(year > 6 && year <= 8) {
+       tmp = 5;
+     }
+     else if(year > 8 && year <= 10) {
+       tmp = 6;
+     }
+     else if(year > 10 && year <= 13) {
+       tmp = 7;
+     }
+     else if(year > 13 && year <= 15) {
+       tmp = 8;
+     }
+     else if(year > 15) {
+       tmp = 9;
+     }
+     return colors(tmp);
+   },
+   loaderStartTime = 0,
+   loaderAtLeast = 0, // milliseconds 3000
+   user = {
      m2: 45,
      income: 1000,
      savings: 25
-   };
-   var _data = {
+   },
+   _data = {
      m2: [20, 35, 45, 55, 65, 100],
      income: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000, 5000],
      saving: [5, 10, 15, 20, 25, 30, 40, 50],
@@ -53,7 +87,8 @@ var mw = (function () {
        I18n.init(function(){ init_continue(); });
    };
    var init_continue = function() {
-      prepare();
+     bar_chart_draw();
+     georgia_map_draw();
    };
    var blink = function () {
       d3.select('.loader .woman')
@@ -71,20 +106,32 @@ var mw = (function () {
             .each("end", blink);
          });
    };
-   var prepare = function() {
-     d3.selectAll('.filters select.filter').on('change',function(d){ get_filters(); });
-      georgia_map_draw();
-      I18n.remap();
 
-      // redraw();
+  var bind = function() {
+    d3.selectAll('.filters select.filter').on('change',function(d){ filter(); });
+    d3.selectAll('.map .georgia .region').on('click', function(d){
+      d3.selectAll('.map .georgia .region.active').classed('active',false);
+      var t = d3.select(this).classed('active', true);
+      sort_regions(t.data()[0].properties);
+    });
 
-      loader_stop();
+    d3.selectAll('.map .georgia .region').on('mouseover', function(d) { sort_regions(d.properties); });
+    d3.selectAll('.map .georgia .region').on('mouseout', function() {
+      sort_regions(d3.select('.map .georgia path.active').data()[0].properties);
+    });
+
+    d3.selectAll(".map .georgia path#region" + default_region).each(function(d, i) {
+        d3.select(this).on("click").apply(this, [d, i]);
+    });
+    I18n.remap();
+    loader_stop();
   };
-  var get_filters = function() {
+  var filter = function() {
     user.m2 = d3.select('.filters .filter.m2').property('value');
     user.income = d3.select('.filters .filter.income').property('value');
     user.savings = d3.select('.filters .filter.savings').property('value');
-    console.log('user ------------------------- ', user);
+
+    output(d3.select('.map .georgia path.active').data()[0].properties);
   };
   var loader_stop = function()
   {
@@ -117,51 +164,18 @@ var mw = (function () {
 
 
 /*------------------------------------------ Georgia Map ------------------------------------------*/
+
   var georgia_map_draw = function() {
     var map_w = 690,
-        map_h = 400,
-        disabled_region = [1, 15],
-        default_region = 65,
-        svg = d3.select(".map .georgia")
+        map_h = 400;
+
+
+        geo_map = d3.select(".map .georgia")
                     .append("svg")
                     .attr("width", map_w)
                     .attr("height", map_h);
 
-    colors = d3.scale.linear()
-      .domain([1, color_step])
-      .range(color_range);
-    color_by_year = function(year) {
-      var tmp = 1;
 
-      if(year < 1) {
-        tmp = 1;
-      }
-      else if(year >= 1 && year <= 2) {
-        tmp = 2;
-      }
-      else if(year > 2 && year <= 4) {
-        tmp = 3;
-      }
-      else if(year > 4 && year <= 6) {
-        tmp = 4;
-      }
-      else if(year > 6 && year <= 8) {
-        tmp = 5;
-      }
-      else if(year > 8 && year <= 10) {
-        tmp = 6;
-      }
-      else if(year > 10 && year <= 13) {
-        tmp = 7;
-      }
-      else if(year > 13 && year <= 15) {
-        tmp = 8;
-      }
-      else if(year > 15) {
-        tmp = 9;
-      }
-      return colors(tmp);
-    };
 
     var tip = d3.tip()
       .attr('class', 'd3-tip')
@@ -169,7 +183,7 @@ var mw = (function () {
       .html(function(d) {
         return "<span>1</span>";
       })
-      svg.call(tip);
+      geo_map.call(tip);
 
     d3.json("assets/data/georgia.json", function(error, shapes) {
       if (error) throw error;
@@ -183,126 +197,213 @@ var mw = (function () {
           .projection(projection);
 
 
-      svg.append("g")
+          geo_map.append("g")
           .attr("class", "regions")
           .selectAll("path")
-            .data(topojson.feature(shapes, shapes.objects.regions_so_latlong).features)
+            .data(topojson.feature(shapes, shapes.objects.regions).features)
             .enter().append("path")
             .attr("id", function(d) { return 'region' + d.properties.OBJECTID; })// return quantize(rateById.get(d.id)); })
               .attr("class", function(d) {
                 return (disabled_region.indexOf(d.properties.OBJECTID) >= 0 ?  '' : 'region') })// return quantize(rateById.get(d.id)); })
               .attr("d", path);
 
-      var regions_box = svg.select('.regions').node().getBBox();
-      svg.select('.regions')
+      var regions_box = geo_map.select('.regions').node().getBBox();
+      geo_map.select('.regions')
         .append("text")
         .attr('class', 'georgia-caption')
         .text(I18n.t('georgia'))
         .attr('y', regions_box.height + regions_box.y + 20);
 
-        var georgia_caption = svg.select('.georgia-caption').node().getBBox();
+        var georgia_caption = geo_map.select('.georgia-caption').node().getBBox();
         d3.select('.georgia-caption')
           .attr('x', regions_box.width/2 );
 
-      svg.append("g")
+        geo_map.append("g")
          .attr("class", "legend")
-          .selectAll("rect")
-            .data(d3.range(1,color_step+1,1))
-            .enter().append("rect")
-            .attr({'width':'15', 'height':'15'})
-            .attr("x", function(d, i){ return i * 20 + 30;})
-            .attr("y", map_h - 20 )
-            // .attr('data-tip', 'blah blah')
-            .style('fill', function(d){ return colors(d); })
-            .on('mouseover', tip.show)
-            .on('mouseout', tip.hide);
-            // .attr("id", function(d) { return 'region' + d.properties.OBJECTID; })// return quantize(rateById.get(d.id)); })
-            //   .attr("class", function(d) {
-            //     return (disabled_region.indexOf(d.properties.OBJECTID) >= 0 ?  '' : 'region') })// return quantize(rateById.get(d.id)); })
-            //   .attr("d", path);
+         .selectAll("rect")
+          .data(d3.range(1,color_step+1,1))
+          .enter().append("rect")
+          .attr({'width':'15', 'height':'15'})
+          .attr("x", function(d, i){ return i * 20 + 30;})
+          .attr("y", map_h - 20 )
+          .style('fill', function(d){ return colors(d); })
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide);
 
-            svg.select('.regions').append("path")
-.datum(topojson.feature(shapes, shapes.objects.cities))
-.attr("d", path)
-.attr("class", "place");
-//
-// svg.selectAll(".place-label")
-// .data(topojson.feature(shapes, shapes.objects.cities).features)
-// .enter().append("text")
-// .attr("class", "place-label")
-// .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
-// .attr("x", function(d) { return d.geometry.coordinates[0] > -1 ? 6 : -6; })
-// .attr("dy", ".35em")
-// .style("text-anchor", function(d) { return d.geometry.coordinates[0] > -1 ? "start" : "end"; })
-// .text(function(d) { return 'blah'; });
 
+      geo_map.select('.regions').append("path")
+        .datum(topojson.feature(shapes, shapes.objects.cities))
+        .attr("d", path)
+        .attr("class", "place");
+
+      // svg.selectAll(".place-label")
+      // .data(topojson.feature(shapes, shapes.objects.cities).features)
+      // .enter().append("text")
+      // .attr("class", "place-label")
+      // .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
+      // .attr("x", function(d) { return d.geometry.coordinates[0] > -1 ? 6 : -6; })
+      // .attr("dy", ".35em")
+      // .style("text-anchor", function(d) { return d.geometry.coordinates[0] > -1 ? "start" : "end"; })
+      // .text(function(d) { return 'blah'; });
 
       d3.select(self.frameElement).style("height", map_h + "px");
 
-
-      // binding map
-      d3.selectAll('.map .georgia .region').on('click', function(d){
-        d3.selectAll('.map .georgia .region.active').classed('active',false);
-        var t = d3.select(this).classed('active', true);
-        sort_regions(t.data()[0].properties);
-      });
-
-      d3.selectAll('.map .georgia .region').on('mouseover', function(d) { sort_regions(d.properties); });
-      d3.selectAll('.map .georgia .region').on('mouseout', function() {
-        sort_regions(d3.select('.map .georgia path.active').data()[0].properties);
-      });
-
-      d3.selectAll(".map .georgia path#region" + default_region).each(function(d, i) {
-          d3.select(this).on("click").apply(this, [d, i]);
-      });
-
+      bind();
 
     });
-    function output(current)
-    {
-      var city_id = current.OBJECTID;
-
-      var d = _data.cities['_' + city_id];
-      var month_amount = d[0];
-      var month_amount_with_loan = d[1];
-
-      var out = d3.select('.output');
-      var years = Math.round(((user.m2 * month_amount)/( user.income*user.savings/100))/12);
-      var saving_per_month = user.income*user.savings/100;
-      var current_color = color_by_year(years);
-      out.select('.city').text(I18n.t('data-I18n-cities-_'+ city_id)).style('color', current_color);
-
-      out.select('.via-saving .amount').text(user.m2 * month_amount);
-      out.select('.via-saving .years').text(years).style('color', current_color);
-      out.select('.via-loan .amount').text(user.m2 * month_amount_with_loan);
-      out.select('.via-loan .years').text(Math.round(((user.m2 * month_amount_with_loan)/( saving_per_month))/12));
-
-      d3.selectAll('.map .georgia .region').each(function(d){
-        var tmp_id = d.properties.OBJECTID;
-        var col = color_by_year(Math.round(((user.m2 * _data.cities['_' + tmp_id][0])/(saving_per_month))/12));
-        d3.select(this).style('fill', col);
-      });
-    }
-    function sort_regions(current) {
-      var top_id = current.OBJECTID;
-      var active_id = d3.select('.map .georgia path.active').data()[0].properties.OBJECTID;
-      svg.selectAll(".map .georgia .region").sort(function (a, b) {
-        if (a.properties.OBJECTID == top_id) return 1;
-        else if (a.properties.OBJECTID == active_id) return 2;
-        else return -1;
-      });
-      output(current);
-    }
   };
+  var bar_chart_draw = function() {
+    var bar_w = 360,
+        bar_h = 320,
+        bar_h_legend = 80,
+        bar_padding = 2;
 
-  function randomEven(min,max) { return 2*(rand(min,max)%(Math.floor(max/2)) + 1); }
-  function rand(min,max) { return Math.floor(Math.random()*(max-min+1)+min); }
-  function scrollTopTween(scrollTop) {
-    return function() {
-    var i = d3.interpolateNumber(this.scrollTop, scrollTop);
-    return function(t) { this.scrollTop = i(t); };
-     };
+    var bar_chart_saving = d3.select(".output .bar-chart")
+                .append("svg")
+                .attr("width", bar_w)
+                .attr("height", bar_h);
+
+    var bar_max_value = 0;
+    var entries = d3.entries(_data.cities).sort(function(a,b){
+      if(a.value[0] < b.value[0]) {
+        return -1;
+      }
+      if(a.value[0] > b.value[0]) {
+        return 1;
+      }
+      return 0;
+    }).reverse();
+
+    entries.forEach(function(d){
+      d.value.push(Math.round(((user.m2 * d.value[0])/( user.income*user.savings/100))/12));
+      if (bar_max_value < d.value[2]) {
+        bar_max_value = d.value[2];
+      }
+      d.value.push(Math.round(((user.m2 * d.value[1])/( user.income*user.savings/100))/12));
+      if (bar_max_value < d.value[3]) {
+        bar_max_value = d.value[3];
+      }
+    });
+    var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, 0]);
+
+    var entry_w = bar_w/entries.length-bar_padding;
+
+    var bars = bar_chart_saving.append("g")
+      .attr("class", "bars")
+      .selectAll(".bar")
+      .data(entries)
+      .enter().append('g')
+      .attr("class", "bar")
+      .attr("id", function(d){ return "bar" + d.key; });
+
+    var bar_loan = bars.append("rect")
+        .attr("class","l")
+        .attr("width", entry_w)
+        .attr("height", function(d) {
+          return (bar_h-bar_h_legend) - y(d.value[3]-d.value[2]);
+        })
+        .attr("x", function(d,i) { return i*(entry_w+bar_padding); })
+        .attr("y", function(d) { return y(d.value[3]); });
+
+    var bar_saving = bars.append("rect")
+        .attr("class","s")
+        .style('fill', function(d) { return color_by_year(d.value[2]); })
+        .attr("width", entry_w)
+        .attr("height", function(d) {
+          return (bar_h-bar_h_legend) - y(d.value[2]);
+        })
+        .attr("x", function(d,i) { return i*(entry_w+bar_padding); })
+        .attr("y", function(d) { return y(d.value[2]); });
+
+
+    var legend = bar_chart_saving.append("g")
+      .attr("class", "legend")
+      .selectAll("text")
+      .data(entries)
+      .enter().append('text')
+      .text(function(d){ return I18n.t('cities-' + d.key); });
+
+
+      legend
+      .attr("x", function(d,i) {
+        var bbox = d3.select(this).node().getBBox();
+        console.log(i);
+        return i*(entry_w+bar_padding) - (bbox.width/2 - entry_w/2); })
+      .attr("y", function(d) {
+        var bbox = d3.select(this).node().getBBox();
+        return (bar_h-bar_h_legend) + 12 + bbox.width/2; })
+      .attr("transform", function(d) {
+        var bbox = d3.select(this).node().getBBox();
+        return 'rotate(-90, ' + (bbox.x + bbox.width/2) + ', ' + (bbox.y + bbox.height/2) + ')';
+      });
+
+
   }
+  function output(current) {
+    var city_id = current.OBJECTID;
+
+    var d = _data.cities['_' + city_id];
+    var month_amount = d[0];
+    var month_amount_with_loan = d[1];
+
+    var out = d3.select('.output');
+    var years = Math.round(((user.m2 * month_amount)/( user.income*user.savings/100))/12);
+    var saving_per_month = user.income*user.savings/100;
+    var current_color = color_by_year(years);
+    out.select('.city').text(I18n.t('data-I18n-cities-_'+ city_id)).style('color', current_color);
+
+    out.select('.via-saving .amount').text(user.m2 * month_amount);
+    out.select('.via-saving .years').text(years).style('color', current_color);
+    out.select('.via-loan .amount').text(user.m2 * month_amount_with_loan);
+    out.select('.via-loan .years').text(Math.round(((user.m2 * month_amount_with_loan)/( saving_per_month))/12));
+    var bar_chart_data = [];
+    d3.selectAll('.map .georgia .region').each(function(d){
+      var tmp_id = d.properties.OBJECTID;
+
+      var years = Math.round(((user.m2 * _data.cities['_' + tmp_id][0])/(saving_per_month))/12);
+      var year_with_loan = Math.round(((user.m2 * _data.cities['_' + tmp_id][1])/(saving_per_month))/12);
+
+      var col = color_by_year(years);
+      d3.select(this).style('fill', col);
+
+      bar_chart_data.push({id: tmp_id,  y1: years, y2: year_with_loan});
+
+    });
+
+    // create bar chart for saving and loan
+     //
+    //   .data(bar_chart_data)
+    //   .enter().append("rect")
+    //  .attr("class", "bar")
+    //  .attr("x", function(d) { return 20; })
+    //  .attr("width", 15)
+    //  .attr("y", function(d) { return y(d.years); })
+    //  .attr("height", function(d) { return 160 - y(d.years); });
+
+
+  }
+
+  function sort_regions(current) {
+    var top_id = current.OBJECTID;
+    var active_id = d3.select('.map .georgia path.active').data()[0].properties.OBJECTID;
+    geo_map.selectAll(".map .georgia .region").sort(function (a, b) {
+      if (a.properties.OBJECTID == top_id) return 1;
+      else if (a.properties.OBJECTID == active_id) return 2;
+      else return -1;
+    });
+    output(current);
+  }
+
+
+  // function randomEven(min,max) { return 2*(rand(min,max)%(Math.floor(max/2)) + 1); }
+  // function rand(min,max) { return Math.floor(Math.random()*(max-min+1)+min); }
+  // function scrollTopTween(scrollTop) {
+  //   return function() {
+  //   var i = d3.interpolateNumber(this.scrollTop, scrollTop);
+  //   return function(t) { this.scrollTop = i(t); };
+  //    };
+  // }
+
   init();
   return obj;
 

@@ -207,9 +207,11 @@ a, a:hover, a:focus {
   /*outline:10px solid black;*/
 }
 .map .georgia path.place {
-  fill:red;
-  stroke:#fffae3;
-  stroke-width:1px;
+  fill:#fcf0b4;
+  stroke-opacity:0.3;
+  stroke:#fcf0b4;
+  stroke-width:8px;
+  pointer-events:none;
 }
 .map .georgia-caption {
   font:18px 'dejavusans-el', 'sans-serif';
@@ -281,6 +283,16 @@ a, a:hover, a:focus {
   font:16px 'dejavusans-el', 'sans-serif';
   color:#314451;
   text-align:right;
+}
+.output .bar-chart .bar rect.l
+{
+  fill:gray;
+}
+.output .bar-chart .legend text
+{
+  font:12px 'dejavusans-el', 'sans-serif';
+  color:#314451;
+
 }
 .comments {
   font:18px 'dejavusans-m-b', 'sans-serif';
