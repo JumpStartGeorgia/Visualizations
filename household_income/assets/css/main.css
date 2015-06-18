@@ -201,7 +201,7 @@ a, a:hover, a:focus {
   stroke:#fffae3;
   stroke-width:1px;
 }
-.map .georgia path.region:hover, .map .georgia path.region.active {
+.map .georgia path.region:hover, .map .georgia path.region.active, .map .georgia path.region.hover {
   stroke:#314451;
   cursor:pointer;
   /*outline:10px solid black;*/
@@ -241,7 +241,7 @@ a, a:hover, a:focus {
   max-width:160px;
   display:inline-block;
 }
-.output .box .caption{
+.output .box .caption, .output2 .caption {
   font:18px 'dejavusans-m-b', 'sans-serif';
   color:#314451; /* this will be generated dynamically */
   padding-bottom:4px;
@@ -287,15 +287,23 @@ a, a:hover, a:focus {
   color:#314451;
   text-align:right;
 }
-.output2 .bar-chart .bar rect.l
+.output2 .bar-georgia .bar:hover,.output2 .bar-georgia .bar.hover {
+  stroke:#314451;
+  stroke-width:1px;
+  cursor:pointer;
+}
+.output2 .bar-georgia .bar rect.l
 {
   fill:#62dadd;
 }
-.output2 .bar-chart .legend text
+.output2 .bar-georgia .bar rect.l.beyond
+{
+  fill:#314451;
+}
+.output2 .bar-georgia .xaxis text
 {
   font:12px 'dejavusans-el', 'sans-serif';
   color:#314451;
-
 }
 .comments {
   font:18px 'dejavusans-m-b', 'sans-serif';
@@ -370,7 +378,7 @@ a, a:hover, a:focus {
   height:36px;
 }
 /*------------------------------------------ Tip ------------------------------------------*/
-.d3-tip {
+.tip {
   font:11px 'dejavusans-el', 'sans-serif';
   color: #314451;
   background: #f2f2f2;
@@ -382,7 +390,7 @@ a, a:hover, a:focus {
 }
 
 /* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
+.tip:after {
   box-sizing: border-box;
   display: inline;
   font-size: 11px;
@@ -396,133 +404,7 @@ a, a:hover, a:focus {
 }
 
 /* Style northward tooltips differently */
-.d3-tip.n:after {
+.tip.n:after {
   bottom: -9px;
   left: 0;
-}
-
-
-.tip
-{
-  position:absolute;
-  opacity:0;
-  z-index:999;
-  top:0px;
-  left:0px;
-}
-.tip .data
-{
-  font-family: 'dejavusans';
-  font-size:1em;
-  color:#70788e;
-  background-color:rgba(36,40,51,200);
-  padding: 6px 10px;
-  max-width: 400px;
-  line-height: 1.125em;
-}
-.tip .data:lang(en)
-{
-  font-family: 'officina-book';
-  font-size:1em;
-}
-.tip  .pointer-top
-  {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid rgba(36,40,51,200);
-    margin: 0px auto;
-  }
-  .tip  .pointer-bottom
-  {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid rgba(36,40,51,200);
-    margin: 0px auto;
-    display:none;
-  }
-  div[data-tip]:hover
-  {
-    cursor:pointer;
-  }
-.tip .data > div
-{
-  padding:12px 10px;
-}
-.tip .data > div > div
-{
-  text-align:center;
-}
-.tip .country
-{
-  font-family: 'dejavusans-b';
-  font-size:1.438em;
-  color:#31B9DD;
-  text-transform: uppercase;
-  margin:10px 0px 5px;
-}
-.tip .country:lang(en)
-{
-  font-family: 'officina-bold';
-  font-size:1.438em;
-}
-.tip .region
-{
-  font-family: 'dejavusans';
-  font-size:1em;
-  color:#70788e;
-  margin:0px 0px 10px;
-}
-.tip .region:lang(en)
-{
-  font-family: 'officina-book';
-  font-size:1em;
-}
-.tip .gap
-{
-  font-family: 'dejavusans-b';
-  font-size:1.438em;
-  color:#31B9DD;
-  margin:5px 0px 15px;
-}
-.tip .gap:lang(en)
-{
-  font-family: 'officina-bold';
-  font-size:1.438em;
-}
-.tip .missing
-{
-  font-family: 'dejavusans';
-  font-size:1.125em;
-  color:#31B9DD;
-  margin:15px 0px 8px;
-}
-.tip .missing:lang(en)
-{
-  font-family: 'officina-book';
-  font-size:1.125em;
-}
-.tip .rate, .tip .gender-gap, .tip .period
-{
-  font-family: 'officina-book';
-  font-size:1em;
-  color:#fff;
-  margin:0px 0px 5px;
-}
-.tip .rate:lang(en), .tip .gender-gap:lang(en), .tip .period:lang(en)
-{
-  font-family: 'officina-book';
-  font-size:1em;
-}
-.tip .rate .label, .tip .gender-gap .label, .tip .period .label
-{
-  color:#bac6d3;
-  display:inline;
-}
-.tip .highlight
-{
-  color:#de435f !important;
 }
