@@ -19,25 +19,25 @@ var mw = (function () {
      if(year < 1) {
        tmp = 1;
      }
-     else if(year >= 1 && year <= 2) {
+     else if(year >= 1 && year < 3) {
        tmp = 2;
      }
-     else if(year > 2 && year <= 4) {
+     else if(year >= 3 && year < 5) {
        tmp = 3;
      }
-     else if(year > 4 && year <= 6) {
+     else if(year >= 5 && year < 7) {
        tmp = 4;
      }
-     else if(year > 6 && year <= 8) {
+     else if(year >= 7 && year < 9) {
        tmp = 5;
      }
-     else if(year > 8 && year <= 10) {
+     else if(year >= 9 && year < 11) {
        tmp = 6;
      }
-     else if(year > 10 && year <= 13) {
+     else if(year >= 11 && year < 14) {
        tmp = 7;
      }
-     else if(year > 13 && year <= 15) {
+     else if(year >= 14 && year <= 15) {
        tmp = 8;
      }
      else if(year > 15) {
@@ -181,7 +181,7 @@ var mw = (function () {
       .attr('class', 'd3-tip')
       .offset([-10, 0])
       .html(function(d) {
-        return "<span>1</span>";
+        return "<span>"+I18n.t('legend-' + d)+"</span>";
       })
       geo_map.call(tip);
 
@@ -258,7 +258,7 @@ var mw = (function () {
         bar_h_legend = 80,
         bar_padding = 2;
 
-    var bar_chart_saving = d3.select(".output .bar-chart")
+    var bar_chart_saving = d3.select(".output2 .bar-chart")
                 .append("svg")
                 .attr("width", bar_w)
                 .attr("height", bar_h);
