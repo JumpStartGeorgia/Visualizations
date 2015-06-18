@@ -163,6 +163,13 @@ var mw = (function () {
       return colors(tmp);
     };
 
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function(d) {
+        return "<span>1</span>";
+      })
+      svg.call(tip);
 
     d3.json("assets/data/georgia.json", function(error, shapes) {
       if (error) throw error;
@@ -186,30 +193,38 @@ var mw = (function () {
                 return (disabled_region.indexOf(d.properties.OBJECTID) >= 0 ?  '' : 'region') })// return quantize(rateById.get(d.id)); })
               .attr("d", path);
 
-              // <g class="legend" transform="translate(-36,-44)">
-              //   <rect width="18" height="18" style="fill: rgb(57, 59, 121); stroke: rgb(57, 59, 121);"></rect>
-              //   <text x="22" y="14">Abulia</text>
-              // </g>
+      var regions_box = svg.select('.regions').node().getBBox();
+      svg.select('.regions')
+        .append("text")
+        .attr('class', 'georgia-caption')
+        .text(I18n.t('georgia'))
+        .attr('y', regions_box.height + regions_box.y + 20);
 
+        var georgia_caption = svg.select('.georgia-caption').node().getBBox();
+        d3.select('.georgia-caption')
+          .attr('x', regions_box.width/2 );
 
       svg.append("g")
          .attr("class", "legend")
           .selectAll("rect")
             .data(d3.range(1,color_step+1,1))
             .enter().append("rect")
-            .attr({'width':'10', 'height':'10'})
-            .attr("x", function(d, i){ return i * 14 + 30;})
+            .attr({'width':'15', 'height':'15'})
+            .attr("x", function(d, i){ return i * 20 + 30;})
             .attr("y", map_h - 20 )
-            .attr('data-tip', 'blah blah')
-            .style('fill', function(d){ return colors(d); });
+            // .attr('data-tip', 'blah blah')
+            .style('fill', function(d){ return colors(d); })
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
             // .attr("id", function(d) { return 'region' + d.properties.OBJECTID; })// return quantize(rateById.get(d.id)); })
             //   .attr("class", function(d) {
             //     return (disabled_region.indexOf(d.properties.OBJECTID) >= 0 ?  '' : 'region') })// return quantize(rateById.get(d.id)); })
             //   .attr("d", path);
-//       svg.append("path")
-// .datum(topojson.feature(shapes, shapes.objects.cities))
-// .attr("d", path)
-// .attr("class", "place");
+
+            svg.select('.regions').append("path")
+.datum(topojson.feature(shapes, shapes.objects.cities))
+.attr("d", path)
+.attr("class", "place");
 //
 // svg.selectAll(".place-label")
 // .data(topojson.feature(shapes, shapes.objects.cities).features)
@@ -223,6 +238,7 @@ var mw = (function () {
 
 
       d3.select(self.frameElement).style("height", map_h + "px");
+
 
       // binding map
       d3.selectAll('.map .georgia .region').on('click', function(d){
@@ -239,8 +255,8 @@ var mw = (function () {
       d3.selectAll(".map .georgia path#region" + default_region).each(function(d, i) {
           d3.select(this).on("click").apply(this, [d, i]);
       });
-      
-      tooltip();
+
+
     });
     function output(current)
     {
@@ -253,11 +269,11 @@ var mw = (function () {
       var out = d3.select('.output');
       var years = Math.round(((user.m2 * month_amount)/( user.income*user.savings/100))/12);
       var saving_per_month = user.income*user.savings/100;
-
-      out.select('.city').text(I18n.t('data-I18n-cities-_'+ city_id));
+      var current_color = color_by_year(years);
+      out.select('.city').text(I18n.t('data-I18n-cities-_'+ city_id)).style('color', current_color);
 
       out.select('.via-saving .amount').text(user.m2 * month_amount);
-      out.select('.via-saving .years').text(years);
+      out.select('.via-saving .years').text(years).style('color', current_color);
       out.select('.via-loan .amount').text(user.m2 * month_amount_with_loan);
       out.select('.via-loan .years').text(Math.round(((user.m2 * month_amount_with_loan)/( saving_per_month))/12));
 
@@ -278,56 +294,7 @@ var mw = (function () {
       output(current);
     }
   };
-  var tooltip = function() {
-    var moveEvent = "mouseover";
-     var outEvent = "mouseout";
-     console.log('tooltip');
-      d3.selectAll('[data-tip]').on(moveEvent, function(d){
-        console.log('tooltip hover');
-        console.log('hey', d3.select(this).attr('data-tip'));
-        //console.log('a',d);
-    //      var t = d3.select(this);
-    //      var tip_id = t.attr('data-tip');
-    //      var par = d3.select('[data-tip-id='+tip_id+']');
-    //      var tip = d3.select('#tip');
-    //      var klass="";
-    //      if(d.hasOwnProperty('class'))
-    //      {
-    //        klass = " " + d.class;
-    //      }
-    //      var html =  '<div>' +
-    //                     '<div class="country'+klass+'">' + I18n.t('charts-bar_chart-' + d.k) + '</div>' +
-    //                     '<div class="region">' + I18n.t('charts-bar_chart-' + d.region) + '</div>' +
-    //                     '<div class="rate"><div class="label">' + I18n.t('charts-bar_chart-rate') + "&nbsp;</div>" + d.rate + '</div>' +
-    //                     '<div class="gender-gap"><div class="label">' + I18n.t('charts-bar_chart-gender_gap') + "&nbsp;</div>" + d.population_p.toLocaleString() + '%</div>' +
-    //                     '<div class="missing'+klass+'">' + I18n.t('charts-bar_chart-missing_woman') + '</div>' +
-    //                     '<div class="gap'+klass+'">' + d.population_t.toLocaleString() + '</div>' +
-    //                     '<div class="period">(' + d.period + ')</div>' +
-    //                  '</div>';
-    //      var content = tip.select('.data').html(html);
-    //      var tiph = tip[0][0].clientHeight;
-    //      var tipw = tip[0][0].clientWidth;
-    //       var top = 0;
-    //       if(d3.event.pageY - tiph < window.scrollY) // under
-    //       {
-    //         top =  d3.event.pageY + 20;
-    //         tip.select('.pointer-top').style('display','block');
-    //         tip.select('.pointer-bottom').style('display','none');
-    //       }
-    //       else // above
-    //       {
-    //          top =  d3.event.pageY - tiph - 5;
-    //         tip.select('.pointer-top').style('display','none');
-    //         tip.select('.pointer-bottom').style('display','block');
-    //       }
-    //      tip.style({top: top + "px", left: d3.event.pageX -tipw/2 + "px"}).transition().duration(100).style('opacity',1);
-    //      d3.event.preventDefault();
-    //   });
-    //  indexes.selectAll('[data-tip]').on(outEvent, function(){
-    //    d3.select('#tip').style({'opacity':0, 'left': '-999999px' });
-    //    d3.event.preventDefault();
-     });
-  }
+
   function randomEven(min,max) { return 2*(rand(min,max)%(Math.floor(max/2)) + 1); }
   function rand(min,max) { return Math.floor(Math.random()*(max-min+1)+min); }
   function scrollTopTween(scrollTop) {

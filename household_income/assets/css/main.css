@@ -106,8 +106,19 @@ a, a:hover, a:focus {
 .poster
 {
   width:100%;
-  height:400px;
+  height:404px;
   background-color:#62dadd;
+}
+.poster .img {
+  background: url(../images/poster1.svg) no-repeat center bottom,
+              url(../images/poster2.svg) no-repeat center bottom,
+              url(../images/poster3.svg) no-repeat center bottom,
+              url(../images/poster4.svg) no-repeat center bottom,
+              url(../images/poster5.svg) no-repeat center bottom;
+  max-width:1526px;
+  max-height:404px;
+  height:100%;
+  margin:0px auto;
 }
 .page {
   max-width:1100px;
@@ -200,6 +211,10 @@ a, a:hover, a:focus {
   stroke:#fffae3;
   stroke-width:1px;
 }
+.map .georgia-caption {
+  font:18px 'dejavusans-el', 'sans-serif';
+  color:#97a0a3;
+}
 /************************************** Output *****************************************/
 .output {
   background-color:#d9f9f7;
@@ -208,7 +223,7 @@ a, a:hover, a:focus {
 }
 .output .city {
   font:30px 'dejavusans-m-b', 'sans-serif';
-  color:#FE7440; /* this will be generated dynamically */
+  color:#314451; /* this will be generated dynamically */
   padding-bottom:10px;
   border-bottom:1px dashed #314451;
   margin-bottom:12px;
@@ -257,7 +272,7 @@ a, a:hover, a:focus {
 }
 .output .box .years-box .years {
   font:70px 'dejavusans-b', 'sans-serif';
-  color:#FE7440; /* this will be generated dynamically */
+  color:#314451;
 }
 .output .box .chart {
   margin-bottom:38px;
@@ -340,6 +355,38 @@ a, a:hover, a:focus {
   height:36px;
 }
 /*------------------------------------------ Tip ------------------------------------------*/
+.d3-tip {
+  font:11px 'dejavusans-el', 'sans-serif';
+  color: #314451;
+  background: #f2f2f2;
+  padding:8px 12px;
+  border-radius: 3px;
+
+  text-align: center;
+
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 11px;
+  width: 100%;
+  line-height: 1;
+  color: #f2f2f2;
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+  transform:scaleX(1.7);
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  bottom: -9px;
+  left: 0;
+}
+
+
 .tip
 {
   position:absolute;
