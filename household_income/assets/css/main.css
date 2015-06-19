@@ -191,20 +191,23 @@ a, a:hover, a:focus {
   display:none;
 }
 /************************************** Georgia map *****************************************/
-.map .georgia path {
+.map {
+  position:relative;
+}
+.map .georgia path, .map .tbilisi path {
   fill:#fffae3;
   stroke:#efdd92;
   stroke-width:1px;
 }
-.map .georgia path.region {
+.map .georgia path.area, .map .tbilisi path.area {
   fill:#f9c235;
   stroke:#fffae3;
   stroke-width:1px;
 }
-.map .georgia path.region:hover, .map .georgia path.region.active, .map .georgia path.region.hover {
+ .map .georgia path.area.active, .map .georgia path.area.hover,
+ .map .tbilisi path.area.active, .map .tbilisi path.area.hover { /* .map .georgia path.area:hover, */
   stroke:#314451;
   cursor:pointer;
-  /*outline:10px solid black;*/
 }
 .map .georgia path.place {
   fill:#fcf0b4;
@@ -213,9 +216,39 @@ a, a:hover, a:focus {
   stroke-width:8px;
   pointer-events:none;
 }
-.map .georgia-caption {
+.map .georgia-caption, .map .tbilisi-caption {
   font:18px 'dejavusans-el', 'sans-serif';
   color:#97a0a3;
+}
+
+.map .tbilisi {
+  position:absolute;
+  top:180px;
+}
+
+
+.bar-georgia .bar.active, .bar-georgia .bar.hover {
+  stroke:#314451;
+  stroke-width:1px;
+  cursor:pointer;
+}
+.bar-georgia .bar rect.l
+{
+  fill:#62dadd;
+}
+.bar-georgia .bar rect.l.beyond
+{
+  fill:#314451;
+}
+.bar-georgia .x-axis text
+{
+  font:12px 'dejavusans-el', 'sans-serif';
+  fill:#314451;
+  cursor:pointer;
+}
+.bar-georgia .x-axis text.active, .bar-georgia .x-axis text.hover
+{
+  fill:#000;
 }
 /************************************** Output *****************************************/
 .output, .output2 {
@@ -287,24 +320,7 @@ a, a:hover, a:focus {
   color:#314451;
   text-align:right;
 }
-.output2 .bar-georgia .bar:hover,.output2 .bar-georgia .bar.hover {
-  stroke:#314451;
-  stroke-width:1px;
-  cursor:pointer;
-}
-.output2 .bar-georgia .bar rect.l
-{
-  fill:#62dadd;
-}
-.output2 .bar-georgia .bar rect.l.beyond
-{
-  fill:#314451;
-}
-.output2 .bar-georgia .xaxis text
-{
-  font:12px 'dejavusans-el', 'sans-serif';
-  color:#314451;
-}
+
 .comments {
   font:18px 'dejavusans-m-b', 'sans-serif';
   color:#314451;
@@ -384,9 +400,7 @@ a, a:hover, a:focus {
   background: #f2f2f2;
   padding:8px 12px;
   border-radius: 3px;
-
   text-align: center;
-
 }
 
 /* Creates a small triangle extender for the tooltip */
