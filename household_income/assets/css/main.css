@@ -22,7 +22,10 @@
   font-family: 'dejavusans-m-b';
   src: url('../fonts/dejavusans_m_b.ttf') format("truetype");
 }
-
+@font-face {
+  font-family: 'dejavusans-m-cb';
+  src: url('../fonts/dejavusans_m_cb.ttf') format("truetype");
+}
 html, body
 {
   margin:0px;
@@ -234,7 +237,8 @@ a, a:hover, a:focus {
 }
 .bar-georgia .bar rect.l
 {
-  fill:#62dadd;
+
+  fill:#56bfbf;
 }
 .bar-georgia .bar rect.l.beyond
 {
@@ -287,27 +291,64 @@ a, a:hover, a:focus {
   margin-bottom:36px;
 }
 .output .box .amount-box .amount {
-  font:38px 'dejavusans-b', 'sans-serif';
+  font:33px 'dejavusans-b', 'sans-serif';
   color:#314451;
+  display:inline-block;
+  padding-right:26px;
+  letter-spacing:-1px;
+  position:relative;
 }
-.output .box .years-box {
+.output .box .amount-box .amount:after {
+  content:"";
+  display:inline-block;
+  background:transparent url(../images/lari.svg) no-repeat center right/22px 26px;
+  width: 22px;
+  height: 26px;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+
+.output .box .years-box .box {
   font:20px 'dejavusans-el', 'sans-serif';
   color:#314451;
-  background-color:#62dadd;
-  padding:12px 14px;
+  background-color:#a6eded;
+  padding:12px 8px;
   border-radius:3px;
   margin-bottom:30px;
+  width:78px;
+  display:inline-block;
+  position:relative;
+
+}
+
+.output .box .years-box .years,
+.output .box .years-box .months {
+  display:inline-block;
+  font:50px 'dejavusans-m-cb', 'sans-serif';
+  color:#314451;
+
+}
+.output .box .via-loan .years-box .years,
+.output .box .via-loan .years-box .months
+{
+  color:#56bfbf;
+}
+.output .box .years-box .years
+{
+  /*margin-right:4px;*/
 }
 .output .box .years-box label {
   display:inline-block;
   margin-bottom:10px;
 }
 .output .box .years-box .notice {
+  width:20px;
+  height:20px;
+  position:absolute;
+  top:3px;
+  right:3px;
   display:none;
-}
-.output .box .years-box .years {
-  font:70px 'dejavusans-b', 'sans-serif';
-  color:#314451;
 }
 .output2 {
   margin-top:13px;
@@ -394,6 +435,7 @@ a, a:hover, a:focus {
   height:36px;
 }
 /*------------------------------------------ Tip ------------------------------------------*/
+
 .tip {
   font:11px 'dejavusans-el', 'sans-serif';
   color: #314451;
@@ -421,4 +463,11 @@ a, a:hover, a:focus {
 .tip.n:after {
   bottom: -9px;
   left: 0;
+}
+.tip.loan-warning {
+
+  text-align:left;
+}
+.tip.loan-warning span {
+  font:11px 'dejavusans-b', 'sans-serif';
 }
