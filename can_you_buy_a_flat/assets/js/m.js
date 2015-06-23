@@ -182,7 +182,12 @@ var mw = (function () {
     loader_stop();
 
     d3.select('.methodology').on('click', function() {
-      console.log('here');
+      var popup = d3.select('.popup');
+      popup.classed('open', !popup.classed('open'));
+    });
+    d3.select('.popup .close').on('click', function() {
+      var popup = d3.select('.popup');
+      popup.classed('open', !popup.classed('open'));
     });
   };
   var filter = function() {

@@ -10,7 +10,7 @@ en =
    question: "Can you buy a flat?",
    intro: "Select from the options below to find out how much time and money you will need to purchase a flat in the city of your choice in Georgia. When possible, bank home loans will also be included for comparison.",
    methodology: "Methodology ",
-   methodology_text: "This visualization was based on the information from several retail web sites in Georgia. The majority of the data was collected from www.makler.ge between February 2014 and March 2015. Using this data, we calculated the average selling price of flats for 1 square meter in different cities throughout Georgia. This means that the data is based on the seller's price and may vary slightly from the actual selling price. The average income of households in Tbilisi was taken from the National Statistics Office's 2014 Household Survey.",
+   methodology_text: "This visualization was based on the information from several retail web sites in Georgia. The majority of the data was collected from <a href='http://www.makler.ge'>www.makler.ge</a> between February 2014 and March 2015. Using this data, we calculated the average selling price of flats for 1 square meter in different cities throughout Georgia. This means that the data is based on the seller's price and may vary slightly from the actual selling price. The average income of households in Tbilisi was taken from the National Statistics Office's 2014 Household Survey.",
    download: "Download Data",
    share: "Share your results:",
    share_result: "It will take you XX1 years to buy XX2 m² apartment in XX3",

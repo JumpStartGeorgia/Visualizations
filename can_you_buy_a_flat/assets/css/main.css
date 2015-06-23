@@ -464,6 +464,57 @@ a, a:hover, a:focus {
 .footer .methodology {
   cursor:pointer;
 }
+.popup {
+  display:none;
+}
+.popup.open {
+  display:block;
+}
+.popup .bg{
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.popup .window {
+  font:16px 'dejavusans-el', 'sans-serif';
+  color:#314451;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 670px;
+
+  margin: 0px auto;
+  background-color:#fffef8;
+}
+.popup .window .close {
+  background:transparent url(../images/close.svg) center/42px;
+  width:42px;
+  height:42px;
+  position:absolute;
+  right:12px;
+  top:12px;
+  cursor:pointer;
+}
+.popup .window .content {
+  padding:40px;
+}
+.popup .window .caption {
+  font: 18px 'dejavusans-m-b', 'sans-serif';
+  color:#d94840;
+}
+.popup .window a {
+  font:16px 'dejavusans-b', 'sans-serif';
+}
+
+.popup .window .header {
+  background:transparent url(../images/methodology.jpg) center top;
+  height: 186px;
+}
+
 /*------------------------------------------ Tip ------------------------------------------*/
 
 .tip {
