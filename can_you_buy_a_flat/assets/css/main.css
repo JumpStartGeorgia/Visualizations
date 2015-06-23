@@ -237,8 +237,13 @@ a, a:hover, a:focus {
   stroke-width:1px;
 }
 .map .georgia path.area, .map .tbilisi path.area {
-  fill:#f9c235;
+  fill:#fffae3;
   stroke:#fffae3;
+  stroke-width:1px;
+}
+.map .georgia path.area.disabled, .map .tbilisi path.area.disabled {
+  fill:#fffae3;
+  stroke:#efdd92;
   stroke-width:1px;
 }
  .map .georgia path.area.active, .map .georgia path.area.hover,
@@ -309,7 +314,7 @@ a, a:hover, a:focus {
   margin-bottom:12px;
 }
 .output .city:lang(en) {
-  font:46px 'opensans-b', 'sans-serif';
+  font:34px 'opensans-b', 'sans-serif';
 }
 .output .box {
 }
@@ -340,6 +345,7 @@ a, a:hover, a:focus {
 .output .box .amount-box:lang(en) {
   font:15px 'opensans', 'sans-serif';
 }
+.output .box .amount-box label { display:block; }
 .output .box .amount-box .amount {
   font:33px 'dejavusans-b', 'sans-serif';
   color:#314451;
@@ -352,7 +358,7 @@ a, a:hover, a:focus {
   font:38px 'opensans-b', 'sans-serif';
   line-height: 37px;
 }
-.output .box .amount-box .amount:after {
+.output .box .amount-box .amount.symbol:after {
   content:"";
   display:inline-block;
   background:transparent url(../images/lari.svg) no-repeat center right/22px 26px;
@@ -429,6 +435,11 @@ a, a:hover, a:focus {
 }
 .output2 .share-this:lang(en) {
   font:16px 'opensans', 'sans-serif';
+}
+.output2 .share-this label {
+  vertical-align:top;
+  position: relative;
+  top: 5px;
 }
 .output2 .caption {
   font:16px 'dejavusans-m-b', 'sans-serif';
@@ -514,6 +525,10 @@ a, a:hover, a:focus {
 {
   display:inline-block;
   padding:18px 0px 0px 0px;
+}
+.footer .download a
+{
+  padding:0px;
 }
 .footer .right {
   float:right;
@@ -633,3 +648,20 @@ a, a:hover, a:focus {
 .tip.loan-warning span:lang(en) {
   font:11px 'opensans-b', 'sans-serif';
 }
+a.at-share-btn {
+  border-radius:3px !important;
+  max-width:32px !important;
+  max-height:32px !important;
+}
+a.at-svc-facebook { background: #45669b !important; }
+a.at-svc-twitter { background: #00aced !important; }
+a.at-svc-compact { background: #64cc7f !important; }
+.at-share-btn .at4-icon {
+  width:32px !important;
+  height:32px !important;
+  line-height:32px !important;
+}
+.aticon-facebook { background:transparent url(../images/fb.svg) no-repeat center center/28px 28px !important; }
+.aticon-twitter { background:transparent url(../images/twitter.svg) no-repeat center center/28px 28px !important; }
+.aticon-compact { background:transparent url(../images/more.svg) no-repeat center center/28px 28px !important; }
+.addthis_sharing_toolbox { display: inline-block; }

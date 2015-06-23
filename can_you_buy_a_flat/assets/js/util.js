@@ -81,3 +81,6 @@ function reformat(n,s){
   }
   return x1 + (x.length > 1 ? '.' + x[1] : '');//(+n.toFixed(s)).toLocaleString();
 }
+function zero(v) {
+  return v == 0  ? '--' : v;
+}

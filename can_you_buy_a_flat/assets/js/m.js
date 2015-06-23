@@ -78,6 +78,8 @@ var mw = (function () {
      '31': [399,	435], // Kakheti 31 telavi
      '35': [213,	232], // Guria 35 ozurgeti
      '14': [142, 155], // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
+     '1': [0, 0], // სოხუმი
+     '15': [0, 0], // ცხინვალი
      '206': [1153,	1257], // ძველი თბილისი
      '203': [1011,	1102], // ვაკე-საბურთალო
      '204': [862, 940], // დიდუბე-ჩუღურეთი
@@ -88,16 +90,6 @@ var mw = (function () {
    geo_areas = [23,65,9,69,75,29,55,52,31,35,14], // sorted desc
    tbi_areas = [206,203,204,205,201,202], // sorted desc
    entries = geo_areas.concat(tbi_areas),
-  // entries = d3.entries(areas),
-  // //.sort(function(a,b){
-  // //    if(a.value[0] < b.value[0]) {
-  // //      return -1;
-  // //    }
-  // //    if(a.value[0] > b.value[0]) {
-  // //      return 1;
-  // //    }
-  // //    return 0;
-  // //  }).reverse(),
 
     how_long = function(square_meter_price) { // price
      return Math.round10(((user.m2 * square_meter_price)/(user.saving_amount))/12, -1);
@@ -139,7 +131,7 @@ var mw = (function () {
 
     d3.selectAll('.filters select.filter').on('change',function(d){ filter(); });
 
-    d3.selectAll('.map .area').on('click', function(d){
+    d3.selectAll('.map .area:not(.disabled)').on('click', function(d){
       render(d3.select(this).data()[0].properties.OBJECTID, true, false);
     });
 
@@ -267,20 +259,20 @@ var mw = (function () {
 
     var out = d3.select('.output');
 
-
-    var current_color = color_by_year(how_long(month_amount));
+    var hl = how_long(month_amount);
+    var current_color = hl != 0 ? color_by_year(hl) : '#314451';
     out.select('.city').text(I18n.t('data-I18n-areas-'+ current_id)).style('color', current_color);
 
-    out.select('.via-saving .amount').text(reformat(user.m2 * month_amount,0));
+    out.select('.via-saving .amount').text(zero(reformat(user.m2 * month_amount,0))).classed('symbol', hl != 0);
 
     var year_month = how_long_full(month_amount);
-    out.select('.via-saving .years').text(year_month[0]).style('color', current_color);
-    out.select('.via-saving .months').text(year_month[1]).style('color', current_color);
+    out.select('.via-saving .years').text(zero(year_month[0])).style('color', current_color);
+    out.select('.via-saving .months').text(zero(year_month[1])).style('color', current_color);
 
-    out.select('.via-loan .amount').text(reformat(user.m2 * month_amount_with_loan,0));
+    out.select('.via-loan .amount').text(zero(reformat(user.m2 * month_amount_with_loan,0))).classed('symbol', hl != 0);
 
     year_month = how_long_full(month_amount_with_loan);
-    out.select('.via-loan .years').text(year_month[0]);
+    out.select('.via-loan .years').text(zero(year_month[0]));
 
     var title = "";
     var notice = d3.select(".via-loan svg.notice").style("display", "none");
@@ -292,15 +284,18 @@ var mw = (function () {
     }
     out.select('.via-loan .years-box').classed('disabled', b);
 
-    out.select('.via-loan .months').text(year_month[1]);
+    out.select('.via-loan .months').text(zero(year_month[1]));
 
     d3.selectAll('.map .area').each(function(d){
       var tmp_id = d.properties.OBJECTID;
 
       var years = how_long(areas[tmp_id][0]);
 
-      var col = color_by_year(years);
-      d3.select(this).style('fill', col);
+      if(disabled_area.indexOf(tmp_id) == -1)
+      {
+        var col = color_by_year(years);
+        d3.select(this).style('fill', col);
+      }
 
     });
   }
@@ -356,9 +351,9 @@ var mw = (function () {
             .selectAll("path")
               .data(topojson.feature(geo_areas, geo_areas.objects.regions).features)
               .enter().append("path")
-              .attr("id", function(d) { return 'area' + d.properties.OBJECTID; })// return quantize(rateById.get(d.id)); })
+              .attr("id", function(d) { return 'area' + d.properties.OBJECTID; })
                 .attr("class", function(d) {
-                  return (disabled_area.indexOf(d.properties.OBJECTID) >= 0 ?  '' : 'area') })// return quantize(rateById.get(d.id)); })
+                  return (disabled_area.indexOf(d.properties.OBJECTID) >= 0 ?  'area disabled' : 'area') })
                 .attr("d", path);
 
         var areas_box = geo_map.select('.areas').node().getBBox();
@@ -583,7 +578,7 @@ var mw = (function () {
         bar_max_value = tmp[3];
       }
     });
-    var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, 0]);
+    var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, bar_h_caption+40]);
 
     var entry_w = bar_w/entries.length-bar_padding;
 
