@@ -6,8 +6,9 @@ var mw = (function () {
 
    w = u.width(),
    h = u.height(),
-   bar_w = 220,
+   bar_w = 370,
    bar_h = 280,
+   bar_space = 50, // space betweet georgia and tbilisi bar chart
    bar_h_legend = 120,
    bar_padding = 2,
    geo_map = null,
@@ -64,42 +65,38 @@ var mw = (function () {
        this.saving_amount = this.income*this.savings/100;
      }
    },
-   _data = {
-     m2: [20, 35, 45, 55, 65, 100],
-     income: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000, 5000],
-     saving: [5, 10, 15, 20, 25, 30, 40, 50],
-     areas:  {
-       '23': [1074,	1171], // Adjara 23 batumi
-       '65': [956, 1042], // tbilisi 65 tbilisi
-       '9':  [591, 644], // Samegrelo-Zemo Svaneti 9 zugdidi
-       '69': [493, 537], // Mtskheta-Mtianeti 69 mtskheta
-       '75': [471, 513], // Shida Kartli 75 gori
-       '29': [456,	497], // Imereti 29 kutaisi
-       '55': [456, 497], // Samtskhe-Javakheti 55 akhaltsikhe
-       '52': [450,	491], // Kvemo Kartli 52 rustavi
-       '31': [399,	435], // Kakheti 31 telavi
-       '35': [213,	232], // Guria 35 ozurgeti
-       '14': [142, 155], // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
-       '206': [1153,	1257], // ძველი თბილისი
-       '203': [1011,	1102], // ვაკე-საბურთალო
-       '204': [862, 940], // დიდუბე-ჩუღურეთი
-       '205': [745,	812], // დიდგორი
-       '201': [708,	772], // ისანი-სამგორი
-       '202': [649,	707] // გლდანი-ნაძალადევი
-     },
-     geo_areas: [23,65,9,69,75,29,55,52,31,35,14], // sorted desc
-     tbi_areas: [206,203,204,205,201,202], // sorted desc
+   areas = {
+     '23': [1074,	1171], // Adjara 23 batumi
+     '65': [956, 1042], // tbilisi 65 tbilisi
+     '9':  [591, 644], // Samegrelo-Zemo Svaneti 9 zugdidi
+     '69': [493, 537], // Mtskheta-Mtianeti 69 mtskheta
+     '75': [471, 513], // Shida Kartli 75 gori
+     '29': [456,	497], // Imereti 29 kutaisi
+     '55': [456, 497], // Samtskhe-Javakheti 55 akhaltsikhe
+     '52': [450,	491], // Kvemo Kartli 52 rustavi
+     '31': [399,	435], // Kakheti 31 telavi
+     '35': [213,	232], // Guria 35 ozurgeti
+     '14': [142, 155], // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
+     '206': [1153,	1257], // ძველი თბილისი
+     '203': [1011,	1102], // ვაკე-საბურთალო
+     '204': [862, 940], // დიდუბე-ჩუღურეთი
+     '205': [745,	812], // დიდგორი
+     '201': [708,	772], // ისანი-სამგორი
+     '202': [649,	707] // გლდანი-ნაძალადევი
    },
-
-  //  entries = d3.entries(_data.areas).sort(function(a,b){
-  //    if(a.value[0] < b.value[0]) {
-  //      return -1;
-  //    }
-  //    if(a.value[0] > b.value[0]) {
-  //      return 1;
-  //    }
-  //    return 0;
-  //  }).reverse(),
+   geo_areas = [23,65,9,69,75,29,55,52,31,35,14], // sorted desc
+   tbi_areas = [206,203,204,205,201,202], // sorted desc
+   entries = geo_areas.concat(tbi_areas),
+  // entries = d3.entries(areas),
+  // //.sort(function(a,b){
+  // //    if(a.value[0] < b.value[0]) {
+  // //      return -1;
+  // //    }
+  // //    if(a.value[0] > b.value[0]) {
+  // //      return 1;
+  // //    }
+  // //    return 0;
+  // //  }).reverse(),
 
     how_long = function(square_meter_price) { // price
      return Math.round10(((user.m2 * square_meter_price)/(user.saving_amount))/12, -1);
@@ -147,7 +144,7 @@ var mw = (function () {
 
 
     d3.selectAll('.bar-georgia .bar, .bar-georgia .x-axis text').on('click', function(d){
-      render(d.key, true, false);
+      render(d, true, false);
     });
 
     d3.selectAll('.map .area').on('mouseover', function(d) {
@@ -155,7 +152,7 @@ var mw = (function () {
     });
 
     d3.selectAll('.bar-georgia .bar, .bar-georgia .x-axis text').on('mouseover', function(d){
-      render(d.key, true, true);
+      render(d, true, true);
     });
 
     d3.selectAll('.map .area').on('mouseout', function() {
@@ -253,8 +250,7 @@ var mw = (function () {
       });
     }
 
-    var d = _data.areas[current_id];
-
+    var d = areas[current_id];
     var month_amount = d[0];
     var month_amount_with_loan = d[1];
 
@@ -288,7 +284,7 @@ var mw = (function () {
     d3.selectAll('.map .area').each(function(d){
       var tmp_id = d.properties.OBJECTID;
 
-      var years = how_long(_data.areas[tmp_id][0]);
+      var years = how_long(areas[tmp_id][0]);
 
       var col = color_by_year(years);
       d3.select(this).style('fill', col);
@@ -424,10 +420,12 @@ var mw = (function () {
                 .attr("height", bar_h);
 
     var bar_max_value = 0;
-    var areas = _data.areas;
-    geo_areas.forEach(function(d){
-      var tmp = areas[d].value;
+    var geo_index = 0,
+        tbi_index = 0;
 
+
+    entries.forEach(function(d){
+      var tmp = areas[d];
       tmp.push(how_long(tmp[0]));
       if (bar_max_value < tmp[2]) {
         bar_max_value = tmp[2];
@@ -439,85 +437,85 @@ var mw = (function () {
     });
     var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, 0]);
 
-    var entry_w = bar_w/geo_areas.length-bar_padding;
+    var entry_w = (bar_w-bar_space)/entries.length-bar_padding;
     var bars = bar_geogia.append("g")
       .attr("class", "bars")
       .selectAll(".bar")
-      .data(geo_areas)
+      .data(entries)
       .enter().append('g')
       .attr("class", "bar")
       .attr("id", function(d){ return "bar" + d; });
+
     var bar_loan = bars.append("rect")
-        .attr('class', function(d) { return areas[d].value[3] > 15 ? 'beyond l' : 'l' })
+        .attr('class', function(d) { return areas[d][3] > 15 ? 'beyond l' : 'l' })
         .attr("width", entry_w)
         .attr("height", function(d) {
 
-          return (bar_h-bar_h_legend) - y(areas[d].value[3]-areas[d].value[2]);
+          return (bar_h-bar_h_legend) - y(areas[d][3]-areas[d][2]);
         })
-        .attr("x", function(d,i) { return i*(entry_w+bar_padding); })
-        .attr("y", function(d) { return y(areas[d].value[3]); });
+        .attr("x", function(d,i) {return i*(entry_w+bar_padding) + bar_space * (d>100 ? 1 : 0); })
+        .attr("y", function(d) { return y(areas[d][3]); });
 
     var bar_saving = bars.append("rect")
         .attr("class","s")
-        .style('fill', function(d) { return color_by_year(areas[d].value[2]); })
+        .style('fill', function(d) { return color_by_year(areas[d][2]); })
         .attr("width", entry_w)
         .attr("height", function(d) {
-          return (bar_h-bar_h_legend) - y(areas[d].value[2]);
+          return (bar_h-bar_h_legend) - y(areas[d][2]);
         })
-        .attr("x", function(d,i) { return i*(entry_w+bar_padding); })
-        .attr("y", function(d) { return y(areas[d].value[2]); });
+        .attr("x", function(d,i) { return i*(entry_w+bar_padding) + bar_space * (d>100 ? 1 : 0); })
+        .attr("y", function(d) { return y(areas[d][2]); });
 
 
-    // var legend = bar_geogia.append("g")
-    //   .attr("class", "x-axis")
-    //   .selectAll("text")
-    //   .data(entries)
-    //   .enter().append('text')
-    //   .attr('id', function(d) { return "x-axis" + d.key; })
-    //   .text(function(d){ return I18n.t('areas-' + d.key); });
-    //
-    //   legend.each(function (d,i) {
-    //     // console.log(d,i);
-    //     var t = d3.select(this);
-    //     var bbox = t.node().getBBox();
-    //     t.attr("x", i*(entry_w+bar_padding) - (bbox.width/2 - entry_w/2))
-    //       .attr("y", (bar_h-bar_h_legend) + 12 + bbox.width/2);
-    //     bbox = t.node().getBBox();
-    //     t.attr("transform", 'rotate(90, ' + (bbox.x + bbox.width/2) + ', ' + (bbox.y + bbox.height/2) + ')');
-    //
-    //   });
-    //
-    //   var tip = d3.tip()
-    //     .attr('class', 'tip')
-    //     .offset([-10, 0])
-    //     .html(function(d) {
-    //       return "<span>"+I18n.t('legend-' + d)+"</span>";
-    //     })
-    //   bar_geogia.call(tip);
-    //
-    //   bar_geogia.append("g")
-    //    .attr("class", "legend")
-    //    .selectAll("rect")
-    //     .data(d3.range(1,color_step+1,1))
-    //     .enter().append("rect")
-    //     .attr("x", function(d, i){ return i * 18;})
-    //     .style('fill', function(d){ return colors(d); })
-    //
-    //   bar_geogia.select('.legend').append("rect")
-    //     .data('l')
-    //     .attr('fill','#56bfbf')
-    //     .attr("x", function(d, i){ return color_step * 18 + 20;})
-    //
-    //   bar_geogia.select('.legend').append("rect")
-    //     .data('b')
-    //     .attr('fill','#314451')
-    //     .attr("x", function(d, i){ return (color_step+1) * 18 + 20;})
-    //
-    //   bar_geogia.selectAll('.legend rect')
-    //     .attr({'width':'13', 'height':'13'})
-    //     .attr("y", bar_h - 16)
-    //     .on('mouseover', tip.show)
-    //     .on('mouseout', tip.hide);
+    var legend = bar_geogia.append("g")
+      .attr("class", "x-axis")
+      .selectAll("text")
+      .data(entries)
+      .enter().append('text')
+      .attr('id', function(d) { return "x-axis" + d; })
+      .text(function(d){ return I18n.t('areas-' + d); });
+
+      legend.each(function (d,i) {
+        var t = d3.select(this);
+        var bbox = t.node().getBBox();
+        t.attr("x", i*(entry_w+bar_padding) - (bbox.width/2 - entry_w/2) + bar_space * (d>100 ? 1 : 0) )
+          .attr("y", (bar_h-bar_h_legend) + 12 + bbox.width/2);
+        bbox = t.node().getBBox();
+        t.attr("transform", 'rotate(90, ' + (bbox.x + bbox.width/2) + ', ' + (bbox.y + bbox.height/2) + ')');
+
+      });
+
+      var tip = d3.tip()
+        .attr('class', 'tip')
+        .offset([-10, 0])
+        .html(function(d) {
+          return "<span>"+I18n.t('legend-' + d)+"</span>";
+        })
+      bar_geogia.call(tip);
+
+      bar_geogia.append("g")
+       .attr("class", "legend")
+       .selectAll("rect")
+        .data(d3.range(1,color_step+1,1))
+        .enter().append("rect")
+        .attr("x", function(d, i){ return i * 18;})
+        .style('fill', function(d){ return colors(d); })
+
+      bar_geogia.select('.legend').append("rect")
+        .data('l')
+        .attr('fill','#56bfbf')
+        .attr("x", function(d, i){ return color_step * 18 + 20;})
+
+      bar_geogia.select('.legend').append("rect")
+        .data('b')
+        .attr('fill','#314451')
+        .attr("x", function(d, i){ return (color_step+1) * 18 + 20;})
+
+      bar_geogia.selectAll('.legend rect')
+        .attr({'width':'13', 'height':'13'})
+        .attr("y", bar_h - 16)
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
   }
   var bar_chart_draw = function() {
 
@@ -526,13 +524,14 @@ var mw = (function () {
     var bar_max_value = 0;
 
     entries.forEach(function(d){
-      d.value[2] = how_long(d.value[0]);
-      if (bar_max_value < d.value[2]) {
-        bar_max_value = d.value[2];
+      var tmp = areas[d];
+      tmp[2] = how_long(tmp[0]);
+      if (bar_max_value < tmp[2]) {
+        bar_max_value = tmp[2];
       }
-      d.value[3] = how_long(d.value[1]);
-      if (bar_max_value < d.value[3]) {
-        bar_max_value = d.value[3];
+      tmp[3] = how_long(tmp[1]);
+      if (bar_max_value < tmp[3]) {
+        bar_max_value = tmp[3];
       }
     });
     var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, 0]);
@@ -542,20 +541,18 @@ var mw = (function () {
     var bars = bar_geogia.selectAll('.bars .bar')
 
     bars.selectAll('rect.l')
-        .classed('beyound', function(d) { return d.value[3] > 15; })
+        .classed('beyond', function(d) { return areas[d][3] > 15; })
         .attr("height", function(d) {
-          return (bar_h-bar_h_legend) - y(d.value[3]-d.value[2]);
+          return (bar_h-bar_h_legend) - y(areas[d][3]-areas[d][2]);
         })
-        .attr("y", function(d) { return y(d.value[3]); });
+        .attr("y", function(d) { return y(areas[d][3]); });
 
     bars.selectAll('rect.s')
-      .style('fill', function(d) { return color_by_year(d.value[2]); })
+      .style('fill', function(d) { return color_by_year(areas[d][2]); })
       .attr("height", function(d) {
-        return (bar_h-bar_h_legend) - y(d.value[2]);
+        return (bar_h-bar_h_legend) - y(areas[d][2]);
       })
-      .attr("y", function(d) { return y(d.value[2]); });
-
-
+      .attr("y", function(d) { return y(areas[d][2]); });
   };
   var currency_init = function() {
 
@@ -572,10 +569,8 @@ var mw = (function () {
     //   move here below code
     // });
 
-    var len = entries.length;
-    for(var i = 0; i < len; ++i) {
-      var tmp = entries[i]['value'];
-
+    for(var i = 0; i < entries.length; ++i) {
+      var tmp = areas[entries[i]];
       tmp[0] = Math.round(tmp[0] * currency);
       tmp[1] = Math.round(tmp[1] * currency);
     }
@@ -589,67 +584,3 @@ var mw = (function () {
   return obj;
 
 })();
-
-
-
-function position() {
-		if ( !this[ 0 ] ) {
-			return;
-		}
-
-		var offsetParent, offset,
-			elem = this[ 0 ],
-			parentOffset = { top: 0, left: 0 };
-
-		// Fixed elements are offset from window (parentOffset = {top:0, left: 0},
-		// because it is its only offset parent
-		if ( jQuery.css( elem, "position" ) === "fixed" ) {
-			// Assume getBoundingClientRect is there when computed position is fixed
-			offset = elem.getBoundingClientRect();
-
-		} else {
-			// Get *real* offsetParent
-			offsetParent = this.offsetParent();
-
-			// Get correct offsets
-			offset = this.offset();
-			if ( !jQuery.nodeName( offsetParent[ 0 ], "html" ) ) {
-				parentOffset = offsetParent.offset();
-			}
-
-			// Add offsetParent borders
-			// Subtract offsetParent scroll positions
-			parentOffset.top += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true ) -
-				offsetParent.scrollTop();
-			parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true ) -
-				offsetParent.scrollLeft();
-		}
-
-		// Subtract parent offsets and element margins
-		return {
-			top: offset.top - parentOffset.top - jQuery.css( elem, "marginTop", true ),
-			left: offset.left - parentOffset.left - jQuery.css( elem, "marginLeft", true )
-		};
-	}
-
-	// This method will return documentElement in the following cases:
-	// 1) For the element inside the iframe without offsetParent, this method will return
-	//    documentElement of the parent window
-	// 2) For the hidden or detached element
-	// 3) For body or html element, i.e. in case of the html node - it will return itself
-	//
-	// but those exceptions were never presented as a real life use-cases
-	// and might be considered as more preferable results.
-	//
-	// This logic, however, is not guaranteed and can change at any point in the future
-	function offsetParent() {
-		return this.map(function() {
-			var offsetParent = this.offsetParent;
-
-			while ( offsetParent && jQuery.css( offsetParent, "position" ) === "static" ) {
-				offsetParent = offsetParent.offsetParent;
-			}
-
-			return offsetParent || documentElement;
-		});
-	}
