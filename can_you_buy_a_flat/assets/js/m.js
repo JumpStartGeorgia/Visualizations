@@ -180,6 +180,10 @@ var mw = (function () {
 
     I18n.remap();
     loader_stop();
+
+    d3.select('.methodology').on('click', function() {
+      console.log('here');
+    });
   };
   var filter = function() {
     var filters = d3.select('.filters');

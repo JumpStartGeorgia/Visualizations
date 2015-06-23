@@ -26,6 +26,22 @@
   font-family: 'dejavusans-m-cb';
   src: url('../fonts/dejavusans_m_cb.ttf') format("truetype");
 }
+@font-face {
+  font-family: 'opensans';
+  src: url('../fonts/opensans.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'opensans-l';
+  src: url('../fonts/opensans_l.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'opensans-b';
+  src: url('../fonts/opensans_b.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'opensans-sb';
+  src: url('../fonts/opensans_sb.ttf') format("truetype");
+}
 html, body
 {
   margin:0px;
@@ -444,6 +460,9 @@ a, a:hover, a:focus {
 {
   width:135px;
   height:36px;
+}
+.footer .methodology {
+  cursor:pointer;
 }
 /*------------------------------------------ Tip ------------------------------------------*/
 

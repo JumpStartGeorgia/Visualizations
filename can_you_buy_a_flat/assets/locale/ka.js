@@ -1,5 +1,6 @@
 ka =
 {
+  url: "http://visuals.jumpstart.ge/can_you_buy_a_flat?locale=ka",
    lang: "English",
    lang_href: "?locale=en",
    fb:"http://visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_ka.jpg",
@@ -14,7 +15,6 @@ ka =
    share: "გაუზიარე მეგობრებს შენი შედეგი:",
    share_result: "თქვენ დაგჭირდებათ XX1 წელი XX3 XX2 მ² ბინის შესაძენად",
    comments: "დატოვე კომენტარი",
-   comment_url: "http://visuals.jumpstart.ge/can_you_buy_a_flat?locale=ka",
    m2: "მ²",
    income: "შემოსავალი",
    saving: "დანაზოგი",

@@ -143,9 +143,11 @@ var I18n = (function () {
          {
            var append_regex = /^append\[(.*?)\]$/g;
            var vv = append_regex.exec(d.dataset[kCamel]);
-           if(vv.length == 2)
-           {
+           if(vv !== null && vv.length === 2) {
              d.innerHTML = v + vv[1];
+           }
+           else {
+             d.setAttribute(d.dataset[kCamel], v);
            }
          }
          d.removeAttribute('data-' + k);

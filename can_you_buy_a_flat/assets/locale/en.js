@@ -1,5 +1,6 @@
 en =
 {
+  url: "http://visuals.jumpstart.ge/can_you_buy_a_flat?locale=en",
    lang: "English",
    lang_href: "?locale=ka",
    fb:"http://visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_en.jpg",
@@ -14,7 +15,6 @@ en =
    share: "Share your results:",
    share_result: "It will take you XX1 years to buy XX2 m² apartment in XX3",
    comments: "Leave a Comment",
-   comment_url: "http://visuals.jumpstart.ge/can_you_buy_a_flat?locale=en",
    m2: "m²",
    income: "Income",
    saving: "Savings",
