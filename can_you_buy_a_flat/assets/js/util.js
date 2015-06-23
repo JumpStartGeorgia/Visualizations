@@ -68,3 +68,16 @@ var u = (function () {
   };
   return obj;
 })();
+
+function reformat(n,s){
+  s = typeof s === 'number' ? s : 2;
+  n = +n;
+  var x = n.toFixed(s).split('.');
+  var x1 = x[0]
+
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+      x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  }
+  return x1 + (x.length > 1 ? '.' + x[1] : '');//(+n.toFixed(s)).toLocaleString();
+}

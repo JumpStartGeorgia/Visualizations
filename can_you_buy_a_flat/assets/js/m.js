@@ -181,13 +181,14 @@ var mw = (function () {
     I18n.remap();
     loader_stop();
 
-    d3.select('.methodology').on('click', function() {
+    d3.selectAll('.methodology, .popup .close, .popup .bg').on('click', function() {
       var popup = d3.select('.popup');
       popup.classed('open', !popup.classed('open'));
     });
-    d3.select('.popup .close').on('click', function() {
-      var popup = d3.select('.popup');
-      popup.classed('open', !popup.classed('open'));
+    d3.select('body').on('keydown', function() {
+      if(d3.event.keyCode == 27) {
+        d3.select('.popup').classed('open', false);
+      }
     });
   };
   var filter = function() {
@@ -270,24 +271,26 @@ var mw = (function () {
     var current_color = color_by_year(how_long(month_amount));
     out.select('.city').text(I18n.t('data-I18n-areas-'+ current_id)).style('color', current_color);
 
-    out.select('.via-saving .amount').text(user.m2 * month_amount);
+    out.select('.via-saving .amount').text(reformat(user.m2 * month_amount,0));
 
     var year_month = how_long_full(month_amount);
     out.select('.via-saving .years').text(year_month[0]).style('color', current_color);
     out.select('.via-saving .months').text(year_month[1]).style('color', current_color);
 
-    out.select('.via-loan .amount').text(user.m2 * month_amount_with_loan);
+    out.select('.via-loan .amount').text(reformat(user.m2 * month_amount_with_loan,0));
 
     year_month = how_long_full(month_amount_with_loan);
     out.select('.via-loan .years').text(year_month[0]);
 
     var title = "";
     var notice = d3.select(".via-loan svg.notice").style("display", "none");
+    var b = false;
     if(year_month[0]>15) {
       title = I18n.t("loan_warning").replace('XX', year_month[0]);
-      notice.attr('title', title).style("display", "block")
+      notice.attr('title', title).style("display", "block");
+      b = true;
     }
-
+    out.select('.via-loan .years-box').classed('disabled', b);
 
     out.select('.via-loan .months').text(year_month[1]);
 
@@ -524,7 +527,7 @@ var mw = (function () {
         t.attr("x", i*(entry_w+bar_padding) - (bbox.width/2 - entry_w/2) + bar_space * (d>100 ? 1 : 0) )
           .attr("y", (bar_h-bar_h_legend) + 12 + bbox.width/2);
         bbox = t.node().getBBox();
-        t.attr("transform", 'rotate(90, ' + (bbox.x + bbox.width/2) + ', ' + (bbox.y + bbox.height/2) + ')');
+        t.attr("transform", 'rotate(-90, ' + (bbox.x + bbox.width/2) + ', ' + (bbox.y + bbox.height/2) + ')');
 
       });
 
