@@ -361,6 +361,17 @@ a, a:hover, a:focus {
   color:#314451;
   text-align:right;
 }
+.output2 .caption {
+  font:16px 'dejavusans-m-b', 'sans-serif';
+  fill:#314451;
+}
+.output2 line
+{
+  stroke: #859EA4;
+  stroke-width:1px;
+  stroke-dasharray:5,5;
+  stroke-linecap:round;
+}
 
 .comments {
   font:18px 'dejavusans-m-b', 'sans-serif';

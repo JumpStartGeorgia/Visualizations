@@ -7,9 +7,10 @@ var mw = (function () {
    w = u.width(),
    h = u.height(),
    bar_w = 370,
-   bar_h = 280,
+   bar_h = 310,
    bar_space = 50, // space betweet georgia and tbilisi bar chart
-   bar_h_legend = 120,
+   bar_h_legend = 140,
+   bar_h_caption = 30,
    bar_padding = 2,
    geo_map = null,
    tbi_map = null,
@@ -414,15 +415,14 @@ var mw = (function () {
   };
 
   var bar_chart_init = function() {
-    var bar_geogia = d3.select(".output2 .bar-georgia")
+    var bar_georgia = d3.select(".output2 .bar-georgia")
                 .append("svg")
                 .attr("width", bar_w)
                 .attr("height", bar_h);
 
-    var bar_max_value = 0;
-    var geo_index = 0,
-        tbi_index = 0;
-
+    var bar_max_value = 0,
+      geo_index = 0,
+      tbi_index = 0;
 
     entries.forEach(function(d){
       var tmp = areas[d];
@@ -435,10 +435,42 @@ var mw = (function () {
         bar_max_value = tmp[3];
       }
     });
-    var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, 0]);
-
+    var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, bar_h_caption+40]);
     var entry_w = (bar_w-bar_space)/entries.length-bar_padding;
-    var bars = bar_geogia.append("g")
+
+  // caption block
+    var captions = bar_georgia.append("g")
+       .attr("class", "captions");
+    var caption = captions
+        .append("text")
+        .style('visibility', 'hidden')
+        .attr('class', 'caption')
+        .text(I18n.t('georgia'));
+    var caption_box = caption.node().getBBox();
+    var cap_h = caption_box.height;
+    var cap_line_h = cap_h + 18;
+    caption.attr({'x': 5, 'y': cap_h }).style('visibility', 'visible');
+
+    captions
+      .append("line")
+      .attr({'x1': 5, 'y1': cap_line_h , 'x2': Math.round5(caption_box.width) + 40, 'y2': cap_line_h });
+
+    caption = captions
+        .append("text")
+        .style('visibility', 'hidden')
+        .attr('class', 'caption')
+        .text(I18n.t('georgia_capital'));
+    caption_box = caption.node().getBBox();
+    caption.attr({'x': bar_w-(entry_w*6+bar_padding*6), 'y': cap_h }).style('visibility', 'visible');
+
+    captions
+      .append("line")
+      .attr({'x1': Math.round5(bar_w-(entry_w*6+bar_padding*6)), 'y1': cap_line_h, 'x2':  Math.round5(bar_w), 'y2': cap_line_h });
+
+  // bars block
+
+
+    var bars = bar_georgia.append("g")
       .attr("class", "bars")
       .selectAll(".bar")
       .data(entries)
@@ -467,7 +499,9 @@ var mw = (function () {
         .attr("y", function(d) { return y(areas[d][2]); });
 
 
-    var legend = bar_geogia.append("g")
+  // x-axis block
+
+    var legend = bar_georgia.append("g")
       .attr("class", "x-axis")
       .selectAll("text")
       .data(entries)
@@ -485,15 +519,17 @@ var mw = (function () {
 
       });
 
+      // legend block
+
       var tip = d3.tip()
         .attr('class', 'tip')
         .offset([-10, 0])
         .html(function(d) {
           return "<span>"+I18n.t('legend-' + d)+"</span>";
         })
-      bar_geogia.call(tip);
+      bar_georgia.call(tip);
 
-      bar_geogia.append("g")
+      bar_georgia.append("g")
        .attr("class", "legend")
        .selectAll("rect")
         .data(d3.range(1,color_step+1,1))
@@ -501,25 +537,26 @@ var mw = (function () {
         .attr("x", function(d, i){ return i * 18;})
         .style('fill', function(d){ return colors(d); })
 
-      bar_geogia.select('.legend').append("rect")
+      bar_georgia.select('.legend').append("rect")
         .data('l')
         .attr('fill','#56bfbf')
         .attr("x", function(d, i){ return color_step * 18 + 20;})
 
-      bar_geogia.select('.legend').append("rect")
+      bar_georgia.select('.legend').append("rect")
         .data('b')
         .attr('fill','#314451')
         .attr("x", function(d, i){ return (color_step+1) * 18 + 20;})
 
-      bar_geogia.selectAll('.legend rect')
+      bar_georgia.selectAll('.legend rect')
         .attr({'width':'13', 'height':'13'})
         .attr("y", bar_h - 16)
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
+
   }
   var bar_chart_draw = function() {
 
-    var bar_geogia = d3.select(".output2 .bar-georgia svg");
+    var bar_georgia = d3.select(".output2 .bar-georgia svg");
 
     var bar_max_value = 0;
 
@@ -538,7 +575,7 @@ var mw = (function () {
 
     var entry_w = bar_w/entries.length-bar_padding;
 
-    var bars = bar_geogia.selectAll('.bars .bar')
+    var bars = bar_georgia.selectAll('.bars .bar')
 
     bars.selectAll('rect.l')
         .classed('beyond', function(d) { return areas[d][3] > 15; })

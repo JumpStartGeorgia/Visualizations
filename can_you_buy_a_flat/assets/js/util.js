@@ -45,13 +45,18 @@
       return decimalAdjust('ceil', value, exp);
     };
   }
+  if (!Math.round5) {
+    Math.round5 = function(value) {
+      return (value / 5) * 5;
+    };
+  }
 })();
 
 var u = (function () {
   var obj = { };
   obj.height = function() { return  window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; };
   obj.width = function() { return  window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth; };
-  obj.px = function(s) { 
+  obj.px = function(s) {
     var i = 0;
     var result = 0;
     var a = arguments;a
@@ -59,7 +64,7 @@ var u = (function () {
     {
       result += +a[i].substring(0,a[i].length-2);
     }
-    return result; 
+    return result;
   };
   return obj;
 })();
