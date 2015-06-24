@@ -8,6 +8,8 @@ var mw = (function () {
    h = u.height(),
    bar_w = 440,
    bar_h = 310,
+   map_w = 620,
+   map_h = 400,
    bar_space = 50, // space betweet georgia and tbilisi bar chart
    bar_h_legend = 140,
    bar_h_caption = 30,
@@ -21,6 +23,7 @@ var mw = (function () {
    color_range = ['#f9c235', '#ff6043'],
    colors = d3.scale.linear().domain([1, color_step]).range(color_range),
    currency = 2.2432, // default was taken 22.06.2015
+   interest_rate = 0.09,
    color_by_year = function(year) {
      var tmp = 1;
 
@@ -92,17 +95,19 @@ var mw = (function () {
    tbi_areas = [206,203,204,205,201,202], // sorted desc
    entries = geo_areas.concat(tbi_areas),
 
-    how_long = function(square_meter_price) { // price
-     return Math.round10(((user.m2 * square_meter_price)/(user.saving_amount))/12, -1);
-    },
-    how_long_full = function(square_meter_price) {
-      var tmp = ((user.m2 * square_meter_price)/(user.saving_amount));
-      var m = Math.round(tmp%12);
-      return [Math.floor(tmp/12, -1)+(m==12?1:0), (m==12?0:m)];
+    how_long = function(smp, type) { // smp square meter price type decimal or [years, months]
+        var tmp = type == "loan"
+                    ? Math.ceil((Math.log(user.saving_amount) - Math.log(user.saving_amount - (user.m2 * smp)*interest_rate/12)) /  Math.log(1 + interest_rate/12))
+                    : Math.round10((user.m2 * smp)/(user.saving_amount));
+                    tmp = isNaN(tmp) ? 0 : tmp;
+        return { d: Math.round10(tmp/12, -1),
+                 t: [Math.floor(tmp/12), tmp%12 ],
+                 m: tmp };
     };
-
+    // nnn=(Math.log(payt)-Math.log(payt-(princ*intr)/1200))/Math.log(1+(intr/1200));
    var init = function() {
        loaderStartTime = (new Date()).getTime();
+       resize();
        I18n.init(function(){ init_continue(); });
    };
    var init_continue = function() {
@@ -220,29 +225,27 @@ var mw = (function () {
     }
   };
   var resize = function() {
+    console.log(w,h);
     w = u.width();
     h = u.height();
 
-    var map_w = w<620 ? w-40 : 620,
-        map_h = 400,
-        scaler = w<620 ? 4000 : 4400;
+    map_w = w<620 ? w-40 : 620;
+    bar_w = w<440 ? w-40-20 : 440;
+    var scaler = w<620 ? 4000 : 4400;
 
-    geo_proj = d3.geo.mercator()
-        .scale(scaler)
-        .translate([map_w/2+40,map_h/2])
-        .center([43.52606083142459,42.18408590602157]);
-
-    var path = d3.geo.path()
-        .projection(geo_proj);
-
-
-
-
-      geo_map
-      .attr("width", map_w)
-      .attr("height", map_h);
-      // resize the map
-      geo_map.select('.area').attr('d', path);
+    // geo_proj = d3.geo.mercator()
+    //     .scale(scaler)
+    //     .translate([map_w/2+40,map_h/2])
+    //     .center([43.52606083142459,42.18408590602157]);
+    //
+    // var path = d3.geo.path()
+    //     .projection(geo_proj);
+    //
+    //   geo_map
+    //   .attr("width", map_w)
+    //   .attr("height", map_h);
+    //   // resize the map
+    //   geo_map.select('.area').attr('d', path);
   };
   var render = function(current_id, sort, hover) {
     // make active and hover states for map and for bar chart
@@ -285,41 +288,40 @@ var mw = (function () {
 
     var d = areas[current_id];
     var month_amount = d[0];
-    var month_amount_with_loan = d[1];
 
     var out = d3.select('.output');
 
     var hl = how_long(month_amount);
-    var current_color = hl != 0 ? color_by_year(hl) : '#314451';
+    var hll = how_long(month_amount, 'loan');
+
+    var current_color = hl.d != 0 ? color_by_year(hl.d) : '#314451';
+
     out.select('.city').text(I18n.t('data-I18n-areas-'+ current_id)).style('color', current_color);
 
-    out.select('.via-saving .amount').text(zero(reformat(user.m2 * month_amount,0))).classed('symbol', hl != 0);
+    out.select('.via-saving .amount').text(zero(reformat(user.m2 * month_amount,0))).classed('symbol', hl.d != 0);
+    out.select('.via-saving .years').text(zero(hl.t[0])).style('color', current_color);
+    out.select('.via-saving .months').text(zero(hl.t[1])).style('color', current_color);
 
-    var year_month = how_long_full(month_amount);
-    out.select('.via-saving .years').text(zero(year_month[0])).style('color', current_color);
-    out.select('.via-saving .months').text(zero(year_month[1])).style('color', current_color);
+    out.select('.via-loan .amount').text(zero(reformat(hll.m * user.saving_amount,0))).classed('symbol', hll.d != 0);
 
-    out.select('.via-loan .amount').text(zero(reformat(user.m2 * month_amount_with_loan,0))).classed('symbol', hl != 0);
-
-    year_month = how_long_full(month_amount_with_loan);
-    out.select('.via-loan .years').text(zero(year_month[0]));
+    out.select('.via-loan .years').text(zero(hll.t[0]));
 
     var title = "";
     var notice = d3.select(".via-loan svg.notice").style("display", "none");
     var b = false;
-    if(year_month[0]>15) {
-      title = I18n.t("loan_warning").replace('XX', year_month[0]);
+    if(hll.t[0]>15) {
+      title = I18n.t("loan_warning").replace('XX', hll.t[0]);
       notice.attr('title', title).style("display", "block");
       b = true;
     }
     out.select('.via-loan .years-box').classed('disabled', b);
 
-    out.select('.via-loan .months').text(zero(year_month[1]));
+    out.select('.via-loan .months').text(zero(hll.t[1]));
 
     d3.selectAll('.map .area').each(function(d){
       var tmp_id = d.properties.OBJECTID;
 
-      var years = how_long(areas[tmp_id][0]);
+      var years = how_long(areas[tmp_id][0]).d;
 
       if(disabled_area.indexOf(tmp_id) == -1)
       {
@@ -333,9 +335,8 @@ var mw = (function () {
 /*------------------------------------------ Georgia Map ------------------------------------------*/
 
   var init_maps = function() {
-    var map_w = w<620 ? w-40 : 620,
-        map_h = 400,
-        scaler = w<620 ? 4000 : 4400;
+    map_w = w<620 ? w-40 : 620;
+      var scaler = w<620 ? 4000 : 4400;
         geo_map = d3.select(".map .georgia")
                     .append("svg")
                     .attr("width", map_w)
@@ -463,11 +464,11 @@ var mw = (function () {
 
     entries.forEach(function(d){
       var tmp = areas[d];
-      tmp.push(how_long(tmp[0]));
+      tmp.push(how_long(tmp[0]).d);
       if (bar_max_value < tmp[2]) {
         bar_max_value = tmp[2];
       }
-      tmp.push(how_long(tmp[1]));
+      tmp.push(how_long(tmp[0]).d, 'loan');
       if (bar_max_value < tmp[3]) {
         bar_max_value = tmp[3];
       }
@@ -599,11 +600,11 @@ var mw = (function () {
 
     entries.forEach(function(d){
       var tmp = areas[d];
-      tmp[2] = how_long(tmp[0]);
+      tmp[2] = how_long(tmp[0]).d;
       if (bar_max_value < tmp[2]) {
         bar_max_value = tmp[2];
       }
-      tmp[3] = how_long(tmp[1]);
+      tmp[3] = how_long(tmp[0],'loan').d;
       if (bar_max_value < tmp[3]) {
         bar_max_value = tmp[3];
       }

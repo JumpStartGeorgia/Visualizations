@@ -1,3 +1,19 @@
+.loader
+{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0px;
+  left:0px;
+}
+.loader:lang(ka) {
+  background: url(../images/plane_ka.gif) no-repeat center,
+              url(../images/bg.jpg) repeat;
+}
+.loader:lang(en) {
+  background: url(../images/plane_en.gif) no-repeat center,
+              url(../images/bg.jpg) repeat;
+}
 @font-face {
   font-family: 'dejavusans-el';
   src: url('../fonts/dejavusans_el.ttf') format("truetype");
@@ -156,7 +172,7 @@ a, a:hover, a:focus {
   width:100%;
 }
 .page > .box > .cell.right {
-  min-width: 480px;
+  width:100%;
 }
 
 .page  .header {
@@ -496,6 +512,9 @@ a, a:hover, a:focus {
   .cell {
     display:table-cell;
   }
+  .page > .box > .cell.right {
+    min-width: 480px;
+  }
   .page .header .lang {
     min-width: 480px;
   }
@@ -513,22 +532,9 @@ a, a:hover, a:focus {
     max-width:1100px;
     padding:0px;
   }
-}
-.loader
-{
-  width:100%;
-  height:100%;
-  position:fixed;
-  top:0px;
-  left:0px;
-}
-.loader:lang(ka) {
-  background: url(../images/plane_ka.gif) no-repeat center/540px 70px,
-              url(../images/bg.jpg) repeat;
-}
-.loader:lang(en) {
-  background: url(../images/plane_en.gif) no-repeat center/540px 70px,
-              url(../images/bg.jpg) repeat;
+  .footer .left .pipe {
+    margin:0px 10px;
+  }
 }
 
 /*------------------------------------------ Footer ------------------------------------------*/
@@ -538,7 +544,7 @@ a, a:hover, a:focus {
   text-align:right;
   background-color:#f2f2f2;
   border-top:1px solid #fffae3;
-  height:70px;
+  min-height:70px;
   position: absolute;
   bottom: 0;
 }
@@ -560,7 +566,7 @@ a, a:hover, a:focus {
   font:16px 'opensans-l', 'sans-serif';
 }
 .footer .left .pipe {
-  margin:0px 10px;
+  margin:0px;
 }
 .footer > .box {
   padding:0px 10px;
@@ -576,6 +582,7 @@ a, a:hover, a:focus {
 }
 .footer .right {
   float:right;
+  padding-bottom:10px;
 }
 .footer .powered-by img
 {
