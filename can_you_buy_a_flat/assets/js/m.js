@@ -6,7 +6,7 @@ var mw = (function () {
 
    w = u.width(),
    h = u.height(),
-   bar_w = 370,
+   bar_w = 440,
    bar_h = 310,
    bar_space = 50, // space betweet georgia and tbilisi bar chart
    bar_h_legend = 140,
@@ -14,6 +14,7 @@ var mw = (function () {
    bar_padding = 2,
    geo_map = null,
    tbi_map = null,
+   geo_proj = null,
    disabled_area = [1, 15],
    default_area = 65,
    color_step = 9,
@@ -52,7 +53,7 @@ var mw = (function () {
      }
      return colors(tmp);
    },
-   loaderStartTime = 0,
+   loaderStartTime,
    loaderAtLeast = 0, // milliseconds 3000
    user = {
      m2: 45,
@@ -100,34 +101,15 @@ var mw = (function () {
       return [Math.floor(tmp/12, -1)+(m==12?1:0), (m==12?0:m)];
     };
 
-
    var init = function() {
        loaderStartTime = (new Date()).getTime();
-      // blink();
-      // d3.select(window).on('resize', resize);
        I18n.init(function(){ init_continue(); });
    };
    var init_continue = function() {
      currency_init();
    };
-   var blink = function () {
-      d3.select('.loader .woman')
-         .transition()
-         .duration(blinkDuration)
-         .ease(blinkEase)
-         .style("opacity",0.2)
-         .each("end", function(){
-            d3.select('.loader .woman')
-            .transition()
-            .delay(100)
-            .duration(blinkDuration)
-            .ease(blinkEase)
-            .style("opacity",1)
-            .each("end", blink);
-         });
-   };
-
   var bind = function() {
+    d3.select(window).on('resize', resize);
 
     d3.selectAll('.filters select.filter').on('change',function(d){ filter(); });
 
@@ -170,8 +152,6 @@ var mw = (function () {
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide);
 
-    I18n.remap();
-    loader_stop();
 
     d3.selectAll('.methodology, .popup .close, .popup .bg').on('click', function() {
       var popup = d3.select('.popup');
@@ -180,40 +160,90 @@ var mw = (function () {
     d3.select('body').on('keydown', function() {
       if(d3.event.keyCode == 27) {
         d3.select('.popup').classed('open', false);
+        d3.selectAll('.dropdown.open').classed('open', false);
       }
     });
+    d3.select('body').on('click.dropdown', function() {
+      d3.selectAll('.dropdown.open').classed('open', false);
+    });
+    d3.selectAll('.dropdown .dropdown-toggle').on('click', function() {
+      d3.selectAll('.dropdown.open').classed('open', false);
+      var dropdown = d3.select(this.parentNode);
+      dropdown.classed('open', !dropdown.classed('open'));
+      d3.event.preventDefault();
+      d3.event.stopPropagation();
+    });
+    d3.selectAll('.dropdown .dropdown-menu a').on('click', function(e) {
+
+      var dropdown = d3.select(this.parentNode.parentNode.parentNode);
+      var dropdown_toggle = dropdown.select('.dropdown-toggle');
+      var dropdown_menu = d3.select(this.parentNode.parentNode);
+      var dropdown_menu_li = d3.select(this.parentNode);
+
+      dropdown_menu.selectAll('li').classed('selected', false);
+      dropdown_menu_li.classed('selected', true);
+      dropdown_toggle.text(d3.select(this).text());
+      dropdown.classed('open', false);
+      filter();
+      d3.event.preventDefault();
+      d3.event.stopPropagation();
+    });
+
+    I18n.remap();
+    loader_stop();
   };
   var filter = function() {
     var filters = d3.select('.filters');
 
-    user.set(filters.select('.filter.m2').property('value'),
-              filters.select('.filter.income').property('value'),
-              filters.select('.filter.savings').property('value'));
-
+    user.set(filters.select('.filter.m2 .dropdown-menu li.selected a').attr('value'),
+              filters.select('.filter.income .dropdown-menu li.selected a').attr('value'),
+              filters.select('.filter.savings .dropdown-menu li.selected a').attr('value'));
     render(d3.select('.map .georgia path.active').data()[0].properties.OBJECTID, false, false);
     bar_chart_draw();
   };
   var loader_stop = function() {
     var show = function() {
-      d3.select('.wrapper').style({"visibility":"visible", "opacity": 0});
+      d3.select('body').classed('noscroll', false);
+      d3.select('.wrapper').style({"visibility":"visible", "opacity": 0.2});
       d3.select('.loader').style("display","none");
-      d3.select('.wrapper').transition().duration(1000).style('opacity',1).each("end", function(){
-        // trigger_drag(1,3000);
-      });
+      d3.select('.wrapper').transition().duration(1000).style('opacity',1);
     };
-    if(loaderStartTime - (new Date()).getTime() > loaderAtLeast)
+    var elapsed = (new Date()).getTime() - loaderStartTime;
+
+    if(elapsed > loaderAtLeast)
     {
       show();
     }
     else
     {
-      setTimeout(function(){ show(); }, loaderAtLeast);
+      setTimeout(function(){ show(); }, loaderAtLeast - elapsed);
     }
   };
-  // var resize = function() {
-  //   w = u.width();
-  //   h = u.height();
-  // };
+  var resize = function() {
+    w = u.width();
+    h = u.height();
+
+    var map_w = w<620 ? w-40 : 620,
+        map_h = 400,
+        scaler = w<620 ? 4000 : 4400;
+
+    geo_proj = d3.geo.mercator()
+        .scale(scaler)
+        .translate([map_w/2+40,map_h/2])
+        .center([43.52606083142459,42.18408590602157]);
+
+    var path = d3.geo.path()
+        .projection(geo_proj);
+
+
+
+
+      geo_map
+      .attr("width", map_w)
+      .attr("height", map_h);
+      // resize the map
+      geo_map.select('.area').attr('d', path);
+  };
   var render = function(current_id, sort, hover) {
     // make active and hover states for map and for bar chart
     var maps = d3.select('.map');
@@ -246,7 +276,7 @@ var mw = (function () {
         tmp = tbi_map;
       }
 
-      tmp.selectAll(".map .georgia .area").sort(function (a, b) {
+      tmp.selectAll(".area").sort(function (a, b) {
         if (a.properties.OBJECTID == current_id) return 1;
         else if (a.properties.OBJECTID == active_id) return 2;
         else return -1;
@@ -303,9 +333,9 @@ var mw = (function () {
 /*------------------------------------------ Georgia Map ------------------------------------------*/
 
   var init_maps = function() {
-    var map_w = 690,
-        map_h = 400;
-
+    var map_w = w<620 ? w-40 : 620,
+        map_h = 400,
+        scaler = w<620 ? 4000 : 4400;
         geo_map = d3.select(".map .georgia")
                     .append("svg")
                     .attr("width", map_w)
@@ -337,13 +367,13 @@ var mw = (function () {
       function build_maps(error, geo_areas, tbilisi_areas) {
         if (error) throw error;
 
-        var projection = d3.geo.mercator()
-            .scale(4400)
-            .translate([map_w/2,map_h/2])
+        geo_proj = d3.geo.mercator()
+            .scale(scaler)
+            .translate([map_w/2+40,map_h/2])
             .center([43.52606083142459,42.18408590602157]);
 
         var path = d3.geo.path()
-            .projection(projection);
+            .projection(geo_proj);
 
 
             geo_map.append("g")
@@ -445,7 +475,7 @@ var mw = (function () {
     var y = d3.scale.linear().domain([0,bar_max_value]).range([bar_h-bar_h_legend, bar_h_caption+40]);
     var entry_w = (bar_w-bar_space)/entries.length-bar_padding;
 
-  // caption block
+    // caption block
     var captions = bar_georgia.append("g")
        .attr("class", "captions");
     var caption = captions
@@ -474,7 +504,7 @@ var mw = (function () {
       .append("line")
       .attr({'x1': Math.round5(bar_w-(entry_w*6+bar_padding*6)), 'y1': cap_line_h, 'x2':  Math.round5(bar_w), 'y2': cap_line_h });
 
-  // bars block
+      // bars block
 
 
     var bars = bar_georgia.append("g")
@@ -506,7 +536,7 @@ var mw = (function () {
         .attr("y", function(d) { return y(areas[d][2]); });
 
 
-  // x-axis block
+        // x-axis block
 
     var legend = bar_georgia.append("g")
       .attr("class", "x-axis")

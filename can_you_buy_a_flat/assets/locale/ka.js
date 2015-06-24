@@ -4,7 +4,7 @@ ka =
    lang: "English",
    lang_href: "?locale=en",
    lang_abbr: 'en',
-   fb:"http://visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_ka.jpg",
+   fb:"http://visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_ka.png",
    site_name: "Can you buy a flat?",
    title: "გაინტერესებს, რამდენი წელი და რა თანხა დაგჭირდება ბინის შესაძენად?",
    description: "ვიზუალიზაცია მომზადდა ქართულ სამაკლერო ვებგვერდებზე განთავსებულ განცხადებებზე დაყრდნობით. აირჩიეთ თქვენთვის სასურველი ქალაქი და ფართი და გაიგეთ, რამდენი წელი და რა თანხა დაგჭირდებათ ბინის შესაძენად.",

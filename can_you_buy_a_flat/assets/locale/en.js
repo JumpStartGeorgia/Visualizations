@@ -4,7 +4,7 @@ en =
    lang: "ქართული",
    lang_href: "?locale=ka",
    lang_abbr: 'ka',
-   fb:"http://visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_en.jpg",
+   fb:"http://visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_en.png",
    site_name: "Can you buy a flat?",
    title: "Are you interested, how much time and money you will need to purchase a flat?",
    description: "This visualization was based on the information from several retail web sites in Georgia. Choose the city and area and find out how much money and time you will need to purchase a flat.",
