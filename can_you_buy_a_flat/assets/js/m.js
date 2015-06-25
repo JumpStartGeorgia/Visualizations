@@ -193,7 +193,10 @@ var mw = (function () {
       d3.event.preventDefault();
       d3.event.stopPropagation();
     });
-
+    d3.select('.poster .stop').on('click', function() {
+      var t = d3.select(this.parentNode);
+      t.classed('paused', !t.classed('paused'));
+    });
     I18n.remap();
     loader_stop();
   };

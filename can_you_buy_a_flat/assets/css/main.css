@@ -142,22 +142,84 @@ a, a:hover, a:focus {
 .content {
   width:100%;
 }
+@keyframes animate_bg {
+    from { background-position: 0 0; }
+    to { background-position: -1526px 0; }
+}
+@-webkit-keyframes animate_bg {
+    from { background-position: 0 0; }
+    to { background-position: -1526px 0; }
+}
+@-ms-keyframes animate_bg {
+    from { background-position: 0 0; }
+    to { background-position: -1526px 0; }
+}
+@-moz-keyframes animate_bg {
+    from { background-position: 0 0; }
+    to { background-position: -1526px 0; }
+}
 .poster
 {
-  width:100%;
+  /*width:100%;
   height:404px;
-  background-color:#62dadd;
+  background-color:#62dadd;*/
+  width:100%;
+  height:368px;
+  /*background-image: url(../images/poster1.svg);
+  background-position: 0px 0px;
+  /*background-size:1526px 404px;*/
+  background-repeat: repeat-x;*/
+
+
 }
-.poster .img {
-  background: url(../images/poster1.svg) no-repeat center bottom,
-              url(../images/poster2.svg) no-repeat center bottom,
-              url(../images/poster3.svg) no-repeat center bottom,
-              url(../images/poster4.svg) no-repeat center bottom,
-              url(../images/poster5.svg) no-repeat center bottom;
-  max-width:1526px;
-  max-height:404px;
-  height:100%;
-  margin:0px auto;
+.poster .bg {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:368px;
+}
+.poster .sky {
+  background: url(../images/poster/sun.svg) no-repeat center right,
+              url(../images/poster/bg.jpg) repeat center right;
+}
+.poster .cloud_far {
+  background:transparent url(../images/poster/cloud_far.svg) repeat-x;
+  animation: animate_bg 80s linear infinite;
+  -ms-animation: animate_bg 80s linear infinite;
+  -moz-animation: animate_bg 80s linear infinite;
+  -webkit-animation: animate_bg 80s linear infinite;
+}
+.poster .cloud_close {
+  background:transparent url(../images/poster/cloud_close.svg) repeat-x;
+  animation: animate_bg 30s linear infinite;
+  -ms-animation: animate_bg 30s linear infinite;
+  -moz-animation: animate_bg 30s linear infinite;
+  -webkit-animation: animate_bg 30s linear infinite;
+}
+.poster .city {
+  background:transparent url(../images/poster/city.svg) repeat-x;
+  animation: animate_bg 150s linear infinite;
+  -ms-animation: animate_bg 150s linear infinite;
+  -moz-animation: animate_bg 150s linear infinite;
+  -webkit-animation: animate_bg 150s linear infinite;
+}
+.poster .plane {
+  background:transparent url(../images/plane_ka.gif) no-repeat center;
+  background-position: 30% 40px;
+}
+.poster.paused .bg {
+  -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
+   animation-play-state: paused;
+}
+.poster .stop {
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:32px;
+  height:32px;
+  background-color:#efefef;
+  cursor:pointer
 }
 .page {
 
@@ -413,7 +475,7 @@ a, a:hover, a:focus {
   width:116px;
 }
 .output .box .years-box .box:last-of-type {
-  width:90px;
+  width:86px;
 }
 .output .box .years-box .years,
 .output .box .years-box .months {
