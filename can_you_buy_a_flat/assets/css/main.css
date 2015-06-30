@@ -8,11 +8,11 @@
 }
 .loader:lang(ka) {
   background: url(../images/plane_ka.gif) no-repeat center,
-              url(../images/bg.jpg) repeat;
+              url(../images/poster/bg.jpg) repeat;
 }
 .loader:lang(en) {
   background: url(../images/plane_en.gif) no-repeat center,
-              url(../images/bg.jpg) repeat;
+              url(../images/poster/bg.jpg) repeat;
 }
 @font-face {
   font-family: 'dejavusans-el';

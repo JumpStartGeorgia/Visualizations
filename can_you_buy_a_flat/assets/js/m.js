@@ -71,25 +71,25 @@ var mw = (function () {
      }
    },
    areas = {
-     '23': [1074,	1171], // Adjara 23 batumi
-     '65': [956, 1042], // tbilisi 65 tbilisi
-     '9':  [591, 644], // Samegrelo-Zemo Svaneti 9 zugdidi
-     '69': [493, 537], // Mtskheta-Mtianeti 69 mtskheta
-     '75': [471, 513], // Shida Kartli 75 gori
-     '29': [456,	497], // Imereti 29 kutaisi
-     '55': [456, 497], // Samtskhe-Javakheti 55 akhaltsikhe
-     '52': [450,	491], // Kvemo Kartli 52 rustavi
-     '31': [399,	435], // Kakheti 31 telavi
-     '35': [213,	232], // Guria 35 ozurgeti
-     '14': [142, 155], // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
+     '23': [958.18,	1171], // Adjara 23 batumi
+     '65': [928.8, 1042], // tbilisi 65 tbilisi
+     '9':  [587.19, 644], // Samegrelo-Zemo Svaneti 9 zugdidi
+     '69': [668.93, 537], // Mtskheta-Mtianeti 69 mtskheta
+     '75': [450.67, 513], // Shida Kartli 75 gori
+     '29': [465.01,	497], // Imereti 29 kutaisi
+     '55': [566.63, 497], // Samtskhe-Javakheti 55 akhaltsikhe
+     '52': [427.17,	491], // Kvemo Kartli 52 rustavi
+     '31': [244.69,	435], // Kakheti 31 telavi
+     '35': [199,	232], // Guria 35 ozurgeti
+     '14': [250, 155], // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
      '1': [0, 0], // სოხუმი
      '15': [0, 0], // ცხინვალი
-     '206': [1153,	1257], // ძველი თბილისი
-     '203': [1011,	1102], // ვაკე-საბურთალო
-     '204': [862, 940], // დიდუბე-ჩუღურეთი
-     '205': [745,	812], // დიდგორი
-     '201': [708,	772], // ისანი-სამგორი
-     '202': [649,	707] // გლდანი-ნაძალადევი
+     '206': [1136.41,	1257], // ძველი თბილისი
+     '203': [970.71,	1102], // ვაკე-საბურთალო
+     '204': [833.68, 940], // დიდუბე-ჩუღურეთი
+     '205': [751.16,	812], // დიდგორი
+     '201': [715.58,	772], // ისანი-სამგორი
+     '202': [637.69,	707] // გლდანი-ნაძალადევი
    },
    geo_areas = [23,65,9,69,75,29,55,52,31,35,14], // sorted desc
    tbi_areas = [206,203,204,205,201,202], // sorted desc
@@ -662,3 +662,28 @@ var mw = (function () {
   return obj;
 
 })();
+
+
+var rangeSlider = document.getElementById('slider-range');
+
+noUiSlider.create(rangeSlider, {
+	start: [ 3000 ],
+  connect: 'lower',
+  // animate: true,
+  step: 250,
+	range: {
+		'min': [  0 ],
+		'max': [ 10000 ]
+	},
+  pips: {
+    mode: 'count',
+    		values: 2,
+    		density: 100
+  }
+});
+var nonLinearSliderValueElement = document.getElementById('slider-non-linear-value');
+
+// Show the value for the *last* moved handle.
+rangeSlider.noUiSlider.on('update', function( values, handle ) {
+	nonLinearSliderValueElement.innerHTML = values[handle];
+});
