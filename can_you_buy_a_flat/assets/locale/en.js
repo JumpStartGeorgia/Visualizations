@@ -46,8 +46,8 @@ en =
      '206': "Old Tbilisi",
    },
    price: "Cost",
-   year: "Year",
-   month: "Month",
+   year: "year(s)",
+   month: "month(s)",
    js: "JumpStart Georgia - We Communicate Data Better!",
    legend: {
      "1": ' < 1 year',

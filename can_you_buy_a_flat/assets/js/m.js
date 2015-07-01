@@ -6,7 +6,7 @@ var mw = (function () {
 
    w = u.width(),
    h = u.height(),
-   bar_w = 440,
+   bar_w = 340,
    bar_h = 310,
    map_w = 620,
    map_h = 400,
@@ -60,14 +60,10 @@ var mw = (function () {
    loaderAtLeast = 0, // milliseconds 3000
    user = {
      m2: 45,
-     income: 1000,
-     savings: 25,
-     saving_amount: 250,
-     set: function(_m2,_income,_savings) {
+     savings: 250,
+     set: function(_m2, _savings) {
        this.m2 = _m2;
-       this.income = _income;
        this.savings = _savings;
-       this.saving_amount = this.income*this.savings/100;
      }
    },
    areas = {
@@ -97,8 +93,8 @@ var mw = (function () {
 
     how_long = function(smp, type) { // smp square meter price type decimal or [years, months]
         var tmp = type == "loan"
-                    ? Math.ceil((Math.log(user.saving_amount) - Math.log(user.saving_amount - (user.m2 * smp)*interest_rate/12)) /  Math.log(1 + interest_rate/12))
-                    : Math.round10((user.m2 * smp)/(user.saving_amount));
+                    ? Math.ceil((Math.log(user.savings) - Math.log(user.savings - (user.m2 * smp)*interest_rate/12)) /  Math.log(1 + interest_rate/12))
+                    : Math.round10((user.m2 * smp)/(user.savings));
                     tmp = isNaN(tmp) ? 0 : tmp;
         return { d: Math.round10(tmp/12, -1),
                  t: [Math.floor(tmp/12), tmp%12 ],
@@ -147,15 +143,15 @@ var mw = (function () {
         d3.select(this).on("click").apply(this, [d, i]);
     });
 
-    var tip = d3.tip()
-      .attr('class', 'tip loan-warning')
-      .offset([-10, 0])
-      .html(function(d) { return d3.select(this).attr('title'); })
-
-
-    d3.select('.output .via-loan .notice').call(tip)
-    .on('mouseover', tip.show)
-    .on('mouseout', tip.hide);
+    // var tip = d3.tip()
+    //   .attr('class', 'tip loan-warning')
+    //   .offset([-10, 0])
+    //   .html(function(d) { return d3.select(this).attr('title'); })
+    //
+    //
+    // d3.select('.output .via-loan .notice').call(tip)
+    // .on('mouseover', tip.show)
+    // .on('mouseout', tip.hide);
 
 
     d3.selectAll('.methodology, .popup .close, .popup .bg').on('click', function() {
@@ -197,14 +193,56 @@ var mw = (function () {
       var t = d3.select(this.parentNode);
       t.classed('paused', !t.classed('paused'));
     });
+
     I18n.remap();
+
+    var m2Slider = document.getElementById('m2_slider');
+    noUiSlider.create(m2Slider, {
+      start: [ 45 ],
+      connect: 'lower',
+      // animate: true,
+      step: 5,
+    	range: {
+    		'min': [  0 ],
+    		'max': [ 200 ]
+    	},
+      pips: {
+        mode: 'count',
+    		values: 2,
+    		density: 100
+      }
+    });
+    var m2SliderValue = document.getElementById('m2_slider_value');
+    m2Slider.noUiSlider.on('update', function( values, handle ) { m2SliderValue.innerHTML = Math.round(values[handle]) + I18n.t('m2'); });
+
+    var savingsSlider = document.getElementById('savings_slider');
+    noUiSlider.create(savingsSlider, {
+      start: [ 3000 ],
+      connect: 'lower',
+      // animate: true,
+      step: 250,
+    	range: {
+    		'min': [  0 ],
+    		'max': [ 10000 ]
+    	},
+      pips: {
+        mode: 'count',
+    		values: 2,
+    		density: 100
+      }
+    });
+    var savingsSliderValue = document.getElementById('savings_slider_value');
+    savingsSlider.noUiSlider.on('update', function( values, handle ) { savingsSliderValue.innerHTML = Math.round(values[handle]) + "&#8382;"; });
+
+
+
+
     loader_stop();
   };
   var filter = function() {
     var filters = d3.select('.filters');
 
     user.set(filters.select('.filter.m2 .dropdown-menu li.selected a').attr('value'),
-              filters.select('.filter.income .dropdown-menu li.selected a').attr('value'),
               filters.select('.filter.savings .dropdown-menu li.selected a').attr('value'));
     render(d3.select('.map .georgia path.active').data()[0].properties.OBJECTID, false, false);
     bar_chart_draw();
@@ -233,7 +271,7 @@ var mw = (function () {
     h = u.height();
 
     map_w = w<620 ? w-40 : 620;
-    bar_w = w<440 ? w-40-20 : 440;
+    bar_w = w<340 ? w-40-20 : 340;
     var scaler = w<620 ? 4000 : 4400;
 
     // geo_proj = d3.geo.mercator()
@@ -299,13 +337,13 @@ var mw = (function () {
 
     var current_color = hl.d != 0 ? color_by_year(hl.d) : '#314451';
 
-    out.select('.city').text(I18n.t('data-I18n-areas-'+ current_id)).style('color', current_color);
+    out.select('.city').html(I18n.t('data-I18n-areas-'+ current_id)).style('color', current_color);
 
     out.select('.via-saving .amount').text(zero(reformat(user.m2 * month_amount,0))).classed('symbol', hl.d != 0);
     out.select('.via-saving .years').text(zero(hl.t[0])).style('color', current_color);
     out.select('.via-saving .months').text(zero(hl.t[1])).style('color', current_color);
 
-    out.select('.via-loan .amount').text(zero(reformat(hll.m * user.saving_amount,0))).classed('symbol', hll.d != 0);
+    out.select('.via-loan .amount').text(zero(reformat(hll.m * user.savings,0))).classed('symbol', hll.d != 0);
 
     out.select('.via-loan .years').text(zero(hll.t[0]));
 
@@ -456,7 +494,7 @@ var mw = (function () {
   };
 
   var bar_chart_init = function() {
-    var bar_georgia = d3.select(".output2 .bar-georgia")
+    var bar_georgia = d3.select(".bar-georgia")
                 .append("svg")
                 .attr("width", bar_w)
                 .attr("height", bar_h);
@@ -492,9 +530,6 @@ var mw = (function () {
     var cap_line_h = cap_h + 18;
     caption.attr({'x': 5, 'y': cap_h }).style('visibility', 'visible');
 
-    captions
-      .append("line")
-      .attr({'x1': 5, 'y1': cap_line_h , 'x2': Math.round5(caption_box.width) + 40, 'y2': cap_line_h });
 
     caption = captions
         .append("text")
@@ -503,10 +538,6 @@ var mw = (function () {
         .text(I18n.t('georgia_capital'));
     caption_box = caption.node().getBBox();
     caption.attr({'x': bar_w-(entry_w*6+bar_padding*6), 'y': cap_h }).style('visibility', 'visible');
-
-    captions
-      .append("line")
-      .attr({'x1': Math.round5(bar_w-(entry_w*6+bar_padding*6)), 'y1': cap_line_h, 'x2':  Math.round5(bar_w), 'y2': cap_line_h });
 
       // bars block
 
@@ -597,7 +628,7 @@ var mw = (function () {
   }
   var bar_chart_draw = function() {
 
-    var bar_georgia = d3.select(".output2 .bar-georgia svg");
+    var bar_georgia = d3.select(".bar-georgia svg");
 
     var bar_max_value = 0;
 
@@ -662,28 +693,3 @@ var mw = (function () {
   return obj;
 
 })();
-
-
-var rangeSlider = document.getElementById('slider-range');
-
-noUiSlider.create(rangeSlider, {
-	start: [ 3000 ],
-  connect: 'lower',
-  // animate: true,
-  step: 250,
-	range: {
-		'min': [  0 ],
-		'max': [ 10000 ]
-	},
-  pips: {
-    mode: 'count',
-    		values: 2,
-    		density: 100
-  }
-});
-var nonLinearSliderValueElement = document.getElementById('slider-non-linear-value');
-
-// Show the value for the *last* moved handle.
-rangeSlider.noUiSlider.on('update', function( values, handle ) {
-	nonLinearSliderValueElement.innerHTML = values[handle];
-});

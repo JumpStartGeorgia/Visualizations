@@ -16,7 +16,6 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/nouislider.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/nouislider.pips.css">
   </head>
   <body class="noscroll">
   <div class="wrapper">
@@ -33,126 +32,94 @@
         <div class="header">
           <div class="intro cell" data-i18n-intro></div>
           <div class="lang cell"><a href="/" data-i18n-lang_href="href" data-i18n-lang="" data-i18n-lang_abbr="lang"></a></div>
-          <!-- data-i18n-locale="locale" -->
         </div>
-        <div class="choropleth box">
-          <div class="cell left">
-            <div class="filters">
-              <div class="field">
-                <label data-i18n-m2="append[:]"></label>
-                <div class="dropdown m2 filter">
-                  <button class="dropdown-toggle" type="button">45</button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" value="20">20</a></li>
-                    <li><a href="#" value="35">35</a></li>
-                    <li class="selected"><a href="#" value="45">45</a></li>
-                    <li><a href="#" value="55">55</a></li>
-                    <li><a href="#" value="65">65</a></li>
-                    <li><a href="#" value="100">100</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="field">
-                <label data-i18n-income="append[:]"></label>
-                <div class="dropdown income filter">
-                  <button class="dropdown-toggle" type="button">1000</button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" value="250">250</a></li>
-                    <li><a href="#" value="500">500</a></li>
-                    <li class="selected"><a href="#" value="1000">1000</a></li>
-                    <li><a href="#" value="1500">1500</a></li>
-                    <li><a href="#" value="2000">2000</a></li>
-                    <li><a href="#" value="2500">2500</a></li>
-                    <li><a href="#" value="3000">3000</a></li>
-                    <li><a href="#" value="4000">4000</a></li>
-                    <li><a href="#" value="5000">5000</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="field">
-                <label data-i18n-saving="append[:]"></label>
-                <div class="dropdown savings filter">
-                  <button class="dropdown-toggle" type="button">25%</button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" value="5">5%</a></li>
-                    <li><a href="#" value="10">10%</a></li>
-                    <li><a href="#" value="15">15%</a></li>
-                    <li><a href="#" value="20">20%</a></li>
-                    <li class="selected"><a href="#" value="25">25%</a></li>
-                    <li><a href="#" value="30">30%</a></li>
-                    <li><a href="#" value="40">40%</a></li>
-                    <li><a href="#" value="50">50%</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="field map-type">
-                <div class="filter georgia" data-i18n-georgia></div>
-                <div class="filter tbilisi" data-i18n-tbilisi></div>
-              </div>
+        <div class="filters">
+          <div class="field">
+            <div class="cell">
+              <label data-i18n-m2_text="append[:]"></label>
             </div>
-            <div class="map">
-              <div class="georgia"></div>
-              <div class="tbilisi"></div>
+            <div class="cell full">
+              <div id="m2_slider" class="slider"></div>
+            </div>
+            <div class="cell">
+              <div id="m2_slider_value" class="slider-value"></div>
             </div>
           </div>
-          <div class="cell right">
-            <div class="output">
-              <div class="caption city"></div>
-              <div class="box">
-                <div class="via-saving">
-                  <div class="caption" data-i18n-saving></div>
-                  <div class="amount-box">
-                    <label data-i18n-price="append[:]"></label>
-                    <div class="amount"></div>
-                  </div>
-                  <div class="years-box">
-                    <div class="box">
-                      <label data-i18n-year="append[:]"></label>
-                      <div class="years"></div>
-                    </div>
-                    <div class="box">
-                      <label data-i18n-month="append[:]"></label>
-                      <div class="months"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="via-loan">
-                  <div class="caption" data-i18n-loan></div>
-                  <div class="amount-box">
-                    <label data-i18n-price="append[:]"></label>
-                    <div class="amount"></div>
-                  </div>
-                  <div class="years-box">
-                    <div class="box">
-                      <label data-i18n-year="append[:]"></label>
-                      <div class="years"></div>
-                    </div>
-                    <div class="box">
-                      <label data-i18n-month="append[:]"></label>
-                      <svg width="100%" height="100%" viewBox="0 0 20 20" class="notice" title="blah"
-                         xmlns="http://www.w3.org/2000/svg"
-                         xmlns:xlink="http://www.w3.org/1999/xlink">
-                         <image xlink:href="assets/images/exclamation.svg" x="0" y="0" height="20" width="20" />
-                      </svg>
-                      <div class="months"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="field">
+            <div class="cell">
+              <label data-i18n-savings="append[:]"></label>
             </div>
-            <div class="output2">
-              <div class="bar-georgia chart">
+            <div class="cell full">
+              <div id="savings_slider" class="slider"></div>
+            </div>
+            <div class="cell">
+              <div id="savings_slider_value" class="slider-value"></div>
+            </div>
+          </div>
+        </div>
+        <div class="choropleth box">
+          <div class="map">
+            <div class="georgia"></div>
+            <div class="tbilisi"></div>
+          </div>
+          <div class="bar-georgia chart"></div>
+        </div>
+        <div class="output">
+          <div class="caption city"></div>
+          <div class="box">
+            <div class="via-saving">
+              <div class="phrase" data-i18n-will_take_you></div>
+              <div class="years-box">
+                <div class="box">
+                  <div class="years"></div>
+                  <label data-i18n-year></label>
+                </div>
+                <div class="box">
+                  <div class="months"></div>
+                  <label data-i18n-month></label>
+                </div>
+                <div class="moneybox"></div>
               </div>
+              <div class="phrase" data-i18n-to_save_up></div>
+              <div class="amount-box">
+                <div class="amount"></div>
+              </div>
+              <div class="phrase" data-i18n-to_purchase_a_flat></div>
+            </div>
+            <div class="via-loan">
+              <div class="phrase" data-i18n-or_bank_loan></div>
+              <div class="years-box">
+                <div class="box">
+                  <div class="years"></div>
+                  <label data-i18n-year></label>
+                </div>
+                <div class="box">
+                  <div class="months"></div>
+                  <label data-i18n-month></label>
+                </div>
+                <div class="bank"></div>
+              </div>
+              <div class="phrase" data-i18n-to_pay_off></div>
+              <div class="amount-box">
 
+                <div class="amount"></div>
+              </div>
+              <div class="phrase" data-i18n-which_is></div>
+              <div class="diff-box">
+
+                <div class="amount"></div>
+
+              </div>
+              <div class="phrase" data-i18n-more_than_cost></div>
+            </div>
+            <div class="extra">
               <div class="share-this">
                 <label data-i18n-share></label>
                 <div class="addthis_sharing_toolbox" data-i18n-url="data-url" data-i18n-share_result="data-title"></div>
               </div>
+              <div class="calculator"></div>
             </div>
           </div>
-        </div>
-        <div class="share-box">
-          <div class="addthis_sharing_toolbox"></div>
         </div>
         <div class="comments" data-i18n-comments></div>
         <div class="fb-comments" data-href="http://visuals.jumpstart.ge/can_you_buy_a_flat?locale=ka" data-version="v2.3" data-numposts="5" data-width="100%" data-i18n-url></div>
@@ -160,9 +127,6 @@
     </div>
   </div>
   <div class="footer">
-    <div id="slider-range"></div>
-    <div id="slider-non-linear-value"></div>
-
     <div class="box">
       <div class="box left">
         <div class="methodology" data-i18n-methodology></div>
