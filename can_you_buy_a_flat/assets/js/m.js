@@ -66,15 +66,15 @@
   areas = {
    "23": [958.18],    // Adjara 23 batumi
    "65": [928.8],     // tbilisi 65 tbilisi
-   "9": [587.19],     // Samegrelo-Zemo Svaneti 9 zugdidi
    "69": [668.93],    // Mtskheta-Mtianeti 69 mtskheta
-   "75": [450.67],    // Shida Kartli 75 gori
-   "29": [465.01],    // Imereti 29 kutaisi
+   "9": [587.19],     // Samegrelo-Zemo Svaneti 9 zugdidi
    "55": [566.63],    // Samtskhe-Javakheti 55 akhaltsikhe
+   "29": [465.01],    // Imereti 29 kutaisi
+   "75": [450.67],    // Shida Kartli 75 gori
    "52": [427.17],    // Kvemo Kartli 52 rustavi
+   "14": [250],       // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
    "31": [244.69],    // Kakheti 31 telavi
    "35": [199],       // Guria 35 ozurgeti
-   "14": [250],       // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
    "1": [0],          // სოხუმი
    "15": [0],         // ცხინვალი
    "206": [1136.41],  // ძველი თბილისი
@@ -84,7 +84,7 @@
    "201": [715.58],   // ისანი-სამგორი
    "202": [637.69]    // გლდანი-ნაძალადევი
   },
-  geoAreas = [23, 65, 9, 69, 75, 29, 55, 52, 31, 35, 14], // sorted desc
+  geoAreas = [23, 65, 69, 9, 55, 29, 75, 52, 14, 31, 35], // sorted desc
   tbiAreas = [206, 203, 204, 205, 201, 202], // sorted desc
   entries = geoAreas.concat(tbiAreas),
   color_by_year = function(year) {
