@@ -1,6 +1,5 @@
 /*global document, window, d3, topojson, u, I18n, queue, noUiSlider, self, setTimeout*/
 /*eslint camelcase: 0*/
-//var mw =
 (function () {
   "use strict";
   var obj = { },
@@ -9,22 +8,52 @@
   //blinkEase = "linear",
 
   w = u.width(),
-  // h = u.height(),
-  bar_w = 340,
-  bar_h = 310,
-  map_w = 620,
+  h = u.height(),
+  bar = {
+    w: 340,
+    h: 310,
+    gap: 50, // space betweet georgia and tbilisi bar chart
+    x_h: 140,
+    y_w: 40,
+    caption_h: 30,
+
+    //margin: [10, 10, 10, 10],
+    canvas: {
+      w: 0,
+      fw: 0, // full width
+      h: 0,
+      fh:0, // full height with margins
+      margin: [10, 10, 10, 10]
+    },
+    node: {
+      padding: [0, 2, 0, 0],
+      horizontal_padding: 0,
+      vertical_padding: 0
+    },
+    legend_h: 20,
+    calc: function() {
+      var t = this;
+      t.w = w < 340 ? w - 40 - 20 : 340;
+      t.canvas.w = t.w - (t.y_w + t.canvas.margin[3] + t.canvas.margin[1]);
+      t.canvas.h = t.h - (t.canvas.margin[0] + t.canvas.margin[2] + t.x_h + t.caption_h + t.legend_h);
+      t.canvas.fw = t.w - (t.y_w );
+      t.canvas.fh = t.h - (t.x_h + t.caption_h + t.legend_h);
+      t.canvas.x = t.y_w + t.canvas.margin[3];
+      t.canvas.y = t.canvas.margin[0];
+      t.node.horizontal_padding = t.node.padding[1] + t.node.padding[3];
+      t.node.vertical_padding = t.node.padding[0] + t.node.padding[2];
+    }
+  },
   map_h = 400,
-  bar_space = 50, // space betweet georgia and tbilisi bar chart
-  bar_h_legend = 140,
-  bar_h_caption = 30,
-  bar_padding = 2,
+  map_w = 760,
+
   geo_map = null,
   tbi_map = null,
   geo_proj = null,
   disabled_area = [1, 15],
   default_area = 65,
   color_step = 9,
-  color_range = ["#f9c235", "#ff6043"],
+  color_range = ["#f9c235", "#f73737"],
   colors = d3.scale.linear().domain([1, color_step]).range(color_range),
   currency = 2.2432, // default was taken 22.06.2015
   interest_rate = 0.09,
@@ -32,32 +61,28 @@
   loaderAtLeast = 0, // milliseconds 3000
   user = {
    m2: 45,
-   savings: 250,
-   set: function(_m2, _savings) {
-     this.m2 = _m2;
-     this.savings = _savings;
-   }
+   savings: 250
   },
   areas = {
-   "23": [958.18,	1171], // Adjara 23 batumi
-   "65": [928.8, 1042], // tbilisi 65 tbilisi
-   "9": [587.19, 644], // Samegrelo-Zemo Svaneti 9 zugdidi
-   "69": [668.93, 537], // Mtskheta-Mtianeti 69 mtskheta
-   "75": [450.67, 513], // Shida Kartli 75 gori
-   "29": [465.01,	497], // Imereti 29 kutaisi
-   "55": [566.63, 497], // Samtskhe-Javakheti 55 akhaltsikhe
-   "52": [427.17,	491], // Kvemo Kartli 52 rustavi
-   "31": [244.69,	435], // Kakheti 31 telavi
-   "35": [199,	232], // Guria 35 ozurgeti
-   "14": [250, 155], // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
-   "1": [0, 0], // სოხუმი
-   "15": [0, 0], // ცხინვალი
-   "206": [1136.41,	1257], // ძველი თბილისი
-   "203": [970.71,	1102], // ვაკე-საბურთალო
-   "204": [833.68, 940], // დიდუბე-ჩუღურეთი
-   "205": [751.16,	812], // დიდგორი
-   "201": [715.58,	772], // ისანი-სამგორი
-   "202": [637.69,	707] // გლდანი-ნაძალადევი
+   "23": [958.18],    // Adjara 23 batumi
+   "65": [928.8],     // tbilisi 65 tbilisi
+   "9": [587.19],     // Samegrelo-Zemo Svaneti 9 zugdidi
+   "69": [668.93],    // Mtskheta-Mtianeti 69 mtskheta
+   "75": [450.67],    // Shida Kartli 75 gori
+   "29": [465.01],    // Imereti 29 kutaisi
+   "55": [566.63],    // Samtskhe-Javakheti 55 akhaltsikhe
+   "52": [427.17],    // Kvemo Kartli 52 rustavi
+   "31": [244.69],    // Kakheti 31 telavi
+   "35": [199],       // Guria 35 ozurgeti
+   "14": [250],       // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
+   "1": [0],          // სოხუმი
+   "15": [0],         // ცხინვალი
+   "206": [1136.41],  // ძველი თბილისი
+   "203": [970.71],   // ვაკე-საბურთალო
+   "204": [833.68],   // დიდუბე-ჩუღურეთი
+   "205": [751.16],   // დიდგორი
+   "201": [715.58],   // ისანი-სამგორი
+   "202": [637.69]    // გლდანი-ნაძალადევი
   },
   geoAreas = [23, 65, 9, 69, 75, 29, 55, 52, 31, 35, 14], // sorted desc
   tbiAreas = [206, 203, 204, 205, 201, 202], // sorted desc
@@ -94,23 +119,30 @@
    }
    return colors(tmp);
   },
-  how_long = function(smp, type) { // smp square meter price type decimal or [years, months]
-      var tmp = type === "loan"
-                  ? Math.ceil((Math.log(user.savings) - Math.log(user.savings - (user.m2 * smp) * interest_rate / 12)) / Math.log(1 + interest_rate / 12))
-                  : Math.round10((user.m2 * smp) / (user.savings));
-                  tmp = isNaN(tmp) ? 0 : tmp;
-      return { d: Math.round10(tmp / 12, -1),
-               t: [Math.floor(tmp / 12), tmp % 12 ],
-               m: tmp };
-  };
-  var resize = function() {
+  how_long = function(smp) { // smp square meter price type decimal or [years, months]
+    var tmp0 = Math.round10((user.m2 * smp) / (user.savings)),
+        tmp1 = Math.ceil((Math.log(user.savings) - Math.log(user.savings - (user.m2 * smp) * interest_rate / 12)) / Math.log(1 + interest_rate / 12));
+    tmp1 = isNaN(tmp1) ? 0 : tmp1;
+
+    return [ {
+                d: Math.round10(tmp0 / 12, -1),
+                t: [Math.floor(tmp0 / 12), tmp0 % 12 ],
+                m: tmp0
+              }, {
+                d: Math.round10(tmp1 / 12, -1),
+                t: [Math.floor(tmp1 / 12), tmp1 % 12 ],
+                m: tmp1
+              }
+            ];
+  },
+  resize = function() {
     // console.log(w, h);
     w = u.width();
-    //h = u.height();
+    h = u.height();
 
-    map_w = w < 620 ? w - 40 : 620;
-    bar_w = w < 340 ? w - 40 - 20 : 340;
-    //     var scaler = w < 620 ? 4000 : 4400;
+    map_w = w < 760 ? w - 40 : 760;
+    bar.calc();
+    //     var scaler = w < 760 ? 4000 : 4400;
 
     // geo_proj = d3.geo.mercator()
     //     .scale(scaler)
@@ -125,8 +157,9 @@
     //   .attr("height", map_h);
     //   // resize the map
     //   geo_map.select('.area').attr('d', path);
-   };
-  var render = function(current_id, sort, hover) {
+  },
+  render = function(current_id, sort, hover) {
+
     // make active and hover states for map and for bar chart
     var maps = d3.select(".map");
     var barGeorgia = d3.select(".bar-georgia");
@@ -171,46 +204,49 @@
     var out = d3.select(".output");
 
     var hl = how_long(month_amount);
-    var hll = how_long(month_amount, "loan");
 
-    var current_color = hl.d !== 0 ? color_by_year(hl.d) : "#314451";
+    var current_color = hl[0].d !== 0 ? color_by_year(hl[0].d) : "#314451";
 
     out.select(".city").html(I18n.t("data-I18n-areas-" + current_id)).style("color", current_color);
+    var amount1 = user.m2 * month_amount;
+    out.select(".via-saving .amount").text(u.zero(u.reformat(amount1, 0))).classed("symbol", hl[0].d !== 0);
+    out.select(".via-saving .years").text(u.zero(hl[0].t[0])).style("color", current_color);
+    out.select(".via-saving .months").text(u.zero(hl[0].t[1])).style("color", current_color);
 
-    out.select(".via-saving .amount").text(u.zero(u.reformat(user.m2 * month_amount, 0))).classed("symbol", hl.d !== 0);
-    out.select(".via-saving .years").text(u.zero(hl.t[0])).style("color", current_color);
-    out.select(".via-saving .months").text(u.zero(hl.t[1])).style("color", current_color);
-
-    out.select(".via-loan .amount").text(u.zero(u.reformat(hll.m * user.savings, 0))).classed("symbol", hll.d !== 0);
-
-    out.select(".via-loan .years").text(u.zero(hll.t[0]));
-
-    var title = "";
-    var notice = d3.select(".via-loan svg.notice").style("display", "none");
-    var b = false;
-    if(hll.t[0] > 15) {
-     title = I18n.t("loan_warning").replace("XX", hll.t[0]);
-     notice.attr("title", title).style("display", "block");
-     b = true;
+    var loan = out.select(".via-loan");
+    var amount2 = hl[1].m * user.savings;
+    loan.select(".amount-box .amount").text(u.zero(u.reformat(amount2, 0))).classed("symbol", hl[1].d !== 0);
+    loan.select(".diff-box .amount").text(u.zero(u.reformat(amount2 - amount1, 0))).classed("symbol", hl[1].d !== 0);
+    loan.select(".years").text(u.zero(hl[1].t[0]));
+    loan.select(".months").text(u.zero(hl[1].t[1]));
+    loan.classed("hide1 hide2", false);
+    var state = 0;
+    var state_class = "";
+    if(hl[1].m === 0) {
+      state = 2;
+      state_class = "hide2";
     }
-    out.select(".via-loan .years-box").classed("disabled", b);
-
-    out.select(".via-loan .months").text(u.zero(hll.t[1]));
+    else if(hl[1].m > 60) {
+      state = 1;
+      state_class = "hide1";
+    }
+    loan.selectAll("[data-state-" + state + "]").each(function(){
+        var t = d3.select(this);
+        t.html(t.attr("data-state-" + state));
+    });
+    loan.classed(state_class, true);
+    loan.select(".bank").classed("bank0 bank1 bank2", false).classed("bank" + state, true);
 
     d3.selectAll(".map .area").each(function(d) {
-     var tmp_id = d.properties.OBJECTID;
+      var tmp_id = d.properties.OBJECTID,
+          years = how_long(areas[tmp_id][0])[0].d;
 
-     var years = how_long(areas[tmp_id][0]).d;
-
-     if(disabled_area.indexOf(tmp_id) === -1)
-     {
-       var col = color_by_year(years);
-       d3.select(this).style("fill", col);
-     }
-
+      if(disabled_area.indexOf(tmp_id) === -1) {
+        d3.select(this).style("fill", color_by_year(years));
+      }
     });
-  };
-  var loader_stop = function() {
+  },
+  loader_stop = function() {
     var show = function() {
       d3.select("body").classed("noscroll", false);
       d3.select(".wrapper").style({"visibility": "visible", "opacity": 0.2});
@@ -227,56 +263,50 @@
     {
       setTimeout(function(){ show(); }, loaderAtLeast - elapsed);
     }
-  };
-  var bar_chart_draw = function() {
-
+  },
+  bar_chart_draw = function() {
     var barGeorgia = d3.select(".bar-georgia svg");
 
-    var bar_max_value = 0;
+    var maxPoint = 0;
 
     entries.forEach(function(d){
-      var tmp = areas[d];
-      tmp[2] = how_long(tmp[0]).d;
-      if (bar_max_value < tmp[2]) {
-        bar_max_value = tmp[2];
+      var tmp = areas[d],
+          hl = how_long(tmp[0]);
+      tmp[1] = hl[0].d;
+      tmp[2] = hl[1].d;
+
+      if (maxPoint < tmp[1]) {
+        maxPoint = tmp[1];
       }
-      tmp[3] = how_long(tmp[0], "loan").d;
-      if (bar_max_value < tmp[3]) {
-        bar_max_value = tmp[3];
+      if (maxPoint < tmp[2]) {
+        maxPoint = tmp[2];
       }
     });
-    var y = d3.scale.linear().domain([0, bar_max_value]).range([bar_h - bar_h_legend, bar_h_caption + 40]);
+    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.h - bar.x_h, bar.caption_h + 40]);
 
-    //var entry_w = bar_w / entries.length - bar_padding;
 
     var bars = barGeorgia.selectAll(".bars .bar");
-
+    //
     bars.selectAll("rect.l")
-        .classed("beyond", function(d) { return areas[d][3] > 15; })
+        .classed("beyond", function(d) { return areas[d][2] > 15; })
         .attr("height", function(d) {
-          return (bar_h - bar_h_legend) - y(areas[d][3] - areas[d][2]);
+          return areas[d][2] !== 0 ? (bar.h - bar.x_h) - y(areas[d][2] - areas[d][1]) : 0;
         })
-        .attr("y", function(d) { return y(areas[d][3]); });
+        .attr("y", function(d) { return y(areas[d][2]); });
 
     bars.selectAll("rect.s")
-      .style("fill", function(d) { return color_by_year(areas[d][2]); })
+      .style("fill", function(d) { return color_by_year(areas[d][1]); })
       .attr("height", function(d) {
-        return (bar_h - bar_h_legend) - y(areas[d][2]);
+        return (bar.h - bar.x_h) - y(areas[d][1]);
       })
-      .attr("y", function(d) { return y(areas[d][2]); });
-  };
-  var filter = function() {
-    var filters = d3.select(".filters");
-
-    user.set(filters.select(".filter.m2 .dropdown-menu li.selected a").attr("value"),
-              filters.select(".filter.savings .dropdown-menu li.selected a").attr("value"));
+      .attr("y", function(d) { return y(areas[d][1]); });
+  },
+  filter = function() {
     render(d3.select(".map .georgia path.active").data()[0].properties.OBJECTID, false, false);
     bar_chart_draw();
-  };
-  var bind = function() {
+  },
+  bind = function() {
     d3.select(window).on("resize", resize);
-
-    d3.selectAll(".filters select.filter").on("change", function(){ filter(); });
 
     d3.selectAll(".map .area:not(.disabled)").on("click", function(){
       render(d3.select(this).data()[0].properties.OBJECTID, true, false);
@@ -325,33 +355,8 @@
     d3.select("body").on("keydown", function() {
       if(d3.event.keyCode === 27) {
         d3.select(".popup").classed("open", false);
-        d3.selectAll(".dropdown.open").classed("open", false);
+        //d3.selectAll(".dropdown.open").classed("open", false);
       }
-    });
-    d3.select("body").on("click.dropdown", function() {
-      d3.selectAll(".dropdown.open").classed("open", false);
-    });
-    d3.selectAll(".dropdown .dropdown-toggle").on("click", function() {
-      d3.selectAll(".dropdown.open").classed("open", false);
-      var dropdown = d3.select(this.parentNode);
-      dropdown.classed("open", !dropdown.classed("open"));
-      d3.event.preventDefault();
-      d3.event.stopPropagation();
-    });
-    d3.selectAll(".dropdown .dropdown-menu a").on("click", function() {
-
-      var dropdown = d3.select(this.parentNode.parentNode.parentNode);
-      var dropdown_toggle = dropdown.select(".dropdown-toggle");
-      var dropdown_menu = d3.select(this.parentNode.parentNode);
-      var dropdown_menu_li = d3.select(this.parentNode);
-
-      dropdown_menu.selectAll("li").classed("selected", false);
-      dropdown_menu_li.classed("selected", true);
-      dropdown_toggle.text(d3.select(this).text());
-      dropdown.classed("open", false);
-      filter();
-      d3.event.preventDefault();
-      d3.event.stopPropagation();
     });
     d3.select(".poster .stop").on("click", function() {
       var t = d3.select(this.parentNode);
@@ -367,7 +372,7 @@
       // animate: true,
       step: 5,
       range: {
-        "min": [ 0 ],
+        "min": [ 10 ],
         "max": [ 200 ]
       },
       pips: {
@@ -377,16 +382,19 @@
       }
     });
     var m2SliderValue = document.getElementById("m2_slider_value");
-    m2Slider.noUiSlider.on("update", function( values, handle ) { m2SliderValue.innerHTML = Math.round(values[handle]) + I18n.t("m2"); });
+    m2Slider.noUiSlider.on("update", function( values, handle ) {
+      var tmp = Math.round(values[handle]);
+      user.m2 = tmp;
+      m2SliderValue.innerHTML = tmp + I18n.t("m2"); filter(); });
 
     var savingsSlider = document.getElementById("savings_slider");
     noUiSlider.create(savingsSlider, {
-      start: [ 3000 ],
+      start: [ 250 ],
       connect: "lower",
       // animate: true,
-      step: 250,
+      step: 10,
       range: {
-        "min": [ 0 ],
+        "min": [ 10 ],
         "max": [ 10000 ]
       },
       pips: {
@@ -396,16 +404,19 @@
       }
     });
     var savingsSliderValue = document.getElementById("savings_slider_value");
-    savingsSlider.noUiSlider.on("update", function( values, handle ) { savingsSliderValue.innerHTML = Math.round(values[handle]) + "&#8382;"; });
+    savingsSlider.noUiSlider.on("update", function( values, handle ) {
+      var tmp = Math.round(values[handle]);
+      user.savings = tmp;
+      savingsSliderValue.innerHTML = tmp + "&#8382;"; filter(); });
 
 
 
 
     loader_stop();
-  };
-  var init_maps = function() {
-    map_w = w < 620 ? w - 40 : 620;
-      var scaler = w < 620 ? 4000 : 4400;
+  },
+  init_maps = function() {
+    map_w = w < 760 ? w - 40 : 760;
+      var scaler = w < 760 ? 4000 : 5200;
         geo_map = d3.select(".map .georgia")
                     .append("svg")
                     .attr("width", map_w)
@@ -479,8 +490,8 @@
 
           // tbilisi map *********************************************************
         var projection = d3.geo.mercator()
-            .scale(20000)
-            .translate([map_tbi_w / 2, (map_tbi_h - 20) / 2])
+            .scale(23500)
+            .translate([map_tbi_w / 2, (map_tbi_h - 40) / 2])
             .center([44.81, 41.73]);
           path = d3.geo.path()
             .projection(projection);
@@ -515,49 +526,86 @@
         .defer(d3.json, "assets/data/georgia.json")
         .defer(d3.json, "assets/data/tbilisi.json")
         .await(build_maps);
-  };
-  var bar_chart_init = function() {
-    var barGeorgia = d3.select(".bar-georgia")
-                .append("svg")
-                .attr("width", bar_w)
-                .attr("height", bar_h);
+  },
+  bar_chart_init = function() {
 
-    var bar_max_value = 0;
+
+    var maxPoint = 0;
 
     entries.forEach(function(d) {
-      var tmp = areas[d];
-      tmp.push(how_long(tmp[0]).d);
-      if (bar_max_value < tmp[2]) {
-        bar_max_value = tmp[2];
+      var tmp = areas[d],
+          hl = how_long(tmp[0]);
+      tmp.push(hl[0].d);
+      tmp.push(hl[1].d);
+      if (maxPoint < tmp[1]) {
+        maxPoint = tmp[1];
       }
-      tmp.push(how_long(tmp[0]).d, "loan");
-      if (bar_max_value < tmp[3]) {
-        bar_max_value = tmp[3];
+      if (maxPoint < tmp[2]) {
+        maxPoint = tmp[2];
       }
     });
-    var y = d3.scale.linear().domain([0, bar_max_value]).range([bar_h - bar_h_legend, bar_h_caption + 40]);
-    var entry_w = (bar_w - bar_space) / entries.length - bar_padding;
+    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.h - bar.x_h, bar.caption_h + 40]);
+
+    var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
+
+    var barGeorgia = d3.select(".bar-georgia")
+                .append("svg")
+                .attr("width", bar.w)
+                .attr("height", bar.h);
+
+    // contains x and y axes
+    var axle = barGeorgia.append("g").attr("class", "axle");
+
+    var xAxis = d3.svg.axis()
+        .scale(d3.scale.identity().domain([0, bar.canvas.fw]))
+        .ticks(0)
+        .outerTickSize(0)
+        .orient("bottom");
+    var yAxis = d3.svg.axis()
+        .scale(d3.scale.identity().domain([0, bar.canvas.fh]))
+        .ticks(0)
+        .outerTickSize(0)
+        .orient("left");
+
+      axle.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (bar.canvas.fh + 1) + ")")
+        .call(xAxis);
+      axle.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+    //
+    // var svg = d3.select("body").append("svg")
+    //     .attr("width", width + margin.left + margin.right)
+    //     .attr("height", height + margin.top + margin.bottom)
+    //   .append("g")
+    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    //
+
+
+
+
 
     // caption block
-    var captions = barGeorgia.append("g")
-       .attr("class", "captions");
-    var caption = captions
-        .append("text")
-        .style("visibility", "hidden")
-        .attr("class", "caption")
-        .text(I18n.t("georgia"));
-    var caption_box = caption.node().getBBox();
-    var cap_h = caption_box.height;
-    caption.attr({"x": 5, "y": cap_h }).style("visibility", "visible");
+    // var captions = barGeorgia.append("g")
+    //    .attr("class", "captions");
+    // var caption = captions
+    //     .append("text")
+    //     .style("visibility", "hidden")
+    //     .attr("class", "caption")
+    //     .text(I18n.t("georgia"));
+    // var caption_box = caption.node().getBBox();
+    // var cap_h = caption_box.height;
+    // caption.attr({"x": 5, "y": cap_h }).style("visibility", "visible");
 
 
-    caption = captions
-        .append("text")
-        .style("visibility", "hidden")
-        .attr("class", "caption")
-        .text(I18n.t("georgia_capital"));
-    caption_box = caption.node().getBBox();
-    caption.attr({"x": bar_w - (entry_w * 6 + bar_padding * 6), "y": cap_h }).style("visibility", "visible");
+    // caption = captions
+    //     .append("text")
+    //     .style("visibility", "hidden")
+    //     .attr("class", "caption")
+    //     .text(I18n.t("georgia_capital"));
+    // caption_box = caption.node().getBBox();
+    // caption.attr({"x": bar.w - (entry_w * 6 + bar.node.padding * 6), "y": cap_h }).style("visibility", "visible");
 
       // bars block
 
@@ -571,81 +619,80 @@
       .attr("id", function(d){ return "bar" + d; });
 
     bars.append("rect")
-        .attr("class", function(d) { return areas[d][3] > 15 ? "beyond l" : "l"; })
+        .attr("class", function(d) { return areas[d][1] > 15 ? "beyond l" : "l"; })
         .attr("width", entry_w)
         .attr("height", function(d) {
-
-          return (bar_h - bar_h_legend) - y(areas[d][3] - areas[d][2]);
+          return (bar.h - bar.x_h) - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : 0);
         })
-        .attr("x", function(d, i) {return i * (entry_w + bar_padding) + bar_space * (d > 100 ? 1 : 0); })
-        .attr("y", function(d) { return y(areas[d][3]); });
+        .attr("x", function(d, i) {return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d > 100 ? 1 : 0); })
+        .attr("y", function(d) { return y(areas[d][2]); });
 
     bars.append("rect")
         .attr("class", "s")
-        .style("fill", function(d) { return color_by_year(areas[d][2]); })
+        .style("fill", function(d) { return color_by_year(areas[d][1]); })
         .attr("width", entry_w)
         .attr("height", function(d) {
-          return (bar_h - bar_h_legend) - y(areas[d][2]);
+          return (bar.h - bar.x_h) - y(areas[d][1]);
         })
-        .attr("x", function(d, i) { return i * (entry_w + bar_padding) + bar_space * (d > 100 ? 1 : 0); })
-        .attr("y", function(d) { return y(areas[d][2]); });
+        .attr("x", function(d, i) { return i * (entry_w + bar.node.padding) + bar.gap * (d > 100 ? 1 : 0); })
+        .attr("y", function(d) { return y(areas[d][1]); });
 
 
         // x-axis block
-
-    var legend = barGeorgia.append("g")
-      .attr("class", "x-axis")
-      .selectAll("text")
-      .data(entries)
-      .enter().append("text")
-      .attr("id", function(d) { return "x-axis" + d; })
-      .text(function(d){ return I18n.t("areas-" + d); });
-
-      legend.each(function (d, i) {
-        var t = d3.select(this);
-        var bbox = t.node().getBBox();
-        t.attr("x", i * (entry_w + bar_padding) - (bbox.width / 2 - entry_w / 2) + bar_space * (d > 100 ? 1 : 0) )
-          .attr("y", (bar_h - bar_h_legend) + 12 + bbox.width / 2);
-        bbox = t.node().getBBox();
-        t.attr("transform", "rotate(-90, " + (bbox.x + bbox.width / 2) + ", " + (bbox.y + bbox.height / 2) + ")");
-
-      });
+      // var xAxisG =  barGeorgia.append("g").attr("class", "x-axis");
+      // xAxisG.append("line").attr({x1:0, y1: (bar.h - bar.x_h + 5), x2:100, y2:(bar.h - bar.x_h + 5)});
+      //
+      // var legend = xAxisG.selectAll("text")
+      //   .data(entries)
+      //   .enter().append("text")
+      //   .attr("id", function(d) { return "x-axis" + d; })
+      //   .text(function(d){ return I18n.t("areas-" + d); });
+      //
+      // legend.each(function (d, i) {
+      //   var t = d3.select(this);
+      //   var bbox = t.node().getBBox();
+      //   t.attr("x", i * (entry_w + bar.node.padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d > 100 ? 1 : 0) )
+      //     .attr("y", (bar.h - bar.x_h) + 12 + bbox.width / 2);
+      //   bbox = t.node().getBBox();
+      //   t.attr("transform", "rotate(-90, " + (bbox.x + bbox.width / 2) + ", " + (bbox.y + bbox.height / 2) + ")");
+      //
+      // });
 
       // legend block
 
-      var tip = d3.tip()
-        .attr("class", "tip")
-        .offset([-10, 0])
-        .html(function(d) {
-          return "<span>" + I18n.t("legend-" + d) + "</span>";
-        });
-      barGeorgia.call(tip);
-
-      barGeorgia.append("g")
-       .attr("class", "legend")
-       .selectAll("rect")
-        .data(d3.range(1, color_step + 1, 1))
-        .enter().append("rect")
-        .attr("x", function(d, i){ return i * 18; })
-        .style("fill", function(d){ return colors(d); });
-
-      barGeorgia.select(".legend").append("rect")
-        .data("l")
-        .attr("fill", "#56bfbf")
-        .attr("x", function() { return color_step * 18 + 20; });
-
-      barGeorgia.select(".legend").append("rect")
-        .data("b")
-        .attr("fill", "#314451")
-        .attr("x", function() { return (color_step + 1) * 18 + 20; });
-
-      barGeorgia.selectAll(".legend rect")
-        .attr({"width": "13", "height": "13"})
-        .attr("y", bar_h - 16)
-        .on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
-  };
-  var currency_init = function() {
+      // var tip = d3.tip()
+      //   .attr("class", "tip")
+      //   .offset([-10, 0])
+      //   .html(function(d) {
+      //     return "<span>" + I18n.t("legend-" + d) + "</span>";
+      //   });
+      // barGeorgia.call(tip);
+      //
+      // barGeorgia.append("g")
+      //  .attr("class", "legend")
+      //  .selectAll("rect")
+      //   .data(d3.range(1, color_step + 1, 1))
+      //   .enter().append("rect")
+      //   .attr("x", function(d, i){ return i * 18; })
+      //   .style("fill", function(d){ return colors(d); });
+      //
+      // barGeorgia.select(".legend").append("rect")
+      //   .data("l")
+      //   .attr("fill", "#56bfbf")
+      //   .attr("x", function() { return color_step * 18 + 20; });
+      //
+      // barGeorgia.select(".legend").append("rect")
+      //   .data("b")
+      //   .attr("fill", "#314451")
+      //   .attr("x", function() { return (color_step + 1) * 18 + 20; });
+      //
+      // barGeorgia.selectAll(".legend rect")
+      //   .attr({"width": "13", "height": "13"})
+      //   .attr("y", bar.h - 16)
+      //   .on("mouseover", tip.show)
+      //   .on("mouseout", tip.hide);
+  },
+  currency_init = function() {
 
     var now = new Date(Date.now());
     var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -663,20 +710,16 @@
     for(var i = 0; i < entries.length; ++i) {
       var tmp = areas[entries[i]];
       tmp[0] = Math.round(tmp[0] * currency);
-      tmp[1] = Math.round(tmp[1] * currency);
     }
 
     bar_chart_init();
     init_maps();
 
-  };
-  var init_continue = function() {
-    currency_init();
-  };
-  var init = function() {
+  },
+  init = function() {
       loaderStartTime = (new Date()).getTime();
       resize();
-      I18n.init(function(){ init_continue(); });
+      I18n.init(function(){ currency_init(); });
   };
 
   init();
