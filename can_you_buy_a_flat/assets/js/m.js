@@ -11,19 +11,29 @@
   h = u.height(),
   bar = {
     w: 340,
-    h: 310,
+    h: 340,
     gap: 50, // space betweet georgia and tbilisi bar chart
     x_h: 140,
     y_w: 40,
     caption_h: 30,
-
-    //margin: [10, 10, 10, 10],
+    margin: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      w:0,
+      h:0
+    },
     canvas: {
       w: 0,
       fw: 0, // full width
       h: 0,
       fh:0, // full height with margins
-      margin: [10, 10, 10, 10]
+      margin: [10, 10, 10, 10],
+      x: 0,
+      y: 0,
+      x1:0,
+      y1:0
     },
     node: {
       padding: [0, 2, 0, 0],
@@ -40,11 +50,15 @@
       t.canvas.fh = t.h - (t.x_h + t.caption_h + t.legend_h);
       t.canvas.x = t.y_w + t.canvas.margin[3];
       t.canvas.y = t.canvas.margin[0];
+      t.canvas.x1 = t.canvas.x + t.canvas.w;
+      t.canvas.y1 = t.canvas.y + t.canvas.h;
       t.node.horizontal_padding = t.node.padding[1] + t.node.padding[3];
       t.node.vertical_padding = t.node.padding[0] + t.node.padding[2];
+      t.margin.w = t.margin.left + t.margin.right;
+      t.margin.h = t.margin.top + t.margin.bottom;
     }
   },
-  map_h = 400,
+  map_h = 310,
   map_w = 760,
 
   geo_map = null,
@@ -86,7 +100,7 @@
   },
   geoAreas = [23, 65, 69, 9, 55, 29, 75, 52, 14, 31, 35], // sorted desc
   tbiAreas = [206, 203, 204, 205, 201, 202], // sorted desc
-  entries = geoAreas.concat(tbiAreas),
+  entries = tbiAreas.concat(geoAreas),
   color_by_year = function(year) {
    var tmp = 1;
 
@@ -265,16 +279,15 @@
     }
   },
   bar_chart_draw = function() {
-    var barGeorgia = d3.select(".bar-georgia svg");
 
-    var maxPoint = 0;
+    var barGeorgia = d3.select(".bar-georgia svg"),
+        maxPoint = 0;
 
     entries.forEach(function(d){
       var tmp = areas[d],
           hl = how_long(tmp[0]);
       tmp[1] = hl[0].d;
       tmp[2] = hl[1].d;
-
       if (maxPoint < tmp[1]) {
         maxPoint = tmp[1];
       }
@@ -282,24 +295,34 @@
         maxPoint = tmp[2];
       }
     });
-    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.h - bar.x_h, bar.caption_h + 40]);
+    maxPoint = Math.ceil(maxPoint) + 3;
+
+    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]);
+    var label1 = barGeorgia.select('.y-axis .label1').text(maxPoint);
+    label1.each(function (d, i) {
+      var t = d3.select(this),
+          bbox = t.node().getBBox();
+      t.attr("x", bar.y_w - bbox.width - 10);
+    });
+
 
 
     var bars = barGeorgia.selectAll(".bars .bar");
-    //
-    bars.selectAll("rect.l")
-        .classed("beyond", function(d) { return areas[d][2] > 15; })
+
+    bars.selectAll('rect.l')
+        .attr("class", function(d) { return areas[d][2] == 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
         .attr("height", function(d) {
-          return areas[d][2] !== 0 ? (bar.h - bar.x_h) - y(areas[d][2] - areas[d][1]) : 0;
+          return bar.canvas.h - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : y(maxPoint - areas[d][1]));
         })
-        .attr("y", function(d) { return y(areas[d][2]); });
+        .attr("y", function(d) { return (areas[d][2] !== 0 ? y(areas[d][2]) : 0); });
 
     bars.selectAll("rect.s")
-      .style("fill", function(d) { return color_by_year(areas[d][1]); })
-      .attr("height", function(d) {
-        return (bar.h - bar.x_h) - y(areas[d][1]);
-      })
-      .attr("y", function(d) { return y(areas[d][1]); });
+        .attr("class", "s")
+        .style("fill", function(d) { return color_by_year(areas[d][1]); })
+        .attr("height", function(d) {
+          return bar.canvas.h - y(areas[d][1]);
+        })
+        .attr("y", function(d) { return  y(areas[d][1]); });
   },
   filter = function() {
     render(d3.select(".map .georgia path.active").data()[0].properties.OBJECTID, false, false);
@@ -416,27 +439,19 @@
   },
   init_maps = function() {
     map_w = w < 760 ? w - 40 : 760;
-      var scaler = w < 760 ? 4000 : 5200;
+      var scaler = w < 760 ? 4000 : 4600;
         geo_map = d3.select(".map .georgia")
                     .append("svg")
                     .attr("width", map_w)
                     .attr("height", map_h);
 
-    var map_tbi_w = 180,
-        map_tbi_h = 160;
+    var map_tbi_w = 260,
+        map_tbi_h = 180;
 
         tbi_map = d3.select(".map .tbilisi")
                     .append("svg")
                     .attr("width", map_tbi_w)
                     .attr("height", map_tbi_h);
-
-    var tip = d3.tip()
-      .attr("class", "tip")
-      .offset([-10, 0])
-      .html(function(d) {
-        return "<span>" + I18n.t("legend-" + d) + "</span>";
-      });
-      geo_map.call(tip);
 
       function build_maps(error, geo_areas, tbilisi_areas) {
         if (error) { throw error; }
@@ -471,17 +486,7 @@
           d3.select(".georgia-caption")
             .attr("x", areas_box.width / 2);
 
-        geo_map.append("g")
-         .attr("class", "legend")
-         .selectAll("rect")
-          .data(d3.range(1, color_step + 1, 1))
-          .enter().append("rect")
-          .attr({"width": "15", "height": "15"})
-          .attr("x", function(d, i){ return i * 20 + 30; })
-          .attr("y", map_h - 20 )
-          .style("fill", function(d){ return colors(d); })
-          .on("mouseover", tip.show)
-          .on("mouseout", tip.hide);
+
 
         geo_map.select(".areas").append("path")
           .datum(topojson.feature(geo_areas, geo_areas.objects.cities))
@@ -528,8 +533,6 @@
         .await(build_maps);
   },
   bar_chart_init = function() {
-
-
     var maxPoint = 0;
 
     entries.forEach(function(d) {
@@ -544,14 +547,16 @@
         maxPoint = tmp[2];
       }
     });
-    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.h - bar.x_h, bar.caption_h + 40]);
-
+    maxPoint = Math.ceil(maxPoint) + 3;
+    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]); //bar.caption_h + 40
     var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
 
     var barGeorgia = d3.select(".bar-georgia")
                 .append("svg")
                 .attr("width", bar.w)
-                .attr("height", bar.h);
+                .attr("height", bar.h)
+                .append("g");
+                //.attr("transform", "translate(" + bar. + ",20)");
 
     // contains x and y axes
     var axle = barGeorgia.append("g").attr("class", "axle");
@@ -567,51 +572,23 @@
         .outerTickSize(0)
         .orient("left");
 
-      axle.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + (bar.canvas.fh + 1) + ")")
-        .call(xAxis);
-      axle.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
-    //
-    // var svg = d3.select("body").append("svg")
-    //     .attr("width", width + margin.left + margin.right)
-    //     .attr("height", height + margin.top + margin.bottom)
-    //   .append("g")
-    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    //
+    axle.append("g")
+      .attr("class", "x-axis")
+      .attr("transform", "translate(" + bar.y_w + "," + (bar.canvas.fh) + ")")
+      .call(xAxis);
+    axle.append("g")
+      .attr("class", "y-axis")
+      .attr("transform", "translate(" + bar.y_w + ", 0)")
+      .call(yAxis);
 
 
 
-
-
-    // caption block
-    // var captions = barGeorgia.append("g")
-    //    .attr("class", "captions");
-    // var caption = captions
-    //     .append("text")
-    //     .style("visibility", "hidden")
-    //     .attr("class", "caption")
-    //     .text(I18n.t("georgia"));
-    // var caption_box = caption.node().getBBox();
-    // var cap_h = caption_box.height;
-    // caption.attr({"x": 5, "y": cap_h }).style("visibility", "visible");
-
-
-    // caption = captions
-    //     .append("text")
-    //     .style("visibility", "hidden")
-    //     .attr("class", "caption")
-    //     .text(I18n.t("georgia_capital"));
-    // caption_box = caption.node().getBBox();
-    // caption.attr({"x": bar.w - (entry_w * 6 + bar.node.padding * 6), "y": cap_h }).style("visibility", "visible");
 
       // bars block
 
-
     var bars = barGeorgia.append("g")
       .attr("class", "bars")
+      .attr("transform", "translate(" + bar.canvas.x + "," + bar.canvas.y + ")")
       .selectAll(".bar")
       .data(entries)
       .enter().append("g")
@@ -619,78 +596,141 @@
       .attr("id", function(d){ return "bar" + d; });
 
     bars.append("rect")
-        .attr("class", function(d) { return areas[d][1] > 15 ? "beyond l" : "l"; })
+        .attr("class", function(d) { return areas[d][2] == 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
         .attr("width", entry_w)
         .attr("height", function(d) {
-          return (bar.h - bar.x_h) - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : 0);
+          return bar.canvas.h - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : y(maxPoint - areas[d][1]));
         })
-        .attr("x", function(d, i) {return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d > 100 ? 1 : 0); })
-        .attr("y", function(d) { return y(areas[d][2]); });
+        .attr("x", function(d, i) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
+        .attr("y", function(d) { return (areas[d][2] !== 0 ? y(areas[d][2]) : 0); });
 
     bars.append("rect")
         .attr("class", "s")
         .style("fill", function(d) { return color_by_year(areas[d][1]); })
         .attr("width", entry_w)
         .attr("height", function(d) {
-          return (bar.h - bar.x_h) - y(areas[d][1]);
+          return bar.canvas.h - y(areas[d][1]);
         })
-        .attr("x", function(d, i) { return i * (entry_w + bar.node.padding) + bar.gap * (d > 100 ? 1 : 0); })
-        .attr("y", function(d) { return y(areas[d][1]); });
+        .attr("x", function(d, i) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
+        .attr("y", function(d) { return  y(areas[d][1]); });
 
 
-        // x-axis block
-      // var xAxisG =  barGeorgia.append("g").attr("class", "x-axis");
-      // xAxisG.append("line").attr({x1:0, y1: (bar.h - bar.x_h + 5), x2:100, y2:(bar.h - bar.x_h + 5)});
-      //
-      // var legend = xAxisG.selectAll("text")
-      //   .data(entries)
-      //   .enter().append("text")
-      //   .attr("id", function(d) { return "x-axis" + d; })
-      //   .text(function(d){ return I18n.t("areas-" + d); });
-      //
-      // legend.each(function (d, i) {
-      //   var t = d3.select(this);
-      //   var bbox = t.node().getBBox();
-      //   t.attr("x", i * (entry_w + bar.node.padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d > 100 ? 1 : 0) )
-      //     .attr("y", (bar.h - bar.x_h) + 12 + bbox.width / 2);
-      //   bbox = t.node().getBBox();
-      //   t.attr("transform", "rotate(-90, " + (bbox.x + bbox.width / 2) + ", " + (bbox.y + bbox.height / 2) + ")");
-      //
-      // });
+        // x-axis labels block
+
+      var xLabels = axle
+        .select('.x-axis')
+          .append('g')
+          .attr("class", "labels")
+          .attr("transform", "translate(" + bar.canvas.margin[3] + "," + 10 + ")")
+            .selectAll("text")
+            .data(entries)
+            .enter()
+            .append("text")
+            // .attr("class", "label")
+            .attr("id", function(d) { return "label" + d; })
+            .text(function(d){ return I18n.t("areas-" + d); });
+
+      xLabels.each(function (d, i) {
+        var t = d3.select(this),
+            bbox = t.node().getBBox();
+
+        t.attr("x", i * (entry_w + bar.node.horizontal_padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d < 100 ? 1 : 0) )
+          .attr("y", bbox.width / 2);
+        bbox = t.node().getBBox();
+         t.attr("transform", "rotate(-90, " + (bbox.x + bbox.width / 2) + ", " + (bbox.y + bbox.height / 2) + ")");
+      });
+
+      // y-axis labels block
+      var yLabels = axle
+        .select('.y-axis')
+          .append('g')
+          .attr("class", "labels")
+          .attr("transform", "translate(" + -1*bar.y_w + ", 0)")
+            .selectAll("text")
+            .data([0, maxPoint])
+            .enter()
+            .append("text")
+            .attr('class', function(d,i) { return "label" + i; })
+            .text(function(d){ return d; });
+      var len = yLabels[0].length;
+
+      yLabels.each(function (d, i) {
+        var t = d3.select(this),
+            bbox = t.node().getBBox();
+
+        t.attr("x", bar.y_w - bbox.width - 10)//i * (entry_w + bar.node.horizontal_padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d > 100 ? 1 : 0) )
+          .attr("y", bar.canvas.fh - ((bar.canvas.fh / (len - 1)) * i) + (i==0 ? 0 : 1)*bbox.height);
+      });
+
+
+
+
+      //  caption block
+      var captions = barGeorgia.append("g")
+         .attr("class", "captions")
+         .attr("transform", "translate(0," + (bar.canvas.fh + bar.x_h ) + ")");
+      var caption = captions
+          .append("text")
+          .style("visibility", "hidden")
+          .attr("class", "caption")
+          .text(I18n.t("georgia"));
+
+      var caption_box = caption.node().getBBox();
+      var cap_h = caption_box.height;
+      console.log(bar.canvas.x1 );
+      caption.attr({"x": bar.canvas.x1 - ((entry_w + bar.node.horizontal_padding) * geoAreas.length)+(((entry_w + bar.node.horizontal_padding) * geoAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  }).style("visibility", "visible");
+
+
+      caption = captions
+          .append("text")
+          .style("visibility", "hidden")
+          .attr("class", "caption")
+          .text(I18n.t("georgia_capital"));
+      caption_box = caption.node().getBBox();
+      caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  }).style("visibility", "visible");
+
+
 
       // legend block
 
-      // var tip = d3.tip()
-      //   .attr("class", "tip")
-      //   .offset([-10, 0])
-      //   .html(function(d) {
-      //     return "<span>" + I18n.t("legend-" + d) + "</span>";
-      //   });
-      // barGeorgia.call(tip);
-      //
-      // barGeorgia.append("g")
-      //  .attr("class", "legend")
-      //  .selectAll("rect")
-      //   .data(d3.range(1, color_step + 1, 1))
-      //   .enter().append("rect")
-      //   .attr("x", function(d, i){ return i * 18; })
-      //   .style("fill", function(d){ return colors(d); });
-      //
-      // barGeorgia.select(".legend").append("rect")
-      //   .data("l")
-      //   .attr("fill", "#56bfbf")
-      //   .attr("x", function() { return color_step * 18 + 20; });
-      //
-      // barGeorgia.select(".legend").append("rect")
-      //   .data("b")
-      //   .attr("fill", "#314451")
-      //   .attr("x", function() { return (color_step + 1) * 18 + 20; });
-      //
-      // barGeorgia.selectAll(".legend rect")
-      //   .attr({"width": "13", "height": "13"})
-      //   .attr("y", bar.h - 16)
-      //   .on("mouseover", tip.show)
-      //   .on("mouseout", tip.hide);
+      var tip = d3.tip()
+        .attr("class", "tip")
+        .offset([-10, 0])
+        .html(function(d) {
+          return "<span>" + I18n.t("legend-" + d) + "</span>";
+        });
+      barGeorgia.call(tip);
+
+      barGeorgia.append("g")
+       .attr("class", "legend")
+       .attr("transform", "translate(" + (bar.w - ((color_step + 3) * 18 + 20)) + ", 0)")
+       .selectAll("rect")
+        .data(d3.range(1, color_step + 1, 1))
+        .enter().append("rect")
+        .attr("x", function(d, i){ console.log(d,i);return i * 18; })
+        .style("fill", function(d){ return colors(d); });
+
+      barGeorgia.select(".legend").append("rect")
+        .data("r")
+        .attr("fill", "#e6e7e8")
+        .attr("x", function() { return color_step * 18 + 20; });
+
+      barGeorgia.select(".legend").append("rect")
+        .data("l")
+        .attr("fill", "#56bfbf")
+        .attr("x", function() { return (color_step + 1) * 18 + 20; });
+
+      barGeorgia.select(".legend").append("rect")
+        .data("b")
+        .attr("fill", "#314451")
+        .attr("x", function() { return (color_step + 2) * 18 + 20; });
+
+      barGeorgia.selectAll(".legend rect")
+        .attr({"width": "13", "height": "13"})
+        .attr("y", bar.h - 16)
+        .on("mouseover", tip.show)
+        .on("mouseout", tip.hide);
+
   },
   currency_init = function() {
 

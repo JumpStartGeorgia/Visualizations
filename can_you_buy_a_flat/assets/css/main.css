@@ -347,10 +347,12 @@ a, a:hover, a:focus {
 }
 .map .georgia-caption, .map .tbilisi-caption {
   font:18px 'dejavu-neue-el', 'sans-serif';
-  color:#97a0a3;
+  stroke:none;
+  fill:#97a0a3;
 }
 .map .georgia-caption:lang(en), .map .tbilisi-caption:lang(en) {
   font:18px 'opensans-l', 'sans-serif';
+
 }
 
 
@@ -367,29 +369,54 @@ a, a:hover, a:focus {
 {
   fill:#314451;
 }
+.bar-georgia .bar rect.l.reachless
+{
+  fill: #e6e7e8;
+}
 .bar-georgia .x-axis line{
   stroke:#98a1a4;
   stroke-width:1px;
 }
-.x.axis, .y.axis {
+svg {
+  shape-rendering: crispEdges;
+}
+.x-axis, .y-axis {
   fill: none;
  stroke: #000;
- /*shape-rendering: crispEdges;*/
+
 }
-.bar-georgia .x-axis text
-{
-  font:12px 'dejavu-neue -el', 'sans-serif';
+.bar-georgia .x-axis text {
+  font:12px 'dejavu-neue-el', 'sans-serif';
+  stroke:none;
   fill:#314451;
   cursor:pointer;
 }
-.bar-georgia .x-axis text:lang(en)
-{
+.bar-georgia .x-axis text:lang(en){
+  font:12px 'opensans-el', 'sans-serif';
+}
+.bar-georgia .y-axis text {
+  font:12px 'dejavu-neue', 'sans-serif';
+  stroke:none;
+  fill:#314451;
+}
+.bar-georgia .y-axis text:lang(en){
   font:12px 'opensans', 'sans-serif';
 }
+
+
 .bar-georgia .x-axis text.active, .bar-georgia .x-axis text.hover
 {
   fill:#000;
 }
+.bar-georgia .captions text{
+  font:17px 'dejavu-neue-el', 'sans-serif';
+  stroke:none;
+  fill:#586770;
+}
+.bar-georgia .captions text:lang(en){
+  font:17px 'opensans-el', 'sans-serif';
+}
+
 /************************************** Output *****************************************/
 .output {
   margin-top:63px;
@@ -678,7 +705,7 @@ a, a:hover, a:focus {
   }
   .map .tbilisi {
     position:absolute;
-    top:180px;
+    top:130px;
   }
   .footer > .box {
     max-width:1100px;
@@ -690,8 +717,7 @@ a, a:hover, a:focus {
 }
 
 /*------------------------------------------ Footer ------------------------------------------*/
-.footer
-{
+.footer {
   width:100%;
   text-align:right;
   background-color:#f2f2f2;
