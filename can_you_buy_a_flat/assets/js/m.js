@@ -177,7 +177,7 @@
     // make active and hover states for map and for bar chart
     var maps = d3.select(".map");
     var barGeorgia = d3.select(".bar-georgia");
-    var barGeorgia_legend = d3.select(".bar-georgia .x-axis");
+    var barGeorgia_legend = d3.select(".bar-georgia .x-axis .labels");
 
     maps.selectAll(".area.hover").classed("hover", false);
     barGeorgia.selectAll(".bar.hover").classed("hover", false);
@@ -188,12 +188,12 @@
      barGeorgia.selectAll(".bar.active").classed("active", false);
      barGeorgia.select("#bar" + current_id).classed("active", true);
      barGeorgia_legend.selectAll("text.active").classed("active", false);
-     barGeorgia_legend.select("#x-axis" + current_id).classed("active", true);
+     barGeorgia_legend.select("#label" + current_id).classed("active", true);
     }
     else {
      maps.select("#area" + current_id).classed("hover", true);
      barGeorgia.select("#bar" + current_id).classed("hover", true);
-     barGeorgia_legend.select("#x-axis" + current_id).classed("hover", true);
+     barGeorgia_legend.select("#label" + current_id).classed("hover", true);
     }
 
     if(sort)
@@ -336,7 +336,7 @@
     });
 
 
-    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis text").on("click", function(d){
+    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("click", function(d){
       render(d, true, false);
     });
 
@@ -344,7 +344,7 @@
       render(d.properties.OBJECTID, true, true);
     });
 
-    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis text").on("mouseover", function(d){
+    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("mouseover", function(d){
       render(d, true, true);
     });
 
@@ -352,7 +352,7 @@
       render(d3.select(".map path.active").data()[0].properties.OBJECTID, true, false);
     });
 
-    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis text").on("mouseout", function(){
+    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("mouseout", function(){
       render(d3.select(".map path.active").data()[0].properties.OBJECTID, true, false);
     });
 
@@ -372,8 +372,14 @@
 
 
     d3.selectAll(".methodology, .popup .close, .popup .bg").on("click", function() {
-      var popup = d3.select(".popup");
-      popup.classed("open", !popup.classed("open"));
+      var popup = d3.select(".popup"),
+          content = popup.select(".window .content"),
+          open = popup.classed("open");
+
+      content.style({ "width": (w > 670 ? 670 : w) + "px",
+                      "height": (h > 760 ? 760-200 : h-200) + "px" });
+      d3.select('body').classed('noscroll', !open);
+      popup.classed("open", !open);
     });
     d3.select("body").on("keydown", function() {
       if(d3.event.keyCode === 27) {
@@ -381,9 +387,12 @@
         //d3.selectAll(".dropdown.open").classed("open", false);
       }
     });
-    d3.select(".poster .stop").on("click", function() {
-      var t = d3.select(this.parentNode);
-      t.classed("paused", !t.classed("paused"));
+    d3.select(".poster .switch").on("click", function() {
+      var t = d3.select(this),
+        p = d3.select(this.parentNode);
+      t.classed("play", !t.classed("play"));
+      p.classed("paused", !p.classed("paused"));
+
     });
 
     I18n.remap();
@@ -710,20 +719,22 @@
         .attr("x", function(d, i){ console.log(d,i);return i * 18; })
         .style("fill", function(d){ return colors(d); });
 
-      barGeorgia.select(".legend").append("rect")
-        .data("r")
-        .attr("fill", "#e6e7e8")
-        .attr("x", function() { return color_step * 18 + 20; });
+
 
       barGeorgia.select(".legend").append("rect")
         .data("l")
         .attr("fill", "#56bfbf")
-        .attr("x", function() { return (color_step + 1) * 18 + 20; });
+        .attr("x", function() { return (color_step) * 18 + 20; });
 
       barGeorgia.select(".legend").append("rect")
         .data("b")
         .attr("fill", "#314451")
-        .attr("x", function() { return (color_step + 2) * 18 + 20; });
+        .attr("x", function() { return (color_step + 1) * 18 + 20; });
+
+        barGeorgia.select(".legend").append("rect")
+          .data("r")
+          .attr("fill", "#e6e7e8")
+          .attr("x", function() { return (color_step + 2) * 18 + 20; });
 
       barGeorgia.selectAll(".legend rect")
         .attr({"width": "13", "height": "13"})
@@ -758,6 +769,9 @@
   },
   init = function() {
       loaderStartTime = (new Date()).getTime();
+      if(bowser.chrome) {
+        document.body.className = "render";
+      }
       resize();
       I18n.init(function(){ currency_init(); });
   };

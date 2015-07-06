@@ -126,6 +126,19 @@ a, a:hover, a:focus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }*/
+.require-js {
+    position:absolute;
+    left:20px;
+    bottom:20px;
+}
+.require-js div:lang(ka) {
+  font:19px 'dejavu-neue', 'sans-serif';
+  color:#e14e41;
+}
+.require-js div:lang(en) {
+  font:19px 'opensans', 'sans-serif';
+  color:#e14e41;
+}
 .wrapper
 {
   display:inline-block;
@@ -189,8 +202,12 @@ a, a:hover, a:focus {
   -moz-animation: animate_bg 150s linear infinite;
   -webkit-animation: animate_bg 150s linear infinite;
 }
-.poster .plane {
+.poster .plane:lang(ka) {
   background:transparent url(../images/plane_ka.gif) no-repeat center;
+  background-position: 30% 40px;
+}
+.poster .plane:lang(en) {
+  background:transparent url(../images/plane_en.gif) no-repeat center;
   background-position: 30% 40px;
 }
 .poster.paused .bg {
@@ -198,14 +215,35 @@ a, a:hover, a:focus {
   -moz-animation-play-state: paused;
    animation-play-state: paused;
 }
-.poster .stop {
+.poster.paused .plane:lang(ka) {
+  background:transparent url(../images/plane_ka.png) no-repeat center;
+  background-position: 30% 40px;
+  -webkit-transition: all 3s ease-in;
+  -moz-transition: all 3s ease-in;
+   -ms-transition: all 3s ease-in;
+  -o-transition: all 3s ease-in;
+   transition: all 3s ease-in;
+}
+.poster.paused .plane:lang(en) {
+  background:transparent url(../images/plane_en.png) no-repeat center;
+  background-position: 30% 40px;
+  -webkit-transition: all 3s ease-in;
+  -moz-transition: all 3s ease-in;
+   -ms-transition: all 3s ease-in;
+  -o-transition: all 3s ease-in;
+   transition: all 3s ease-in;
+}
+.poster .switch {
   position:absolute;
   right:10px;
   top:10px;
-  width:32px;
-  height:32px;
-  background-color:#efefef;
+  width:42px;
+  height:42px;
+  background:transparent url(../images/pause.svg) center/42px;
   cursor:pointer
+}
+.poster .switch.play {
+  background:transparent url(../images/play.svg) center/42px;
 }
 .page {
   margin:0 auto;
@@ -265,8 +303,8 @@ a, a:hover, a:focus {
   width: 100%;
 }
 .filters .field {
-  display:table-cell;
-  width:50%;
+  width:100%;
+  margin:0 0 20px 0;
 }
 .filters .field .cell {
   display:table-cell;
@@ -284,9 +322,6 @@ a, a:hover, a:focus {
 }
 .filters .field label:lang(en) {
   font:15px 'opensans', 'sans-serif';
-}
-.filters .field:not(:first-child) label {
-  padding-left:40px;
 }
 .filters .field .slider-box {
   display:table-cell;
@@ -377,7 +412,7 @@ a, a:hover, a:focus {
   stroke:#98a1a4;
   stroke-width:1px;
 }
-svg {
+body.render svg {
   shape-rendering: crispEdges;
 }
 .x-axis, .y-axis {
@@ -461,20 +496,24 @@ svg {
 .output .phrase span {
   color:#e35641;
 }
+.output .phrase.first {
+  padding:0 149px 0 0;
+}
 .output .box .via-saving,
 .output .box .via-loan {
-  display:table-cell;
+  margin-bottom:20px;
 }
 .output .box .via-loan {
   width:100%;
 }
 .output .box .via-loan .wrap {
   margin:0 15px;
+  position:relative;
 }
 .output .box .via-saving,
 .output .box .via-loan .wrap {
 
-  background-color:#A6EDED;
+  background-color:#a6eded;
   padding: 15px 20px 15px;
   border-radius:3px;
   height:295px;
@@ -555,7 +594,7 @@ svg {
 }
 .output .box .years-box .years:lang(en),
 .output .box .years-box .months:lang(en) {
-  font:44px 'opensans-b', 'sans-serif';
+  font:44px/44px 'opensans-b', 'sans-serif';
 }
 .output .box .via-loan .wrap > .box {
   display:table;
@@ -599,26 +638,22 @@ svg {
   width:95px;
   height:53px;
 }
-.output .box .years-box .bank {
+.via-loan .bank {
+  background:transparent url(../images/bank0.svg) no-repeat center right/149px 115px;
   display:inline-block;
-  width:53px;
-  height:96px;
-  float:right;
-  position: relative;
-  top: -10px;
+  width:149px;
+  height:115px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
-.output .box .years-box .bank0 {
-  background:transparent url(../images/bank0.svg) no-repeat center right/53px 96px;
+.via-loan.hide1 .bank {
+  background:transparent url(../images/bank1.svg) no-repeat center right/149px 115px;
 }
-.output .box .years-box .bank1 {
-  background:transparent url(../images/bank1.svg) no-repeat center right/53px 96px;
-}
-.output .box .years-box .bank2 {
-  background:transparent url(../images/bank2.svg) no-repeat center right/53px 96px;
+.via-loan.hide2 .bank {
+  background:transparent url(../images/bank2.svg) no-repeat center right/149px 115px;
 }
 .output .extra {
-  display:table-cell;
-  vertical-align:middle;
   margin-top:10px;
 }
 .output .extra .calculator a{
@@ -672,7 +707,17 @@ svg {
   width:100%;
   max-width:1100px;
 }
+@media (min-width: 768px) {
+  .map .tbilisi {
+    position:absolute;
+    top:130px;
+  }
+}
 @media (min-width: 1100px) {
+  .filters .field {
+    width:50%;
+    margin:0 0 0 0;
+  }
   .charts {
     display:table;
   }
@@ -697,15 +742,17 @@ svg {
   .output {
     margin-top:13px;
   }
+  .output .box .via-saving,
+  .output .box .via-loan {
+    display:table-cell;
+    margin-bottom:0;
+  }
+  .output .extra {
+    display:table-cell;
+    vertical-align:middle;
+  }
   .share-box {
     margin-top: 0;
-  }
-  .map {
-
-  }
-  .map .tbilisi {
-    position:absolute;
-    top:130px;
   }
   .footer > .box {
     max-width:1100px;
@@ -790,10 +837,10 @@ svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  max-width: 670px;
   margin: 0 auto;
   background-color:#fffef8;
   z-index:1;
+  overflow: hidden;
 }
 .popup .window .close {
   background:transparent url(../images/close.svg) center/42px;
@@ -806,6 +853,22 @@ svg {
 }
 .popup .window .content {
   padding: 30px 40px 40px;
+  overflow-y: auto;
+}
+.popup .window .content::-webkit-scrollbar-track {
+  background-color: #f6f6f6;
+}
+.popup .window .content::-webkit-scrollbar {
+  height: 8px;
+  width:8px;
+}
+.popup .window .content::-webkit-scrollbar-thumb {
+  background-color: #bfbfbf;
+  border: 2px solid #f6f6f6;
+}
+.popup .window .content::-webkit-scrollbar-thumb:hover {
+  background-color: #b1b1b1;
+  cursor: pointer;
 }
 .popup .window .caption {
   font: 26px 'dejavu-neue-b', 'sans-serif';
@@ -822,6 +885,16 @@ svg {
 }
 .popup .window .text:lang(en) {
   font:19px 'opensans-l', 'sans-serif';
+}
+.popup .window .content .formula {
+  text-align: center;
+  font-size: 17px;
+}
+.popup .window .content .formula .line {
+  color: #cbcbcb;
+}
+.popup .window .content ul{
+  list-style:none;
 }
 .popup .window a {
   font:16px 'dejavu-neue-b', 'sans-serif';

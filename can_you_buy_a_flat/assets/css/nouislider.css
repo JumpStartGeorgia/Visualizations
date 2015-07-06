@@ -17,7 +17,7 @@
 	position: relative;
 	direction: ltr;
 	min-width: 260px;
-  max-width: 260px;
+  /*max-width: 500px;*/
 }
 .noUi-base {
 	width: 100%;
@@ -53,8 +53,8 @@
  * Browsers can paint handles in their own layer.
  */
 .noUi-base {
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
+	/*-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);*/
 }
 
 /* Slider size and handle placement;
@@ -81,10 +81,10 @@
 /* Styling;
  */
 .noUi-background {
-	background: #a6eded;
+	background: #e6e7e8;
 }
 .noUi-connect {
-	background: #ff6043;
+
 -webkit-transition: background 450ms;
 	transition: background 450ms;
 }
