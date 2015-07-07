@@ -3,14 +3,13 @@
 (function () {
   "use strict";
   var obj = { },
-  // blinkDuration = 900,
-  // animDuration = 900,
-  //blinkEase = "linear",
-
+  inited = false,
   w = u.width(),
   h = u.height(),
   bar = {
-    w: 340,
+    svg:null,
+    svg_g:null,
+    w:  w < 1100 ? w - 40 : 340,
     h: 340,
     gap: 50, // space betweet georgia and tbilisi bar chart
     x_h: 140,
@@ -43,7 +42,7 @@
     legend_h: 20,
     calc: function() {
       var t = this;
-      t.w = w < 340 ? w - 40 - 20 : 340;
+      // t.w = w < 340 ? w - 40 - 20 : 340;
       t.canvas.w = t.w - (t.y_w + t.canvas.margin[3] + t.canvas.margin[1]);
       t.canvas.h = t.h - (t.canvas.margin[0] + t.canvas.margin[2] + t.x_h + t.caption_h + t.legend_h);
       t.canvas.fw = t.w - (t.y_w );
@@ -56,14 +55,31 @@
       t.node.vertical_padding = t.node.padding[0] + t.node.padding[2];
       t.margin.w = t.margin.left + t.margin.right;
       t.margin.h = t.margin.top + t.margin.bottom;
+
     }
   },
-  map_h = 310,
-  map_w = 760,
+  map = {
+    geo: {
+      svg: null,
+      proj: null,
+      w: 0,
+      h: 310,
+      center: [42.35, 42.35],
+      scaler:  d3.scale.linear().domain([760, 1100]).range([4500, 6600]),
+      scaler_h: d3.scale.linear().domain([760, 1100]).range([320, 480])
 
-  geo_map = null,
-  tbi_map = null,
-  geo_proj = null,
+    },
+    tbi: {
+      svg: null,
+      proj: null,
+      w: 0,
+      h: 0,
+      center: [44.81, 41.73],
+      scaler:  d3.scale.linear().domain([760, 1100]).range([23500, 33000]),
+      scaler_w: d3.scale.linear().domain([760, 1100]).range([190, 280]),
+      scaler_h: d3.scale.linear().domain([760, 1100]).range([170, 220])
+    }
+  },
   disabled_area = [1, 15],
   default_area = 65,
   color_step = 9,
@@ -78,25 +94,25 @@
    savings: 250
   },
   areas = {
-   "23": [958.18],    // Adjara 23 batumi
-   "65": [928.8],     // tbilisi 65 tbilisi
-   "69": [668.93],    // Mtskheta-Mtianeti 69 mtskheta
-   "9": [587.19],     // Samegrelo-Zemo Svaneti 9 zugdidi
-   "55": [566.63],    // Samtskhe-Javakheti 55 akhaltsikhe
-   "29": [465.01],    // Imereti 29 kutaisi
-   "75": [450.67],    // Shida Kartli 75 gori
-   "52": [427.17],    // Kvemo Kartli 52 rustavi
-   "14": [250],       // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
-   "31": [244.69],    // Kakheti 31 telavi
-   "35": [199],       // Guria 35 ozurgeti
-   "1": [0],          // სოხუმი
-   "15": [0],         // ცხინვალი
-   "206": [1136.41],  // ძველი თბილისი
-   "203": [970.71],   // ვაკე-საბურთალო
-   "204": [833.68],   // დიდუბე-ჩუღურეთი
-   "205": [751.16],   // დიდგორი
-   "201": [715.58],   // ისანი-სამგორი
-   "202": [637.69]    // გლდანი-ნაძალადევი
+   "23": [958.18, 0, 0],    // Adjara 23 batumi
+   "65": [928.8, 0, 0],     // tbilisi 65 tbilisi
+   "69": [668.93, 0, 0],    // Mtskheta-Mtianeti 69 mtskheta
+   "9": [587.19, 0, 0],     // Samegrelo-Zemo Svaneti 9 zugdidi
+   "55": [566.63, 0, 0],    // Samtskhe-Javakheti 55 akhaltsikhe
+   "29": [465.01, 0, 0],    // Imereti 29 kutaisi
+   "75": [450.67, 0, 0],    // Shida Kartli 75 gori
+   "52": [427.17, 0, 0],    // Kvemo Kartli 52 rustavi
+   "14": [250, 0, 0],       // Racha-Lechkhumi and Kvemo Svaneti 14 ambrolauri
+   "31": [244.69, 0, 0],    // Kakheti 31 telavi
+   "35": [199, 0, 0],       // Guria 35 ozurgeti
+   "1": [0, 0, 0],          // სოხუმი
+   "15": [0, 0, 0],         // ცხინვალი
+   "206": [1136.41, 0, 0],  // ძველი თბილისი
+   "203": [970.71, 0, 0],   // ვაკე-საბურთალო
+   "204": [833.68, 0, 0],   // დიდუბე-ჩუღურეთი
+   "205": [751.16, 0, 0],   // დიდგორი
+   "201": [715.58, 0, 0],   // ისანი-სამგორი
+   "202": [637.69, 0, 0]    // გლდანი-ნაძალადევი
   },
   geoAreas = [23, 65, 69, 9, 55, 29, 75, 52, 14, 31, 35], // sorted desc
   tbiAreas = [206, 203, 204, 205, 201, 202], // sorted desc
@@ -150,59 +166,57 @@
             ];
   },
   resize = function() {
-    // console.log(w, h);
     w = u.width();
     h = u.height();
 
-    map_w = w < 760 ? w - 40 : 760;
-    bar.calc();
-    //     var scaler = w < 760 ? 4000 : 4400;
+    map.geo.w = w < 1100 ? w - 40 : 760;
 
-    // geo_proj = d3.geo.mercator()
-    //     .scale(scaler)
-    //     .translate([map_w/2+40,map_h/2])
-    //     .center([43.52606083142459,42.18408590602157]);
-    //
-    // var path = d3.geo.path()
-    //     .projection(geo_proj);
-    //
-    //   geo_map
-    //   .attr("width", map_w)
-    //   .attr("height", map_h);
-    //   // resize the map
-    //   geo_map.select('.area').attr('d', path);
-  },
+    map.geo.h = map.geo.scaler_h(map.geo.w);
+
+    map.tbi.w = map.tbi.scaler_w(map.geo.w);
+    map.tbi.h =map.tbi.scaler_h(map.geo.w);;
+
+    bar.w = w < 1100 ? w - 40 : 340;
+    var padding = d3.scale.linear().domain([340, 1100]).range([2, 20]);
+    bar.node.padding = [0, padding(bar.w), 0, 0];
+    bar.calc();
+
+    if(inited) {
+      draw_bar();
+      draw_map();
+    }
+
+    },
   render = function(current_id, sort, hover) {
 
     // make active and hover states for map and for bar chart
     var maps = d3.select(".map");
-    var barGeorgia = d3.select(".bar-georgia");
     var barGeorgia_legend = d3.select(".bar-georgia .x-axis .labels");
 
     maps.selectAll(".area.hover").classed("hover", false);
-    barGeorgia.selectAll(".bar.hover").classed("hover", false);
+    bar.svg.selectAll(".bar.hover").classed("hover", false);
     barGeorgia_legend.selectAll("text.hover").classed("hover", false);
     if(!hover) {
      maps.selectAll(".area.active").classed("active", false);
      maps.select("#area" + current_id).classed("active", true);
-     barGeorgia.selectAll(".bar.active").classed("active", false);
-     barGeorgia.select("#bar" + current_id).classed("active", true);
+     bar.svg.selectAll(".bar.active").classed("active", false);
+     bar.svg.select("#bar" + current_id).classed("active", true);
      barGeorgia_legend.selectAll("text.active").classed("active", false);
      barGeorgia_legend.select("#label" + current_id).classed("active", true);
     }
     else {
      maps.select("#area" + current_id).classed("hover", true);
-     barGeorgia.select("#bar" + current_id).classed("hover", true);
+     bar.svg.select("#bar" + current_id).classed("hover", true);
      barGeorgia_legend.select("#label" + current_id).classed("hover", true);
     }
 
     if(sort)
     {
      var active_id = d3.select(".map path.active").data()[0].properties.OBJECTID;
-     var tmp = geo_map;
+     var tmp = map.geo.svg;
      if(+current_id > 100)
      {
-       tmp = tbi_map;
+       tmp = map.tbi.svg;
      }
 
      tmp.selectAll(".area").sort(function (a) {
@@ -266,6 +280,7 @@
       d3.select(".wrapper").style({"visibility": "visible", "opacity": 0.2});
       d3.select(".loader").style("display", "none");
       d3.select(".wrapper").transition().duration(1000).style("opacity", 1);
+      inited = true;
     };
     var elapsed = (new Date()).getTime() - loaderStartTime;
 
@@ -278,55 +293,168 @@
       setTimeout(function(){ show(); }, loaderAtLeast - elapsed);
     }
   },
-  bar_chart_draw = function() {
-
-    var barGeorgia = d3.select(".bar-georgia svg"),
-        maxPoint = 0;
-
+  areas_year_calc = function() {
+    var max = 0;
     entries.forEach(function(d){
       var tmp = areas[d],
           hl = how_long(tmp[0]);
       tmp[1] = hl[0].d;
       tmp[2] = hl[1].d;
-      if (maxPoint < tmp[1]) {
-        maxPoint = tmp[1];
+      if (max < tmp[1]) {
+        max = tmp[1];
       }
-      if (maxPoint < tmp[2]) {
-        maxPoint = tmp[2];
+      if (max < tmp[2]) {
+        max = tmp[2];
       }
     });
-    maxPoint = Math.ceil(maxPoint) + 3;
+    return Math.ceil(max) + 3;
+  },
+  draw_map = function() {
+
+    // drawing georgia map
+    map.geo.svg
+      .attr("width", map.geo.w)
+      .attr("height", map.geo.h);
+
+    map.geo.proj = d3.geo.mercator()
+        .scale(map.geo.scaler(map.geo.w))
+        .translate([map.geo.w / 2, (map.geo.h-20) / 2])
+        .center(map.geo.center);
+
+    var path = d3.geo.path()
+        .projection(map.geo.proj);
+
+    map.geo.svg.selectAll('.area').attr('d', path);
+    map.geo.svg.select('.place').attr('d', path);
+
+    var cap = map.geo.svg.select(".georgia-caption");
+    var cap_box = cap.node().getBBox();
+    cap
+      .attr("x", (map.geo.w - cap_box.width) / 2)
+      .attr("y", map.geo.h - 5);
+
+    // drawing tbilisi map
+    map.tbi.svg
+      .attr("width", map.tbi.w)
+      .attr("height", map.tbi.h);
+
+    map.tbi.proj = d3.geo.mercator()
+        .scale(map.tbi.scaler(map.geo.w))
+        .translate([map.tbi.w / 2, (map.tbi.h) / 2])
+        .center(map.tbi.center);
+
+    var path = d3.geo.path()
+        .projection(map.tbi.proj);
+
+    map.tbi.svg.selectAll('.area').attr('d', path);
+
+    var cap = map.tbi.svg.select(".tbilisi-caption");
+    var cap_box = cap.node().getBBox();
+    cap
+      .attr("x", (map.tbi.w - cap_box.width) / 2)
+      .attr("y", map.tbi.h - 5);
+
+  },
+  draw_bar = function() {
+    bar.svg.attr("width", bar.w)
+      .attr("height", bar.h);
+    var maxPoint = areas_year_calc();
 
     var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]);
-    var label1 = barGeorgia.select('.y-axis .label1').text(maxPoint);
+    var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
+    var label1 = bar.svg.select('.y-axis .label1').text(maxPoint);
     label1.each(function (d, i) {
       var t = d3.select(this),
           bbox = t.node().getBBox();
       t.attr("x", bar.y_w - bbox.width - 10);
     });
 
+    var axle = bar.svg.select(".axle");
+
+    var xAxis = d3.svg.axis()
+        .scale(d3.scale.identity().domain([0, bar.canvas.fw]))
+        .ticks(0)
+        .outerTickSize(0)
+        .orient("bottom");
+    var yAxis = d3.svg.axis()
+        .scale(d3.scale.identity().domain([0, bar.canvas.fh]))
+        .ticks(0)
+        .outerTickSize(0)
+        .orient("left");
+    axle.select(".x-axis")
+      .attr("transform", "translate(" + bar.y_w + "," + (bar.canvas.fh) + ")")
+      .call(xAxis);
+      axle.select(".y-axis")
+      .attr("transform", "translate(" + bar.y_w + ", 0)")
+      .call(yAxis);
+
+      var xLabels = axle
+        .select('.x-axis .labels')
+          .attr("transform", "translate(" + bar.canvas.margin[3] + "," + 10 + ")").selectAll('text');
+
+      xLabels.each(function (d, i) {
+        var t = d3.select(this),
+            bbox = t.node().getBBox();
+
+        t.attr("x", i * (entry_w + bar.node.horizontal_padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d < 100 ? 1 : 0) )
+          .attr("y", bbox.width / 2);
+        bbox = t.node().getBBox();
+         t.attr("transform", "rotate(-90, " + (bbox.x + bbox.width / 2) + ", " + (bbox.y + bbox.height / 2) + ")");
+      });
+
+      // bars block
+
+    var bars = bar.svg.select(".bars")
+      .attr("transform", "translate(" + bar.canvas.x + "," + bar.canvas.y + ")");
+      //.selectAll(".bar");
 
 
-    var bars = barGeorgia.selectAll(".bars .bar");
-
-    bars.selectAll('rect.l')
-        .attr("class", function(d) { return areas[d][2] == 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
-        .attr("height", function(d) {
-          return bar.canvas.h - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : y(maxPoint - areas[d][1]));
-        })
-        .attr("y", function(d) { return (areas[d][2] !== 0 ? y(areas[d][2]) : 0); });
-
-    bars.selectAll("rect.s")
+    bars.selectAll('.bars .bar rect.l').each(function(dd,i){
+      d3.select(this)
+      .attr("class", function(d) { return areas[d][2] == 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
+      .attr("width", entry_w)
+      .attr("height", function(d) {
+        return bar.canvas.h - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : y(maxPoint - areas[d][1]));
+      })
+      .attr("x", function(d) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
+      .attr("y", function(d) { return (areas[d][2] !== 0 ? y(areas[d][2]) : 0); });
+    });
+    bars.selectAll('.bars .bar rect.s').each(function(dd,i){
+      d3.select(this)
         .attr("class", "s")
         .style("fill", function(d) { return color_by_year(areas[d][1]); })
+        .attr("width", entry_w)
         .attr("height", function(d) {
           return bar.canvas.h - y(areas[d][1]);
         })
+        .attr("x", function(d) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
         .attr("y", function(d) { return  y(areas[d][1]); });
+      });
+
+
+       var caption = bar.svg.select('.captions .caption.geo');
+
+      var caption_box = caption.node().getBBox();
+      var cap_h = caption_box.height;
+
+      caption.attr({"x": bar.canvas.x1 - ((entry_w + bar.node.horizontal_padding) * geoAreas.length)+(((entry_w + bar.node.horizontal_padding) *       geoAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  });
+
+      caption = bar.svg.select('.captions .tbi');
+      caption_box = caption.node().getBBox();
+      caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2 });
+
+
+      // legend block
+
+
+      bar.svg.select(".legend")
+       .attr("class", "legend")
+       .attr("transform", "translate(" + (bar.w - ((color_step + 3) * 18 + 20)) + ", 0)");
+
   },
   filter = function() {
     render(d3.select(".map .georgia path.active").data()[0].properties.OBJECTID, false, false);
-    bar_chart_draw();
+    draw_bar();
   },
   bind = function() {
     d3.select(window).on("resize", resize);
@@ -446,71 +574,64 @@
 
     loader_stop();
   },
-  init_maps = function() {
-    map_w = w < 760 ? w - 40 : 760;
-      var scaler = w < 760 ? 4000 : 4600;
-        geo_map = d3.select(".map .georgia")
-                    .append("svg")
-                    .attr("width", map_w)
-                    .attr("height", map_h);
+  init_map = function() {
 
-    var map_tbi_w = 260,
-        map_tbi_h = 180;
+      map.geo.svg = d3.select(".map .georgia")
+                  .append("svg")
+                  .attr("width", map.geo.w)
+                  .attr("height", map.geo.h);
 
-        tbi_map = d3.select(".map .tbilisi")
-                    .append("svg")
-                    .attr("width", map_tbi_w)
-                    .attr("height", map_tbi_h);
+      map.tbi.svg = d3.select(".map .tbilisi")
+                  .append("svg")
+                  .attr("width", map.tbi.w)
+                  .attr("height", map.tbi.h);
 
       function build_maps(error, geo_areas, tbilisi_areas) {
         if (error) { throw error; }
 
-        geo_proj = d3.geo.mercator()
-            .scale(scaler)
-            .translate([map_w / 2 + 40, map_h / 2])
-            .center([43.52606083142459, 42.18408590602157]);
+        map.geo.proj = d3.geo.mercator()
+            .scale(map.geo.scaler(map.geo.w))
+            .translate([map.geo.w / 2, (map.geo.h-20) / 2])
+            .center(map.geo.center);
 
         var path = d3.geo.path()
-            .projection(geo_proj);
+            .projection(map.geo.proj);
 
+        map.geo.svg
+        .attr("class", "areas")
+        .selectAll("path")
+          .data(topojson.feature(geo_areas, geo_areas.objects.regions).features)
+          .enter().append("path")
+          .attr("id", function(d) { return "area" + d.properties.OBJECTID; })
+            .attr("class", function(d) {
+              return (disabled_area.indexOf(d.properties.OBJECTID) >= 0 ? "area disabled" : "area"); })
+            .attr("d", path);
 
-            geo_map.append("g")
-            .attr("class", "areas")
-            .selectAll("path")
-              .data(topojson.feature(geo_areas, geo_areas.objects.regions).features)
-              .enter().append("path")
-              .attr("id", function(d) { return "area" + d.properties.OBJECTID; })
-                .attr("class", function(d) {
-                  return (disabled_area.indexOf(d.properties.OBJECTID) >= 0 ? "area disabled" : "area"); })
-                .attr("d", path);
-
-        var areas_box = geo_map.select(".areas").node().getBBox();
-        geo_map.select(".areas")
+        var cap = map.geo.svg
           .append("text")
           .attr("class", "georgia-caption")
-          .text(I18n.t("georgia"))
-          .attr("y", areas_box.height + areas_box.y + 20);
-
-          geo_map.select(".georgia-caption").node().getBBox();
-          d3.select(".georgia-caption")
-            .attr("x", areas_box.width / 2);
-
+          .text(I18n.t("georgia")),
+        cap_box = cap.node().getBBox();
+        cap
+          .attr("x", (map.geo.w + cap_box.width) / 2)
+          .attr("y", map.geo.h - 5);
 
 
-        geo_map.select(".areas").append("path")
+        map.geo.svg.append("path")
           .datum(topojson.feature(geo_areas, geo_areas.objects.cities))
           .attr("d", path)
           .attr("class", "place");
 
-          // tbilisi map *********************************************************
-        var projection = d3.geo.mercator()
-            .scale(23500)
-            .translate([map_tbi_w / 2, (map_tbi_h - 40) / 2])
-            .center([44.81, 41.73]);
-          path = d3.geo.path()
-            .projection(projection);
+        // tbilisi map *********************************************************
 
-        tbi_map.append("g")
+        map.tbi.proj = d3.geo.mercator()
+          .scale(map.tbi.scaler(map.geo.w))
+          .translate([map.tbi.w / 2, (map.tbi.h) / 2])
+          .center(map.tbi.center);
+        path = d3.geo.path()
+          .projection(map.tbi.proj);
+
+        map.tbi.svg
         .attr("class", "areas")
         .selectAll("path")
           .data(topojson.feature(tbilisi_areas, tbilisi_areas.objects.tbilisi_area).features)
@@ -519,20 +640,19 @@
             .attr("class", "area")
             .attr("d", path);
 
-        areas_box = tbi_map.select(".areas").node().getBBox();
-        tbi_map.select(".areas")
+
+
+        var cap = map.tbi.svg
           .append("text")
           .attr("class", "tbilisi-caption")
           .text(I18n.t("georgia_capital"))
-          .attr("y", areas_box.height + areas_box.y + 35);
-
-        areas_box = tbi_map.select(".tbilisi-caption").node().getBBox();
-        d3.select(".tbilisi-caption")
-          .attr("x", areas_box.width / 2 + 20 );
-
+        cap_box = cap.node().getBBox();
+        cap
+          .attr("x", (map.tbi.w - cap_box.width) / 2)
+          .attr("y", map.tbi.h - 5);
 
         // bind *********************************************************
-        d3.select(self.frameElement).style("height", map_h + "px");
+        d3.select(self.frameElement).style("height", map.geo.h + "px");
 
         bind();
       }
@@ -541,34 +661,19 @@
         .defer(d3.json, "assets/data/tbilisi.json")
         .await(build_maps);
   },
-  bar_chart_init = function() {
-    var maxPoint = 0;
+  init_bar = function() {
+    var maxPoint = areas_year_calc();;
 
-    entries.forEach(function(d) {
-      var tmp = areas[d],
-          hl = how_long(tmp[0]);
-      tmp.push(hl[0].d);
-      tmp.push(hl[1].d);
-      if (maxPoint < tmp[1]) {
-        maxPoint = tmp[1];
-      }
-      if (maxPoint < tmp[2]) {
-        maxPoint = tmp[2];
-      }
-    });
-    maxPoint = Math.ceil(maxPoint) + 3;
     var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]); //bar.caption_h + 40
     var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
-
-    var barGeorgia = d3.select(".bar-georgia")
+    bar.svg = d3.select(".bar-georgia")
                 .append("svg")
                 .attr("width", bar.w)
-                .attr("height", bar.h)
-                .append("g");
-                //.attr("transform", "translate(" + bar. + ",20)");
+                .attr("height", bar.h);
+                bar.svg_g = bar.svg.append("g");
 
     // contains x and y axes
-    var axle = barGeorgia.append("g").attr("class", "axle");
+    var axle = bar.svg_g.append("g").attr("class", "axle");
 
     var xAxis = d3.svg.axis()
         .scale(d3.scale.identity().domain([0, bar.canvas.fw]))
@@ -595,7 +700,7 @@
 
       // bars block
 
-    var bars = barGeorgia.append("g")
+    var bars = bar.svg_g.append("g")
       .attr("class", "bars")
       .attr("transform", "translate(" + bar.canvas.x + "," + bar.canvas.y + ")")
       .selectAll(".bar")
@@ -675,25 +780,25 @@
 
 
       //  caption block
-      var captions = barGeorgia.append("g")
+      var captions = bar.svg_g.append("g")
          .attr("class", "captions")
          .attr("transform", "translate(0," + (bar.canvas.fh + bar.x_h ) + ")");
       var caption = captions
           .append("text")
           .style("visibility", "hidden")
-          .attr("class", "caption")
+          .attr("class", "caption geo")
           .text(I18n.t("georgia"));
 
       var caption_box = caption.node().getBBox();
       var cap_h = caption_box.height;
-      console.log(bar.canvas.x1 );
+      //console.log(bar.canvas.x1 );
       caption.attr({"x": bar.canvas.x1 - ((entry_w + bar.node.horizontal_padding) * geoAreas.length)+(((entry_w + bar.node.horizontal_padding) * geoAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  }).style("visibility", "visible");
 
 
       caption = captions
           .append("text")
           .style("visibility", "hidden")
-          .attr("class", "caption")
+          .attr("class", "caption tbi")
           .text(I18n.t("georgia_capital"));
       caption_box = caption.node().getBBox();
       caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  }).style("visibility", "visible");
@@ -708,42 +813,42 @@
         .html(function(d) {
           return "<span>" + I18n.t("legend-" + d) + "</span>";
         });
-      barGeorgia.call(tip);
+      bar.svg_g.call(tip);
 
-      barGeorgia.append("g")
+      bar.svg_g.append("g")
        .attr("class", "legend")
        .attr("transform", "translate(" + (bar.w - ((color_step + 3) * 18 + 20)) + ", 0)")
        .selectAll("rect")
         .data(d3.range(1, color_step + 1, 1))
         .enter().append("rect")
-        .attr("x", function(d, i){ console.log(d,i);return i * 18; })
+        .attr("x", function(d, i){ return i * 18; })
         .style("fill", function(d){ return colors(d); });
 
 
 
-      barGeorgia.select(".legend").append("rect")
+      bar.svg_g.select(".legend").append("rect")
         .data("l")
         .attr("fill", "#56bfbf")
         .attr("x", function() { return (color_step) * 18 + 20; });
 
-      barGeorgia.select(".legend").append("rect")
+      bar.svg_g.select(".legend").append("rect")
         .data("b")
         .attr("fill", "#314451")
         .attr("x", function() { return (color_step + 1) * 18 + 20; });
 
-        barGeorgia.select(".legend").append("rect")
+        bar.svg_g.select(".legend").append("rect")
           .data("r")
           .attr("fill", "#e6e7e8")
           .attr("x", function() { return (color_step + 2) * 18 + 20; });
 
-      barGeorgia.selectAll(".legend rect")
+      bar.svg_g.selectAll(".legend rect")
         .attr({"width": "13", "height": "13"})
         .attr("y", bar.h - 16)
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
 
   },
-  currency_init = function() {
+  init_currency = function() {
 
     var now = new Date(Date.now());
     var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -763,8 +868,8 @@
       tmp[0] = Math.round(tmp[0] * currency);
     }
 
-    bar_chart_init();
-    init_maps();
+    init_bar();
+    init_map();
 
   },
   init = function() {
@@ -773,7 +878,7 @@
         document.body.className = "render";
       }
       resize();
-      I18n.init(function(){ currency_init(); });
+      I18n.init(function(){ init_currency(); });
   };
 
   init();

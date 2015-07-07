@@ -178,8 +178,7 @@ a, a:hover, a:focus {
   height:368px;
 }
 .poster .sky {
-  background: url(../images/poster/sun.svg) no-repeat center right,
-              url(../images/poster/bg.jpg) repeat center right;
+  background: url(../images/poster/bg.jpg) repeat-x center left/369px 369px;
 }
 .poster .cloud_far {
   background:transparent url(../images/poster/cloud_far.svg) repeat-x;
@@ -427,7 +426,7 @@ body.render svg {
   cursor:pointer;
 }
 .bar-georgia .x-axis text:lang(en){
-  font:12px 'opensans-el', 'sans-serif';
+  font:12px 'opensans-l', 'sans-serif';
 }
 .bar-georgia .y-axis text {
   font:12px 'dejavu-neue', 'sans-serif';
@@ -449,9 +448,12 @@ body.render svg {
   fill:#586770;
 }
 .bar-georgia .captions text:lang(en){
-  font:17px 'opensans-el', 'sans-serif';
+  font:17px 'opensans-l', 'sans-serif';
 }
 
+.charts .bar {
+  margin:40px 0 0 0;
+}
 /************************************** Output *****************************************/
 .output {
   margin-top:63px;
@@ -473,7 +475,7 @@ body.render svg {
   font:34px/35px 'opensans-b', 'sans-serif';
 }
 .output .city span:lang(en) {
-  font:16px/31px 'opensans-el', 'sans-serif';
+  font:16px/31px 'opensans-l', 'sans-serif';
 }
 .output .phrase {
   font:15px 'dejavu-neue-b', 'sans-serif';
@@ -499,7 +501,9 @@ body.render svg {
 .output .phrase.first {
   padding:0 149px 0 0;
 }
-.output .box .via-saving,
+.output .box .via-saving {
+  width:330px;
+}
 .output .box .via-loan {
   margin-bottom:20px;
 }
@@ -507,7 +511,6 @@ body.render svg {
   width:100%;
 }
 .output .box .via-loan .wrap {
-  margin:0 15px;
   position:relative;
 }
 .output .box .via-saving,
@@ -529,12 +532,12 @@ body.render svg {
   background-color:#fffef8;
   width:100%;
   min-width:90px;
+  max-width:290px;
   padding: 12px 16px;
   border-radius:3px;
   margin:12px 0px;
   display:inline-block;
   position:relative;
-
 }
 .output .box .amount-box:lang(en),
 .output .box .diff-box:lang(en) {
@@ -708,12 +711,20 @@ body.render svg {
   max-width:1100px;
 }
 @media (min-width: 768px) {
+  .map .charts {
+    position:relative;
+  }
   .map .tbilisi {
     position:absolute;
-    top:130px;
+    bottom:0px;
+    left:60px;
   }
 }
 @media (min-width: 1100px) {
+  .poster .sky {
+    background: url(../images/poster/sun.svg) no-repeat top right,
+                url(../images/poster/bg.jpg) repeat-x center left/369px 369px;
+  }
   .filters .field {
     width:50%;
     margin:0 0 0 0;
@@ -725,6 +736,9 @@ body.render svg {
   .charts .bar {
     display:inline-block;
     vertical-align:top;
+  }
+  .charts .bar {
+    margin:0;
   }
   .page {
     max-width:1100px;
@@ -746,6 +760,9 @@ body.render svg {
   .output .box .via-loan {
     display:table-cell;
     margin-bottom:0;
+  }
+  .output .box .via-loan .wrap {
+    margin:0 15px;
   }
   .output .extra {
     display:table-cell;
