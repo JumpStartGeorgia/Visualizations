@@ -26,23 +26,29 @@ var I18n = (function () {
     if(typeof outerCallback === "function") { outerCallback(); }
   };
   var init_locale = function() {
-    var tmp = window.location.search.substr(1).split("&");
-    var params = {};
-    var prop = "locale";
-    tmp.forEach(function(d){
-       var eq = d.split("=");
-       params[eq[0]] = eq[1];
-    });
+    var href = window.location.href,
+    tmp = href.substr(href.length-4,4),
+    tmp_locale = default_locale;
 
-    if(params.hasOwnProperty(prop) && languages.indexOf(params[prop]) !== -1)
-    {
-       locale = params[prop];
+    if(tmp[0] === "/" && tmp[3] === "/" && languages.indexOf(tmp.substr(1,2)) !== -1) {
+      tmp_locale = tmp.substr(1,2);
     }
-    else
-    {
-       locale = default_locale;
-       log("I18n: Default language was selected!");
+    else {
+
+      tmp = window.location.search.substr(1).split("&");
+      var params = {};
+      var prop = "locale";
+      tmp.forEach(function(d){
+         var eq = d.split("=");
+         params[eq[0]] = eq[1];
+      });
+
+      if(params.hasOwnProperty(prop) && languages.indexOf(params[prop]) !== -1)
+      {
+        tmp_locale = params[prop];
+      }
     }
+    locale = tmp_locale;
     document.documentElement.lang = locale;
   };
   var assign_locale = function(k, v) {
@@ -152,7 +158,7 @@ var I18n = (function () {
   var load_default_locale = function() {
     unprotect();
     protect(default_locale);
-    load_file("assets/locale/" + default_locale + ".json", function() { //on success
+    load_file("../assets/locale/" + default_locale + ".json", function() { //on success
        if(has(default_locale) && typeof window[default_locale] === "object")
        {
           data = window[default_locale];
@@ -168,7 +174,7 @@ var I18n = (function () {
   };
   var load_locale = function() {
     protect(locale);
-    load_file("assets/locale/" + locale + ".json", function() { //on success
+    load_file("../assets/locale/" + locale + ".json", function() { //on success
       if(has(locale) && typeof window[locale] === "object" && window[locale] !== null) {
         data = window[locale];
         init_continue();

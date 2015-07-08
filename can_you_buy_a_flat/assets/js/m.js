@@ -252,8 +252,7 @@
     loan.classed("hide1 hide2 hide3", false);
     saving.classed("hide3", false);
     var state = 0;
-    var state_class = "";
-    console.log(current_id, (disabled_area.indexOf(current_id) === -1));
+    var state_class = "";    
     if(disabled_area.indexOf(current_id) !== -1) {
         state = 3;
         state_class = "hide3";
@@ -676,8 +675,8 @@
         bind();
       }
       queue()
-        .defer(d3.json, "assets/data/georgia.json")
-        .defer(d3.json, "assets/data/tbilisi.json")
+        .defer(d3.json, "../assets/data/georgia.json")
+        .defer(d3.json, "../assets/data/tbilisi.json")
         .await(build_maps);
   },
   init_bar = function() {
