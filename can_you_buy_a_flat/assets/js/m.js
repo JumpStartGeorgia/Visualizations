@@ -204,6 +204,7 @@
      bar.svg.select("#bar" + current_id).classed("active", true);
      barGeorgia_legend.selectAll("text.active").classed("active", false);
      barGeorgia_legend.select("#label" + current_id).classed("active", true);
+
     }
     else {
      maps.select("#area" + current_id).classed("hover", true);
@@ -242,7 +243,14 @@
     saving.select(".amount").text(u.zero(u.reformat(amount1, 0))).classed("symbol", hl[0].d !== 0);
     saving.select(".years").text(u.zero(hl[0].t[0])).style("color", current_color);
     saving.select(".months").text(u.zero(hl[0].t[1])).style("color", current_color);
-
+    if(!hover) {
+      d3.select(".addthis_sharing_toolbox[data-orig-title]").attr("data-title", I18n.t("share_result")
+      .replace("XX1", u.zero(hl[0].t[0]))
+      .replace("XX2", u.zero(hl[0].t[1]))
+      .replace("XX3", user.m2)
+      .replace("XX4", I18n.t("share_areas-" + current_id))
+      );
+    }
     var loan = out.select(".via-loan");
     var amount2 = hl[1].m * user.savings;
     loan.select(".amount-box .amount").text(u.zero(u.reformat(amount2, 0))).classed("symbol", hl[1].d !== 0);
@@ -252,7 +260,7 @@
     loan.classed("hide1 hide2 hide3", false);
     saving.classed("hide3", false);
     var state = 0;
-    var state_class = "";    
+    var state_class = "";
     if(disabled_area.indexOf(current_id) !== -1) {
         state = 3;
         state_class = "hide3";
