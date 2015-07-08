@@ -6,7 +6,7 @@ en =
   "lang_abbr": "ka",
   "fb": "http://dev-visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_en.png",
   "site_name": "Can you buy a flat?",
-  "title": "Are you interested, how much time and money you will need to purchase a flat?",
+  "title": "Can you buy a flat?",
   "description": "In 2014, the average household income in Georgia for the urban population was 1091.8 GEL per month. Saving 25% of their income, it would take urban families up to 30 years to be able to afford to buy  a 45m2 flat in the capital, Tbilisi. Explore how long it will take you to purchase a flat or pay off a bank loan based off your monthly savings for cities throughout Georgia.",
   "description_fb": "Explore how long it will take you to purchase a flat or pay off a bank loan based off your monthly savings for cities throughout Georgia.",
   "question": "Can you buy a flat?",
@@ -70,7 +70,7 @@ en =
     "204": "Didube-Chughureti",
     "203": "Vake-Saburtalo",
     "206": "Old Tbilisi"
-  },    
+  },
   "no_data": "Data Not Available",
   "price": "Cost",
   "year": "year(s)",
