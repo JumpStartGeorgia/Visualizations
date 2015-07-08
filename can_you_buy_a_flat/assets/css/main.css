@@ -338,7 +338,7 @@ a, a:hover, a:focus {
   padding: 10px 13px 6px;
   margin-left: 13px;
   height: 34px;
-  width:80px;
+  min-width:80px;
 }
 /************************************** Georgia map *****************************************/
 .charts .caption {
@@ -379,17 +379,21 @@ a, a:hover, a:focus {
   stroke-width:8px;
   pointer-events:none;
 }
-.map .georgia-caption, .map .tbilisi-caption {
-  font:18px 'dejavu-neue-el', 'sans-serif';
+.map .georgia-caption,
+.map .tbilisi-caption,
+.bar-georgia .captions text {
+  font:17px 'dejavu-neue-el', 'sans-serif';
   stroke:none;
-  fill:#97a0a3;
+  fill:#314451;
 }
-.map .georgia-caption:lang(en), .map .tbilisi-caption:lang(en) {
-  font:18px 'opensans-l', 'sans-serif';
-
+.map .georgia-caption:lang(en),
+.map .tbilisi-caption:lang(en),
+.bar-georgia .captions text:lang(en) {
+  font:17px 'opensans-l', 'sans-serif';
 }
-
-
+.map .tbilisi {
+  text-align:center;
+}
 .bar-georgia .bar.active, .bar-georgia .bar.hover {
   stroke:#314451;
   stroke-width:1px;
@@ -442,14 +446,7 @@ body.render svg {
 {
   fill:#000;
 }
-.bar-georgia .captions text{
-  font:17px 'dejavu-neue-el', 'sans-serif';
-  stroke:none;
-  fill:#586770;
-}
-.bar-georgia .captions text:lang(en){
-  font:17px 'opensans-l', 'sans-serif';
-}
+
 
 .charts .bar {
   margin:40px 0 0 0;
@@ -501,15 +498,7 @@ body.render svg {
 .output .phrase.first {
   padding:0 149px 0 0;
 }
-.output .box .via-saving {
-  width:330px;
-}
-.output .box .via-loan {
-  margin-bottom:20px;
-}
-.output .box .via-loan {
-  width:100%;
-}
+
 .output .box .via-loan .wrap {
   position:relative;
 }
@@ -523,6 +512,11 @@ body.render svg {
   max-height:295px;
   min-width:330px;
   vertical-align:top;
+  margin-bottom:20px;
+  width:100%;
+}
+.output .box .via-saving .box-wrapper {
+  width:310px;
 }
 .output .box .amount-box,
 .output .box .diff-box {
@@ -612,14 +606,14 @@ body.render svg {
   padding-left:13px;
   vertical-align:middle;
 }
-.output .box .via-loan.hide1 .wrap .h{
+.output .box .via-loan.hide1 .wrap .h,
+.output .box .via-loan.hide2 .wrap .h2,
+.output .box .via-saving.hide3 .h3,
+.output .box .via-loan.hide3 .wrap .h3{
   display:none;
 }
 .output .box .via-loan.hide1  .wrap > .box .cell:last-child .phrase{
   margin-top: 20px;
-}
-.output .box .via-loan.hide2 .wrap .h2{
-  display:none;
 }
 .output .box .via-loan .years-box .years,
 .output .box .via-loan .years-box .months
@@ -638,8 +632,10 @@ body.render svg {
 .output .box .years-box .moneybox {
   display:inline-block;
   background:transparent url(../images/moneybox.svg) no-repeat center right/70px 53px;
-  width:95px;
+  width:70px;
   height:53px;
+  margin-top: 10px;
+  float:right;
 }
 .via-loan .bank {
   background:transparent url(../images/bank0.svg) no-repeat center right/149px 115px;
@@ -656,8 +652,15 @@ body.render svg {
 .via-loan.hide2 .bank {
   background:transparent url(../images/bank2.svg) no-repeat center right/149px 115px;
 }
+.via-loan.hide3 .bank {
+  background:transparent url(../images/bank3.svg) no-repeat center right/149px 115px;
+}
 .output .extra {
   margin-top:10px;
+  text-align: left;
+}
+.output .extra .calculator {
+  display:none;
 }
 .output .extra .calculator a{
   font:16px 'dejavu-neue-b', 'sans-serif';
@@ -709,75 +712,6 @@ body.render svg {
 .fb-comments {
   width:100%;
   max-width:1100px;
-}
-@media (min-width: 768px) {
-  .map .charts {
-    position:relative;
-  }
-  .map .tbilisi {
-    position:absolute;
-    bottom:0px;
-    left:60px;
-  }
-}
-@media (min-width: 1100px) {
-  .poster .sky {
-    background: url(../images/poster/sun.svg) no-repeat top right,
-                url(../images/poster/bg.jpg) repeat-x center left/369px 369px;
-  }
-  .filters .field {
-    width:50%;
-    margin:0 0 0 0;
-  }
-  .charts {
-    display:table;
-  }
-  .charts .map,
-  .charts .bar {
-    display:inline-block;
-    vertical-align:top;
-  }
-  .charts .bar {
-    margin:0;
-  }
-  .page {
-    max-width:1100px;
-    padding:0;
-  }
-  .cell {
-    display:table-cell;
-  }
-  .page > .box > .cell.right {
-    min-width: 380;
-  }
-  .page .header .lang {
-    min-width: 200px;
-  }
-  .output {
-    margin-top:13px;
-  }
-  .output .box .via-saving,
-  .output .box .via-loan {
-    display:table-cell;
-    margin-bottom:0;
-  }
-  .output .box .via-loan .wrap {
-    margin:0 15px;
-  }
-  .output .extra {
-    display:table-cell;
-    vertical-align:middle;
-  }
-  .share-box {
-    margin-top: 0;
-  }
-  .footer > .box {
-    max-width:1100px;
-    padding:0;
-  }
-  .footer .left .pipe {
-    margin:0 10px;
-  }
 }
 
 /*------------------------------------------ Footer ------------------------------------------*/
@@ -919,7 +853,9 @@ body.render svg {
 .popup .window a:lang(en) {
   font:16px 'opensans-b', 'sans-serif';
 }
-
+.popup .window a.source {
+  font-size:12px;
+}
 .popup .window .header {
   background:transparent url(../images/methodology.jpg) center top;
   height: 186px;
@@ -1051,4 +987,87 @@ a.at-svc-compact { background: #64cc7f !important; }
 .dropdown .dropdown-menu .selected a {
   color:#ff6043;
   background-color:#a6eded;
+}
+
+/*------------------------------------------ @media ------------------------------------------*/
+@media (min-width: 768px) {
+  .map .charts {
+    position:relative;
+  }
+  .map .tbilisi {
+    position:absolute;
+    bottom:0px;
+    left:60px;
+  }
+
+}
+@media (min-width: 1100px) {
+  .poster .sky {
+    background: url(../images/poster/sun.svg) no-repeat top right,
+                url(../images/poster/bg.jpg) repeat-x center left/369px 369px;
+  }
+  .filters .field {
+    width:50%;
+    margin:0 0 0 0;
+  }
+  .filters .field:not(:first-child) label {
+    padding-left: 40px;
+  }
+  .charts {
+    display:table;
+  }
+  .charts .map,
+  .charts .bar {
+    display:inline-block;
+    vertical-align:top;
+  }
+  .charts .bar {
+    margin:0;
+  }
+  .page {
+    max-width:1100px;
+    padding:0;
+  }
+  .cell {
+    display:table-cell;
+  }
+  .page > .box > .cell.right {
+    min-width: 380;
+  }
+  .page .header .lang {
+    min-width: 200px;
+  }
+  .output {
+    margin-top:13px;
+  }
+  .output .box .via-saving,
+  .output .box .via-loan {
+    display:table-cell;
+    margin-bottom:0;
+  }
+  .output .box .via-saving {
+    width:auto;
+  }
+  .output .box .via-loan {
+    width:100%;
+  }
+  .output .box .via-loan .wrap {
+    margin:0 15px;
+    width:auto;
+  }
+  .output .extra {
+    display:table-cell;
+    vertical-align:middle;
+    min-width: 200px;
+  }
+  .share-box {
+    margin-top: 0;
+  }
+  .footer > .box {
+    max-width:1100px;
+    padding:0;
+  }
+  .footer .left .pipe {
+    margin:0 10px;
+  }
 }

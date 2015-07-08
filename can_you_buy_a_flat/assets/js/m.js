@@ -65,6 +65,7 @@
       w: 0,
       h: 310,
       center: [42.35, 42.35],
+      center_small: [43.5, 42.35],
       scaler:  d3.scale.linear().domain([760, 1100]).range([4500, 6600]),
       scaler_h: d3.scale.linear().domain([760, 1100]).range([320, 480])
 
@@ -173,8 +174,8 @@
 
     map.geo.h = map.geo.scaler_h(map.geo.w);
 
-    map.tbi.w = map.tbi.scaler_w(map.geo.w);
-    map.tbi.h =map.tbi.scaler_h(map.geo.w);;
+    map.tbi.w = map.geo.w < 768 ? 280 : map.tbi.scaler_w(map.geo.w);
+    map.tbi.h = map.geo.w < 768 ? 220 : map.tbi.scaler_h(map.geo.w);;
 
     bar.w = w < 1100 ? w - 40 : 340;
     var padding = d3.scale.linear().domain([340, 1100]).range([2, 20]);
@@ -237,9 +238,10 @@
 
     out.select(".city").html(I18n.t("data-I18n-areas-" + current_id)).style("color", current_color);
     var amount1 = user.m2 * month_amount;
-    out.select(".via-saving .amount").text(u.zero(u.reformat(amount1, 0))).classed("symbol", hl[0].d !== 0);
-    out.select(".via-saving .years").text(u.zero(hl[0].t[0])).style("color", current_color);
-    out.select(".via-saving .months").text(u.zero(hl[0].t[1])).style("color", current_color);
+    var saving = out.select(".via-saving");
+    saving.select(".amount").text(u.zero(u.reformat(amount1, 0))).classed("symbol", hl[0].d !== 0);
+    saving.select(".years").text(u.zero(hl[0].t[0])).style("color", current_color);
+    saving.select(".months").text(u.zero(hl[0].t[1])).style("color", current_color);
 
     var loan = out.select(".via-loan");
     var amount2 = hl[1].m * user.savings;
@@ -247,23 +249,35 @@
     loan.select(".diff-box .amount").text(u.zero(u.reformat(amount2 - amount1, 0))).classed("symbol", hl[1].d !== 0);
     loan.select(".years").text(u.zero(hl[1].t[0]));
     loan.select(".months").text(u.zero(hl[1].t[1]));
-    loan.classed("hide1 hide2", false);
+    loan.classed("hide1 hide2 hide3", false);
+    saving.classed("hide3", false);
     var state = 0;
     var state_class = "";
-    if(hl[1].m === 0) {
+    console.log(current_id, (disabled_area.indexOf(current_id) === -1));
+    if(disabled_area.indexOf(current_id) !== -1) {
+        state = 3;
+        state_class = "hide3";
+        saving.classed("hide3", true);
+    }
+    else if(hl[1].m === 0) {
       state = 2;
       state_class = "hide2";
     }
-    else if(hl[1].m > 60) {
+    else if(hl[1].m > 180) {
       state = 1;
       state_class = "hide1";
     }
+    saving.selectAll(".first").each(function(){
+        var t = d3.select(this);
+        t.html(state !== 3 ? t.attr("data-state-0") : ("<br />" + t.attr("data-state-3")));
+    });
+
     loan.selectAll("[data-state-" + state + "]").each(function(){
         var t = d3.select(this);
         t.html(t.attr("data-state-" + state));
     });
     loan.classed(state_class, true);
-    loan.select(".bank").classed("bank0 bank1 bank2", false).classed("bank" + state, true);
+    loan.select(".bank").classed("bank0 bank1 bank2 bank3", false).classed("bank" + state, true);
 
     d3.selectAll(".map .area").each(function(d) {
       var tmp_id = d.properties.OBJECTID,
@@ -319,7 +333,7 @@
     map.geo.proj = d3.geo.mercator()
         .scale(map.geo.scaler(map.geo.w))
         .translate([map.geo.w / 2, (map.geo.h-20) / 2])
-        .center(map.geo.center);
+        .center(map.geo.w < 768 ? map.geo.center_small : map.geo.center);
 
     var path = d3.geo.path()
         .projection(map.geo.proj);
@@ -339,7 +353,7 @@
       .attr("height", map.tbi.h);
 
     map.tbi.proj = d3.geo.mercator()
-        .scale(map.tbi.scaler(map.geo.w))
+        .scale(map.geo.w < 768 ? 33000 : map.tbi.scaler(map.geo.w))
         .translate([map.tbi.w / 2, (map.tbi.h) / 2])
         .center(map.tbi.center);
 
@@ -359,7 +373,6 @@
     bar.svg.attr("width", bar.w)
       .attr("height", bar.h);
     var maxPoint = areas_year_calc();
-
     var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]);
     var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
     var label1 = bar.svg.select('.y-axis .label1').text(maxPoint);
@@ -504,8 +517,8 @@
           content = popup.select(".window .content"),
           open = popup.classed("open");
 
-      content.style({ "width": (w > 670 ? 670 : w) + "px",
-                      "height": (h > 760 ? 760-200 : h-200) + "px" });
+      content.style({ "width": (w > 670 ? 670 : w-20) + "px",
+                      "height": (h > 760 ? 760-200 : h-200-20) + "px" });
       d3.select('body').classed('noscroll', !open);
       popup.classed("open", !open);
     });
@@ -560,16 +573,22 @@
       pips: {
         mode: "count",
         values: 2,
-        density: 100
+        density: 100,
+        format: {
+          to: function ( value ) {
+    		      return u.reformat(value,0);
+	        },
+  	      from: function ( value ) {
+  		      return value.replace(',', '');
+    	    }
+        }
       }
     });
     var savingsSliderValue = document.getElementById("savings_slider_value");
     savingsSlider.noUiSlider.on("update", function( values, handle ) {
       var tmp = Math.round(values[handle]);
       user.savings = tmp;
-      savingsSliderValue.innerHTML = tmp + "&#8382;"; filter(); });
-
-
+      savingsSliderValue.innerHTML = u.reformat(tmp, 0) + "&#8382;"; filter(); });
 
 
     loader_stop();

@@ -62,7 +62,7 @@ var u = (function () {
     return result;
   };
   obj.zero = function(v) {
-    return v === 0 ? "--" : v;
+    return v === 0 ? "0" : v;
   };
   obj.reformat = function(n, s) {
     s = typeof s === "number" ? s : 2;
