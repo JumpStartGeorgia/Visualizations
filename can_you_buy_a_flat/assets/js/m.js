@@ -244,7 +244,8 @@
     saving.select(".years").text(u.zero(hl[0].t[0])).style("color", current_color);
     saving.select(".months").text(u.zero(hl[0].t[1])).style("color", current_color);
     if(!hover) {
-      d3.select(".addthis_sharing_toolbox.my").attr("data-url", I18n.t("share_url") + "m=" + hl[0].m + "&sqm=" + user.m2 + "&area=" + current_id);
+      d3.select(".addthis_sharing_toolbox.my").attr("data-title", "blah blah");
+      //.attr("data-url", I18n.t("share_url") + "m=" + hl[0].m + "&sqm=" + user.m2 + "&area=" + current_id);
     }
     var loan = out.select(".via-loan");
     var amount2 = hl[1].m * user.savings;
