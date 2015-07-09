@@ -16,7 +16,7 @@ function getFullUrl() {
   $i18n = array(
     "en" => array(
       "title" => "Can you buy a flat?",
-      "description" => "It will take me X1 year(s) and X2 month(s) to buy X3 m² apartment in X4.",
+      "description" => "It will take me X1 year(s) and X2 month(s) to buy X3 m² apartment in X4. What about you?",
       "areas" => array(
         "65" => "Tbilisi",
         "23" => "Batumi",
@@ -41,7 +41,7 @@ function getFullUrl() {
     ),
     "ka" => array(
       "title" => "იყიდი ბინას?",
-      "description" => "მე დამჭირდება X1 წელი და X2 თვე X3 მ2 ბინის შესაძენად X4",
+      "description" => "მე დამჭირდება X1 წელი და X2 თვე X3 მ2 ბინის შესაძენად X4.",
       "areas" => array(
           "65" => "თბილისში",
           "23" => "ბათუმში",
@@ -69,10 +69,10 @@ function getFullUrl() {
   $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
 
-  $file = 'log.txt';
-  $fh = fopen($file, 'a');
-fwrite($fh, $user_agent);
-fclose($fh);
+  // $file = 'log.txt';
+  // $fh = fopen($file, 'a');
+  // fwrite($fh, $user_agent);
+  // fclose($fh);
 
 
   $locale = isset($_GET["locale"]) && ($_GET["locale"] == "en" || $_GET["locale"] == "ka") ? htmlspecialchars($_GET["locale"]) : "ka";
@@ -97,7 +97,7 @@ fclose($fh);
      <meta property="og:title"content="<?php echo $i18n[$locale]["title"]; ?>" />
      <meta property="og:site_name" content="<?php echo $i18n[$locale]["title"]; ?>" />
      <meta property="og:description" content="<?php echo $descr; ?>" />
-     <meta property="og:image" content="<?php echo getUrl() . "assets/images/fb_" . $locale . ".png"; ?>" />
+     <meta property="og:image" content="<?php echo getUrl() . "assets/images/methodology.jpg"; ?>" />
      <meta property="og:type" content="website">
      <meta property="og:url" content="<?php echo getFullUrl(); ?>" />
      <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
