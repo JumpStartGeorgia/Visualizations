@@ -934,7 +934,7 @@ a.at-svc-compact { background: #64cc7f !important; }
 }
 .at_flat_counter {
   height: 32px !important;
-  padding: 0 12px !important;
+  padding: 9px 12px 0 !important;
   line-height: 37px !important;
   margin: 0 2px 0 -4px !important;
   color:#fff !important;

@@ -99,7 +99,7 @@ fclose($fh);
      <meta property="og:description" content="<?php echo $descr; ?>" />
      <meta property="og:image" content="<?php echo getUrl() . "assets/images/fb_" . $locale . ".png"; ?>" />
      <meta property="og:type" content="website">
-     <meta property="og:url" content="<?php echo getUrl(); ?>" />
+     <meta property="og:url" content="<?php echo getFullUrl(); ?>" />
      <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
    </head>
    <body>
