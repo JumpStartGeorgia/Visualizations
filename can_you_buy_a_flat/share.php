@@ -1,5 +1,11 @@
 <?php
 
+function getFullUrl() {
+  $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
+  $url .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
+  $url .= $_SERVER['REQUEST_URI'];
+  return $url;
+}
   function getUrl() {
     $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
     $url .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
@@ -63,7 +69,7 @@
   $user_agent = $_SERVER['HTTP_USER_AGENT'];
   $locale = isset($_GET["locale"]) && ($_GET["locale"] == "en" || $_GET["locale"] == "ka") ? htmlspecialchars($_GET["locale"]) : "ka";
 
-  if(true || (strpos($user_agent, "facebook") && strpos($user_agent, "externalhit"))) {// if facebook robot
+  if((strpos($user_agent, "facebook") && strpos($user_agent, "externalhit"))) {// if facebook robot
     if(isset($_GET["m"]) && isset($_GET["sqm"]) && isset($_GET["area"])) {
       $months = htmlspecialchars($_GET["m"]);
       $sqm = htmlspecialchars($_GET["sqm"]); // square meters
