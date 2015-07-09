@@ -67,6 +67,17 @@ function getFullUrl() {
   );
 
   $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+
+  $file = 'log.txt';
+  // Open the file to get existing content
+  $current = file_get_contents($file);
+  // Append a new person to the file
+  $current .=   $user_agent . "\n";
+  // Write the contents back to the file
+  file_put_contents($file, $current);
+
+
   $locale = isset($_GET["locale"]) && ($_GET["locale"] == "en" || $_GET["locale"] == "ka") ? htmlspecialchars($_GET["locale"]) : "ka";
 
   if((strpos($user_agent, "facebook") && strpos($user_agent, "externalhit"))) {// if facebook robot
@@ -108,12 +119,12 @@ function getFullUrl() {
 <?php
     }
     else {
-      header("Location: " . getUrl() . $locale);
+      header("Location: " . getUrl() . $locale . "/");
       die();
     }
   }
   else {
-    header("Location: " . getUrl() . $locale);
+    header("Location: " . getUrl() . $locale . "/");
     die();
   }
 ?>
