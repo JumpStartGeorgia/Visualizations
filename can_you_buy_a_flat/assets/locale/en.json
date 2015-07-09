@@ -1,8 +1,9 @@
 en =
 {
   "url": "http://dev-visuals.jumpstart.ge/can_you_buy_a_flat/en/",
+  "share_url": "http://dev-visuals.jumpstart.ge/can_you_buy_a_flat/share.php?locale=en&",
   "lang": "ქართული",
-  "lang_href": "en/",
+  "lang_href": "http://dev-visuals.jumpstart.ge/can_you_buy_a_flat/ka/",
   "lang_abbr": "ka",
   "fb": "http://dev-visuals.jumpstart.ge/can_you_buy_a_flat/assets/images/fb_en.png",
   "site_name": "Can you buy a flat?",
