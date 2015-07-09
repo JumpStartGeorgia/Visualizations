@@ -76,8 +76,8 @@ fclose($fh);
 
 
   $locale = isset($_GET["locale"]) && ($_GET["locale"] == "en" || $_GET["locale"] == "ka") ? htmlspecialchars($_GET["locale"]) : "ka";
-
-  if((strpos($user_agent, "facebook") && strpos($user_agent, "externalhit"))) {// if facebook robot
+  //$user_agent = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)";
+  if((strpos($user_agent, "facebookexternalhit") >= 0 )) {// if facebook robot facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)
     if(isset($_GET["m"]) && isset($_GET["sqm"]) && isset($_GET["area"])) {
       $months = htmlspecialchars($_GET["m"]);
       $sqm = htmlspecialchars($_GET["sqm"]); // square meters
