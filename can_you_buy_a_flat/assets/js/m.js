@@ -1,4 +1,4 @@
-/*global document, window, d3, topojson, u, I18n, queue, noUiSlider, self, setTimeout*/
+/*global document, window, d3, topojson, u, I18n, queue, noUiSlider, self, setTimeout, bowser*/
 /*eslint camelcase: 0*/
 (function () {
   "use strict";
@@ -7,11 +7,11 @@
   w = u.width(),
   h = u.height(),
   bar = {
-    svg:null,
-    svg_g:null,
-    w:  w < 1100 ? w - 40 : 340,
-    h: 340,
-    gap: 50, // space betweet georgia and tbilisi bar chart
+    svg: null,
+    svg_g: null,
+    w: w < 1100 ? w - 40 : 340,
+    h: 360,
+    gap: 30, // space betweet georgia and tbilisi bar chart
     x_h: 140,
     y_w: 40,
     caption_h: 30,
@@ -20,19 +20,19 @@
       right: 0,
       bottom: 0,
       left: 0,
-      w:0,
-      h:0
+      w: 0,
+      h: 0
     },
     canvas: {
       w: 0,
       fw: 0, // full width
       h: 0,
-      fh:0, // full height with margins
+      fh: 0, // full height with margins
       margin: [10, 10, 10, 10],
       x: 0,
       y: 0,
-      x1:0,
-      y1:0
+      x1: 0,
+      y1: 0
     },
     node: {
       padding: [0, 2, 0, 0],
@@ -66,7 +66,7 @@
       h: 310,
       center: [42.35, 42.35],
       center_small: [43.5, 42.35],
-      scaler:  d3.scale.linear().domain([760, 1100]).range([4500, 6600]),
+      scaler: d3.scale.linear().domain([760, 1100]).range([4500, 6600]),
       scaler_h: d3.scale.linear().domain([760, 1100]).range([320, 480])
 
     },
@@ -76,7 +76,7 @@
       w: 0,
       h: 0,
       center: [44.81, 41.73],
-      scaler:  d3.scale.linear().domain([760, 1100]).range([23500, 33000]),
+      scaler: d3.scale.linear().domain([760, 1100]).range([24000, 33000]),
       scaler_w: d3.scale.linear().domain([760, 1100]).range([190, 280]),
       scaler_h: d3.scale.linear().domain([760, 1100]).range([170, 220])
     }
@@ -166,6 +166,164 @@
               }
             ];
   },
+  areas_year_calc = function() {
+    var max = 0;
+    entries.forEach(function(d){
+      var tmp = areas[d],
+          hl = how_long(tmp[0]);
+      tmp[1] = hl[0].d;
+      tmp[2] = hl[1].d;
+      if (max < tmp[1]) {
+        max = tmp[1];
+      }
+      if (max < tmp[2]) {
+        max = tmp[2];
+      }
+    });
+    return Math.ceil(max) + 3;
+  },
+  draw_map = function() {
+
+    // drawing georgia map
+    map.geo.svg
+      .attr("width", map.geo.w)
+      .attr("height", map.geo.h);
+
+    map.geo.proj = d3.geo.mercator()
+        .scale(map.geo.scaler(map.geo.w))
+        .translate([map.geo.w / 2, (map.geo.h - 20) / 2])
+        .center(w < 768 ? map.geo.center_small : map.geo.center);
+
+    var path = d3.geo.path()
+        .projection(map.geo.proj);
+
+    map.geo.svg.selectAll(".area").attr("d", path);
+    map.geo.svg.select(".place").attr("d", path);
+
+    var cap = map.geo.svg.select(".georgia-caption");
+    var cap_box = cap.node().getBBox();
+    cap
+      .attr("x", (map.geo.w - cap_box.width) / 2)
+      .attr("y", map.geo.h - 5);
+
+    // drawing tbilisi map
+    map.tbi.svg
+      .attr("width", map.tbi.w)
+      .attr("height", map.tbi.h);
+
+    map.tbi.proj = d3.geo.mercator()
+        .scale(w < 768 ? 33000 : map.tbi.scaler(map.geo.w))
+        .translate([map.tbi.w / 2, (map.tbi.h) / 2])
+        .center(map.tbi.center);
+
+    path = d3.geo.path()
+        .projection(map.tbi.proj);
+
+    map.tbi.svg.selectAll(".area").attr("d", path);
+
+    cap = map.tbi.svg.select(".tbilisi-caption");
+    cap_box = cap.node().getBBox();
+    cap
+      .attr("x", (map.tbi.w - cap_box.width) / 2)
+      .attr("y", map.tbi.h - 5);
+
+  },
+  draw_bar = function() {
+    bar.svg.attr("width", bar.w)
+      .attr("height", bar.h);
+    var maxPoint = areas_year_calc();
+    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]);
+    var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
+    var label1 = bar.svg.select(".y-axis .label1").text(maxPoint);
+    label1.each(function () {
+      var t = d3.select(this),
+          bbox = t.node().getBBox();
+      t.attr("x", bar.y_w - bbox.width - 10);
+    });
+
+    var axle = bar.svg.select(".axle");
+
+    var xAxis = d3.svg.axis()
+        .scale(d3.scale.identity().domain([0, bar.canvas.fw]))
+        .ticks(0)
+        .outerTickSize(0)
+        .orient("bottom");
+    var yAxis = d3.svg.axis()
+        .scale(d3.scale.identity().domain([0, bar.canvas.fh]))
+        .ticks(0)
+        .outerTickSize(0)
+        .orient("left");
+    axle.select(".x-axis")
+      .attr("transform", "translate(" + bar.y_w + "," + (bar.canvas.fh) + ")")
+      .call(xAxis);
+      axle.select(".y-axis")
+      .attr("transform", "translate(" + bar.y_w + ", 0)")
+      .call(yAxis);
+
+      var xLabels = axle
+        .select(".x-axis .labels")
+          .attr("transform", "translate(" + bar.canvas.margin[3] + "," + 10 + ")").selectAll("text");
+
+      xLabels.each(function (d, i) {
+        var t = d3.select(this),
+            bbox = t.node().getBBox();
+
+        t.attr("x", i * (entry_w + bar.node.horizontal_padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d < 100 ? 1 : 0) )
+          .attr("y", bbox.width / 2);
+        bbox = t.node().getBBox();
+         t.attr("transform", "rotate(-90, " + (bbox.x + bbox.width / 2) + ", " + (bbox.y + bbox.height / 2) + ")");
+      });
+
+      // bars block
+
+    var bars = bar.svg.select(".bars")
+      .attr("transform", "translate(" + bar.canvas.x + "," + bar.canvas.y + ")");
+      //.selectAll(".bar");
+
+
+    bars.selectAll(".bars .bar rect.l").each(function(dd, i){
+      d3.select(this)
+      .attr("class", function(d) { return areas[d][2] === 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
+      .attr("width", entry_w)
+      .attr("height", function(d) {
+        return bar.canvas.h - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : y(maxPoint - areas[d][1]));
+      })
+      .attr("x", function(d) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
+      .attr("y", function(d) { return (areas[d][2] !== 0 ? y(areas[d][2]) : 0); });
+    });
+    bars.selectAll(".bars .bar rect.s").each(function(dd, i){
+      d3.select(this)
+        .attr("class", "s")
+        .style("fill", function(d) { return color_by_year(areas[d][1]); })
+        .attr("width", entry_w)
+        .attr("height", function(d) {
+          return bar.canvas.h - y(areas[d][1]);
+        })
+        .attr("x", function(d) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
+        .attr("y", function(d) { return y(areas[d][1]); });
+      });
+
+
+       var caption = bar.svg.select(".captions .caption.geo");
+
+      var caption_box = caption.node().getBBox();
+
+      caption.attr({"x": bar.canvas.x1 - ((entry_w + bar.node.horizontal_padding) * geoAreas.length) + (((entry_w + bar.node.horizontal_padding) * geoAreas.length) - caption_box.width) / 2, y: (bar.caption_h - caption_box.height) / 2 });
+
+      caption = bar.svg.select(".captions .tbi");
+      caption_box = caption.node().getBBox();
+      caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length) - caption_box.width) / 2, y: (bar.caption_h - caption_box.height) / 2 });
+
+
+      // legend block
+
+
+      bar.svg.select(".legend")
+       .attr("class", "legend")
+       .attr("transform", "translate(" + (bar.w - ((color_step + 3) * 18 + 20)) + ", 0)");
+
+  },
+
   resize = function() {
     w = u.width();
     h = u.height();
@@ -175,7 +333,7 @@
     map.geo.h = map.geo.scaler_h(map.geo.w);
 
     map.tbi.w = map.geo.w < 768 ? 280 : map.tbi.scaler_w(map.geo.w);
-    map.tbi.h = map.geo.w < 768 ? 220 : map.tbi.scaler_h(map.geo.w);;
+    map.tbi.h = map.geo.w < 768 ? 220 : map.tbi.scaler_h(map.geo.w);
 
     bar.w = w < 1100 ? w - 40 : 340;
     var padding = d3.scale.linear().domain([340, 1100]).range([2, 20]);
@@ -185,6 +343,7 @@
     if(inited) {
       draw_bar();
       draw_map();
+      FB.XFBML.parse()
     }
 
     },
@@ -279,7 +438,7 @@
     }
     saving.selectAll(".first").each(function(){
         var t = d3.select(this);
-        t.html(state !== 3 ? t.attr("data-state-0") : ("<br />" + t.attr("data-state-3")));
+        t.html(state !== 3 ? t.attr("data-state-0") : (t.attr("data-state-3")));
     });
 
     loan.selectAll("[data-state-" + state + "]").each(function(){
@@ -317,164 +476,7 @@
       setTimeout(function(){ show(); }, loaderAtLeast - elapsed);
     }
   },
-  areas_year_calc = function() {
-    var max = 0;
-    entries.forEach(function(d){
-      var tmp = areas[d],
-          hl = how_long(tmp[0]);
-      tmp[1] = hl[0].d;
-      tmp[2] = hl[1].d;
-      if (max < tmp[1]) {
-        max = tmp[1];
-      }
-      if (max < tmp[2]) {
-        max = tmp[2];
-      }
-    });
-    return Math.ceil(max) + 3;
-  },
-  draw_map = function() {
 
-    // drawing georgia map
-    map.geo.svg
-      .attr("width", map.geo.w)
-      .attr("height", map.geo.h);
-
-    map.geo.proj = d3.geo.mercator()
-        .scale(map.geo.scaler(map.geo.w))
-        .translate([map.geo.w / 2, (map.geo.h-20) / 2])
-        .center(map.geo.w < 768 ? map.geo.center_small : map.geo.center);
-
-    var path = d3.geo.path()
-        .projection(map.geo.proj);
-
-    map.geo.svg.selectAll('.area').attr('d', path);
-    map.geo.svg.select('.place').attr('d', path);
-
-    var cap = map.geo.svg.select(".georgia-caption");
-    var cap_box = cap.node().getBBox();
-    cap
-      .attr("x", (map.geo.w - cap_box.width) / 2)
-      .attr("y", map.geo.h - 5);
-
-    // drawing tbilisi map
-    map.tbi.svg
-      .attr("width", map.tbi.w)
-      .attr("height", map.tbi.h);
-
-    map.tbi.proj = d3.geo.mercator()
-        .scale(map.geo.w < 768 ? 33000 : map.tbi.scaler(map.geo.w))
-        .translate([map.tbi.w / 2, (map.tbi.h) / 2])
-        .center(map.tbi.center);
-
-    var path = d3.geo.path()
-        .projection(map.tbi.proj);
-
-    map.tbi.svg.selectAll('.area').attr('d', path);
-
-    var cap = map.tbi.svg.select(".tbilisi-caption");
-    var cap_box = cap.node().getBBox();
-    cap
-      .attr("x", (map.tbi.w - cap_box.width) / 2)
-      .attr("y", map.tbi.h - 5);
-
-  },
-  draw_bar = function() {
-    bar.svg.attr("width", bar.w)
-      .attr("height", bar.h);
-    var maxPoint = areas_year_calc();
-    var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]);
-    var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
-    var label1 = bar.svg.select('.y-axis .label1').text(maxPoint);
-    label1.each(function (d, i) {
-      var t = d3.select(this),
-          bbox = t.node().getBBox();
-      t.attr("x", bar.y_w - bbox.width - 10);
-    });
-
-    var axle = bar.svg.select(".axle");
-
-    var xAxis = d3.svg.axis()
-        .scale(d3.scale.identity().domain([0, bar.canvas.fw]))
-        .ticks(0)
-        .outerTickSize(0)
-        .orient("bottom");
-    var yAxis = d3.svg.axis()
-        .scale(d3.scale.identity().domain([0, bar.canvas.fh]))
-        .ticks(0)
-        .outerTickSize(0)
-        .orient("left");
-    axle.select(".x-axis")
-      .attr("transform", "translate(" + bar.y_w + "," + (bar.canvas.fh) + ")")
-      .call(xAxis);
-      axle.select(".y-axis")
-      .attr("transform", "translate(" + bar.y_w + ", 0)")
-      .call(yAxis);
-
-      var xLabels = axle
-        .select('.x-axis .labels')
-          .attr("transform", "translate(" + bar.canvas.margin[3] + "," + 10 + ")").selectAll('text');
-
-      xLabels.each(function (d, i) {
-        var t = d3.select(this),
-            bbox = t.node().getBBox();
-
-        t.attr("x", i * (entry_w + bar.node.horizontal_padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d < 100 ? 1 : 0) )
-          .attr("y", bbox.width / 2);
-        bbox = t.node().getBBox();
-         t.attr("transform", "rotate(-90, " + (bbox.x + bbox.width / 2) + ", " + (bbox.y + bbox.height / 2) + ")");
-      });
-
-      // bars block
-
-    var bars = bar.svg.select(".bars")
-      .attr("transform", "translate(" + bar.canvas.x + "," + bar.canvas.y + ")");
-      //.selectAll(".bar");
-
-
-    bars.selectAll('.bars .bar rect.l').each(function(dd,i){
-      d3.select(this)
-      .attr("class", function(d) { return areas[d][2] == 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
-      .attr("width", entry_w)
-      .attr("height", function(d) {
-        return bar.canvas.h - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : y(maxPoint - areas[d][1]));
-      })
-      .attr("x", function(d) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
-      .attr("y", function(d) { return (areas[d][2] !== 0 ? y(areas[d][2]) : 0); });
-    });
-    bars.selectAll('.bars .bar rect.s').each(function(dd,i){
-      d3.select(this)
-        .attr("class", "s")
-        .style("fill", function(d) { return color_by_year(areas[d][1]); })
-        .attr("width", entry_w)
-        .attr("height", function(d) {
-          return bar.canvas.h - y(areas[d][1]);
-        })
-        .attr("x", function(d) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
-        .attr("y", function(d) { return  y(areas[d][1]); });
-      });
-
-
-       var caption = bar.svg.select('.captions .caption.geo');
-
-      var caption_box = caption.node().getBBox();
-      var cap_h = caption_box.height;
-
-      caption.attr({"x": bar.canvas.x1 - ((entry_w + bar.node.horizontal_padding) * geoAreas.length)+(((entry_w + bar.node.horizontal_padding) *       geoAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  });
-
-      caption = bar.svg.select('.captions .tbi');
-      caption_box = caption.node().getBBox();
-      caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2 });
-
-
-      // legend block
-
-
-      bar.svg.select(".legend")
-       .attr("class", "legend")
-       .attr("transform", "translate(" + (bar.w - ((color_step + 3) * 18 + 20)) + ", 0)");
-
-  },
   filter = function() {
     render(d3.select(".map .georgia path.active").data()[0].properties.OBJECTID, false, false);
     draw_bar();
@@ -526,15 +528,14 @@
       var popup = d3.select(".popup"),
           content = popup.select(".window .content"),
           open = popup.classed("open");
-
-      content.style({ "width": (w > 670 ? 670 : w-20) + "px",
-                      "height": (h > 760 ? 760-200 : h-200-20) + "px" });
-      d3.select('body').classed('noscroll', !open);
+      content.style({ "width": (w > 670 ? 670 : w - 20) + "px",
+                      "height": (h > 760 ? 760 - 200 : h - 200 - 20) + "px" });
+      d3.select("body").classed("noscroll", !open);
       popup.classed("open", !open);
     });
     d3.select("body").on("keydown", function() {
       if(d3.event.keyCode === 27) {
-        d3.select('body').classed('noscroll', false);
+        d3.select("body").classed("noscroll", false);
         d3.select(".popup").classed("open", false);
       }
     });
@@ -585,12 +586,12 @@
         values: 2,
         density: 100,
         format: {
-          to: function ( value ) {
-    		      return u.reformat(value,0);
-	        },
-  	      from: function ( value ) {
-  		      return value.replace(',', '');
-    	    }
+          to: function (value) {
+            return u.reformat(value, 0);
+          },
+          from: function (value) {
+            return value.replace(",", "");
+          }
         }
       }
     });
@@ -620,8 +621,8 @@
 
         map.geo.proj = d3.geo.mercator()
             .scale(map.geo.scaler(map.geo.w))
-            .translate([map.geo.w / 2, (map.geo.h-20) / 2])
-            .center(map.geo.center);
+            .translate([map.geo.w / 2, (map.geo.h - 20) / 2])
+            .center(w < 768 ? map.geo.center_small : map.geo.center);
 
         var path = d3.geo.path()
             .projection(map.geo.proj);
@@ -654,9 +655,10 @@
         // tbilisi map *********************************************************
 
         map.tbi.proj = d3.geo.mercator()
-          .scale(map.tbi.scaler(map.geo.w))
-          .translate([map.tbi.w / 2, (map.tbi.h) / 2])
-          .center(map.tbi.center);
+            .scale(w < 768 ? 33000 : map.tbi.scaler(map.geo.w))
+            .translate([map.tbi.w / 2, (map.tbi.h) / 2])
+            .center(map.tbi.center);
+
         path = d3.geo.path()
           .projection(map.tbi.proj);
 
@@ -671,10 +673,10 @@
 
 
 
-        var cap = map.tbi.svg
+        cap = map.tbi.svg
           .append("text")
           .attr("class", "tbilisi-caption")
-          .text(I18n.t("georgia_capital"))
+          .text(I18n.t("georgia_capital"));
         cap_box = cap.node().getBBox();
         cap
           .attr("x", (map.tbi.w - cap_box.width) / 2)
@@ -691,7 +693,7 @@
         .await(build_maps);
   },
   init_bar = function() {
-    var maxPoint = areas_year_calc();;
+    var maxPoint = areas_year_calc();
 
     var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]); //bar.caption_h + 40
     var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
@@ -739,7 +741,7 @@
       .attr("id", function(d){ return "bar" + d; });
 
     bars.append("rect")
-        .attr("class", function(d) { return areas[d][2] == 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
+        .attr("class", function(d) { return areas[d][2] === 0 ? "reachless l" : (areas[d][2] > 15 ? "beyond l" : "l"); })
         .attr("width", entry_w)
         .attr("height", function(d) {
           return bar.canvas.h - (areas[d][2] !== 0 ? y(areas[d][2] - areas[d][1]) : y(maxPoint - areas[d][1]));
@@ -755,14 +757,14 @@
           return bar.canvas.h - y(areas[d][1]);
         })
         .attr("x", function(d, i) { return i * (entry_w + bar.node.horizontal_padding) + bar.gap * (d < 100 ? 1 : 0); })
-        .attr("y", function(d) { return  y(areas[d][1]); });
+        .attr("y", function(d) { return y(areas[d][1]); });
 
 
         // x-axis labels block
 
       var xLabels = axle
-        .select('.x-axis')
-          .append('g')
+        .select(".x-axis")
+          .append("g")
           .attr("class", "labels")
           .attr("transform", "translate(" + bar.canvas.margin[3] + "," + 10 + ")")
             .selectAll("text")
@@ -785,15 +787,15 @@
 
       // y-axis labels block
       var yLabels = axle
-        .select('.y-axis')
-          .append('g')
+        .select(".y-axis")
+          .append("g")
           .attr("class", "labels")
-          .attr("transform", "translate(" + -1*bar.y_w + ", 0)")
+          .attr("transform", "translate(" + -1 * bar.y_w + ", 0)")
             .selectAll("text")
             .data([0, maxPoint])
             .enter()
             .append("text")
-            .attr('class', function(d,i) { return "label" + i; })
+            .attr("class", function(d, i) { return "label" + i; })
             .text(function(d){ return d; });
       var len = yLabels[0].length;
 
@@ -802,7 +804,7 @@
             bbox = t.node().getBBox();
 
         t.attr("x", bar.y_w - bbox.width - 10)//i * (entry_w + bar.node.horizontal_padding) - (bbox.width / 2 - entry_w / 2) + bar.gap * (d > 100 ? 1 : 0) )
-          .attr("y", bar.canvas.fh - ((bar.canvas.fh / (len - 1)) * i) + (i==0 ? 0 : 1)*bbox.height);
+          .attr("y", bar.canvas.fh - ((bar.canvas.fh / (len - 1)) * i) + (i === 0 ? 0 : 1) * bbox.height);
       });
 
 
@@ -819,9 +821,7 @@
           .text(I18n.t("georgia"));
 
       var caption_box = caption.node().getBBox();
-      var cap_h = caption_box.height;
-      //console.log(bar.canvas.x1 );
-      caption.attr({"x": bar.canvas.x1 - ((entry_w + bar.node.horizontal_padding) * geoAreas.length)+(((entry_w + bar.node.horizontal_padding) * geoAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  }).style("visibility", "visible");
+      caption.attr({"x": bar.canvas.x1 - ((entry_w + bar.node.horizontal_padding) * geoAreas.length) + (((entry_w + bar.node.horizontal_padding) * geoAreas.length) - caption_box.width) / 2, y: (bar.caption_h - caption_box.height) / 2 }).style("visibility", "visible");
 
 
       caption = captions
@@ -830,7 +830,7 @@
           .attr("class", "caption tbi")
           .text(I18n.t("georgia_capital"));
       caption_box = caption.node().getBBox();
-      caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length)-caption_box.width)/2, y: (bar.caption_h - caption_box.height)/2  }).style("visibility", "visible");
+      caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length) - caption_box.width) / 2, y: (bar.caption_h - caption_box.height) / 2 }).style("visibility", "visible");
 
 
 
