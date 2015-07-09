@@ -2,13 +2,11 @@
 
 function getFullUrl() {
   $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
-  //$url .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
   $url .= $_SERVER['REQUEST_URI'];
   return $url;
 }
   function getUrl() {
     $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
-//    $url .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
     $current_url = explode("?", $_SERVER['REQUEST_URI']);
     $url .= $current_url[0];
     return str_replace("share.php", "", $url);
@@ -41,7 +39,7 @@ function getFullUrl() {
     ),
     "ka" => array(
       "title" => "იყიდი ბინას?",
-      "description" => "მე დამჭირდება X1 წელი და X2 თვე X3 მ2 ბინის შესაძენად X4.",
+      "description" => "მე დამჭირდება X1 წელი და X2 თვე X3 მ2 ბინის შესაძენად X4. შენ რამდენი ხანი დაგჭირდება?",
       "areas" => array(
           "65" => "თბილისში",
           "23" => "ბათუმში",
@@ -68,12 +66,10 @@ function getFullUrl() {
 
   $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
-
   // $file = 'log.txt';
   // $fh = fopen($file, 'a');
   // fwrite($fh, $user_agent);
   // fclose($fh);
-
 
   $locale = isset($_GET["locale"]) && ($_GET["locale"] == "en" || $_GET["locale"] == "ka") ? htmlspecialchars($_GET["locale"]) : "ka";
   //$user_agent = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)";
@@ -94,10 +90,10 @@ function getFullUrl() {
    <head>
      <meta charset="utf-8">
      <title><?php echo $i18n[$locale]["title"]; ?></title>
-     <meta property="og:title"content="<?php echo $i18n[$locale]["title"]; ?>" />
+     <meta property="og:title"content="<?php echo $descr; ?>" />
      <meta property="og:site_name" content="<?php echo $i18n[$locale]["title"]; ?>" />
-     <meta property="og:description" content="<?php echo $descr; ?>" />
-     <meta property="og:image" content="<?php echo getUrl() . "assets/images/methodology.jpg"; ?>" />
+     <meta property="og:description" content="" />
+     <meta property="og:image" content="<?php echo getUrl() . "assets/images/fb_" . $locale . ".png"; ?>" />
      <meta property="og:type" content="website">
      <meta property="og:url" content="<?php echo getFullUrl(); ?>" />
      <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">

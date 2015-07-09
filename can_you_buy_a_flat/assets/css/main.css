@@ -316,7 +316,7 @@ a, a:hover, a:focus {
   display:table-cell;
   font:15px 'dejavu-neue', 'sans-serif';
   color:#314451;
-  padding:0 10px 0 0;
+  padding:0 17px 0 0;
   white-space:nowrap;
 }
 .filters .field label:lang(en) {
@@ -475,19 +475,11 @@ body.render svg {
   font:16px/31px 'opensans-l', 'sans-serif';
 }
 .output .phrase {
-  font:15px 'dejavu-neue-b', 'sans-serif';
+  font:15px 'dejavu-neue', 'sans-serif';
   color:#314451;
 }
 .output .phrase:lang(en) {
   font:14px 'opensans-i', 'sans-serif';
-}
-.output .phrase.light {
-  font:15px 'dejavu-neue', 'sans-serif';
-  color:#314451;
-}
-.output .phrase.light:lang(en) {
-  font:14px 'opensans-sb-i', 'sans-serif';
-
 }
 .output .phrase.right {
   text-align:right;
@@ -496,7 +488,7 @@ body.render svg {
   color:#e35641;
 }
 .output .phrase.first {
-  padding:0 149px 0 0;
+  padding:0 159px 0 0;
 }
 
 .output .box .via-loan .wrap {
@@ -508,8 +500,7 @@ body.render svg {
   background-color:#a6eded;
   padding: 15px 20px 15px;
   border-radius:3px;
-  height:295px;
-  max-height:295px;
+  min-height:295px;
   min-width:330px;
   vertical-align:top;
   margin-bottom:20px;

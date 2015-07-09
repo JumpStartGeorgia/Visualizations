@@ -244,7 +244,15 @@
     saving.select(".years").text(u.zero(hl[0].t[0])).style("color", current_color);
     saving.select(".months").text(u.zero(hl[0].t[1])).style("color", current_color);
     if(!hover) {
-      d3.select(".addthis_sharing_toolbox.my").attr("data-url", I18n.t("share_url") + "m=" + hl[0].m + "&sqm=" + user.m2 + "&area=" + current_id);
+      d3.select(".addthis_sharing_toolbox.my")
+        .attr("data-url", I18n.t("share_url") + "m=" + hl[0].m + "&sqm=" + user.m2 + "&area=" + current_id)
+        .attr("data-title", I18n.t("share_result")
+        .replace("X1", u.zero(hl[0].t[0]))
+        .replace("X2", u.zero(hl[0].t[1]))
+        .replace("X3", user.m2)
+        .replace("X4", I18n.t("share_areas-" + current_id))
+      );
+
     }
     var loan = out.select(".via-loan");
     var amount2 = hl[1].m * user.savings;
@@ -526,8 +534,8 @@
     });
     d3.select("body").on("keydown", function() {
       if(d3.event.keyCode === 27) {
+        d3.select('body').classed('noscroll', false);
         d3.select(".popup").classed("open", false);
-        //d3.selectAll(".dropdown.open").classed("open", false);
       }
     });
     d3.select(".poster .switch").on("click", function() {
