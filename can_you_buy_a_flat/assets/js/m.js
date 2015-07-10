@@ -942,7 +942,6 @@
         .attr("y", bar.h - 16)
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
-
   },
   init_currency = function() {
 

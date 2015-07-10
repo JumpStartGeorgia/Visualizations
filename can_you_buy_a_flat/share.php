@@ -14,7 +14,7 @@ function getFullUrl() {
   $i18n = array(
     "en" => array(
       "title" => "Can you buy a flat?",
-      "description" => "It will take me X1 year(s) and X2 month(s) to buy X3 m² apartment in X4. What about you?",
+      "description" => "It will take me X1 year(s) and X2 month(s) to buy X3 m² flat in X4. What about you?",
       "areas" => array(
         "65" => "Tbilisi",
         "23" => "Batumi",
@@ -39,7 +39,7 @@ function getFullUrl() {
     ),
     "ka" => array(
       "title" => "იყიდი ბინას?",
-      "description" => "მე დამჭირდება X1 წელი და X2 თვე X3 მ2 ბინის შესაძენად X4. შენ რამდენი ხანი დაგჭირდება?",
+      "description" => "მე დამჭირდება X1 წელი და X2 თვე X3 მ² ბინის შესაძენად X4. შენ რამდენი ხანი დაგჭირდება?",
       "areas" => array(
           "65" => "თბილისში",
           "23" => "ბათუმში",
