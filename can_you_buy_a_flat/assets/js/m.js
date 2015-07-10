@@ -482,7 +482,6 @@
   },
 
   filter = function() {
-    console.log(user);
     render(d3.select(".map .georgia path.active").data()[0].properties.OBJECTID, false, false);
     draw_bar();
   },
