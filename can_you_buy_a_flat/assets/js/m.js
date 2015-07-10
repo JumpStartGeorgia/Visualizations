@@ -1,4 +1,4 @@
-/*global document, window, d3, topojson, u, I18n, queue, noUiSlider, self, setTimeout, bowser*/
+/*global document, window, d3, topojson, u, I18n, queue, noUiSlider, self, setTimeout, bowser, FB*/
 /*eslint camelcase: 0*/
 (function () {
   "use strict";
@@ -66,7 +66,7 @@
       h: 310,
       center: [42.35, 42.35],
       center_small: [43.5, 42.35],
-      scaler: d3.scale.linear().domain([760, 1100]).range([4500, 6600]),
+      scaler: d3.scale.linear().domain([380, 1100]).range([2600, 6600]),
       scaler_h: d3.scale.linear().domain([760, 1100]).range([320, 480])
 
     },
@@ -325,12 +325,14 @@
   },
 
   resize = function() {
+    var p_w = w;
+
     w = u.width();
     h = u.height();
 
     map.geo.w = w < 1100 ? w - 40 : 760;
 
-    map.geo.h = map.geo.scaler_h(map.geo.w);
+    map.geo.h = map.geo.scaler_h(map.geo.w < 760 ? 760 : map.geo.w);
 
     map.tbi.w = map.geo.w < 768 ? 280 : map.tbi.scaler_w(map.geo.w);
     map.tbi.h = map.geo.w < 768 ? 220 : map.tbi.scaler_h(map.geo.w);
@@ -343,7 +345,9 @@
     if(inited) {
       draw_bar();
       draw_map();
-      FB.XFBML.parse()
+      if(w !== p_w) {
+        FB.XFBML.parse();
+      }
     }
 
     },
@@ -399,7 +403,7 @@
     out.select(".city").html(I18n.t("data-I18n-areas-" + current_id)).style("color", current_color);
     var amount1 = user.m2 * month_amount;
     var saving = out.select(".via-saving");
-    saving.select(".amount").text(u.zero(u.reformat(amount1, 0))).classed("symbol", hl[0].d !== 0);
+    saving.select(".amount").html(u.zero(u.reformat(amount1, 0)) + "&#8382;").classed("symbol", hl[0].d !== 0);
     saving.select(".years").text(u.zero(hl[0].t[0])).style("color", current_color);
     saving.select(".months").text(u.zero(hl[0].t[1])).style("color", current_color);
     if(!hover) {
@@ -415,8 +419,8 @@
     }
     var loan = out.select(".via-loan");
     var amount2 = hl[1].m * user.savings;
-    loan.select(".amount-box .amount").text(u.zero(u.reformat(amount2, 0))).classed("symbol", hl[1].d !== 0);
-    loan.select(".diff-box .amount").text(u.zero(u.reformat(amount2 - amount1, 0))).classed("symbol", hl[1].d !== 0);
+    loan.select(".amount-box .amount").html(u.zero(u.reformat(amount2, 0)) + "&#8382;").classed("symbol", hl[1].d !== 0);
+    loan.select(".diff-box .amount").html(u.zero(u.reformat(amount2 - amount1, 0)) + "&#8382;").classed("symbol", hl[1].d !== 0);
     loan.select(".years").text(u.zero(hl[1].t[0]));
     loan.select(".months").text(u.zero(hl[1].t[1]));
     loan.classed("hide1 hide2 hide3", false);
@@ -483,34 +487,41 @@
   },
   bind = function() {
     d3.select(window).on("resize", resize);
+    var click = "click";
+    if(document.hasOwnProperty("ontouchstart")) {
+      click = "touchstart";
+    }
 
-    d3.selectAll(".map .area:not(.disabled)").on("click", function(){
+    d3.selectAll(".map .area:not(.disabled)").on(click, function(){
       render(d3.select(this).data()[0].properties.OBJECTID, true, false);
     });
 
-
-    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("click", function(d){
+    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on(click, function(d){
       render(d, true, false);
     });
 
-    d3.selectAll(".map .area").on("mouseover", function(d) {
-      render(d.properties.OBJECTID, true, true);
-    });
+    if(!document.hasOwnProperty("ontouchstart")) {
+      d3.selectAll(".map .area").on("mouseover", function(d) {
+        render(d.properties.OBJECTID, true, true);
+        d3.event.preventDefault();
+      });
 
-    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("mouseover", function(d){
-      render(d, true, true);
-    });
+      d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("mouseover", function(d){
+        render(d, true, true);
+      });
 
-    d3.selectAll(".map .area").on("mouseout", function() {
-      render(d3.select(".map path.active").data()[0].properties.OBJECTID, true, false);
-    });
+      d3.selectAll(".map .area").on("mouseout", function() {
+        render(d3.select(".map path.active").data()[0].properties.OBJECTID, true, false);
+        d3.event.preventDefault();
+      });
 
-    d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("mouseout", function(){
-      render(d3.select(".map path.active").data()[0].properties.OBJECTID, true, false);
-    });
+      d3.selectAll(".bar-georgia .bar, .bar-georgia .x-axis .labels text").on("mouseout", function(){
+        render(d3.select(".map path.active").data()[0].properties.OBJECTID, true, false);
+      });
+    }
 
     d3.selectAll(".map path#area" + default_area).each(function(d, i) {
-        d3.select(this).on("click").apply(this, [d, i]);
+        d3.select(this).on(click).apply(this, [d, i]);
     });
 
     // var tip = d3.tip()
@@ -643,9 +654,8 @@
           .text(I18n.t("georgia")),
         cap_box = cap.node().getBBox();
         cap
-          .attr("x", (map.geo.w + cap_box.width) / 2)
+          .attr("x", (map.geo.w - cap_box.width) / 2)
           .attr("y", map.geo.h - 5);
-
 
         map.geo.svg.append("path")
           .datum(topojson.feature(geo_areas, geo_areas.objects.cities))

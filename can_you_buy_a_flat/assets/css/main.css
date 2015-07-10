@@ -5,13 +5,14 @@
   position:fixed;
   top:0;
   left:0;
+  z-index:4;
 }
 .loader:lang(ka) {
-  background: url(../images/plane_ka.gif) no-repeat center,
+  background: url(../images/plane_ka.gif) no-repeat center/contain,
               url(../images/poster/bg.jpg) repeat;
 }
 .loader:lang(en) {
-  background: url(../images/plane_en.gif) no-repeat center,
+  background: url(../images/plane_en.gif) no-repeat center/contain,
               url(../images/poster/bg.jpg) repeat;
 }
 @font-face {
@@ -84,7 +85,7 @@ a, a:hover, a:focus {
 @media only screen and (min-width : 320px) {
   html
   {
-    font-size:8px;
+    font-size:14px;
   }
 }
 
@@ -92,7 +93,7 @@ a, a:hover, a:focus {
 @media only screen and (min-width : 480px) {
   html
   {
-    font-size:10px;
+    font-size:14px;
   }
 }
 
@@ -100,7 +101,7 @@ a, a:hover, a:focus {
 @media only screen and (min-width : 768px) {
   html
   {
-    font-size:12px;
+    font-size:16px;
   }
 }
 
@@ -108,7 +109,7 @@ a, a:hover, a:focus {
 @media only screen and (min-width : 992px) {
   html
   {
-    font-size:14px;
+    font-size:16px;
   }
 }
 
@@ -200,12 +201,10 @@ a, a:hover, a:focus {
   -webkit-animation: animate_bg 180s linear infinite;
 }
 .poster .plane:lang(ka) {
-  background:transparent url(../images/plane_ka.gif) no-repeat center;
-  background-position: 24% 40px;
+  background:transparent url(../images/plane_ka.gif) no-repeat 24% 40px/contain;
 }
 .poster .plane:lang(en) {
-  background:transparent url(../images/plane_en.gif) no-repeat center;
-  background-position: 24% 40px;
+  background:transparent url(../images/plane_en.gif) no-repeat 24% 40px/contain;
 }
 .poster.paused .bg {
   -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
@@ -213,8 +212,7 @@ a, a:hover, a:focus {
    animation-play-state: paused;
 }
 .poster.paused .plane:lang(ka) {
-  background:transparent url(../images/plane_ka.png) no-repeat center;
-  background-position: 25% 40px;
+  background:transparent url(../images/plane_ka.png) no-repeat 24% 40px/contain;
   -webkit-transition: all 3s ease-in;
   -moz-transition: all 3s ease-in;
    -ms-transition: all 3s ease-in;
@@ -222,8 +220,7 @@ a, a:hover, a:focus {
    transition: all 3s ease-in;
 }
 .poster.paused .plane:lang(en) {
-  background:transparent url(../images/plane_en.png) no-repeat center;
-  background-position: 24% 40px;
+  background:transparent url(../images/plane_en.png) no-repeat 24% 40px/contain;
   -webkit-transition: all 3s ease-in;
   -moz-transition: all 3s ease-in;
    -ms-transition: all 3s ease-in;
@@ -270,7 +267,7 @@ a, a:hover, a:focus {
   display:inline-block;
   vertical-align:top;
   width:100%;
-  font:17px 'dejavu-neue', 'sans-serif';
+  font:16px 'dejavu-neue', 'sans-serif';
   color:#314451;
   white-space: normal;
   vertical-align: top;
@@ -488,12 +485,12 @@ body.render .charts .bar svg {
   font:16px/31px 'opensans-l', 'sans-serif';
 }
 .output .phrase {
-  font:15px 'dejavu-neue', 'sans-serif';
+  font:0.938em 'dejavu-neue', 'sans-serif';
   line-height:21px;
   color:#314451;
 }
 .output .phrase:lang(en) {
-  font:14px 'opensans-i', 'sans-serif';
+  font:0.875em 'opensans-i', 'sans-serif';
   line-height:normal;
 }
 .output .phrase.right {
@@ -511,18 +508,13 @@ body.render .charts .bar svg {
 }
 .output .box .via-saving,
 .output .box .via-loan .wrap {
-
   background-color:#a6eded;
   padding: 15px 20px 15px;
   border-radius:3px;
   min-height:300px;
-  min-width:330px;
   vertical-align:top;
   margin-bottom:20px;
   width:100%;
-}
-.output .box .via-saving .box-wrapper {
-  width:310px;
 }
 .output .box .amount-box,
 .output .box .diff-box {
@@ -545,31 +537,16 @@ body.render .charts .bar svg {
 }
 .output .box .amount-box label,
 .output .box .diff-box label { display:block; }
-
+.output .box .diff {
+  display:block;
+}
 .output .box .amount-box .amount,
 .output .box .diff-box .amount {
   font:40px/48px 'dejavu-neue-b', 'sans-serif';
   color:#314451;
   height:41px;
-  padding-right:26px;
   display:inline-block;
   position:relative;
-}
-.output .box .amount-box .amount:lang(en),
-.output .box .diff-box .amount:lang(en) {
-  font:38px 'opensans-b', 'sans-serif';
-  line-height: 37px;
-}
-.output .box .amount-box .amount.symbol:after,
-.output .box .diff-box .amount.symbol:after {
-  content:"";
-  display:inline-block;
-  background:transparent url(../images/lari.svg) no-repeat center right/22px 26px;
-  width: 22px;
-  height: 26px;
-  position: absolute;
-  top: 6px;
-  right: 0;
 }
 .output .box .years-box {
   margin:12px 0px;
@@ -724,18 +701,23 @@ body.render .charts .bar svg {
 }
 .footer .left {
   text-align:left;
-  padding-top: 23px;
+  padding-top:12px;
   display:inline-block;
 }
 .footer .left > div {
-  display:inline-block;
-  font:1em 'dejavu-neue', 'sans-serif';
+  display:block;
+  /*display:inline-block;*/
+  font:16px 'dejavu-neue', 'sans-serif';
   color:#314451;
 }
 .footer .left > div:lang(en) {
-  font:1em 'opensans-l', 'sans-serif';
+  font:16px 'opensans-l', 'sans-serif';
+}
+.footer .left .download {
+  margin-top: 5px;
 }
 .footer .left .pipe {
+  display:none;
   margin:0;
 }
 .footer > .box {
@@ -744,7 +726,7 @@ body.render .charts .bar svg {
 .footer a
 {
   display:inline-block;
-  padding:18px 0 0 0;
+  padding:28px 0 0 0;
 }
 .footer .download a
 {
@@ -754,14 +736,21 @@ body.render .charts .bar svg {
   float:right;
   padding-bottom:10px;
 }
-.footer .powered-by img
+.footer .powered-by .js
 {
   width:135px;
   height:36px;
+  display:none;
+}
+.footer .powered-by .js-small
+{
+  width:86px;
+  height:16px;
 }
 .footer .methodology {
   cursor:pointer;
 }
+/*------------------------------------------ Popup ------------------------------------------*/
 .popup {
   display:none;
 }
@@ -1027,8 +1016,57 @@ a.at-svc-compact { background: #64cc7f !important; }
     display:table-cell;
     margin-bottom:0px;
   }
+  .loader:lang(ka) {
+    background: url(../images/plane_ka.gif) no-repeat center/auto,
+                url(../images/poster/bg.jpg) repeat;
+  }
+  .loader:lang(en) {
+    background: url(../images/plane_en.gif) no-repeat center/auto,
+                url(../images/poster/bg.jpg) repeat;
+  }
+  .poster .plane:lang(ka) {
+    background:transparent url(../images/plane_ka.gif) no-repeat 24% 40px/auto;
+  }
+  .poster .plane:lang(en) {
+    background:transparent url(../images/plane_en.gif) no-repeat 24% 40px/auto;
+  }
+  .poster.paused .plane:lang(ka) {
+    background:transparent url(../images/plane_ka.png) no-repeat 24% 40px/auto;
+  }
+  .poster.paused .plane:lang(en) {
+    background:transparent url(../images/plane_en.png) no-repeat 24% 40px/auto;
+  }
+  .output .box .via-saving .box-wrapper {
+    width:310px;
+  }
+  .output .box .via-saving,
+  .output .box .via-loan .wrap {
+    min-width:330px;
+  }
+  .footer .left {
+    padding-top: 23px;
+  }
+  .footer .left > div {
+    display:inline-block;
+  }
+  .footer .left .pipe {
+    display:inline-block;
+  }
+  .footer a
+  {
+    padding:18px 0 0 0;
+  }
+  .footer .powered-by .js
+  {
+    display:block;
+  }
+  .footer .powered-by .js-small {
+    display:none;
+  }
+
 }
 @media (min-width: 1100px) {
+
   .poster .sky {
     background: url(../images/poster/sun.svg) no-repeat top right,
                 url(../images/poster/bg.jpg) repeat-x center left/369px 369px;
@@ -1088,6 +1126,7 @@ a.at-svc-compact { background: #64cc7f !important; }
   .output .box .via-saving {
     width:auto;
   }
+
   .output .box .via-loan {
     width:100%;
   }
@@ -1095,6 +1134,7 @@ a.at-svc-compact { background: #64cc7f !important; }
     margin:0 15px;
     width:auto;
   }
+
   .output .extra {
     display:table-cell;
     vertical-align:middle;
