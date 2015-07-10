@@ -659,7 +659,7 @@
         document.getElementById(us + "_slider").noUiSlider.set(val);
       }
 
-      document.getElementById(us + "_slider_value").innerHTML = u.reformat(val, 0) + "&#8382;";
+      document.getElementById(us + "_slider_value").innerHTML = u.reformat(val, 0) + (us === "m2" ?  I18n.t("m2") : "&#8382;");
 
       user.savings = val;
       if(state)
