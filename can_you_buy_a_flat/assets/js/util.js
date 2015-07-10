@@ -78,3 +78,29 @@ var u = (function () {
   };
   return obj;
 })();
+function validateNumber(event) {
+    var key = window.event ? event.keyCode : event.which;
+
+    if (event.keyCode == 8 || event.keyCode == 46
+     || event.keyCode == 37 || event.keyCode == 39) {
+        return true;
+    }
+    else if ( key < 48 || key > 57 ) {
+        return false;
+    }
+    else return true;
+};
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};

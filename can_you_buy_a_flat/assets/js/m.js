@@ -482,10 +482,12 @@
   },
 
   filter = function() {
+    console.log(user);
     render(d3.select(".map .georgia path.active").data()[0].properties.OBJECTID, false, false);
     draw_bar();
   },
   bind = function() {
+    var state = true;
     d3.select(window).on("resize", resize);
     var click = "click";
     if(document.hasOwnProperty("ontouchstart")) {
@@ -533,7 +535,42 @@
     // d3.select(".output .via-loan .notice").call(tip)
     // .on("mouseover", tip.show)
     // .on("mouseout", tip.hide);
-
+    d3.selectAll(".slider-input").on("focusout", function() {
+      var t = d3.select(this);
+      var p = d3.select(this.parentNode);
+      t.style("display", "none");
+      p.select(".slider-value").style("display", "block").node().focus();
+    })
+    .on("keypress", function() {
+      if(!validateNumber(d3.event)) {
+        d3.event.preventDefault();
+      }
+    })
+    .on("input", debounce(function() {
+        var t = d3.select(this);
+        var p = d3.select(this.parentNode);
+        var us = t.attr("data-user")
+        var min = +t.attr("min");
+        var max = +t.attr("max");
+        var val =  +this.value;
+        if(val > max) {
+          val = max;
+          this.value = val;
+        }
+        if(val < min) {
+          val = min;
+          this.value = val;
+        }
+        state = false;
+        slider(us, val);
+      }, 1000)
+    );
+    d3.selectAll(".slider-value").on(click, function() {
+      var t = d3.select(this);
+      var p = d3.select(this.parentNode);
+      t.style("display", "none");
+      p.select("input").style("display", "block").node().focus();
+    });
 
     d3.selectAll(".methodology, .popup .close, .popup .bg").on("click", function() {
       var popup = d3.select(".popup"),
@@ -579,17 +616,19 @@
     var m2SliderValue = document.getElementById("m2_slider_value");
     m2Slider.noUiSlider.on("update", function( values, handle ) {
       var tmp = Math.round(values[handle]);
-      user.m2 = tmp;
-      m2SliderValue.innerHTML = tmp + I18n.t("m2"); filter(); });
+      if(state) {
+        slider("m2", tmp);
+      }
+    });
 
     var savingsSlider = document.getElementById("savings_slider");
     noUiSlider.create(savingsSlider, {
       start: [ 250 ],
       connect: "lower",
       // animate: true,
-      step: 10,
+      step: 50,
       range: {
-        "min": [ 10 ],
+        "min": [ 50 ],
         "max": [ 10000 ]
       },
       pips: {
@@ -609,9 +648,27 @@
     var savingsSliderValue = document.getElementById("savings_slider_value");
     savingsSlider.noUiSlider.on("update", function( values, handle ) {
       var tmp = Math.round(values[handle]);
-      user.savings = tmp;
-      savingsSliderValue.innerHTML = u.reformat(tmp, 0) + "&#8382;"; filter(); });
+      if(state) {
+        slider("savings", tmp);
+      }
+    });
 
+    function slider(us, val) {
+
+      if(!state) {
+        document.getElementById(us + "_slider").noUiSlider.set(val);
+      }
+
+      document.getElementById(us + "_slider_value").innerHTML = u.reformat(val, 0) + "&#8382;";
+
+      user.savings = val;
+      if(state)
+      {
+        d3.select("[data-user=" + us + "]").node().value = val;
+      }
+      filter();
+      state = true;
+    }
 
     loader_stop();
   },
