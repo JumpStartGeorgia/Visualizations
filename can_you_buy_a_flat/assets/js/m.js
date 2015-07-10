@@ -660,7 +660,7 @@
 
       document.getElementById(us + "_slider_value").innerHTML = u.reformat(val, 0) + (us === "m2" ?  I18n.t("m2") : "&#8382;");
 
-      user.savings = val;
+      user[us] = val;
       if(state)
       {
         d3.select("[data-user=" + us + "]").node().value = val;
