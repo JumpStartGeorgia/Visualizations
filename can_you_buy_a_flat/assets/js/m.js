@@ -407,7 +407,7 @@
     saving.select(".years").text(u.zero(hl[0].t[0])).style("color", current_color);
     saving.select(".months").text(u.zero(hl[0].t[1])).style("color", current_color);
     if(!hover) {
-      d3.select(".addthis_toolbox.my")
+      d3.select(".my-shares")
         .attr("addthis:url", I18n.t("share_url") + "m=" + hl[0].m + "&sqm=" + user.m2 + "&area=" + current_id)
         .attr("addthis:title", I18n.t("share_result")
         .replace("X1", u.zero(hl[0].t[0]))
