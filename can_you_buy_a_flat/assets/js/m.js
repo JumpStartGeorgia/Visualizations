@@ -10,7 +10,7 @@
     svg: null,
     svg_g: null,
     w: w < 1100 ? w - 40 : 340,
-    h: 360,
+    h: 290,
     gap: 30, // space betweet georgia and tbilisi bar chart
     x_h: 140,
     y_w: 40,
@@ -32,14 +32,20 @@
       x: 0,
       y: 0,
       x1: 0,
-      y1: 0
+      y1: 0,
+      box: {
+        x:0,
+        y:0,
+        x1:0,
+        y1:0
+      }
     },
     node: {
       padding: [0, 2, 0, 0],
       horizontal_padding: 0,
       vertical_padding: 0
     },
-    legend_h: 20,
+    legend_h: 0,
     calc: function() {
       var t = this;
       // t.w = w < 340 ? w - 40 - 20 : 340;
@@ -48,7 +54,7 @@
       t.canvas.fw = t.w - (t.y_w );
       t.canvas.fh = t.h - (t.x_h + t.caption_h + t.legend_h);
       t.canvas.x = t.y_w + t.canvas.margin[3];
-      t.canvas.y = t.canvas.margin[0];
+      t.canvas.y = t.legend_h + t.canvas.margin[0];
       t.canvas.x1 = t.canvas.x + t.canvas.w;
       t.canvas.y1 = t.canvas.y + t.canvas.h;
       t.node.horizontal_padding = t.node.padding[1] + t.node.padding[3];
@@ -229,8 +235,12 @@
 
   },
   draw_bar = function() {
+
     bar.svg.attr("width", bar.w)
       .attr("height", bar.h);
+
+    d3.select(".bar-georgia .legend").style("max-width", bar.w + "px");
+
     var maxPoint = areas_year_calc();
     var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]);
     var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
@@ -303,8 +313,7 @@
         .attr("y", function(d) { return y(areas[d][1]); });
       });
 
-
-       var caption = bar.svg.select(".captions .caption.geo");
+      var caption = bar.svg.select(".captions .caption.geo");
 
       var caption_box = caption.node().getBBox();
 
@@ -313,15 +322,6 @@
       caption = bar.svg.select(".captions .tbi");
       caption_box = caption.node().getBBox();
       caption.attr({"x": bar.canvas.x + (((entry_w + bar.node.horizontal_padding) * tbiAreas.length) - caption_box.width) / 2, y: (bar.caption_h - caption_box.height) / 2 });
-
-
-      // legend block
-
-
-      bar.svg.select(".legend")
-       .attr("class", "legend")
-       .attr("transform", "translate(" + (bar.w - ((color_step + 3) * 18 + 20)) + ", 0)");
-
   },
 
   resize = function() {
@@ -407,16 +407,17 @@
     saving.select(".years").text(u.zero(hl[0].t[0])).style("color", current_color);
     saving.select(".months").text(u.zero(hl[0].t[1])).style("color", current_color);
     if(!hover) {
-      d3.select(".my-shares")
-        .attr("addthis:url", I18n.t("share_url") + "m=" + hl[0].m + "&sqm=" + user.m2 + "&area=" + current_id)
-        .attr("addthis:title", I18n.t("share_result")
+      var my = d3.select(".my-shares").node();
+        my.setAttribute("addthis:url", I18n.t("share_url") + "m=" + hl[0].m + "&sqm=" + user.m2 + "&area=" + current_id);
+        my.setAttribute("addthis:title", I18n.t("share_result")
         .replace("X1", u.zero(hl[0].t[0]))
         .replace("X2", u.zero(hl[0].t[1]))
         .replace("X3", user.m2)
         .replace("X4", I18n.t("share_areas-" + current_id))
       );
-      addthis.toolbox(".my-shares");
-
+      if(typeof addthis !== "undefined") {
+        addthis.toolbox(".my-shares");
+      }
     }
     var loan = out.select(".via-loan");
     var amount2 = hl[1].m * user.savings;
@@ -526,20 +527,17 @@
         d3.select(this).on(click).apply(this, [d, i]);
     });
 
-    // var tip = d3.tip()
-    //   .attr("class", "tip loan-warning")
-    //   .offset([-10, 0])
-    //   .html(function(d) { return d3.select(this).attr("title"); })
-    //
-    //
-    // d3.select(".output .via-loan .notice").call(tip)
-    // .on("mouseover", tip.show)
-    // .on("mouseout", tip.hide);
-    d3.selectAll(".slider-input").on("focusout", function() {
+    d3.selectAll(".slider-input")
+    .on("focus", function() {
       var t = d3.select(this);
-      var p = d3.select(this.parentNode);
-      t.style("display", "none");
-      p.select(".slider-value").style("display", "block").node().focus();
+      t.attr("data-prev", t.node().value);
+      t.node().value = "";
+    })
+    .on("focusout", function() {
+      var t = d3.select(this);
+      if(this.value === "") {
+        this.value = t.attr("data-prev");
+      }
     })
     .on("keypress", function() {
       if(!validateNumber(d3.event)) {
@@ -547,30 +545,28 @@
       }
     })
     .on("input", debounce(function() {
-        var t = d3.select(this);
-        var p = d3.select(this.parentNode);
-        var us = t.attr("data-user")
-        var min = +t.attr("min");
-        var max = +t.attr("max");
-        var val =  +this.value;
-        if(val > max) {
-          val = max;
-          this.value = val;
+        if(this.value !== "")
+        {
+          var t = d3.select(this);
+          var p = d3.select(this.parentNode);
+          var us = t.attr("data-user")
+          var min = +t.attr("min");
+          var max = +t.attr("max");
+          var val =  +this.value;
+
+          if(val > max) {
+            val = max;
+            this.value = val;
+          }
+          if(val < min) {
+            val = min;
+            this.value = val;
+          }
+          state = false;
+          slider(us, val);
         }
-        if(val < min) {
-          val = min;
-          this.value = val;
-        }
-        state = false;
-        slider(us, val);
       }, 1000)
     );
-    d3.selectAll(".slider-value").on(click, function() {
-      var t = d3.select(this);
-      var p = d3.select(this.parentNode);
-      t.style("display", "none");
-      p.select("input").style("display", "block").node().focus();
-    });
 
     d3.selectAll(".methodology, .popup .close, .popup .bg").on("click", function() {
       var popup = d3.select(".popup"),
@@ -659,7 +655,7 @@
         document.getElementById(us + "_slider").noUiSlider.set(val);
       }
 
-      document.getElementById(us + "_slider_value").innerHTML = u.reformat(val, 0) + (us === "m2" ?  I18n.t("m2") : "&#8382;");
+      // document.getElementById(us + "_slider_value").innerHTML = u.reformat(val, 0) + (us === "m2" ?  I18n.t("m2") : "&#8382;");
 
       user[us] = val;
       if(state)
@@ -719,6 +715,47 @@
           .attr("d", path)
           .attr("class", "place");
 
+        var legend_init_height = 48, legend = d3.select(".map > .legend")
+          .append("svg")
+          .attr("width", map.geo.w)
+          .attr("height", legend_init_height)
+        , start_at = 0;
+
+       var tmp = legend.append("text")
+            .attr("class", "title")
+            .text(I18n.t("legend-title"));
+            var legend_title = tmp.node().getBBox().height;
+      tmp.attr("y", legend_title);
+
+        var from_top = 1.8*legend_title;
+
+         d3.range(1, color_step + 1, 1).forEach(function(d,i){
+            var rect = legend.append("rect")
+              .attr({"width": "13", "height": "13"})
+              .style("fill", colors(d));
+
+            var text = legend.append("text")
+              .text(I18n.t("legend-" + d));
+            var box = text.node().getBBox();
+
+            if(start_at + 13 + 18 + box.width + 12 > map.geo.w) {
+              start_at = 0;
+              from_top += 20;
+              legend_init_height += 20;
+              legend.attr("height", legend_init_height)
+            }
+             rect.attr("x", start_at)
+             .attr("y", from_top);
+
+             start_at += 18;
+
+             text.attr("y", box.height/2 + 4 + from_top)
+                .attr("x", start_at);
+             start_at+=box.width + 12;
+
+
+         });
+
         // tbilisi map *********************************************************
 
         map.tbi.proj = d3.geo.mercator()
@@ -760,18 +797,21 @@
         .await(build_maps);
   },
   init_bar = function() {
+
     var maxPoint = areas_year_calc();
 
     var y = d3.scale.linear().domain([0, maxPoint]).range([bar.canvas.h, 0]); //bar.caption_h + 40
     var entry_w = (bar.canvas.w - bar.gap) / entries.length - bar.node.horizontal_padding;
-    bar.svg = d3.select(".bar-georgia")
-                .append("svg")
+    bar.svg = d3.select(".bar-georgia svg")
                 .attr("width", bar.w)
                 .attr("height", bar.h);
                 bar.svg_g = bar.svg.append("g");
 
+    d3.select(".bar-georgia .legend").style("max-width", bar.w + "px");
+
     // contains x and y axes
-    var axle = bar.svg_g.append("g").attr("class", "axle");
+    var axle = bar.svg_g.append("g")
+      .attr("class", "axle");
 
     var xAxis = d3.svg.axis()
         .scale(d3.scale.identity().domain([0, bar.canvas.fw]))
@@ -786,7 +826,7 @@
 
     axle.append("g")
       .attr("class", "x-axis")
-      .attr("transform", "translate(" + bar.y_w + "," + (bar.canvas.fh) + ")")
+      .attr("transform", "translate(" + bar.y_w + "," + bar.canvas.fh + ")")
       .call(xAxis);
     axle.append("g")
       .attr("class", "y-axis")
@@ -901,47 +941,10 @@
 
 
 
-      // legend block
-
-      var tip = d3.tip()
-        .attr("class", "tip")
-        .offset([-10, 0])
-        .html(function(d) {
-          return "<span>" + I18n.t("legend-" + d) + "</span>";
-        });
-      bar.svg_g.call(tip);
-
-      bar.svg_g.append("g")
-       .attr("class", "legend")
-       .attr("transform", "translate(" + (bar.w - ((color_step + 3) * 18 + 20)) + ", 0)")
-       .selectAll("rect")
-        .data(d3.range(1, color_step + 1, 1))
-        .enter().append("rect")
-        .attr("x", function(d, i){ return i * 18; })
-        .style("fill", function(d){ return colors(d); });
 
 
 
-      bar.svg_g.select(".legend").append("rect")
-        .data("l")
-        .attr("fill", "#56bfbf")
-        .attr("x", function() { return (color_step) * 18 + 20; });
 
-      bar.svg_g.select(".legend").append("rect")
-        .data("b")
-        .attr("fill", "#314451")
-        .attr("x", function() { return (color_step + 1) * 18 + 20; });
-
-        bar.svg_g.select(".legend").append("rect")
-          .data("r")
-          .attr("fill", "#e6e7e8")
-          .attr("x", function() { return (color_step + 2) * 18 + 20; });
-
-      bar.svg_g.selectAll(".legend rect")
-        .attr({"width": "13", "height": "13"})
-        .attr("y", bar.h - 16)
-        .on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
   },
   init_currency = function() {
 

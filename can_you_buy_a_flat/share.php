@@ -1,10 +1,10 @@
 <?php
 
-function getFullUrl() {
-  $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
-  $url .= $_SERVER['REQUEST_URI'];
-  return $url;
-}
+  function getFullUrl() {
+    $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
+    $url .= $_SERVER['REQUEST_URI'];
+    return $url;
+  }
   function getUrl() {
     $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
     $current_url = explode("?", $_SERVER['REQUEST_URI']);
@@ -70,10 +70,9 @@ function getFullUrl() {
   // $fh = fopen($file, 'a');
   // fwrite($fh, $user_agent);
   // fclose($fh);
-
   $locale = isset($_GET["locale"]) && ($_GET["locale"] == "en" || $_GET["locale"] == "ka") ? htmlspecialchars($_GET["locale"]) : "ka";
   //$user_agent = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)";
-  if((strpos($user_agent, "facebookexternalhit") >= 0 )) {// if facebook robot facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)
+  if((strpos($user_agent, "facebookexternalhit") !== false )) {// if facebook robot facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)
     if(isset($_GET["m"]) && isset($_GET["sqm"]) && isset($_GET["area"])) {
       $months = htmlspecialchars($_GET["m"]);
       $sqm = htmlspecialchars($_GET["sqm"]); // square meters

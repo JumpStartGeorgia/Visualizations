@@ -40,35 +40,49 @@
           <div class="filters">
             <div class="field cell">
               <div class="cell">
-                <label>ბინის ფართობი:</label>
+                <label>ბინის ფართობი (მ²):</label>
               </div>
               <div class="cell full">
                 <div id="m2_slider" class="slider"></div>
               </div>
               <div class="cell">
-                <div id="m2_slider_value" class="slider-value"></div>
-                <input type="text" class="slider-input" min="10" max="200" size="3" maxlength="3" style="display: none;" data-user="m2">
+                <input type="text" class="slider-input" min="10" max="200" size="3" maxlength="3" data-user="m2">
               </div>
             </div>
             <div class="field cell">
               <div class="cell">
-                <label>ყოველთვიური დანაზოგი:</label>
+                <label>ყოველთვიური დანაზოგი (<span>₾</span>):</label>
               </div>
               <div class="cell full">
                 <div id="savings_slider" class="slider"></div>
               </div>
               <div class="cell">
-                <div id="savings_slider_value" class="slider-value"></div>
-                <input type="text" class="slider-input" min="50" max="10000" size="5" maxlength="5" style="display: none;" data-user="savings">
+                <input type="text" class="slider-input" min="50" max="10000" size="5" maxlength="5" data-user="savings">
               </div>
             </div>
           </div>
           <div class="charts">
-            <div class="caption">რამდენი ხანი დაგჭირდებათ დანაზოგით ბინის შესაძენად?</div>
             <div class="map">
+              <div class="legend"></div>
               <div class="chart tbilisi"></div>
               <div class="chart georgia"></div>
-            </div><div class="chart bar-georgia bar"></div>
+            </div><div class="chart bar-georgia bar">
+              <div class="legend">
+                <div class="box">
+                  <div class="rect"><div class="l"></div></div>
+                  <div class="text">დამატებითი დრო ბანკის სესხის დასაფარად</div>
+                </div>
+                <div class="box">
+                  <div class="rect"><div class="b"></div></div>
+                  <div class="text">ბანკები არ გასცემენ სესხს 15 წელზე მეტი ვადით</div>
+                </div>
+                <div class="box">
+                  <div class="rect"><div class="r"></div></div>
+                  <div class="text">ამ ოდენობის ყოველთვიური დანაზოგით ბანკის სესხის აღება არ არის შესაძლებელი</div>
+                </div>
+              </div>
+              <svg></svg>
+            </div>
           </div>
           <div class="output">
             <div class="caption city"></div>
@@ -129,7 +143,11 @@
               <div class="extra">
                 <div class="share-this">
                   <label>გააზიარე შენი შედეგი:</label>
-                  <div class="addthis_sharing_toolbox my"></div>
+                  <div class="addthis_toolbox my-shares">
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_more"></a>
+                  </div>
                 </div>
                 <div class="calculator"><a href="#">დაიანგარიშეთ თქვენი სესხი</a></div>
               </div>
@@ -166,11 +184,10 @@
         <div class="header"></div>
         <div class="content">
           <div class="caption">მეთოდოლოგია</div>
-          <div class="text"><a href="http://www.makler.ge">www.makler.ge</a>-ის მონაცემებზე დაყრდნობით, რომელიც 2014 წლის აპრილიდან და 2015 წლის ივნისამდე პერიოდში იქნა შეგროვებული, ჩვენ დავიანგარიშეთ საქართველოს სხვადასხვა ქალაქსა და თბილისის უბნებში გასაყიდი ბინის 1 მ²-ის საშუალო ფასი. ოზურგეთის შემთხვევაში, მოვიძიეთ დამატებითი განცხადებებიც სხვა წყაროებიდან, რადგან ამ პერიოდში makler.ge-ზე გამოქვეყნებული განცხადებების რაოდენობა ძალიან მწირი იყო. ვინაიდან  ბინების ფასი, ძირითადდ, აშშ დოლარშია მითითებული, ღირებულება გადაგვყავს ლარში დღევანდელი დღის ოფიციალური გაცვლითი კურსის მიხედვით, რომელსაც ვიღებთ <a href="lari.jumpstart.ge" target="_blank">ლარის კალკულატორის API-ის</a> საშუალებით.<p> ბანკის სესხის ხანგრძლივობის დასათვლელად, გამოვიყენეთ შემდეგი ფორმულა:</p><div class="formula">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log(M) - Log(M - PR/12)<br>N = <span class="line">───────────────────</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log(1 + R/12)</div>სადაც:<ul><li>N = სესხის ხანგრძლივობა თვეებში</li><li>M = ყოველთვიური გადასახადი</li><li>P = სესხის ოდენობა</li><li>R = სესხის საპროცენტო განაკვეთი, 9%</li></ul><a href="http://www.had2know.com/finance/how-long-pay-off-loan.html" target="_blank" class="source">ფორმულის წყარო</a></div>
+          <div class="text"><a href="http://www.makler.ge">www.makler.ge</a>-ის მონაცემებზე დაყრდნობით, რომელიც 2014 წლის აპრილიდან და 2015 წლის ივნისამდე პერიოდში იქნა შეგროვებული, ჩვენ დავიანგარიშეთ საქართველოს სხვადასხვა ქალაქსა და თბილისის უბნებში გასაყიდი ბინის 1 მ²-ის საშუალო ფასი. ოზურგეთის შემთხვევაში, მოვიძიეთ დამატებითი განცხადებებიც სხვა წყაროებიდან, რადგან ამ პერიოდში makler.ge-ზე გამოქვეყნებული განცხადებების რაოდენობა ძალიან მწირი იყო. ვინაიდან  ბინების ფასი, ძირითადდ, აშშ დოლარშია მითითებული, ღირებულება გადაგვყავს ლარში დღევანდელი დღის ოფიციალური გაცვლითი კურსის მიხედვით, რომელსაც ვიღებთ <a href="lari.jumpstart.ge" target="_blank">ლარის კალკულატორის API-ის</a> საშუალებით. გთხოვთ, გაითვალისწინოთ, რომ გამოთვლებში არაა გათვალისწინებული შესაძლო ინფლაცია და ბინის ფასების ცვლილება, ასევე, სესხის დაზღვევა და  საბანკო მომსახურების გადასახადი.<p> ბანკის სესხის ხანგრძლივობის დასათვლელად, გამოვიყენეთ შემდეგი ფორმულა:</p><div class="formula">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log(M) - Log(M - PR/12)<br>N = <span class="line">───────────────────</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log(1 + R/12)</div>სადაც:<ul><li>N = სესხის ხანგრძლივობა თვეებში</li><li>M = ყოველთვიური გადასახადი</li><li>P = სესხის ოდენობა</li><li>R = სესხის საპროცენტო განაკვეთი, 9%</li></ul><a href="http://www.had2know.com/finance/how-long-pay-off-loan.html" target="_blank" class="source">ფორმულის წყარო</a></div>
         </div>
       </div>
     </div>
-
     <script src="../assets/js/browser.js" type="text/javascript" charset="utf-8"></script>
     <script src="../assets/js/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../assets/js/queue.v1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -181,8 +198,6 @@
     <script src="../assets/js/util.js" type="text/javascript" charset="utf-8"></script>
     <script src="../assets/js/I18n.js" type="text/javascript" charset="utf-8"></script>
     <script src="../assets/js/m.js" type="text/javascript" charset="utf-8"></script>
-
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5587c59c033e4112" async="async"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -205,7 +220,11 @@
          js.src = "//connect.facebook.net/" + {'en':'en_US', 'ka': 'ka_GE'}[I18n.locale()] + "/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <style>.addthis_20x20_style .at4-icon, .addthis_20x20_white_style .at4-icon, .at-20x20{background-size:28px !important;}</style>
 
+      var addthis_config = addthis_config||{};
+      addthis_config.data_track_addressbar = false;
+      addthis_config.data_track_clickback = false;
+    </script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5587c59c033e4112"></script>
+    <style>.at4-icon, .addthis_20x20_style .at4-icon {background-size:28px !important;}</style>
 </body></html>

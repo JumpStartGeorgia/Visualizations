@@ -332,29 +332,44 @@ a, a:hover, a:focus {
 .filters .field label:lang(en) {
   font:15px 'opensans', 'sans-serif';
 }
+.filters .field label span {
+  font:15px 'dejavu-neue', 'sans-serif';
+  color:#314451;
+}
 .filters .field .slider {
   /*height:26px;*/
 }
-.filters .field .slider-value,
 .filters .field .slider-input {
   font:16px 'dejavu-neue-b';
-  color:#fff;
+  color:#314451;
   text-align:center;
-  background-color:#ff6043;
+  background-color:transparent;
   border-radius:3px;
   padding: 10px 13px 6px;
-  border:0;
+  border:1px solid #314451;
   margin-left: 15px;
   height: 34px;
   min-width:104px;
   outline:none;
+}
+.filters .field .slider-input:hover {
   cursor:pointer;
+  color:#808285;
+  border:1px solid #808285;
+}
+.filters .field .slider-input:focus {
+  cursor:pointer;
+  color:#ff6043;
+  border:1px solid #ff6043;
 }
 .filters .field .cell:first-of-type {
   display:block;
   margin-bottom:14px;
 }
 /************************************** Georgia map *****************************************/
+.charts {
+  margin-top: 40px;
+}
 .charts .caption {
   font:16px 'dejavu-neue', 'sans-serif';
   color:#314451;
@@ -408,6 +423,43 @@ a, a:hover, a:focus {
 .map .tbilisi {
   text-align:center;
 }
+
+.legend text, .legend .text {
+  font:11px 'dejavu-neue', 'sans-serif';
+  stroke:none;
+  fill:#314451;
+  color:#314451;
+  vertical-align:top;
+}
+.legend text.title {
+  font:12px 'dejavu-neue', 'sans-serif';
+}
+.bar .legend {
+  margin-bottom:30px;
+}
+.legend .box {
+  display:block;
+  margin:0 0 10px 40px;
+}
+.legend .box > div {
+  display:table-cell;
+}
+.legend .box > .rect > div{
+  width:13px;
+  height:13px;
+  margin-right:5px;
+}
+.legend .box .rect .r {
+  background-color:#e6e7e8;
+}
+.legend .box .rect .l{
+  background-color:#56bfbf;
+}
+.legend .box .rect .b{
+  background-color:#314451;
+}
+
+
 .bar-georgia .bar.active, .bar-georgia .bar.hover {
   stroke:#314451;
   stroke-width:1px;
@@ -883,7 +935,7 @@ body.render .charts .bar svg {
 .tip.loan-warning span:lang(en) {
   font:11px 'opensans-b', 'sans-serif';
 }
-a.at-share-btn {
+a.at-share-btn, .addthis_toolbox > a {
   border-radius:3px !important;
   max-width:32px !important;
   max-height:32px !important;
@@ -891,14 +943,14 @@ a.at-share-btn {
 a.at-svc-facebook, a.addthis_button_facebook { background: #45669b !important; }
 a.at-svc-twitter, a.addthis_button_twitter { background: #00aced !important; }
 a.at-svc-compact, a.addthis_button_more { background: #64cc7f !important; }
-.at-share-btn .at4-icon, a.addthis_button_facebook span {
+.at-share-btn .at4-icon, .addthis_toolbox .at4-icon{
   width:32px !important;
   height:32px !important;
   line-height:32px !important;
 }
 .aticon-facebook { background:transparent url(../images/fb.svg) no-repeat center center/28px 28px !important; }
 .aticon-twitter { background:transparent url(../images/twitter.svg) no-repeat center center/28px 28px !important; }
-.aticon-compact { background:transparent url(../images/more.svg) no-repeat center center/28px 28px !important; }
+.aticon-compact, .aticon-more { background:transparent url(../images/more.svg) no-repeat center center/28px 28px !important; }
 .addthis_sharing_toolbox, .addthis_toolbox { display: inline-block; }
 .addthis_sharing_toolbox.my, .addthis_toolbox { margin-top: 8px; }
 /*.addthis_sharing_toolbox.my .at_flat_counter {
@@ -1074,7 +1126,6 @@ a.at-svc-compact, a.addthis_button_more { background: #64cc7f !important; }
     width:50%;
     margin:0 0 0 0;
   }
-  .filters .field:first-child .slider-value,
   .filters .field:first-child .slider-input {
     margin-right: 20px;
   }
