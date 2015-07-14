@@ -567,7 +567,7 @@ body.render .charts .bar svg {
   background-color:#a6eded;
   padding: 15px 20px 15px;
   border-radius:3px;
-  min-height:300px;
+  min-height:301px;
   vertical-align:top;
   margin-bottom:20px;
   width:100%;
@@ -1167,7 +1167,7 @@ a.at-svc-compact, a.addthis_button_more { background: #64cc7f !important; }
     /*min-width: 200px;*/
   }
   .output {
-    margin:13px 20px;
+    margin:13px 0px;
   }
   .output .box .via-saving,
   .output .box .via-loan {
