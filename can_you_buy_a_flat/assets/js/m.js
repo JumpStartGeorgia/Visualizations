@@ -485,7 +485,7 @@
 
   filter = function() {
     var id = d3.select(".map .georgia path.active");
-    id = !id.empty() ? id.data()[0].properties.OBJECTID : d3.select(".map .tbilisi path.active").data()[0].properties.OBJECTID
+    id = !id.empty() ? id.data()[0].properties.OBJECTID : d3.select(".map .tbilisi path.active").data()[0].properties.OBJECTID;
     render(id, false, false);
     draw_bar();
   },
