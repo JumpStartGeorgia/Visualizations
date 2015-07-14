@@ -787,7 +787,7 @@
           .attr("y", map.tbi.h - 5);
 
         // bind *********************************************************
-        d3.select(self.frameElement).style("height", map.geo.h + "px");
+        //d3.select(self.frameElement).style("height", map.geo.h + "px");
 
         bind();
       }
