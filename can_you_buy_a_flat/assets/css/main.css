@@ -940,22 +940,37 @@ a.at-share-btn, .addthis_toolbox > a {
   max-width:32px !important;
   max-height:32px !important;
 }
-a.at-svc-facebook, a.addthis_button_facebook { background: #45669b !important; }
-a.at-svc-twitter, a.addthis_button_twitter { background: #00aced !important; }
-a.at-svc-compact, a.addthis_button_more { background: #64cc7f !important; }
-.at-share-btn .at4-icon, .addthis_toolbox .at4-icon{
+a.at-svc-facebook, a.addthis_button_facebook { 
+  /*background: #45669b !important; */
+  background:#45669b url(../images/fb.svg) no-repeat center center/28px 28px !important;
+} 
+a.at-svc-twitter, a.addthis_button_twitter { 
+  /*background: #00aced !important; */
+  background:#00aced url(../images/twitter.svg) no-repeat center center/28px 28px !important;
+}
+a.at-svc-compact, a.addthis_button_more { 
+  /*background: #64cc7f !important; */
+  background:#64cc7f url(../images/more.svg) no-repeat center center/28px 28px !important;
+}
+.at-share-btn, .at-share-btn .at4-icon, .addthis_toolbox > a{
   width:32px !important;
   height:32px !important;
   line-height:32px !important;
+  cursor:pointer;
 }
-.aticon-facebook { background:transparent url(../images/fb.svg) no-repeat center center/28px 28px !important; }
-.aticon-twitter { background:transparent url(../images/twitter.svg) no-repeat center center/28px 28px !important; }
-.aticon-compact, .aticon-more { background:transparent url(../images/more.svg) no-repeat center center/28px 28px !important; }
+/*.aticon-facebook { background:transparent url(../images/fb.svg) no-repeat center center/28px 28px !important; }*/
+/*.aticon-twitter { background:transparent url(../images/twitter.svg) no-repeat center center/28px 28px !important; }*/
+/*.aticon-compact, .aticon-more { background:transparent url(../images/more.svg) no-repeat center center/28px 28px !important; }*/
 .addthis_sharing_toolbox, .addthis_toolbox { display: inline-block; }
 .addthis_sharing_toolbox.my, .addthis_toolbox { margin-top: 8px; }
 /*.addthis_sharing_toolbox.my .at_flat_counter {
   display:none;
 }*/
+.at-share-btn  > .at-icon-wrapper, .addthis_toolbox > a > .at-icon-wrapper {
+  display:none !important;
+}
+
+
 .at-svc-facebook  + .at_flat_counter {
   border-radius: 0 3px 3px 0 !important;
   background: #45669b !important;
@@ -972,7 +987,7 @@ a.at-svc-compact, a.addthis_button_more { background: #64cc7f !important; }
   height: 32px !important;
   padding: 9px 12px 0 !important;
   line-height: 37px !important;
-  margin: 0 2px 0 -4px !important;
+  margin: 2px 2px 0 -4px !important;
   color:#fff !important;
   font:16px 'dejavu-neue', 'sans-serif' !important;
 
