@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.min.css">
   </head>
-  <body>
+  <body class="noscroll">
   <div class="wrapper">
     <div class="share top">       
       <div class="addthis_sharing_toolbox"></div>
@@ -91,7 +91,32 @@
     </div>
     
   </div>
+  <div class="popup">
+    <div class="bg"></div>
+    <div class="window">
+      <div class="close"></div>      
+      <div class="content">
+        <div class="caption">ნახე ახალი კალკულატორი!</div>
+        <div class="text">
+          ლარის გაუფასურების კალკულატორი იყენებს 2014 წლის ნოემბრისა და 2015 წლის თებერვლის ვალუტის გაცვლითი კურსის მონაცემებს. კალკულატორის განახლებული ვერსია ხელმისაწვდომია ლარის გზამკვლევის აპლიკაციაში, რომელიც, ასევე, მოიცავს მონაცემებს 40-ზე მეტი ვალუტისა და 20-მდე კომერციული ბანკის გაცვლითი კურსის შესახებ.<br/><br/><a href="http://lari.jumpstart.ge/ka/" target="_self" class="source">ეწვიეთ ლარის გზამკვლევს</a>
+        </div>
+      </div>
+    </div>
+  </div>
     <script type="text/javascript">
+      function popup() {
+        var t, i, 
+          ppp = document.querySelector('.popup'),
+          ts = ppp.querySelectorAll('.close, .bg');
+        for (i = 0; i < ts.length; i++) {
+          t = ts[i];
+          t.addEventListener('click', function(event) {
+            ppp.setAttribute("style", "display:none;");
+            document.body.className = '';
+          });
+        }
+      }
+      popup();
       function debounce(func, wait, immediate) {
         var timeout;
         return function() {

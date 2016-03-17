@@ -41,6 +41,9 @@ body,html
   background-color:#eff4f4;
   color:#4c6d8b;  
 }
+.noscroll {
+  overflow:hidden;
+}
 .wrapper
 {
   margin:0px auto;
@@ -516,4 +519,91 @@ letter-spacing: 2px;
 {
   padding-right:10px;
   vertical-align: middle;
+}
+/*------------------------------------------ Popup ------------------------------------------*/
+.popup.hide {
+  /*display:none;*/
+}
+.popup.open {
+  display:block;
+}
+.popup .bg{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index:1;
+}
+.popup .window {
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  margin: 0 auto;
+  background-color:#fafbfb;
+  z-index:1;
+  overflow: hidden;
+  z-index:2;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.popup .window .close {
+  background:transparent url(../images/close.svg) center/42px;
+  width:42px;
+  height:42px;
+  position:absolute;
+  right:0;
+  top:0;
+  cursor:pointer;
+}
+.popup .window .content {
+  overflow-y: auto;
+  max-width:670px;
+}
+.popup .window .content::-webkit-scrollbar-track {
+  background-color: #f6f6f6;
+}
+.popup .window .content::-webkit-scrollbar {
+  height: 8px;
+  width:8px;
+}
+.popup .window .content::-webkit-scrollbar-thumb {
+  background-color: #bfbfbf;
+  border: 2px solid #f6f6f6;
+}
+.popup .window .content::-webkit-scrollbar-thumb:hover {
+  background-color: #b1b1b1;
+  cursor: pointer;
+}
+.popup .window .caption {
+  font:30px dejavusans-b;
+  background-color: #ffc539;
+  color: #fff;  
+  padding:20px 20px;
+}
+.popup .window .caption:lang(en) {
+  font: 30px main;
+}
+.popup .window .text {
+  font:17px/25px dejavusans-c;
+  color:#7b8483;
+  padding:20px 25px 25px;
+}
+.popup .window .text:lang(en) {
+  font:17px/25px Arial;
+}
+.popup .window a {
+  font:16px dejavusans-b;
+  color:#7b8483;
+  text-decoration:none;
+}
+.popup .window a:lang(en) {
+  font:16px Arial;
+  font-weight: bold;
+ 
 }

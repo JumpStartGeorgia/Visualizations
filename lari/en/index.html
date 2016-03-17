@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.min.css">
   </head>
-  <body>
+  <body class="noscroll">
   <div class="wrapper">
     <div class="share top">       
       <div class="addthis_sharing_toolbox"></div>
@@ -95,7 +95,39 @@
     </div>
     
   </div>
+  <div class="popup">
+    <div class="bg"></div>
+    <div class="window">
+      <div class="close"></div>      
+      <div class="content">
+        <div class="caption">Play with the newest calculator!</div>
+        <div class="text">
+          This depreciation calculator was made using exchange rates between November 2014 and February 2015. A more recent version of the calculator is available as part of our Lari Explorer application that also includes over 40 currency exchange rates and 20 bank exchange rates.<br/><br/><a href="http://lari.jumpstart.ge/en/" target="_self" class="source">Visit the Lari Explorer</a>
+        </div>
+      </div>
+    </div>
+  </div>
     <script type="text/javascript">
+      // function width() { return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth; };
+      // function height() { return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; };
+      function popup() {
+        var t, i, 
+          ppp = document.querySelector('.popup'),
+          ts = ppp.querySelectorAll('.close, .bg');
+          //content = ppp.querySelector('.content'),
+          // w = width(),
+          // h = height();       
+        // content.setAttribute("style", "width:" + (w > 670 ? 670 : w - 20) + "px;" + (h > 760 ? "" : ("height:" + (h - 200 - 20) + "px;")));
+        for (i = 0; i < ts.length; i++) {
+          t = ts[i];
+          t.addEventListener('click', function(event) {
+            ppp.setAttribute("style", "display:none;");
+            document.body.className = '';
+          });
+
+        }
+      }
+      popup();
       function debounce(func, wait, immediate) {
         var timeout;
         return function() {
