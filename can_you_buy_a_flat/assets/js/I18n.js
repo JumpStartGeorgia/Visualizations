@@ -136,7 +136,7 @@ var I18n = (function () {
   };
   var load_file = function(src, callback, error_callback) {
      var s = document.createElement("script");
-     s.type = 'text/javascript';
+     s.type = 'application/javascript';
      s.src = src;
      s.async = false;
      s.onreadystatechange = s.onload = function () {
