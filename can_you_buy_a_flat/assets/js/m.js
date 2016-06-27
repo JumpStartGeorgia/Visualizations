@@ -954,7 +954,7 @@
     var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     d.setDate(d.getDate() - 1);
 
-    d3.jsonp("http://lari.jumpstart.ge/en/api/v1/nbg_rates?currency=USD&start_date=" + d.getTime() + "&end_date=" + now.getTime() + "&callback=d3.jsonp.test", function(d) {
+    d3.jsonp("https://lari.jumpstart.ge/en/api/v1/nbg_rates?currency=USD&start_date=" + d.getTime() + "&end_date=" + now.getTime() + "&callback=d3.jsonp.test", function(d) {
 
       if(typeof d !== "undefined" && d.hasOwnProperty("valid") && d.valid == true) {
         var len = d.result[0].rates.length;
