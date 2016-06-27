@@ -158,7 +158,7 @@ var I18n = (function () {
   var load_default_locale = function() {
     unprotect();
     protect(default_locale);
-    load_file("../assets/locale/" + default_locale + ".json", function() { //on success
+    load_file("../assets/locale/" + default_locale + ".js", function() { //on success
        if(has(default_locale) && typeof window[default_locale] === "object")
        {
           data = window[default_locale];
@@ -174,7 +174,7 @@ var I18n = (function () {
   };
   var load_locale = function() {
     protect(locale);
-    load_file("../assets/locale/" + locale + ".json", function() { //on success
+    load_file("../assets/locale/" + locale + ".js", function() { //on success
       if(has(locale) && typeof window[locale] === "object" && window[locale] !== null) {
         data = window[locale];
         init_continue();
