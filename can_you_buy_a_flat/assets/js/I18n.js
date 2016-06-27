@@ -136,10 +136,10 @@ var I18n = (function () {
   };
   var load_file = function(src, callback, error_callback) {
      var s = document.createElement("script");
-     //s.type = 'text/javascript';
+     s.type = 'application/json';
      s.src = src;
      s.async = false;
-     s.onreadystatechange = s.onload = function() {
+     s.onreadystatechange = s.onload = function () {
          var state = s.readyState;
          if (!callback.done && (!state || /loaded|complete/.test(state))) {
              callback.done = true;
